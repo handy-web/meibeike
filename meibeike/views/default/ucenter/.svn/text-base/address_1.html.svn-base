@@ -1,0 +1,484 @@
+<style type="text/css">
+    .person_wrapper {float: left; width: 100%; background-color: rgb(244, 244, 244); padding-bottom: 30px;}	
+    .person_wrapper .person_content {width: 1200px; height: auto; margin: 0 auto;}
+    .person_wrapper .person_content .header {float: left; width: 100%; height: 90px; line-height: 90px; margin-top: 10px; padding-left: 40px; font-size: 32px;}
+    .person_wrapper .person_content .body {float: left; width: 1160px; height: auto; line-height: 90px; margin-top: 10px; padding-left: 40px; font-size: 32px; }
+    .person_wrapper .person_content .body .left {float: left; width: 210px; height: 700px; margin-right: 30px;}
+    .person_wrapper .person_content .body .left .top {float: left; width: 100%; height: 400px; box-shadow: 0 0 5px rgb(180, 180, 180); border-radius: 10px; background-color: #FFF; margin-bottom: 30px; border: 1px solid rgb(218, 218, 218);}
+    .person_wrapper .person_content .body .left .top img {float: left; margin-left: 25px; margin-top: 25px; margin-bottom: 10px;}
+    .person_wrapper .person_content .body .left .top label {float: left; width: 100%; text-align: center; height: 25px; line-height: 25px; font-size: 14px;}
+    .person_wrapper .person_content .body .left .top a {float: left; width: 90px; margin-left: 60px; text-decoration: none; font-size: 14px; text-align: center; line-height: 40px; margin-top: 10px; cursor: pointer; height: 40px; border-radius: 10px; border: 1px rgb(219, 211, 216) solid; background-color: rgb(248, 248, 248);}
+
+    .person_wrapper .person_content .body .left .bottom {float: left; width: 100%;box-shadow: 0 0 5px rgb(180, 180, 180); height: auto; border-radius: 10px; background-color: #FFF; border: 1px solid rgb(218, 218, 218);}
+    .person_wrapper .person_content .body .left .bottom .title {float: left; height: 60px; width: 100%; line-height: 60px; font-size: 20px; border-bottom: 1px solid rgb(218, 218, 218); background-color: rgb(250, 250, 250); border-top-left-radius: 10px; border-top-right-radius: 10px;}
+    .person_wrapper .person_content .body .left .bottom .title label {float: left; margin-left: 30px;}
+    .person_wrapper .person_content .body .left .bottom .item {float: left; width: 100%; height: 50px; line-height: 50px; font-size: 14px; border-bottom: 1px dotted rgb(225, 225, 225);}
+    .person_wrapper .person_content .body .left .bottom .item a {float: left; height: 50px; line-height: 50px; width: 100%; cursor: pointer; text-decoration: none;}
+    .person_wrapper .person_content .body .left .bottom .item a:hover, a.selected {background-color: rgb(152, 175, 238)}
+    .person_wrapper .person_content .body .left .bottom .item a label {margin-left: 30px; }  
+    .person_wrapper .person_content .body .left .bottom .last {border-bottom: 0px;}
+    .person_wrapper .person_content .body .left .bottom .last a {border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;}	
+
+
+    .person_wrapper .person_content .body .right {float: left; display: block; width: 890px; border-radius: 8px; 
+                                                  border: rgb(188, 188, 188) 1px solid; box-shadow: 0 0 5px rgb(180, 180, 180); background-color: #FFF; }
+    .person_wrapper .person_content .body .right .number {float: left; width: 100%; height: 50px; line-height: 50px; color: rgb(121, 121, 121);
+                                                          border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgb(252, 252, 252); font-size: 20px;}
+    .person_wrapper .person_content .body .right .number label {float: left; margin-left: 30px;}
+    .person_wrapper .person_content .body .right .number a {display: block; cursor: pointer; float: right; font-size: 16px; margin-right: 20px; margin-top: 7px; height: 36px; line-height: 36px; text-align: center; padding: 0 15px; border-radius: 3px; background-color: rgb(228, 228, 228);}
+    .person_wrapper .person_content .body .right table {float: left; width: 100%; margin-bottom: 10px; font-size: 14px; color: rgb(102, 102, 102) }	
+    .person_wrapper .person_content .body .right table tr.first {background-color: rgb(230, 231, 232); line-height: 40px; font-weight: normal;}
+    .person_wrapper .person_content .body .right table tr {background-color: #FFF; line-height: 80px;}
+    .person_wrapper .person_content .body .right table td {border-top: 1px solid rgb(207, 207, 207);}
+    .person_wrapper .person_content .body .right table td .button_edit {float: left; margin-left: 10px; width: 28px; height: 28px; background: url({skin:images/front/edit_new.png}); cursor: pointer}
+    .person_wrapper .person_content .body .right table td .button_delete {float: left; margin-left: 10px; width: 28px; height: 28px; background: url({skin:images/front/delete_new.png}); cursor: pointer}
+    .person_wrapper .person_content .body .right table td, th {text-align: left; font-family: normal;}
+    .person_wrapper .person_content .body .right table td .set_default {display: none; cursor: pointer; color: rgb(132, 163, 227)}
+
+
+    .add_address {display: none; position: absolute; height: 560px; width: 700px; z-index: 90000; top: 0; left: 0; border-radius: 15px;}
+    .add_address .content {float: left; width: 100%; height: 560px; border-radius: 10px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+    .add_address  .content .ac_header {float: left; width: 100%; height: 60px; line-height: 60px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+    .add_address  .content .ac_header img {float: right; margin-right: 15px; cursor: pointer; margin-top: 10px;}
+    .add_address  .content .ac_header label {margin-left: 30px; font-size: 20px;}
+    .add_address  .content .ac_header a {display: block; cursor: pointer; float: right; margin-right: 20px; margin-top: 12px; height: 36px; line-height: 36px; text-align: center; padding: 0 15px; border-radius: 3px; background-color: rgb(228, 228, 228);}
+    .add_address  .content .ac_body {float: left; padding-left: 120px; padding-top: 30px;}
+    .add_address  .content .ac_body input {float: left; font-size: 14px; padding-left: 10px; }
+    .add_address  .content .ac_body select {float: left; font-size: 14px; padding-left: 10px; }
+    .add_address  .content .ac_body label.col {float: left; width: 20px; height: 15px;}
+    .add_address  .content .ac_body label.row {float: left; width: 100%; height: 20px;}
+    .add_address  .content .ac_body label.row_s {float: left; width: 100%; height: 10px;}
+
+    .add_address  .content .ac_bottom {float: left; height: 60px; width: 100%; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; margin-top: 30px; border-top: 1px solid rgb(218, 218, 218)}
+
+
+    .modify_info {display: none; position: absolute; height: 560px; width: 700px; z-index: 90000; top: 0; left: 0; border-radius: 15px;}
+    .modify_info .content {float: left; width: 700px; height: 560px; border-radius: 10px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+    .modify_info  .content .ac_header {float: left; width: 100%; height: 60px; line-height: 60px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+    .modify_info  .content .ac_header img {float: right; margin-right: 15px; cursor: pointer; margin-top: 10px;}
+    .modify_info  .content .ac_header label {margin-left: 30px; font-size: 20px;}
+    .modify_info  .content .ac_body {float: left; padding: 15px 30px;}
+
+    .modify_info  .content .ac_body .line {float: left; width: 640px; height: 120px; border-bottom: 1px solid rgb(218, 218, 218);}
+    .modify_info  .content .ac_body .last {border: 0px;}
+    .modify_info  .content .ac_body .line .left {float: left; width: 60px; height: 120px;}
+    .modify_info  .content .ac_body .line .left img {margin-top: 20px; margin-left: 25px;}
+    .modify_info  .content .ac_body .line .middle {float: left; width: 450px; height: 120px;}
+    .modify_info  .content .ac_body .line .middle .m_title {float: left; width: 100%; height: 30px; font-size: 18px; margin-top: 20px;}
+    .modify_info  .content .ac_body .line .middle .m_detail {float: left; width:100%; height: 60px; line-height: 25px; margin-top: 5px; font-size: 14px;}
+
+    .modify_info  .content .ac_body .line .right {float: left; width: 130px; height: 120px;}
+    .modify_info  .content .ac_body .line .right .r_action {float: left; width: 100px; margin-left: 20px; margin-top: 35px; font-size: 14px; color: rgb(132, 163, 227)}
+    .modify_info  .content .ac_body .line .right .r_action a {text-decoration: none; color: rgb(132, 163, 227)}
+</style>
+
+
+<div class="person_wrapper">
+    <div class='person_content'>
+        <div class='header'>
+            个人中心
+        </div>
+        <div class="body">
+            <div class="left">
+                <div class="top">
+                    <img src="{skin:/images/front/photo.png}" width="160" height="160">
+                    <label>手机：已绑定</label>
+                    <label>邮箱：已绑定</label>
+                    <a id = "a_modify_info">修改资料</a>
+                    <div style="float: left; width: 170px; height: 1px; border-top: 1px solid rgb(218, 218, 218); margin: 25px 20px;"></div>
+                    <label>现金券：<font style="color: rgb(123, 151, 237); font-weight: bold; font-size: 16px;">¥ 0.00</font></label>
+                </div>
+                <div class="bottom">
+                    <div class="title"><label>个人中心</label></div>
+                    <div class="item"><a class="menu_a selected"><label>我的订单</label></a></div>
+                    <div class="item"><a class="menu_a"><label>售后服务</label></a></div>
+                    <div class="item last"><a class="menu_a"><label>收货地址</label></a></div>
+                </div>
+            </div>
+            <div class="right">
+                <div class='number'>
+                    <label>收货地址</label>
+                    <a id="use_new_addr">添加新地址</a>
+                </div>
+                <table  cellspacing="0">
+                    <tr class="first">
+                        <th width="30"></th>
+                        <th width="120">姓名</th>
+                        <th width="400">详细地址</th>
+                        <th width="100">电话</th>
+                        <th width="100">&nbsp;</th>
+                        <th width=""></th>
+                    </tr>
+                    {if: !$this->address}
+                    <tr class="default" id="1">
+                        <td style="text-align: center;" colspan="6">未添加收货地址</td>
+                    </tr>
+                    {else:}
+                    {set:$address = $this->address}
+                    {foreach: items=$address key=$k item=$item}
+                    {set: $area = area::name($item['province'], $item['city'], $item['area'])}
+                    {if:$item["default"]==1}
+                    <tr class="default" id="{$item['id']}">
+                        {else:}
+                    <tr class="no_default" id="{$item['id']}">
+                        {/if}
+                        <td style="text-align: center;"></td>
+                        <td>{$item["accept_name"]}</td>
+                        <td>{$area[$item['province']]} {$area[$item['city']]} {$area[$item['area']]} {$item['address']}</td>
+                        <td>{if:$item["mobile"]}{$item['mobile']}{else:}{$item['telphone']}{/if}</td>
+                        <td style="font-size: 12px;">{if:$item["default"]==1}<label class="default_label">(默认地址)</label>{else:}<label class="set_default" id="set_default_{$item['id']}">设为默认</label>{/if}</td>
+                        <td style="text-align: center; padding-right: 20px;">
+                            <label class="button_edit"></label>
+                            <label class="button_delete"></label>
+                            <input type="hidden" name="aid" value="{$item['id']}" />
+                            <input type="hidden" name="iaccept_name" value="{$item['accept_name']}" />
+                            <input type='hidden' name='izip' value="{$item['zip']}" />
+                            <input type='hidden' name='itelphone' value="{$item['telphone']}" />
+                            <input type='hidden' name='iprovince' value="{$item['province']}" />
+                            <input type='hidden' name='icity' value="{$item['city']}" />
+                            <input type='hidden' name='iarea' value="{$item['area']}" />
+                            <input type='hidden' name='iaddress' value="{$item['address']}" />
+                            <input type='hidden' name='imobile' value="{$item['mobile']}" />
+                            <input type='hidden' name='iaccept_time' value="{$item['accept_time']}" />
+                            <input type='hidden' name='idefault' value="{$item['default']}" />
+                        </td>
+                    </tr>
+                    {/foreach}
+                    {/if}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="add_address_bg" style="position: absolute; z-index: 80000; top: 0; left: 0; margin-left: 0; margin-top: 0; display: none; width: 100%; height: 500px; background: #000; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5;"></div>
+<form action="{url:/ucenter/address_edit}" method="POST" id="address_form">
+    <div class="add_address">
+        <div class="content">
+            <div class="ac_header">
+                <label>管理收货地址</label>
+                <img id="close_img" src="{skin:images/front/close.png}">
+            </div>
+            <div class="ac_body">
+                <div class="acb_left">
+                    <input type="hidden" name="accept_time" value="">
+                    <input type="hidden" name="id" value="">
+                    <input type="hidden" name="default" value="">
+                    <input type="text" name="accept_name" value="" placeholder="收货人姓名" style="width: 180px; height: 36px;"/><label class="col"></label>
+                    <input type="text" name="mobile" value="" placeholder="手机号" style="width: 250px; height: 36px;"/><label class="row"></label>
+                    <input type="text" name="zip" value="" placeholder="邮编(可选)" style="width: 125px; height: 36px;"/><label class="col"></label>
+                    <input type="text" name="telphone" value="" placeholder="固定电话(可选)" style="width: 305px; height: 36px;"/><label class="row"></label>
+                    <select style="width: 163px; height: 36px;" name="province" child="city,area" onchange="areaChangeCallback(this);"></select></select><label class="col"></label>
+                    <select style="width: 143px; height: 36px;" name="city" child="area" parent="province" onchange="areaChangeCallback(this);"></select><label class="col"></label>
+                    <select style="width: 104px; height: 36px;" name="area" parent="city" pattern="" alt="请选择收货地区"></select>
+                    <label class="row"></label>
+                    <input type="text" name="address" value="" placeholder="街道编号/名称、楼宇名称" style="width: 450px; height: 36px;"/>
+                </div>
+                <div class="acb_right">
+                    <label class="row_s"></label>
+                    <label class="row"></label>
+                    <label class="sh_time" style="float: left; width: 150px; height: 52px; line-height: 20px; padding-left: 35px; cursor: pointer; padding-top: 13px; border: 1px rgb(223, 223, 223) solid; font-size: 14px; background-color: rgb(250, 250, 250);">
+                        <font style="font-size: 16px; font-weight: 800;">不限送货时间</font><br>周一至周日
+                        <input type="hidden" name="sh_time_value" value="不限送货时间" />
+                    </label>
+                    <label class="col"></label>
+                    <label class="sh_time" style="float: left; width: 150px; height: 52px; line-height: 20px; padding-left: 35px; cursor: pointer; padding-top: 13px; border: 1px rgb(223, 223, 223) solid; font-size: 14px; background-color: rgb(250, 250, 250);">
+                        <font style="font-size: 16px; font-weight: 800;">工作日送货</font><br>周一至周五
+                        <input type="hidden" name="sh_time_value" value="周一至周五" />
+                    </label>
+                    <label class="row_s"></label>
+                    <label class="sh_time" style="float: left; width: 150px; height: 52px; line-height: 20px; padding-left: 35px; cursor: pointer; padding-top: 13px; border: 1px rgb(223, 223, 223) solid; font-size: 14px; background-color: rgb(250, 250, 250);">
+                        <font style="font-size: 16px; font-weight: 800;">双休日、假日送货</font><br>周六至周日
+                        <input type="hidden" name="sh_time_value" value="周六至周日" />
+                    </label>
+                </div>
+            </div>
+            <div class="ac_bottom">
+                <label id="cancel_add" style="float: left; width: 100px; height: 40px; margin-top: 10px; margin-left: 30px; cursor: pointer; line-height: 40px; text-align: center; border-radius: 10px; border: 1px solid rgb(218, 218, 218); color: #000;">取消</label>
+                <label id="sure_add" style="float: right; width: 100px; height: 40px; margin-top: 10px; margin-right: 30px; cursor: pointer; line-height: 40px; text-align: center; border-radius: 10px; border: 1px solid rgb(218, 218, 218); background-color: rgb(106, 144, 220); color: #FFF;">确定</label>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+<div class="modify_info_bg" style="position: absolute; z-index: 80000; top: 0; left: 0; margin-left: 0; margin-top: 0; display: none; width: 100%; height: 500px; background: #000; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5;"></div>
+<div class="modify_info">
+    <div class="content">
+        <div class="ac_header">
+            <label>账户设置</label>
+            <img id="close_img_2" src="{skin:images/front/close.png}">
+        </div>
+        <div class="ac_body">
+            <div class="line">
+                <span class="left">
+                    <img src="{skin:images/front/gou.png}"/>
+                </span>
+                <span class="middle">
+                    <label class="m_title">登录密码</label>
+                    <label class="m_detail">
+                        互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。
+                    </label>
+                </span>
+                <span class="right">
+                    <label class="r_action"><a href="{url:ucenter/modify_password}" target="_blank">修改</a></label>
+                </span>
+            </div>
+            <div class="line">
+                <span class="left">
+                    <img src="{skin:images/front/gantan.png}"/>
+                </span>
+                <span class="middle">
+                    <label class="m_title">邮箱验证</label>
+                    <label class="m_detail">
+                        未验证邮箱，请访问您注册时填写的邮箱 87*****46@qq.com，查看激活邮件，并验证。
+                    </label>
+                </span>
+                <span class="right">
+                    <label class="r_action"><a href="">修改</a></label>
+                    <label class="r_action" style="margin-top: 0px;"><a href="">发送验证邮件</a></label>
+                </span>
+            </div>
+            <div class="line">
+                <span class="left">
+                    <img src="{skin:images/front/gou.png}"/>
+                </span>
+                <span class="middle">
+                    <label class="m_title">手机验证</label>
+                    <label class="m_detail">
+                        您验证的手机：150*****976
+                    </label>
+                </span>
+                <span class="right">
+                    <label class="r_action"><a href="">修改</a></label>
+                </span>
+            </div>
+            <div class="line last" >
+                <span class="left">
+                    <img src="{skin:images/front/gantan.png}"/>
+                </span>
+                <span class="middle">
+                    <label class="m_title">安全问题</label>
+                    <label class="m_detail">
+                        未设置安全问题。
+                    </label>
+                </span>
+                <span class="right">
+                    <label class="r_action"><a href="">立即设置</a></label>
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div>
+{js:artTemplate}
+<script type='text/javascript' src='{theme:javascript/artTemplate/area_select.js}'></script>
+
+
+<script type="text/javascript">
+                                            $("#a_modify_info").click(function () {
+
+                                            });
+
+                                            $(".button_edit").click(function () {
+                                                //address_box数据加载
+                                                var aid = $(this).nextAll("[name='aid']").val();
+                                                var accept_name = $(this).nextAll("[name='iaccept_name']").val();
+                                                var zip = $(this).nextAll("[name='izip']").val();
+                                                var telphone = $(this).nextAll("[name='itelphone']").val();
+                                                var province = $(this).nextAll("[name='iprovince']").val();
+                                                var city = $(this).nextAll("[name='icity']").val();
+                                                var area = $(this).nextAll("[name='iarea']").val();
+                                                var address = $(this).nextAll("[name='iaddress']").val();
+                                                var mobile = $(this).nextAll("[name='imobile']").val();
+                                                var accept_time = $(this).nextAll("[name='iaccept_time']").val();
+                                                var isdefault = $(this).nextAll("[name='idefault']").val();
+                                                var father = $(".add_address").children(".content");
+                                                var left = father.children(".ac_body").children(".acb_left");
+                                                left.children("[name='id']").val(aid);
+                                                left.children("[name='accept_name']").val(accept_name);
+                                                left.children("[name='zip']").val(zip);
+                                                left.children("[name='telphone']").val(telphone);
+                                                left.children("[name='address']").val(address);
+                                                left.children("[name='mobile']").val(mobile);
+                                                left.children("[name='accept_time']").val(accept_time);
+                                                left.children("[name='default']").val(isdefault);
+
+                                                //初始化地区选择
+                                                createAreaSelect('province', 0, province);
+                                                createAreaSelect('city', province, city);
+                                                createAreaSelect('area', city, area);
+                                                template.compile("areaTemplate", areaTemplate);
+
+                                                //初始化发货时间
+                                                var sh_time = $("[name='sh_time_value'][value='" + accept_time + "']").parents(".sh_time");
+                                                sh_time.css("border-color", "rgb(255, 72, 0)");
+                                                sh_time.css("background-color", "rgb(255, 255, 255)");
+                                                sh_time.siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                                                sh_time.siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                                                show_address_box();
+                                            });
+
+                                            $("#sure_add").click(function () {
+                                                $("body").css("overflow", "");
+                                                $(".add_address_bg").css("display", "none");
+                                                $(".add_address").css("display", "none");
+                                                $("#address_form").submit();
+                                            })
+                                            $("#cancel_add").click(function () {
+                                                $("body").css("overflow", "");
+                                                $(".add_address_bg").css("display", "none");
+                                                $(".add_address").css("display", "none");
+                                            })
+
+                                            $("#close_img").click(function () {
+                                                $("body").css("overflow", "");
+                                                $(".add_address_bg").css("display", "none");
+                                                $(".add_address").css("display", "none");
+
+                                            })
+
+                                            $("#close_img_2").click(function () {
+                                                $("body").css("overflow", "");
+                                                $(".modify_info_bg").css("display", "none");
+                                                $(".modify_info").css("display", "none");
+
+                                            })
+
+                                            $(".sh_time").click(function () {
+                                                $(this).css("border-color", "rgb(255, 72, 0)");
+                                                $(this).css("background-color", "rgb(255, 255, 255)");
+
+                                                $(this).siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                                                $(this).siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                                            });
+                                            $(".sh_time").click(function () {
+                                                //设置送货值
+                                                var accept_time = $(this).children("input[name='sh_time_value']").val();
+                                                $("input[name='accept_time']").val(accept_time);
+
+                                                $(this).css("border-color", "rgb(255, 72, 0)");
+                                                $(this).css("background-color", "rgb(255, 255, 255)");
+
+                                                $(this).siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                                                $(this).siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                                            });
+
+                                            /**
+                                             * 生成地域js联动下拉框
+                                             * @param name
+                                             * @param parent_id
+                                             * @param select_id
+                                             */
+                                            function createAreaSelect(name, parent_id, select_id)
+                                            {
+
+                                                //生成地区
+                                                $.getJSON("{url:/block/area_child}", {"aid": parent_id, "random": Math.random()}, function (json)
+                                                {
+                                                    $('[name="' + name + '"]').html(template.render('areaTemplate', {"select_id": select_id, "data": json}));
+                                                });
+                                            }
+                                            function show_address_box() {
+                                                var height = $(window).height();
+                                                var width = $(window).width();
+
+                                                var show_top = 200;
+                                                var show_left = (width - 700) / 2;
+
+                                                $(".add_address").css("left", show_left);
+                                                $(".add_address").css("top", show_top);
+
+                                                $(".add_address_bg").height(height);
+                                                $(".add_address_bg").css("display", "block");
+                                                $(".add_address").css("display", "block");
+                                                $("body").css("overflow", "hidden");
+                                            }
+
+                                            function show_modify_box() {
+                                                var height = $(window).height();
+                                                var width = $(window).width();
+
+                                                var show_top = 200;
+                                                var show_left = (width - 700) / 2;
+
+                                                $(".modify_info").css("left", show_left);
+                                                $(".modify_info").css("top", show_top);
+
+                                                $(".modify_info_bg").height(height);
+                                                $(".modify_info_bg").css("display", "block");
+                                                $(".modify_info").css("display", "block");
+                                                $("body").css("overflow", "hidden");
+                                            }
+
+                                            $("#a_modify_info").click(function () {
+                                                show_modify_box();
+                                            });
+
+                                            $("#use_new_addr").click(function () {
+                                                //address_box数据清空
+                                                var father = $(".add_address").children(".content");
+                                                var left = father.children(".ac_body").children(".acb_left");
+                                                left.children("[name='id']").val('');
+                                                left.children("[name='accept_name']").val('');
+                                                left.children("[name='zip']").val('');
+                                                left.children("[name='telphone']").val('');
+                                                left.children("[name='address']").val('');
+                                                left.children("[name='mobile']").val('');
+                                                left.children("[name='accept_time']").val('');
+                                                left.children("[name='default']").val(0);
+
+                                                //初始化地区选择
+                                                createAreaSelect('province', 0, '');
+                                                $('[name="city"]').empty();
+                                                $('[name="area"]').empty();
+                                                template.compile("areaTemplate", areaTemplate);
+
+                                                show_address_box();
+                                            });
+
+                                            $(".menu_a").click(function () {
+                                                $(".menu_a").removeClass("selected");
+                                                $(this).addClass("selected");
+                                            });
+
+                                            $(".no_default").mouseover(function () {
+                                                var id = $(this).attr("id");
+                                                $("#set_default_" + id).css("display", "block");
+                                            }).mouseout(function () {
+                                                var id = $(this).attr("id");
+                                                $("#set_default_" + id).css("display", "none");
+                                            });
+
+                                            function register_default() {
+                                                //设置默认
+                                                $(".set_default").click(function () {
+
+                                                    var address_id = $(this).parents("tr").attr("id");
+                                                    $.post("{url:ucenter/address_set_default}", {address_id:address_id}, function (data)
+                                                    {
+                                                        //alert(222222222+data);
+                                                    });
+                                                    var td_node = $(this).parent("td");
+                                                    var tr_node = $(td_node).parent("tr");
+
+                                                    var tds_set_to_nodefault = $(".default_label").parent("td");
+                                                    for (var i = 0; i < tds_set_to_nodefault.length; i++) {
+                                                        var td_temp = tds_set_to_nodefault[i];
+                                                        var id_temp = $(td_temp).parent("tr").attr("id");
+                                                        //$(td_temp).html("<label class='set_default' id='set_default_" + id_temp + "'>设为默认</label>");
+                                                        $(td_temp).children("label").addClass("set_default").attr("id", "set_default_" + id_temp).html("设为默认").css("display", "none");
+                                                        ;
+                                                    }
+
+                                                    //$(td_node).html("<label class='default_label'>(默认地址)</label>");
+                                                    $(td_node).children("label").addClass("default_label").removeClass("set_default").html("(默认地址)").attr("id", "").css("display", "block");
+                                                    $(tr_node).removeClass("no_default").addClass("default");
+                                                    $(tr_node).siblings("tr").removeClass("default").addClass("no_default");
+                                                });
+                                            }
+
+                                            register_default();
+
+</script>

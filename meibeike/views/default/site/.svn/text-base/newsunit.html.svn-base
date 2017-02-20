@@ -1,0 +1,52 @@
+<style type="text/css">.help_wrapper{float:left;width:100%;background-color:rgb(230,230,230);margin-top:0px;}.help_wrapper .help_content{width:1120px;height:auto;margin:0 auto;padding-top:30px;padding-bottom:50px;}.help_wrapper .help_content .right{float:left;border:1px rgb(188,188,188) solid;border-radius:15px;padding-bottom:5px;width:1120px;height:auto;min-height:600px;background-color:white;margin-bottom:25px;}.help_wrapper .help_content .right .title{float:left;width:1090px;height:60px;padding-left:30px;margin-bottom:30px;line-height:60px;border-bottom:1px rgb(188,188,188) solid;background-color:rgb(242,242,242);border-top-left-radius:15px;border-top-right-radius:15px;font-size:18px;}.help_wrapper .help_content .right .title a,a:hover{text-decoration:none;color:black;}.help_wrapper .help_content .right .unit{float:left;width:1060px;margin-left:30px;line-height:40px;}.help_wrapper .help_content .right .unit .t{float:left;text-align:center;font-size:18px;font-weight:bold;width:100%;}.help_wrapper .help_content .right .unit .m{float:left;text-align:center;font-size:14px;width:100%;}.help_wrapper .help_content .right .unit .b{float:left;margin-left:5px;line-height:30px;overflow:hidden;width:100%;}.help_wrapper .help_content .right .unit .bb{float:right;margin-top:35px;margin-right:40px;margin-bottom:25px;line-height:30px;width:auto;}.help_wrapper .help_content .right .unit .bb a,a:hover{text-decoration:none;color:black;}</style>
+<div class="help_wrapper">
+	<div class="help_content">
+	<div class="right">
+		<label class="title"><a href="{url:/site/index}">首页</a> >> <a href="{url:/site/news/page/1}">新闻中心</a></label>
+            <label class="unit">
+				<?php if ($this->newinfo['exists'] == 0) { ?>
+					<label class="t">新闻不存在！！</label>
+				<?php } else { ?>
+				<label class="t"><?php echo $this->newinfo['name']; ?></label>
+				<label class="m"><?php echo date('Y/m/d', $this->newinfo['dateline']); ?></label>
+				<label class="b"><?php echo $this->newinfo['content']; ?></label>
+				<?php } ?>
+				<label class="bb">
+					{if:$this->aLast!=""}<a href="{echo:$this->aLast}">上一篇</a> | {/if}
+					
+					{if:$this->aNext!=""}<a href="{echo:$this->aNext}">下一篇</a> | {/if}
+					<a href="{url:/site/news/page/1}">返回</a>
+				</label>
+			</label>            
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	function jumpto() {
+		    var cat_id = $("[name=cat_id]").val();
+            $("#cat_"+cat_id).children("a.child").css("background-color","rgb(251, 62, 58)");
+            $("#cat_"+cat_id).children("a.child").css("color","white");
+            $("div.left").children("div").last().children("a.child").addClass("last");
+            
+            //跳转到锚点
+            var help_id = $("#help_id").val();
+            if(help_id){
+				window.location.replace("#help_"+help_id);
+                //window.location.href="#help_"+help_id;
+            }
+
+	}
+    
+	$(document).ready(function(){
+		
+			window.setTimeout("jumpto()", 500);
+		
+ 			
+			if ($(".sub_content").height() <= 400) {
+				$(".sub_content").css("height", "400px");
+			}
+        });
+        
+</script>
+

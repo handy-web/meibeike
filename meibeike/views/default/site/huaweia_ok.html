@@ -1,0 +1,102 @@
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/K_public.css" />
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/activity.css" />
+
+
+<div class="top layout rel">
+<dl>
+<dt><a href="#">个人中心&nbsp;&nbsp;<img src="{skin:images/act/images/u41.png}"></a></dt>
+<dd>{if:$this->user['user_id']}
+ {if:IWeb::$app->config['tradeModel'] == '1'}
+					<a class="normal-menu_select_child_a" href="{url:/ucenter/order}">我的订单</a>
+                                        {/if}
+                                        <a class="menu_select_child_a" id='account_maneger' href="">账号设置</a>
+                                        {if:IWeb::$app->config['tradeModel'] == '1'}
+                                        <a class="menu_select_child_a" href="{url:/ucenter/address}" >管理地址</a>
+                                        {/if}
+                                        <a class="menu_select_child_a" href="{url:/simple/logout}" target="_self">退出</a>
+ {else:}
+                            <div class="not_login">
+                                <a id="login" class="normal-link" href="{url:/simple/login?callback=$callback}">登录</a> 
+                                <a id="register" class="normal-link" href="{url:/simple/reg_phone?callback=$callback}">注册</a>
+                            </div>
+                            {/if}
+</dd>
+</dl>
+<span  class="logo" ><a href="/site/index_3/"><img src="{skin:images/act/images/b_logo.png}"></a>MeiID:{$mei_id}</span>
+</div>
+
+
+<div class="layout huaweibox cl">
+<h2>如果你是华为网盘用户<em></em></h2>
+
+<h3>你还可以选择购买"银霸组合" 即可获赠120GB存储棒<a href="/site/products/id/9">了解"银霸组合"</a><br>
+</h3>
+
+<h4><a href="/site/products/id/9" class="on">现在付款</a><a href="/site/order_ok/">稍后抢购</a></h4>
+<a href="/site/huaweib_ok/" class="more">返回&nbsp;<i>&gt;</i></a>
+
+</div>
+
+
+
+<script>
+$(function(){
+	
+	$('.top dl').mouseover(function(){
+		$(this).addClass('on');
+		$(this).find('dd').slideDown(150);
+	});
+    $('.top dl').mouseleave(function(){
+		$(this).removeClass('on');
+		$(this).find('dd').stop().slideUp(150);
+	});
+
+	})
+</script>
+
+
+
+<script>
+$(function(){
+
+	})
+  $(document).ready(function(){ 
+　　$(".header").css("display","none")
+}); 
+
+ $("#Appoint").click(function () {
+                //如果已经在登录页，则不变
+                var loginpage = $("#loginpage").val();
+				
+				// 清楚密碼
+				if ($(".password_input").val() != $(".password_input").attr("placeholder")) {
+					if (placeholderSupport()) {
+						$(".password_input").val("");
+					} else {
+						$(".password_input").val($(".password_input").attr("placeholder"));
+						$(".password_input").css("color", "#aaa");
+					}
+					$("#password").val("");
+				}
+
+				
+                //alert(loginpage);
+                if (loginpage == 'php') {
+                    return false;
+                } else {
+                    var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+
+                    var body_width = $(window).width();
+
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+                    return false;
+                }
+            });
+
+</script>
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+	    <title>金甲组合-银霸组合</title>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <meta name="full-screen" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="format-detection" content="address=no">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../version/css/main.css" />
+	</head>
+	<body style="background: #EDEEF0">
+		
+		<div class="prod-header">
+			<ul class="prod-tab">
+				<li><a class="act">金甲组合</a></li>
+				<li><a>银霸组合</a></li>
+				<li><a href="product-yin.html">银组合</a></li>
+				<li><a href="product-diy.html">DIY</a></li>
+			</ul>
+		</div>
+		<div>
+			<img src="../version/img/app-pro.png" />
+		</div>
+		
+		<div class="prod-center">
+			<div class="prod-line">
+				<div class="prod-cor">金甲组合 <span>（母棒+250G存储碟）</span></div>
+				<p>&#65509;2440.00</p>
+			</div>
+			
+			<div class="prod-num">	 
+				<div class="flt prod-ber">数量</div>
+				<div class="number-box">
+					<a class="min"><img src="../version/img/app-red.png"></a>
+					<input type="text" value="1">
+					<a class="add"><img src="../version/img/app-add.png"></a>
+				</div>		
+				<div class="prod-go">
+					<input type="submit" value="前去购买" />
+				</div>
+			</div>
+		</div>
+		
+		<div class="prod-table">
+			<h4>金甲组合介绍</h4>
+			<div></div>
+		</div>
+
+	</body>
+</html>

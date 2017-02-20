@@ -1,0 +1,207 @@
+<style type="text/css">
+    .srevice_wrapper {float: left; width: 100%; background-color: rgb(244, 244, 244); padding-bottom: 30px;}	
+    .srevice_wrapper .srevice_content {width: 1200px; height: auto; margin: 0 auto;}
+    .srevice_wrapper .srevice_content .header {float: left; width: 100%; height: 90px; line-height: 90px; margin-top: 10px; padding-left: 40px; font-size: 32px;}
+    .srevice_wrapper .srevice_content .content {float: left; width: 1120px; margin-left: 40px; border-radius: 8px; 
+                                                border: rgb(188, 188, 188) 1px solid; box-shadow: 0 0 5px rgb(180, 180, 180); background-color: #FFF;}
+
+    .srevice_wrapper .srevice_content .content .c_header {float: left; width: 100%; height: 72px; line-height: 72px; color: rgb(121, 121, 121); font-size: 18px;
+                                                          border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgb(252, 252, 252); border-bottom: 1px solid rgb(215, 215, 215);}
+    .srevice_wrapper .srevice_content .content .c_header label {float: left; margin-left: 30px;}
+    .srevice_wrapper .srevice_content .content a.submit {float: right; display: block; margin-top: 20px; margin-right: 10px; height: 35px; line-height: 35px; padding: 0 10px;
+                                                         background-color: rgb(253, 101, 97); border-radius: 3px; font-weight: 200; font-size: 16px; color: #FFF; cursor: pointer;}
+
+    .srevice_wrapper .srevice_content .content .c_body img {float: left; margin-left: 65px; margin-top: 25px; margin-bottom: 25px;}
+    .srevice_wrapper .srevice_content .content .c_body label.jianxi {float: left; width: 100%; height: 20px;}
+    .srevice_wrapper .srevice_content .content .c_body label.word_title {float: left; font-size: 18px; line-height: 45px; margin-left: 30px; width: 1010px;}
+    .srevice_wrapper .srevice_content .content .c_body label.word_body {float: left; font-size: 14px; line-height: 30px; margin-left: 30px; width: 1010px;}
+    .srevice_wrapper .srevice_content .content .c_body .personal_info {float: left; margin-left: 40px; height: 190px; width: 400px; border: 1px solid rgb(188, 188, 188);}
+    .srevice_wrapper .srevice_content .content .c_body .personal_info .p_title {float: left; margin-left: 15px; margin-top: 20px; width: 270px; height: 25px; border-bottom: 1px solid rgb(215, 215, 215);}
+    .srevice_wrapper .srevice_content .content .c_body .personal_info .p_title .left {float: left; padding-left: 5px;}
+    .srevice_wrapper .srevice_content .content .c_body .personal_info .p_title .right {float: right; padding-right: 5px;}
+    .srevice_wrapper .srevice_content .content .c_body .personal_info p {float: left; padding-left: 20px; font-size: 14px; line-height: 30px;}
+
+    .srevice_wrapper .srevice_content .content .c_body .type_title {float: left; width: 1100px; margin-left: 25px; margin-top: 25px; margin-bottom: 20px;}
+    .srevice_wrapper .srevice_content .content .c_body .select_div {float: left; width: 100%; padding-left: 40px;}
+    .srevice_wrapper .srevice_content .content .c_body .type_label {float: left; margin-right: 20px; width: 95px; height: 55px; line-height: 55px; text-align: center; border: 1px solid rgb(188, 188, 188);}
+    .type_label_selected {background:rgb(252, 62, 57); color: white;}
+    .srevice_wrapper .srevice_content .content .c_body textarea {overflow:scroll;overflow-y:hidden;;overflow-x:hidden}
+
+    .srevice_wrapper .srevice_content .content .c_body .mbk_address {float: left; margin-left: 40px; line-height: 30px; width: 662px; height: 100px;
+                                                                     border: 1px solid rgb(188, 188, 188); background-color: rgb(242, 242, 242); font-size: 14px; padding-left: 10px; margin-bottom: 50px; }
+
+    .srevice_wrapper .srevice_content .content .c_footer {float: left; width: 100%; height: 72px; line-height: 72px; color: rgb(121, 121, 121);
+                                                          border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; background-color: rgb(252, 252, 252); border-top: 1px solid rgb(215, 215, 215);}
+
+    .srevice_wrapper .srevice_content #content_2, #content_3 {display: none;}
+
+</style>
+
+<div class="srevice_wrapper">
+    <input type="hidden" id="service_progress" value="1"/>
+    <div class='srevice_content'>
+        <div class='header'>
+            申请售后
+        </div>
+        <div class="content" id="content_1">
+            <div class="c_header">
+                <label>快递商品至MeiBeiKe</label>
+            </div>
+            <div class="c_body">
+                <img src="{skin:images/front/service_pic.png}"/>
+            </div>
+            <div class="c_footer">
+                <label style="float: left; width: 120px; line-height: 50px; text-align: right; font-size: 18px;">温馨提示：</label>
+                <label style="float: left; width: 800px; margin-top: 10px; line-height: 24px; text-align: left; font-size: 14px;">
+                    因第三方物流等因素，快递式售后服务时长相比面对面会更长。<br>
+                    因将商品快递至小米产生的物流费用，您可在完成售后服务后申请。</label>
+
+                <a class="submit">提交售后服务单</a>
+            </div>
+        </div>
+        <div class="content" id="content_2">
+            <div class="c_header">
+                <label>填写售后服务单</label>
+                <a class="submit">提交售后服务单</a>
+            </div>
+            <div class="c_body">
+                <label class="word_title">退换货承诺<br></label>
+                <label class="word_body">
+                    美贝壳科技承诺符合以下情况，由产品售出之日（以实际收货日期为准）起7日内可以退货，15日内可以换货：<br>
+
+                    1.国家三包所规定的功能性故障；<br>
+
+                    2.经由美贝壳售后服务中心检测确认并办理；<br>
+
+                    3.到货物流损或缺件情况；物流损指在运输过程中造成的损坏、漏液、破碎、性能故障，经售后服务中心确认情况属实（期间可能需要快递人员证明或要求您提供实物照片等，以便我们快速做出判断及时处理），无条件办理退换货事宜。<br>
+
+                </label>
+                <label class="jianxi"></label>
+                <label class="word_title">以下情况不予办理退换货<br></label>
+                <label class="word_body">
+                    1.任何非本网站（www.meibeike.com）出售的商品（序列号不符）；<br>
+
+                    2.对于过保商品（超过三包保修期的商品）；<br>
+
+                    3.未经授权的维修、误用、碰撞、疏忽、滥用、进液、事故、改动、不正确的安装所造成的商品质量问题，或撕毁、涂改标贴、机器序号、防伪标记；<br>
+
+                    4.商品的外包装、附件、赠品、说明书不完整，发票缺失或涂改；<br>
+
+                    5.因不可抗力造成的损坏；<br>
+
+                    6.产品已使用（质量问题除外）。<br>
+                </label>
+                <label class="jianxi"></label>
+                <label class="word_title">退换货步骤<br></label>
+                <label class="word_body">
+                    1.您可以通过客服热线或登录美贝壳网订单管理，申请退换货，申请时请您填写退换货原因；<br>
+
+                    2.美贝壳看到您的申请，会安排人员与您进行退换货质量确认并办理相关事宜；<br>
+
+                    3.请您在确认办理退换货后，一周内将货品寄到我公司指定地点，我方收到货品验证无误，可办理后续手续；<br>
+
+                    4.因质量问题发生的退换货情况，由美贝壳公司承担退换货物流费用，需要您先进行垫付，美贝壳公司凭您的付费发票进行报销，报销金额最高上限15 元/单；<br>
+
+                    5.办理退货的用户，我们在收到您的货品验收无误后一周内为您办理退款，线上支付的用户会将费用退回您的支付帐号，货到付款的用户会将费用打入您在退货申请表中填写的退款帐号中。<br>
+                </label>
+                <label class="jianxi"></label>
+            </div>
+            <div class="c_footer">
+                <a class="submit">提交售后服务单</a>
+            </div>
+        </div>
+        <div class="content" id="content_3">
+            {set: $user_id = $this->user['user_id']}
+            {set: $order = $this->order_info}
+            {set: $area = area::name($order['province'], $order['city'], $order['area'])}
+            <form id='service_form' action='{url:/ucenter/do_apply_service}' method='post' name='service_form' >
+                <input type='hidden' name='order_id' value='{$order["id"]}' />
+                <div class="c_header">
+                    <label>填写售后服务单</label>
+                </div>
+                <div class="c_body">
+                    <label class="type_title">请选择售后服务类型</label>
+                    <input type="hidden" name="type" value="1" />
+                    <div class="select_div">
+                        <label class="type_label type_label_selected">退货</label>
+                        <label class="type_label">换货</label>
+                        <label class="type_label">维修</label>
+                    </div>
+                    <label class="type_title">填写售后服务原因</label>
+                    <div class="select_div">
+                        <textarea name="reason" cols="40" rows="6" placeholder="注意，最少填写6个汉字，最多300个汉字" onKeyUp="if (this.value.length > 300)
+                                    this.value = this.value.substr(0, 300)"></textarea>
+                    </div>
+                    <label class="type_title">请确定您的联系方式和收货地址</label>
+                    <div class="personal_info">
+<!--                        <div class="p_title">
+                            <label class="left">收货人：{$order['accept_name']}</label>
+                            {if:$order['mobile']}
+                            {set:$connect = $order['mobile']}
+                            {else:}
+                            {set:$connect = $order['telphone']}
+                            {/if}
+                            <label class="right">联系方式{$connect}</label>
+                        </div>-->
+                        <p> 收货客户：{$order['accept_name']}<br>
+                            {if:$order['mobile']}
+                            {set:$connect = $order['mobile']}
+                            {else:}
+                            {set:$connect = $order['telphone']}
+                            {/if}
+							联系方式：{$connect}<br>
+							收货地区：{$area[$order['province']]}&nbsp;&nbsp;{$area[$order['city']]}&nbsp;&nbsp;{$area[$order['area']]}<br>
+							详细地址：{$order['address']}<br>
+							收货时间：{$order['accept_time']}&nbsp;&nbsp;送货</p>
+                    </div>
+                    <label class="type_title">请您<font style="color: red">在提交服务单后，等待客服电话确认</font>，再邮寄回美贝壳售后服务机构</label>
+                    <label class="mbk_address">
+                        寄给meibeike的地址：<br>
+                        地址：广东省深圳市南山区科技园北区新西路7号兰光科技园A栋309<br>
+                        客服电话：0755-26602223
+                    </label>
+                </div>
+                <div class="c_footer">				
+                    <a class="submit">提交服务单</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //类型选择
+        $("label.type_label").click(function () {
+            $("label.type_label").removeClass("type_label_selected");
+            $(this).addClass("type_label_selected");
+            if ($(this).text() == "退货") {
+                $("input['name'='type']").val(1);
+            } else if ($(this).text() == "换货") {
+                $("input['name'='type']").val(2);
+            } else {
+                $("input['name'='type']").val(3);
+            }
+        });
+
+        //提交逻辑 
+        $("a.submit").click(function () {
+            var progress = $("#service_progress").val();
+            if (progress == "1") {
+                progress = "2";
+            } else if (progress == "2") {
+                progress = "3";
+            } else {
+                // 在这里提交服务单
+                $("#service_form").submit();
+
+                return;
+            }
+
+            $("#service_progress").val(progress);
+            $("#content_" + progress).css("display", "block");
+            $("#content_" + progress).siblings(".content").css("display", "none");
+        });
+    });
+
+</script>

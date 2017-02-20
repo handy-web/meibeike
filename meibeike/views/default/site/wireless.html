@@ -1,0 +1,107 @@
+
+<script src="{theme:javascript/jquery-1.7.2.min.js}"></script>
+<script src="{theme:javascript/jquery.mousewheel.js}"></script>
+<script src="{theme:javascript/jquery.quanpin.scroll/quanpin.scroll.js}"></script>
+<link rel="stylesheet" href="{skin:css/jquery.quanpin.css}" />
+
+<style type="text/css">
+	.num {color: rgb(70, 70, 70);}
+	a {text-decoration: none; color: rgb(110, 160, 236); }
+
+	.style_1 { width: 100%; }
+	.style_1 .content {width: 1200px; height: 100%; margin: 0 auto;}
+	.style_1 .content .layer_1 { float: left; width: 100%; margin-top: 40px;  text-align: center; height: 50px; line-height: 50px; font-size: 44px;}
+        .style_1 .content .layer_11 { float: left; width: 100%; margin-left: 80px; margin-top: 40px;  text-align: left; height: 50px; line-height: 50px; font-size: 44px;}
+	.style_1 .content .layer_2 { float: left; width: 850px; margin-left: 170px; margin-top: 30px;  font-weight: lighter;text-align: center; height: 35px; line-height: 35px; font-size: 20px;color:#898989; }
+	.style_1 .content .layer_21 { float: left; width: 580px; margin-left: 80px; margin-top: 30px;  font-weight: lighter;text-align: left; height: 35px; line-height: 35px; font-size: 20px;color:#898989; }
+        .style_1 .content .layer_3 { float: left; width: 100%; margin-top: 70px;}
+	.style_1 .content .layer_3 img {margin: 0 auto;}
+</style>
+
+<input type="hidden" value=1 id="is_top_show"/>
+<input type="hidden" value=0 id="is_bottom_show"/>
+<input type="hidden" value="0" class="cur_disappear"/>
+<input type="hidden" value="0" class="is_in_scroll"/>
+
+<div class="num_box" >
+	<div class="num style_1" id="num_0">
+            {set:$pics_0=JSON::decode($attrbutes[0]["value"])}
+		<div class="content">
+			<div class="layer_11">{$attrbutes[0]["name"]}</div>
+			<div class="layer_21">{$attrbutes[0]["content"]}</div>
+			<div class="layer_3">
+				<img class="my_img" src="{webroot:$pics_0[0]}">
+			</div>
+		</div>
+	</div>
+	<div class="num style_1" id="num_1">
+            {set:$pics_1=JSON::decode($attrbutes[1]["value"])}
+		<div class="content">
+			<div class="layer_1">{$attrbutes[1]["name"]}</div>
+			<div class="layer_2">{$attrbutes[1]["content"]}</div>
+                        <div class="layer_3">
+				<img class="my_img" src="{webroot:$pics_1[0]}">
+			</div>
+		</div>
+	</div>
+	<div class="num style_1" id="num_2">
+            {set:$pics_2=JSON::decode($attrbutes[2]["value"])}
+		<div class="content">
+			<div class="layer_1">{$attrbutes[2]["name"]}</div>
+			<div class="layer_2">{$attrbutes[2]["content"]}</div>
+                        <div class="layer_3">
+				<img class="my_img" src="{webroot:$pics_2[0]}">
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	$().ready(function() {
+		
+	});
+	// direction 0向下 1向上
+	function onEnter(index, direction) {
+		
+	}
+	
+	function onExit(index, direction) {
+		
+	}
+	
+	function onResizeWin(index, win_height) {
+		
+	}
+	
+	//$().ready(function() {
+	function imgAdjust() {
+		//图片大小自适应代码
+		var height = $("body").eq(0).height();
+		//if (navigator.userAgent.indexOf("Firefox") >= 0)
+			height = $(window).height();
+		var my_height;
+		$(".my_img").each(function(){
+			my_height = height - 140;  
+			$(this).parent("div").prevAll("div").each(function(){
+				my_height = my_height - $(this).height();
+			});
+
+			//获取原图大小
+			var img = $(this);
+			var theImage = new Image();
+			theImage.src = img.attr("src");
+			if (my_height < theImage.height){
+				$(this).css("height",my_height+"px");
+			}
+		});
+	}
+	
+	window.onload = function() { 
+		imgAdjust();
+	}; 
+	
+	//});
+	
+
+</script>

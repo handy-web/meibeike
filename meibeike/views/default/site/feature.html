@@ -1,0 +1,65 @@
+<style type="text/css">
+	.middler_4 .content {width: 100%; height: 800px;}
+	.middler_4 .content .button_array {width: 600px; height: 50px;  margin: 0 auto; padding-top: 600px; text-align: center; font-size: 16px; color: #000;}
+	.middler_4 .content .button_unit {float: left; width: 195px; height: 50px; line-height: 50px; cursor: pointer;}
+	.middler_4 .content .unit_1 {border-top-left-radius: 8px; border-bottom-left-radius: 8px; border-top: 1px solid rgb(121, 121, 121); border-bottom: 1px solid rgb(121, 121, 121); border-left: 1px solid rgb(121, 121, 121);}
+	.middler_4 .content .unit_2 { border-top: 1px solid rgb(121, 121, 121); border-bottom: 1px solid rgb(121, 121, 121);}
+	.middler_4 .content .unit_3 {border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-top: 1px solid rgb(121, 121, 121); border-bottom: 1px solid rgb(121, 121, 121); border-right: 1px solid rgb(121, 121, 121);}
+	.middler_4 .content .button_array .on {background-color: rgb(234, 234, 234);}
+</style>
+
+<div class="middle_wrapper">
+	<div class="middler_content_wrapper">
+		<div class="middler_1" style="width: 560px; margin-left:320px; text-align: center; ">
+			<!--产品宣传文字-->
+			<div class="word" style="line-height: 30px; margin-top: 25px; background-color: #fff;">
+				<input id="word_height" value="" type="hidden"/>
+				<label>{$attrbutes[0]["name"]}</label>
+			</div>
+			<div class="image">
+                            {set:$pics_0=JSON::decode($attrbutes[0]["value"])}
+				<img width="560" height="530" src="{webroot:$pics_0[0]}" />
+			</div>
+		</div>
+			
+		<div class="middler_2" style="width: 100%; height: 800px; margin-top: 10px; border-top: 1px solid rgb(241, 241, 241);">
+			<div class="left" style="float: left; width: 550px; margin-left: 190px; margin-top: 230px; padding-top: 200px; height: 330px; line-height: 30px;">
+				<h1>{$attrbutes[1]["name"]}</h1>
+				<div>{$attrbutes[1]["content"]}</div>
+			</div>
+			<div class="right" style="float: left; width: 450px; margin-top: 170px; height: 530px;">
+				<img src="{skin:images/front/gaoqing.jpg}" style="width: 100%; height: 100%"/>
+			</div>
+		</div>
+					
+		<div class="middler_3" style="width: 100%; height: 800px; margin-top: 10px; border-top: 1px solid rgb(241, 241, 241);">
+			<div class="right" style="float: left; margin-left: 100px; width: 450px; margin-top: 170px; height: 530px;">
+				<img src="{skin:images/front/gaoqing.jpg}" style="width: 100%; height: 100%"/>
+			</div>
+			<div class="left" style="float: left; width: 550px;margin-left: 100px; margin-top: 170px; padding-top: 200px; height: 330px; line-height: 30px;">
+				<h1>{$attrbutes[2]["name"]}</h1>
+				<div>{$attrbutes[2]["content"]}</div>
+			</div>
+		</div>
+            {set:$pics_3=JSON::decode($attrbutes[3]["value"])}
+		<div class="middler_4" style="width: 100%; height: 800px; background: url({webroot:$pics_3[0]});">
+			<div class="content">
+				<div class="button_array">
+					<span class="button_unit unit_1 on" bg_info="{webroot:$pics_3[0]}" style=" border-right: 1px solid rgb(121, 121, 121); ">产品功能1</span>
+					<span class="button_unit unit_2" bg_info="{webroot:$pics_3[1]}" style="border-right: 1px solid rgb(121, 121, 121);">产品功能2</span>
+					<span class="button_unit unit_3" bg_info="{webroot:$pics_3[2]}">产品功能3</span>
+				</div>
+			</div>
+		</div>
+		
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(".button_unit").click(function() {
+		$(".middler_4").css("background", "url(" + $(this).attr("bg_info") + ")");
+		$(this).siblings().removeClass("on");
+		$(this).addClass("on");
+	});
+</script>

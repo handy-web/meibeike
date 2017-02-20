@@ -1,0 +1,147 @@
+{js:my97date}
+
+<script type='text/javascript' src='{theme:javascript/event.js}' charset="UTF-8"></script>
+
+<div class="headbar">
+
+	<div class="position"><span>营销</span><span>></span><span>F码管理</span><span>></span><span>F码活动列表</span><span>></span><span>添加F码活动</span></div>
+
+</div>
+
+<div class="content_box">
+
+	<div class="content form_content">
+
+		<form action="{url:/market/fm_activity_edit}"   method="post">
+			<table class="form_table">
+
+				<col width="150px" />
+
+				<col />
+
+				<tr>
+
+					<th>F码活动名称：</th>
+
+					<td>
+
+						<input type='text' name='activity_name' class='normal' pattern='required' alt='请填写F码活动名称' />
+
+						<label>* 请为此F码活动命名 </label>
+
+					</td>
+
+				</tr>
+
+				<tr>
+
+					<th>F码范围：</th>
+
+					<td><input type='text' class='small' pattern='float' alt='必须填写数字' name='min_code' />到&nbsp;&nbsp;<input type='text' class='small' pattern='float' alt='必须填写数字' name='max_code' /><label>* 请填写F码的取值范围</label></td>
+
+				</tr>
+
+				<tr>
+
+					<th>生成数量：</th>
+
+					<td>
+						<input type='text' name='fm_count' class='normal' pattern='required' alt='请填写生成数量' />
+						<label>* F码的生成数量 如 (20)</label>
+
+					</td>
+
+				</tr>
+				<tr>
+					<th>F码有效期：</th>
+					<td>
+						<input type='text' name='start_time' class='Wdate' pattern='datetime' readonly=true onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onblur="FireEvent(this,'onchange')" alt='请填写一个日期' /> ～
+						<input type='text' name='end_time' class='Wdate' pattern='datetime' readonly=true onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onblur="FireEvent(this,'onchange')" alt='请填写一个日期' />
+						<label>* F码有效期</label>
+					</td>
+				</tr>
+				<tr>
+					<th>F码使用奖品：</th>
+					<td>
+						<select name="prize_type">
+							<option value='0' selected='selected'>代金券</option>
+							<option value='1'>实物</option>
+						</select>
+						<label id="prize_limit"><input type='text' name='prize_limit' class='normal' pattern='required' alt='请填写代金券金额'  />*输入金额 如(60)</label>
+						<label id="prize_comment" style='display:none'><input type='text'  name='prize_comment' class='normal' pattern='required' alt='请填写实物名称' />*输入实物奖品名称 如(1T存储碟)</label>
+					</td>
+
+				</tr>
+				<tr>
+					<th>F码兑换奖品：</th>
+					<td>
+						<select name="exchange_prize_type">
+							<option value='0' selected='selected'>代金券</option>
+							<option value='1'>实物</option>
+						</select>
+						<label id="exchange_prize_limit"><input type='text' name='exchange_prize_limit' class='normal' pattern='required' alt='请填写代金券金额'  />*输入金额 如(60)</label>
+						<label id="exchange_prize_comment" style='display:none'><input type='text'  name='exchange_prize_comment' class='normal' pattern='required' alt='请填写实物名称' />*输入实物奖品名称 如(1T存储碟)</label>
+					</td>
+				</tr>
+				<tr>
+					<th>奖品兑换条件：</th>
+					<td>
+						<input type='text' name='exchange_count' class='normal' pattern='required' alt='请填写代金券名称' />
+						<label>*奖品兑换条件(有多少F码被使用才可兑奖)</label>
+					</td>
+				</tr>
+				<tr>
+					<th>代金券有效期：</th>
+					<td>
+											<input type='text' name='coupon_start_time' class='Wdate' pattern='datetime' readonly=true onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onblur="FireEvent(this,'onchange')" alt='请填写一个日期' /> ～
+					<input type='text' name='coupon_end_time' class='Wdate' pattern='datetime' readonly=true onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onblur="FireEvent(this,'onchange')" alt='请填写一个日期' />
+						<label>* 代金券有效期</label>
+					</td>
+				</tr>
+				<tr><td></td><td><button class="submit" type='button'><span>确 定</span></button></td></tr>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.submit').bind("click",function(){
+		var min_code = $('input[name="min_code"]').val();
+		var max_code = $('input[name="max_code"]').val();
+		var fm_count = $('input[name="fm_count"]').val();
+		if(min_code >= max_code){
+			alert("F码的范围不正确");
+			$('input[name="min_code"]').focus();
+			return false;
+		}
+		if(fm_count>(max_code - min_code)){
+			alert("F码生成数量不正确");
+			$('input[name="fm_count"]').focus();
+			return false;
+		}
+		
+		$('form').submit();
+	});
+
+	$('select[name="prize_type"]').change(function(){
+		var value = $('select[name="prize_type"] option:selected').val();
+		if(value == '0'){
+			$('#prize_comment').hide();
+			$('#prize_limit').show();
+		}else if(value == '1'){
+			$('#prize_comment').show();
+			$('#prize_limit').hide();
+		}
+	});
+	$('select[name="exchange_prize_type"]').change(function(){
+		var value = $('select[name="exchange_prize_type"] option:selected').val();
+		if(value == '0'){
+			$('#exchange_prize_comment').hide();
+			$('#exchange_prize_limit').show();
+		}else if(value == '1'){
+			$('#exchange_prize_comment').show();
+			$('#exchange_prize_limit').hide();
+		}
+	});
+});
+</script>

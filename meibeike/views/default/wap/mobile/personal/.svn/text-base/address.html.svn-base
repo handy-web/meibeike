@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+	    <title>收货地址</title>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <meta name="full-screen" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="format-detection" content="address=no">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../version/css/main.css" />
+		<script type="text/javascript" src="../version/js/jquery.js" ></script>
+	</head>
+	<body>
+		<div class="addr-box" style="display: none;">
+			<div class="addr-line">
+				<div class="addr-ad">
+					<img src="../version/img/app-addr.png" />
+					<span>添加新地址</span>
+				</div>
+			</div>
+			
+			<ul class="addr-list">
+				<li>
+					<p>收货人：<span>李晓明</span></p>
+					<p>联系电话：<span>13838384438</span></p>
+					<p>收货地址：<span>广东省深圳市龙岗区坂田万科四季城紫荆园</span></p>
+					<h2><input name="addressauto" type="radio" id="check_a"><label for="check_a">设为默认</label><a href="#"><img src="../version/img/app-bj.png">编辑</a><a href="#"><img src="../version/img/app-de.png">删除</a></h2>
+				</li>
+				<li>
+					<p>收货人：<span>李晓明</span></p>
+					<p>联系电话：<span>13838384438</span></p>
+					<p>收货地址：<span>广东省深圳市龙岗区坂田万科四季城紫荆园</span></p>
+					<h2><input name="addressauto" type="radio" id="check_b"><label for="check_b">设为默认</label><a href="#"><img src="../version/img/app-bj.png">编辑</a><a href="#"><img src="../version/img/app-de.png">删除</a></h2>
+				</li>
+			</ul>
+		</div>
+		
+		<!--新增地址-->
+		<div class="addr-rape" style="display: block;"> 
+			<div class="addr-tab">
+				<ul class="addr-ul">
+					<li>
+						<div class="addr-in">
+							<p>收货人</p>
+							<div class="addr-input"><input maxlength="10" type="text" name="" id="" value="" placeholder="请填写" /></div>
+						</div>
+					</li>
+					<li>
+						<div class="addr-in">
+							<p>联系电话</p>
+							<div class="addr-input"><input maxlength="11" type="text" name="" id="" value="" placeholder="请填写" /></div>
+						</div>
+					</li>
+					
+					<li>
+						<div class="addr-in">
+							<p>省份</p>
+							<div class="addr-input">
+								<select>
+									<option>前选择000000</option>									
+								</select>							
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="addr-in">
+							<p>城市</p>
+							<div class="addr-input">
+								<select>
+									<option>前选择</option>									
+								</select>							
+							</div>
+						</div>
+					</li> 
+					<li>
+						<div class="addr-in">
+							<p>区/县</p>
+							<div class="addr-input">
+								<select>
+									<option>前选择</option>									
+								</select>							
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="addr-in">
+							<p>街道地址</p>
+							<div class="addr-input"><input maxlength="30" type="text" name="" id="" value="" placeholder="请填写" /></div>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+			<div class="addr-but">
+				<input type="submit" name="" id="" value="保存" />
+			</div>
+		</div>
+		
+	</body>
+</html>

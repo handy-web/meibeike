@@ -1,0 +1,84 @@
+{set:
+	$site_config=new Config('site_config');
+	$seo_data=array();
+	$seo_data['title']=$site_config->name;
+	$seo_data['title'].=$site_config->index_seo_title;
+	$seo_data['keywords']=$site_config->index_seo_keywords;
+	$seo_data['description']=$site_config->index_seo_description;
+	seo::set($seo_data);
+}
+
+<link rel="stylesheet" type="text/css" href="{theme:javascript/jquery.bxSlider/jquery.bxslider.css}" />
+<script type="text/javascript" src="{theme:javascript/jquery.bxSlider/jquery.bxSlider.min.js}"></script>
+
+<!--幻灯片 开始-->
+<div class="row row_swiper">
+	{if:$this->index_slide}
+	<ul class="bxslider">
+		{foreach:items=$this->index_slide}
+		<li title="{$item['name']}"><a href="{url:$item[url]}" target="_blank"><img src="{webroot:$item[img]}" width="750px" title="{$item['name']}" /></a></li>
+		{/foreach}
+	</ul>
+	{/if}
+</div>
+<!--幻灯片 结束-->
+
+<!--菜单 开始-->
+<div class="row row_category">
+	<ul class="h_box">
+		<li>
+			<a href="{url:site/sitemap}"><img src="{skin:images/front/icon_indexn_05.png}"></a>
+			<p>全部分类</p>
+		</li>
+
+		<li>
+			<a href="{url:simple/cart}"><img src="{skin:images/front/icon_indexn_06.png}"></a>
+			<p>购物车</p>
+		</li>
+
+		<li>
+			<a href="{url:ucenter/index}"><img src="{skin:images/front/icon_indexn_07.png}"></a>
+			<p>会员中心</p>
+		</li>
+
+		<li>
+			<a href="{url:ucenter/favorite}"><img src="{skin:images/front/icon_indexn_03.png}"></a>
+			<p>我的收藏</p>
+		</li>
+	</ul>
+</div>
+<!--菜单 结束-->
+
+<!--首页推荐商品列表 开始-->
+<div id="list">
+    <ul>
+    	{foreach:items = Api::run('getCommendRecom')}
+        <li>
+            <div class="type_ad">
+                <a href="{url:/site/products/id/$item[id]}">
+                    <div class="imgurl">
+                        <img src="{webroot:}{echo:Thumb::get($item['img'],200,200)}">
+                    </div>
+
+                    <div class="info">
+                        <div class="product_name">
+                            <span class="price">￥{$item['sell_price']}</span>
+                            <span class="product_name">{$item['name']}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </li>
+        {/foreach}
+    </ul>
+</div>
+<!--首页推荐商品列表 结束-->
+
+<script type='text/javascript'>
+//dom载入完毕执行
+jQuery(function()
+{
+	//幻灯片开启
+	$('.bxslider').bxSlider({'mode':'fade','captions':true,'pager':false,'auto':true});
+})
+</script>

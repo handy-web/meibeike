@@ -1,0 +1,11 @@
+<style>
+	body{background: #F5F5F5;}
+</style>
+		{set:$msg = IReq::get('msg') ? IReq::get('msg') : '发生错误'}
+		<div class="err-box">
+			<img src="/views/default/wap/mobile/version/img/app-error.png"/>
+			<p>Sorry...</p>
+			<h3>{$msg}</h3>
+			<div class="err-but">{if:$this->user['user_id']}<a href='{url:/wapcenter/personal}'>返回个人中心</a>{/if}</div>
+		</div>
+	

@@ -1,0 +1,74 @@
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/K_public.css" />
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/activity.css" />
+
+
+
+<div class="doc-tj-c">
+       <h2>您的资料已提交</h2>
+       <p style="text-align:center">如果您提交的资料不正确，在五个工作日内，我们将有工作人员联络您，谢谢配合！</p>
+       <p class="hwtd-center"> <a class="input-order mgt-90" href="/site/huaweib_ok/">知道了</a></p>
+    </div>
+
+
+
+<script>
+$(function(){
+	
+	$('.top dl').mouseover(function(){
+		$(this).addClass('on');
+		$(this).find('dd').slideDown(150);
+	});
+    $('.top dl').mouseleave(function(){
+		$(this).removeClass('on');
+		$(this).find('dd').stop().slideUp(150);
+	});
+
+	})
+</script>
+
+
+
+<script>
+$(function(){
+
+	})
+  $(document).ready(function(){ 
+　　//$(".header").css("display","none")
+}); 
+
+ $("#Appoint").click(function () {
+                //如果已经在登录页，则不变
+                var loginpage = $("#loginpage").val();
+				
+				// 清楚密碼
+				if ($(".password_input").val() != $(".password_input").attr("placeholder")) {
+					if (placeholderSupport()) {
+						$(".password_input").val("");
+					} else {
+						$(".password_input").val($(".password_input").attr("placeholder"));
+						$(".password_input").css("color", "#aaa");
+					}
+					$("#password").val("");
+				}
+
+				
+                //alert(loginpage);
+                if (loginpage == 'php') {
+                    return false;
+                } else {
+                    var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+
+                    var body_width = $(window).width();
+
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+                    return false;
+                }
+            });
+
+</script>
+
+

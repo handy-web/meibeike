@@ -1,0 +1,35 @@
+<div class="headbar">
+	<div class="position"><span>营销</span><span>></span><span>F码管理</span><span>></span><span>F码活动列表</span></div>
+	<div class="operating">
+		<a href="javascript:;" onclick="event_link('{url:/market/add_fm_activity}')"><button class="operating_btn" type="button"><span class="addition">添加F码活动</span></button></a>
+	</div><form action="{url:/market/fm_activity_list}" method="get" name="activity_list"><div class="searchbar vselect"><select name="out_status" class="auto">	<option value="">选择过期状态</option>	<option value="0">未过期</option>	<option value="1">已过期</option></select><select  name="review_status" class="auto">	<option value="">选择审核状态</option>	<option value="0">未审核</option>	<option value="1">已同意</option>	<option value="2">已拒绝</option></select><button class="btn" type="submit"><span class="sel">筛 选</span></button></div></form><script type="text/javascript">$(document).ready(function(){	$('.btn').bind('click',function(){		var out_status = $('select[name="out_status"]').val();		var review_status = $('select[name="review_status"]').val();		if(out_status == '' && review_status == ''){			alert('至少选择一个筛选条件');			return false;		}	});});</script>
+	<div class="field">
+		<table class="list_table">
+			<col width="40px" />
+			<col width="40px" />
+			<col width="80px" />
+			<col width="80px" />
+			<col width="80px" />			<col width="180px" />			<col width="40px" />			<col width="40px" />			<col width="40px" />
+			<thead>
+				<tr>
+					<th>选择</th>
+					<th>序号</th>
+					<th>活动名称</th>
+					<th>F码范围</th>
+					<th>数量</th>
+					<th>有效期</th>
+					<th>过期状态</th>										<th>审核状态</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+<div class="content">
+	<form method='post' action='#'>
+		<table class="list_table">			<col width="40px" />			<col width="40px" />			<col width="80px" />			<col width="80px" />			<col width="80px" />			<col width="180px" />			<col width="40px" />			<col width="40px" />			<col width="40px" />
+			<tbody>				{foreach:items= $fm_activity_list}
+				<tr>				<td><input type='checkbox' name='id[]' value="{$item['id']}" /></td>				<td>{$item['id']}</td>				<td title="查看活动详情"><a href="{url:/market/fm_activity_detail/id/}{$item['id']}">{$item['activity_name']}</a></td>				<td title="查看F码列表"><a href="{url:market/fm_list/aid/}{$item['id']}/activity_name/{$item['activity_name']}">{$item['min_code']}至{$item['max_code']}</a></td>				<td>{$item['fm_count']}</td>				<td>{$item['start_time']} 到 {$item['end_time']}</td>				<td>{if:$item['out_status']=='0'}未过期{else:}已过期{/if}</td>				<td>{if:$item['status']=='0'}未审核{elseif:$item['status']=='1'}已同意{elseif:$item['status']=='2'}已拒绝{/if}</td>
+				</tr>				{/foreach}			</tbody>
+		</table>
+	</form>
+</div><script type='text/javascript'>//DOM加载结束    $(function () {        var formInstance = new Form('activity_list');        formInstance.init({            "review_status": "{$review_status}",            "out_status": "{$out_status}"        });    });</script>

@@ -1,0 +1,74 @@
+
+<div class="top layout">
+<span  class="logo" ><a href="#"><img src="images/b_logo.png"></a>网盘弃儿关怀专页</span>
+<p><a>活动规则</a>|<a href="#">我的奖品</a></p>
+</div>
+
+<div class="layout goodsbox">
+
+
+<div class="rbox">
+<div class="imgbox"><img src="images/b_img.png"></div>
+<span><a href="#">观看产品视频</a>&gt;<a href="#">了解云棒详情</a></span>
+</div>
+
+<h1>预约<em>云棒</em><br>每一小时送一个</h1>
+<h2>母  棒：服务器+路由器+电视盒+投屏神器四合一<br>存储棒：金质固态硬盘SSD，超快超省超安全，酷毙了<br>存储碟：金质防摔，监控级硬盘超大容量，高性价</h2>
+<h3>6月20日上午10点首卖</h3>
+<h4><em>1898</em>元  银霸组合（母棒+2T存储碟）<br><em>2298</em>元  金甲组合（母棒+250GB存储棒）</h4>
+<p><a class="order on">立即预约</a><a class="in" href="#">进入官网</a></p>
+<p><a href="#" class="on">华为网盘用户特别通道</a></p>
+<h5>共<em>620万人</em>预&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;约官网 500万人，QQ空间与微博120万人</h5>
+
+</div>
+
+
+<div class="b_box">
+<h2>云棒  私有云</h2>
+<p>把个人数据放在自己家里<br>创建属于自己的私有云服务器，可以完全掌握私人数据</p>
+<h3><a href="#">观看产品视频</a>&gt;<a href="#">了解云棒详情</a></span></h3>
+</div>
+
+
+<div class="orderbox">
+<h3>每一小时送出一台云棒</h3>
+<p>立即预约，获得抽奖机会</p>
+<a href="#">立即预约</a>
+</div>
+
+<div class="productbox">
+<div class="layout">
+<h1><em>云棒</em>各版本发售时间表</h1>
+
+<ul>
+<li>
+<div>
+<h2>银霸组合</h2>
+<img src="images/producta.png">
+<p>银霸组合（母棒+2T存储碟）高性价<br>
+<em>¥ 1898元</em>&nbsp;&nbsp;6月20日&nbsp;&nbsp;现货发售</p>
+</div>
+<a href="#">了解云棒&nbsp;<i>&gt;</i></a>
+</li>
+
+<li>
+<div>
+<h2>金甲组合</h2>
+<img src="images/productb.png">
+<p>金甲组合（母棒+250GB存储棒）双棒镜像备份<br>
+<em>¥ 2298元</em>&nbsp;&nbsp;6月20日&nbsp;&nbsp;现货发售</p>
+</div>
+<a href="#">了解云棒&nbsp;<i>&gt;</i></a>
+</li>
+
+</ul>
+
+</div>
+</div>
+
+
+<script>
+$(function(){
+
+	})
+</script>

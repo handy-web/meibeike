@@ -1,0 +1,684 @@
+{js:artTemplate}
+<script type='text/javascript' src='{theme:javascript/artTemplate/area_select.js}'></script>
+<script type='text/javascript' src='{theme:javascript/orderFormClass.js?20160720}'></script>
+
+
+<script type='text/javascript'>
+//创建订单表单实例
+orderFormInstance = new orderFormClass();
+
+//DOM加载完毕
+jQuery(function(){
+	//使用红包按钮
+	$('#ticket_a').click(function()
+	{
+		//第一次打开时生成缓存数据
+		if($.trim($('#ticket_show_box').text()) == '')
+		{
+			var ticketList = {echo:JSON::encode($this->prop)};
+			for(var index in ticketList)
+			{
+				var ticketHtml = template.render('ticketTrTemplate',{item:ticketList[index]});
+				$('#ticket_show_box').append(ticketHtml);
+			}
+		}
+
+		$(this).toggleClass('fold');
+		$(this).toggleClass('unfold');
+		$('#ticket_box').toggle('slow');
+	});
+
+	//初始化地域联动JS模板
+	template.compile("areaTemplate",areaTemplate);
+
+	//收货地址数据
+	orderFormInstance.addressInit("{$this->defaultAddressId}");
+
+	//配送方式初始化
+	orderFormInstance.deliveryInit("{$this->custom['delivery']}");
+
+	//设置是否免运费
+	orderFormInstance.freeFreight = {echo:$this->freeFreight ? 1 : 0};
+
+	//支付方式
+	orderFormInstance.paymentInit("{$this->custom['payment']}");
+
+	//商品价格
+	orderFormInstance.goodsSum = "{$this->final_sum}";
+});
+
+/**
+ * 生成地域js联动下拉框
+ * @param name
+ * @param parent_id
+ * @param select_id
+ */
+function createAreaSelect(name,parent_id,select_id)
+{
+	//生成地区
+	$.getJSON("{url:/block/area_child}",{"aid":parent_id,"random":Math.random()},function(json)
+	{
+		$('[name="'+name+'"]').html(template.render('areaTemplate',{"select_id":select_id,"data":json}));
+	});
+}
+
+//[address]保存到常用的收货地址
+function address_default_save()
+{
+	if(orderFormInstance.addressCheck())
+	{
+		$.getJSON('{url:/ucenter/address_add2}',$('form[name="order_form"]').serialize(),function(content){
+			if(content.isError == false)
+			{	$('.acc').trigger('click');
+				var addressLiHtml = template.render('addressLiTemplate',{"item":content.data});
+				$('#address_often').show();
+				$('.addr_list').prepend(addressLiHtml);
+				$('input:radio[name="radio_address"]:first').trigger('click');
+			}
+			else
+			{
+				alert(content.message);
+			}
+		});
+	}
+}
+
+
+function address_fisrt_save(){
+	if(orderFormInstance.addressCheck())
+	{
+		$.getJSON('{url:/ucenter/address_add2}',$('form[name="order_form"]').serialize(),function(content){
+			if(content.isError == false)
+			{	$('#address_form').hide();
+				$('#address_show_box').show();
+				var addressLiHtml = template.render('addressLiTemplate',{"item":content.data});
+				$('.addr_list').prepend(addressLiHtml);
+				$('input:radio[name="radio_address"]:first').trigger('click');
+			}
+			else
+			{
+				alert(content.message);
+			}
+		});
+	}
+}
+
+
+function address_modify(){
+	if(orderFormInstance.addressCheck())
+	{
+		$.getJSON('{url:/ucenter/address_modify}',$('form[name="order_form"]').serialize(),function(content){
+			if(content.isError == false)
+			{	
+				$('.acc').trigger('click');
+				alert(content.message);
+				$('.alert_close_img').click(function(){
+					window.location.reload();
+				});
+			}
+			else
+			{
+				alert(content.message);
+			}
+		});
+	}
+}
+
+
+//[delivery]根据省份地区ajax获取配送方式
+function get_delivery(province)
+{
+	$.getJSON("{url:/block/order_delivery}",{"province":province,"total_weight":"{$this->weight}","goodsSum":"{$this->sum}"},function(content){
+
+		//清空数据
+		$('#deliveryFormTrBox').empty();
+
+		for(var index in content)
+		{
+			var deliveryTrHtml = template.render('deliveryTrTemplate',{item:content[index]});
+			$('#deliveryFormTrBox').append(deliveryTrHtml);
+		}
+
+		if($.trim($('#deliveryFormTrBox').text()) == '')
+		{
+			alert('需要从后台添加配送方式才能下单');
+			return;
+		}
+
+		//是否选中无法送达的配送方式
+		if(orderFormInstance.deliveryActiveId)
+		{
+			var defaultDeliveryItem = $('input[type="radio"][name="delivery_id"][value="'+orderFormInstance.deliveryActiveId+'"]');
+			if(defaultDeliveryItem.length > 0)
+			{
+				//不能送达省份时
+				if(defaultDeliveryItem.attr('disabled'))
+				{
+					defaultDeliveryItem.attr('checked',false);
+
+					tips('您选择的省份当前的配送方式不能送达！请重新选择配送方式');
+
+					//切换视图方式
+					if(orderFormInstance.deliveryMod == 'exit')
+					{
+						orderFormInstance.deliveryModToggle();
+					}
+					return;
+				}
+
+				defaultDeliveryItem.trigger('click');
+
+				//默认配送方式
+				if($('#paymentBox:hidden').length == 1 && orderFormInstance.paytype == 0)
+				{
+					orderFormInstance.deliverySave();
+				}
+			}
+		}
+	});
+}
+
+//添加代金券
+function add_ticket()
+{
+	var ticket_num = $('#ticket_num').val();
+	var ticket_pwd = $('#ticket_pwd').val();
+
+	if(ticket_num == '' || ticket_pwd == '')
+	{
+		alert('请填写卡号和密码');
+		return '';
+	}
+
+	$.getJSON('{url:/block/add_download_ticket}',{"ticket_num":ticket_num,"ticket_pwd":ticket_pwd},function(content){
+		if(content.isError == false)
+		{
+			is_success = true;
+			$('[name="ticket_id"]').each(
+				function()
+				{
+					if($(this).val() == content.data.id)
+					{
+						alert('代金券已经存在，不要重复添加');
+						is_success = false;
+					}
+				}
+			);
+
+			if(is_success)
+			{
+				var ticketHtml = template.render('ticketTrTemplate',{item:content.data});
+				$('#ticket_show_box').append(ticketHtml);
+				$('[name="ticket_id"]').attr('checked',true);
+				$('[name="ticket_id"]:last').trigger('click');
+			}
+			$('#ticket_num').val('');
+			$('#ticket_pwd').val('');
+		}
+		else
+		{
+			alert(content.message);
+		}
+	});
+}
+
+//取消红包
+function cancel_ticket()
+{
+	$('#ticket_a').trigger('click');
+	$('[name="ticket_id"]').attr('checked',false);
+	orderFormInstance.doAccount();
+}
+
+get_delivery("广东");
+</script>
+
+
+<!--中间内容-->
+		<div class="place">
+			<div class="center">
+				<ul class="conet">
+					<li>
+						<div class="sco1"></div>
+					</li>
+					<li>
+						<div class="sco2"></div>
+					</li>
+				</ul>
+				<ul class="conet1">
+					<li>
+						<div class="pla-radiu pla-radiu-left1"></div>
+						<div class="pla-radiu-text1"><a href='{if:IReq::get('id')}javascript:window.history.go(-1);{else:}{url:/simple/cart}{/if}'>选择抢购商品</a></div>
+					</li>
+					<li>
+						<div class="pla-radiu pla-radiu-left2"></div>
+						<div class="pla-radiu-text2">填写订单详情</div>
+					</li>
+					<li>
+						<div class="pla-radiu1 pla-radiu-left3"></div>
+						<div class="pla-radiu-text3">支付结算</div>
+					</li>
+				</ul>
+				<form action='{url:/simple/cart3}' method='post' name='order_form' callback='orderFormInstance.isSubmit();'>
+				<input type='hidden' name='timeKey' value='{echo:time()}' />
+				<input type='hidden' name='direct_gid' value='{$this->gid}' />
+				<input type='hidden' name='direct_type' value='{$this->type}' />
+				<input type='hidden' name='direct_num' value='{$this->num}' />
+				<input type='hidden' name='direct_promo' value='{$this->promo}' />
+				<input type='hidden' name='direct_active_id' value='{$this->active_id}' />
+				<input type="hidden" name="taxes"  value="{$this->goodsTax}" />
+				
+					
+				<!--收货地址显示-->
+
+					<!--地址展示 开始-->
+					<div class="pla-p1">收货地址 <span class="frt pla-tile">{if:count($this->addressList)>0}<a class="butt1" onclick="address_process('modify')">修改地址</a><a class="butt2" onclick="address_process('add')">新增地址</a>{/if}</span></div>					
+					<div class="pla-cin1"></div>
+					 
+					<!--保存完显示的地址-->
+					<div class="pla-nav" id="address_show_box" style="display: none;">
+						<div id="addressShowBox"></div>
+						<script type='text/html' id='addressShowTemplate'>
+							<div class="pla-addr">
+								<input name="addr-radio" type="radio" id="add_a" checked="checked"><label for="add_a">
+									<span><%=accept_name%></span>
+									<span><%=province_val%> <%=city_val%> <%=area_val%>&nbsp;<%=address%></span>
+									<span><%=mobile%></span>
+								</label>
+							</div>						
+						</script>				
+					</div>
+					<!--保存完显示的地址end-->
+					
+					<!--收货表单信息 开始-->
+					<div class="prompt_4 m_10" id='address_often'>
+						<div class="addr-dz">常用收货地址</div>
+						<ul class="addr_list" style="margin-left: 10px;font-size: 16px;">
+							{foreach:items=$this->addressList}
+							<li>
+								<label style="cursor: pointer;"><input class="radio" name="radio_address" type="radio" value="{$item['id']}" onclick='orderFormInstance.addressSelected({echo:JSON::encode($item)});' />{$item['accept_name']}&nbsp;&nbsp;&nbsp;&nbsp;{$item['province_val']} &nbsp;{$item['city_val']}&nbsp; {$item['area_val']}&nbsp; {$item['address']}&nbsp;{$item['mobile']}</label>
+							</li>
+							{/foreach}
+							<input style="display:none" type='radio' name='radio_address' onclick='orderFormInstance.addressEmpty();' value='' />
+							</ul>
+						<!--收货地址项模板-->
+						<script type='text/html' id='addressLiTemplate'>
+						<li>
+							<label style='cursor: pointer;'><input class="radio" name="radio_address" type="radio" value="<%=item['id']%>" onclick='orderFormInstance.addressSelected(<%=jsonToString(item)%>);' /><%=item['accept_name']%>&nbsp;&nbsp;&nbsp;&nbsp;<%=item['province_val']%>&nbsp;<%=item['city_val']%>&nbsp;<%=item['area_val']%>&nbsp;<%=item['address']%>&nbsp;<%=item['mobile']%></label>
+						</li>
+						</script>
+					</div>
+				{if:count($this->addressList)<1}
+				<ul class="pla-ul" id='address_form' style="width: 700px;">
+					<li><em>*</em>姓&nbsp;&nbsp;名：<span class="pla-input"><input type="text" name="accept_name" pattern='required' placeholder="请填写收货人姓名" alt='收件人姓名不能为空'/></span> </li>
+					<li><em>*</em>手&nbsp;&nbsp;机：<span class="pla-input"><input type="text"  name='mobile' pattern='mobi'  placeholder="请填写联系方式" alt='格式不正确'/> </span></li>
+					<li><em>*</em>地&nbsp;&nbsp;址：
+						<span class="pla-select">
+							<select name="province" child="city,area" onchange="areaChangeCallback(this);"></select>&nbsp;
+							<select name="city" child="area" parent="province" onchange="areaChangeCallback(this);"></select>&nbsp;
+							<select name="area" parent="city" pattern="required" alt="请选择收货地区"></select>
+						</span>
+					</li>
+					<li><span class="pla-input pla-left"><input type="text" name='address' pattern='required' placeholder="请填写详细地址" alt='详细地址不能为空'/> </span> </li>
+			
+					<li><span class="pla-left"><a id="address_save_button" class="pla-but" onclick="address_fisrt_save()" >保存并使用地址</a></span></li>
+				</ul>
+				{/if}
+				<!--添加新地址弹框-->
+				{if:count($this->addressList)>0}
+				<div style="display: none;" class="cover-m-1">
+					<div class="cover-km-1">
+						<div class="cover-div-1">
+							<div class="cover-title-1"><span>修改地址</span>
+								<span><img class="acc" src="{skin:images/front/corico.png}" /> </span>
+							</div>
+							<div class="cover-in-1">
+								<input type='hidden' name='address_id' value='' />
+								<div class="cov"><span>姓名：</span><input name="accept_name" type="text" placeholder="请输入收货人姓名" pattern='required' alt='收件人姓名不能为空'/></div>
+								<div class="cov"><span>手机：</span><input name='mobile' type="text" pattern='mobi' placeholder="请输入收货人手机" alt='格式不正确'/></div>								
+								<div class="cov" style="overflow: hidden;"><span style="margin-right:5px;float: left;">地址：</span>
+									<select name="province" child="city,area" onchange="areaChangeCallback(this);"></select>
+									<select name="city" child="area" parent="province" onchange="areaChangeCallback(this);"></select>
+									<select name="area" parent="city" pattern="required" alt="请选择收货地区"></select>
+								</div>
+								<div class="cov"><span class="covspan"></span><input name='address' pattern='required' type="text" placeholder="请填写详细地址" alt='详细地址不能为空'/></div>
+								<div class="cov c-top" id='address_modify' style="display:none"><span class="covspan"></span><a class="but-rt" onclick="address_modify();">保存</a></div>
+								<div class="cov c-top" id='address_add' style="display:none"><span class="covspan"></span><a class="but-rt" onclick="address_default_save();">新增</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{/if}
+				<script type="text/javascript">
+		         //新增地址弹框（和修改地址）
+			        function address_process(action){
+			        	if(action=='modify'){
+				            orderFormInstance.addressModSwith('modify');
+			        	}else if(action=='add'){
+				            orderFormInstance.addressModSwith('add');
+			        	}
+			        }			        
+			        
+			        $(".cover-m-1 .acc").click(function(){
+			        	//alert('test');
+			            $(".cover-m-1").hide();
+			        });
+			   </script>
+				<!--配送方式 开始-->
+				<div class="wrap_box" id='deliveryBox' style='display:block;padding-top: 0;'>
+					<div>
+						<div class="pla-p1">配送方式</div>					
+						<div class="pla-cin1"></div>
+						
+						<a style="display: none;" class="normal f12" href="javascript:void(0)" id='deliveryToggleButton' onclick="orderFormInstance.deliveryModToggle();">[关闭]</a>
+					</div>
+
+					<!--配送方式-->
+					<div id='deliveryBox'>
+						<div id="deliveryShowBox"></div>
+							<script type='delivery' id='deliveryShowTemplate'>
+								<div class="car-op" >
+									<select>
+										<option>公司包邮</option>								
+									</select>
+								</div>
+							</script>
+					</div>		
+					
+					<!--配送方式end-->
+
+					<!--配送修改 开始-->
+					<table width="100%" class="border_table m_10" id='delivery_form'>
+						<col width="180px" />
+						<col />
+
+						<tbody id="deliveryFormTrBox"><tr>
+							<th><label><input type="radio" name="delivery_id" paytype="0" alt="0.00" value="3" onclick="orderFormInstance.deliverySelected({&quot;id&quot;:&quot;3&quot;,&quot;name&quot;:&quot;免运费&quot;,&quot;type&quot;:&quot;0&quot;,&quot;description&quot;:&quot;&quot;,&quot;if_delivery&quot;:&quot;0&quot;,&quot;price&quot;:&quot;0.00&quot;,&quot;protect_price&quot;:&quot;0&quot;});">免运费</label></th>
+							<td>
+								 运费：￥0.00 &nbsp;&nbsp;
+								
+							</td>
+						</tr></tbody>
+
+						<script type='text/html' id='deliveryTrTemplate'>
+						<tr>
+							<th><label><input type="radio" name="delivery_id" paytype="<%=item['type']%>" alt="<%=item['price']%>" value="<%=item['id']%>" <%if(item['if_delivery'] == 1){%>disabled="disabled" title="无法送达"<%}%> onclick='orderFormInstance.deliverySelected(<%=jsonToString(item)%>);' /><%=item['name']%></label></th>
+							<td>
+								<%=item['description']%> 运费：￥<%=item['price']%> &nbsp;&nbsp;
+								<%if(item['protect_price'] > 0){%>
+									<label><input type="checkbox" onclick="orderFormInstance.doAccount();" name="insured" value="<%=item['protect_price']%>" />保价：￥<%=item['protect_price']%></label>
+								<%}%>
+							</td>
+						</tr>
+						</script>
+
+						<tfoot>
+							<th>指定送货时间：</th>
+							<td>
+								<label class='attr'><input type='radio' name='accept_time' checked="checked" value='任意' />任意</label>
+								<label class='attr'><input type='radio' name='accept_time' value='周一到周五' />周一到周五</label>
+								<label class='attr'><input type='radio' name='accept_time' value='周末' />周末</label>
+							</td>
+						</tfoot>
+					</table>
+					<!--配送修改 结束-->
+
+					<label class="btn_orange3"><input type="button" id="delivery_save_button" onclick="orderFormInstance.deliverySave();" value="保存配送方式" /></label>
+				</div>
+				<!--配送方式 结束-->
+				
+				
+				<!--支付方式 开始-->
+				<div class="wrap_box" id='paymentBox' style='display:block;margin-top: -50px;'>
+					<div class="pla-p1">支付方式</div>					
+					<div class="pla-cin1" style="margin-bottom: 15px;"></div>
+
+					<table width="100%" class="border_table" id='payment_form'>
+						<col width="200px" />
+						<col />
+						{if:$this->user['user_id']}
+						{query:name=payment where = status eq 0 items = $paymentList  /}
+						{else:}
+						{query:name=payment where= class_name neq 'balance' and status eq 0 items = $paymentList /}
+						{/if}
+
+						{foreach:items = $paymentList}
+						{set:$paymentPrice = CountSum::getGoodsPaymentPrice($item['id'],$this->sum);}
+						<tr>
+							<th><label><input class="radio" name="payment" alt="{$paymentPrice}" onclick='orderFormInstance.paymentSelected({echo:JSON::encode($item)});' title="{$item['name']}" type="radio" value="{$item['id']}" />{$item['name']}</label></th>
+							<td>{$item['note']} 支付手续费：￥{$paymentPrice}</td>
+						</tr>
+						{/foreach}
+					</table>
+
+					<table class="form_table" id="payment_show_box" style='display:none;margin-top: -15px;overflow: hidden;margin-left: 41px;font-size: 16px;'>
+						<col width="120px" />
+						<col />
+						<tbody id="paymentShowBox"></tbody>
+					</table>
+
+					<!--支付方式模板-->
+					<script type='text/html' id='paymentShowTemplate'>
+						<tr>
+							<th style='font-size: 16px;'>支付方式：</th>
+							<td><%=name%></td>
+						</tr>
+					</script>
+
+					<label class="btn_orange3" id='payment_save_button'><input type="button" onclick="orderFormInstance.paymentSave();" value="保存支付方式" /></label>
+				</div>
+				<!--支付方式 结束-->
+				
+				<!--<div class="pla-p1">支付方式 </div>
+				<div class="pla-cin1"></div>
+				<div style="padding: 10px 0;">
+					<div class="pla-addr">
+						<input type="radio" id="add_1" name="payment" checked="checked"><label for="add_1">支付宝</lable>
+					</div>
+				</div>
+				<script type='text/html' id='paymentShowTemplate'>
+						<tr>
+							<th>支付方式：</th>
+							<td><%=name%></td>
+						</tr>
+				</script>-->
+				<div class="pla-p1">发票</div>
+				<div class="pla-cin1"></div>
+				
+				<!--<ul class="pla-box">
+					<li>是否需要发票：</li>
+					<li><input name="is_note" type="radio" id="chek_a" checked="checked" value="0"><label for="chek_a">不需要</label></li>
+					<li><input name="is_note" type="radio" id="chek_b" value="1"><label for="chek_b">需要</label></li>
+					<li><span class="pla-input" style="display: block"><input id="inc" name='tax_title' style="display: inline-block;padding: 4px 12px;" type="text" placeholder="请输入购买者的姓名，或所在单位的名称" /> </span></li>
+				</ul>-->
+				
+				<div class="pla-box">
+					<div class="flt pla-cob">是否需要发票：</div>
+					<div class="flt pla-cm">
+						<input name="is_note" type="radio" id="chek_a" checked="checked" value="0"><label for="chek_a">不需要</label>
+					</div>
+					<div class="flt pla-cm">
+						<input name="is_note" type="radio" id="chek_b" value="1"><label for="chek_b">需要</label>
+					</div>
+					<div class="flt pla-input">
+						<input id="inc" name="tax_title" style="display: inline-block;padding: 6px 12px;" type="text" placeholder="请输入购买者的姓名，或所在单位的名称">
+					</div>
+				</div>
+				
+				
+				<div class="pla-p1" style="clear: both;">F码</div>
+				<div class="pla-cin1"></div>
+				
+				<div class=" pla-l1">
+				<ul class="car-1">
+					<li><div class="pla-input" style="margin-left: 0;"><input type="text" style="color:#999" name="fcode" alt = '0' onfocus="if(this.value=='如有F码,请在此输入'){this.value=''}" onblur="if(this.value==''){this.value='如有F码,请在此输入'}" value='如有F码,请在此输入' /></div></li>
+					<li><div class="car-but"><a id="fcode_sure">使用F码</a></div></li>
+					<li><div class="car-p"><p></p></div></li>
+				</ul>
+				</div>
+				
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$('#fcode_sure').click(function(){
+							if($('input[name="fcode"]').val() == ''){
+								$('.car-p p').html("请输入F码");
+								return false;
+							}
+							$.ajax({
+								url:"{url:/simple/checkfcode}",
+								data:{"fcode":$('input[name="fcode"]').val()},
+								dataType:"json",
+								success:function(d){
+									if(d.status == '0'){
+										$('.car-p p').html(d.message);
+										return false;
+									}else{
+										$('.car-p p').empty();
+										$('input[name="fcode"]').attr("alt",d.message);
+										orderFormInstance.doAccount();
+									}
+								}
+							});
+						});
+					});
+				</script>
+				<br>
+				<div class="pla-p1">商品详情</div>
+				<div class="pla-cin1"></div>
+
+				<table class="pla-list">
+					<tbody>
+						<tr>
+							<th>商品</th>
+							<td>单价（元）</td>
+							<td>数量</td>
+							<td>优惠（元）</td>
+							<td>小计（元）</td>
+						</tr>
+						<tr>
+							<table class="pla-tbody">
+								<tbody>
+							{foreach:items = $this->productList}
+							{if:intval(IReq::get('num')) > $item['store_nums'] || intval(IReq::get('num')) < 0}
+							{set:IError::show(403,'购买的商品数量不正确或者大于库存量');}
+							{/if}
+									<tr>
+										<th>
+											<div class="pla-bom">
+												<div class="pla-lc">
+													<img style="width: 100px;" src="{webroot:}{echo:Thumb::get($item['img'],66,66)}" />
+												</div>
+												<div class="pla-lc">
+												<p>{$item['name']}</p>
+												</div>
+
+											</div>
+										</th>
+										<td ><span>&#65509;{$item['sell_price']}</span></td>
+				
+										<td>
+											{$item['count']}
+											<!--<div class="number-box"> 
+												<a class="min"><img src="{skin:images/front/img/ico-rad.png}"></a>
+												<input name="" type="text" value="1" />
+												<a class="add"><img src="{skin:images/front/img/ico-add.png}"></a>
+											</div>-->
+										</td>
+										<td>
+											<p class="pla-p00">&#65509;{$item['reduce']}</p>
+										</td>
+										<td>
+											<p class="pla-p00">&#65509;{$item['sum']}</p>
+										</td>
+
+									</tr>
+								{/foreach}
+								</tbody>
+							</table>
+						</tr>
+					</tbody>
+				</table>
+				
+				<div class="pla-cv">
+					<div class="pla-input pla-l1 flt"><span class="pla-span">备注：</span><input type="text" name='message' placeholder="请输入备注（非必填项）" /> </div>
+					<!--<div class="frt pla-rt"><a>使用优惠券：暂无优惠券可用<img src="{skin:images/front/img/ico-bom.png}" /></a> </div>-->
+				</div>
+
+				<div class="pla-bcm">
+					<div class="frt">
+						<div class="pla-lec clearfix">
+							<div class="pla-block">
+								<div class="pla-doc flt">商品总价：</div><span class="frt"> &#65509;{$this->final_sum}</span></div>
+							<div class="pla-block">
+								{foreach:items = $this->productList}
+								<div class="pla-doc flt">优惠券折扣：</div><span class="frt pla-red">&#65509;{$item['reduce']}</span></div>
+								{/foreach}
+							<div class="pla-block">
+								<div class="pla-doc flt">运费：</div><span class="frt"> &#65509;0.00</span></div>
+							<div class="pla-block">
+								<div class="pla-doc flt pla-bold" style="font-size: 18px;">应付总额：</div><span class="frt pla-red pla-bold"> &#65509;<span id="final_sum" class="pla-red pla-bold"></span></span></div>
+						</div>
+						<div class="pla-button"><input class="plainput" type="submit"  value="提交订单" /></div>
+						
+					</div>
+				</div>
+				</form>
+			</div>
+		</div>
+		<!--中间内容over-->
+
+
+<script>
+	$("#inc").hide();
+	$(":radio[name='is_note']").click(function() {
+		var index = $(":radio[name='is_note']").index($(this));
+		if (index == 1)
+			$("#inc").show();
+		else
+			$("#inc").hide();
+	});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('input[name="is_note"]').click(function(){
+		if($(this).attr('checked')=='checked'){
+			$(this).val(1);
+			$('#tax_title').show();
+		}else{
+			$('input[name="tax_title"]').val("");
+			$(this).val(0);
+			$('#tax_title').hide();
+		}		
+	});
+});
+</script>
+<script>
+　　$("#payment_show_box").css("display","block");
+	$("#delivery_show_box").css("display","none");
+    $("#delivery_form").css("display","block");
+    $("input[name=payment]").click();
+	
+$(document).ready(function(){ 
+　　if($("input[name=delivery_id]").val()=="3") {$("input[name=delivery_id]").click();if($("#deliveryToggleButton").html()!="[修改]") {orderFormInstance.deliverySave();}}
+    if($("#paymentToggleButton").html()!="[修改]") {orderFormInstance.paymentSave();}
+	if($("#payment_show_box").css("display")=="none") {$("#payment_show_box").css("display","none");}
+	
+
+	setTimeout(function (){
+	if($("#paymentToggleButton").html()!="[修改]") {orderFormInstance.paymentSave();}
+	if($("#payment_show_box").css("display")=="none") {$("#payment_show_box").css("display","block");}
+	$("input[name=delivery_id]").click();	
+	if($("#deliveryToggleButton").html()!="[修改]") {orderFormInstance.deliverySave();}
+	
+	}, 0);
+	
+//	setTimeout(function (){orderFormInstance.paymentSave();   }, 1000);
+   
+	
+	
+
+}); 
+
+
+
+</script>

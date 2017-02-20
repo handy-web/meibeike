@@ -1,0 +1,15 @@
+<div class="headbar"><div class="position"><span>营销</span><span>></span><span>审核管理</span><span>></span><span>审核列表</span></div><form action="{url:/market/apply_fm_review}" method="get"><div class="searchbar vselect"><select name="apply_status" class="auto">	<option value="">选择审核结果</option>	<option value="0">未审核</option>	<option value="1">审核通过</option>	<option value="2">审核不通过</option></select><button class="btn" type="submit"><span class="sel">搜索</span></button></div></form>
+	<div class="field">
+		<table class="list_table">						<col width="40px" />			<col width="40px" />			<col width="40px" />			<col width="80px" />			<col width="160px" />			<col width="40px" />			<col width="40px" />			<col width="80px" />			<col width="40px" />			
+			<thead>
+				<tr>
+					<th>选择</th>
+					<th>序号</th>
+					<th>申请人</th>
+					<th>申请时间</th>
+					<th>申请内容</th>
+					<th>审核状态</th>
+					<th>审核结果</th>										<th>审核时间</th>										<th>操作</th>
+				</tr>
+			</thead>			</table>		</div>	<div class="content">	<table class="list_table">					<tbody>			<colgroup>					<col width="40px" />			<col width="40px" />			<col width="40px" />			<col width="80px" />			<col width="160px" />			<col width="40px" />			<col width="40px" />			<col width="80px" />			<col width="40px" />			</colgroup>				{set:$page= (isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}				{query:name=fm_apply as fm join=left join user as u on fm.apply_meiid eq u.id fields=fm.id,u.username,fm.apply_time,fm.apply_comment,fm.apply_status,fm.review_time where = fm.id neq '' $where order=fm.id desc page = $page }								<tr>					<td><input type="checkbox" name="id[]" /></td>					<td>{$item['id']}</td>					<td>{$item['username']}</td>					<td>{$item['apply_time']}</td>					<td>{$item['apply_comment']}</td>					<td>{if:$item['apply_status']=='0'}未审核{else:}已审核{/if}</td>					<td>{if:$item['apply_status']=='1'}通过{elseif:$item['apply_status']=='2'}不通过{else:}-{/if}</td>					<td>{if:empty($item['review_time'])}-{else:}{echo: $item['review_time']}{/if}</td>					<td>{if:$item['apply_status'] != '0' } 已审核  {else:}<a href="{url:/market/do_apply_fm_review/id/}{$item['id']}/apply_status/1">通过</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{url:/market/do_apply_fm_review/id/}{$item['id']}/apply_status/2">不通过</a>{/if}</td>				</tr>				{/query}			</tbody>		</table>	{$query->getPageBar()}	</div>
+</div>

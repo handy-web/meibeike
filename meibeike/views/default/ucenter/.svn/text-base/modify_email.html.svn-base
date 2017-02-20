@@ -1,0 +1,80 @@
+<style type="text/css">
+	.modify_wrapper {float: left; width: 100%; height: 600px; background-color: rgb(204, 204, 204); padding-bottom: 30px;}	
+    .modify_wrapper .modify_content {width: 1200px; height: auto; margin: 0 auto;}
+
+	.modify_wrapper .modify_content .modify_info {position: relative; display: block; height: 330px; width: 440px; margin-left: 380px; margin-top: 80px; border-radius: 15px;}
+	.modify_wrapper .modify_content .modify_info .content {float: left; width: 100%; height: 100%; border-radius: 15px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+	.modify_wrapper .modify_content .modify_info .content .ac_header {float: left; width: 100%; height: 60px; line-height: 60px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+	.modify_wrapper .modify_content .modify_info  .content .ac_header label {margin-left: 30px; font-size: 20px;}
+
+	.modify_wrapper .modify_content .modify_info  .content .ac_body {float: left; width: 100%; padding: 0;}
+	.modify_wrapper .modify_content .modify_info  .content .ac_body input.submit_button { float: left; position: relative; width: 370px; height: 50px; line-height: 50px;
+				   padding-left: 15px; margin-left: 30px; margin-top: 25px; border-radius: 10px; border: 1px solid rgb(188, 188, 188); font-size: 14px; outline: none;
+				   background-color: rgb(252, 62, 57); color: #FFF; font-size: 20px;}
+        a.submit_button {float: left; cursor: pointer; width: 370px; height: 50px; line-height: 50px; text-decoration: none;
+				   margin-left: 30px; margin-top: 15px; border-radius: 10px; border: 1px solid rgb(188, 188, 188);background-color: rgb(252, 62, 57); color: #FFF; font-size: 20px;;}
+
+	.modify_wrapper .modify_content .modify_info  .content .ac_body .div_input {float: left; position: relative; width: 355px; height: 50px; line-height: 50px;
+				   padding-left: 15px; margin-left: 30px; margin-top: 25px; border-radius: 10px; border: 1px solid rgb(188, 188, 188); font-size: 14px; outline: none;}
+	.modify_wrapper .modify_content .modify_info  .content .ac_body .div_input input {border: 0px; outline: none; font-size: 18px; margin-top: 15px; width: 300px;}
+	.modify_wrapper .modify_content .modify_info  .content .ac_body input.resend {float: left; width: 370px; height: 50px; line-height: 50px;
+				   margin-left: 30px;  border-radius: 10px; border: 1px solid rgb(188, 188, 188); font-size: 18px; background-color: rgb(240, 240, 240); cursor: pointer;	}
+</style>
+<input type="hidden" class="dont_show_account_manager" value="1"/>
+<div class="modify_wrapper">
+	<div class="modify_content">
+		<div class="modify_info">
+			<div class="content" id="modify_step">
+				<div class="ac_header"><label >修改邮箱</label></div>
+				<div class="ac_body">
+					<label style="float: left; width: 100%; height: 30px; line-height: 30px; text-align: center; margin-top: 20px; font-size: 18px;">请输入您要更换的邮箱地址</label>
+					<div class="div_input">
+						<input type="text" id="to_change_email" value="" placeholder="邮箱地址"/>
+					</div>
+					<input class="submit_button" id="next_step" type="submit" value="下一步"/>
+				</div>
+			</div>
+			<div class="content" id="finish_step" style="display: none; height: 380px;">
+				<div class="ac_header"><label >修改邮箱成功</label></div>
+				<div class="ac_body">
+					<label style="float: left; width: 100%; height: 30px; line-height: 30px; text-align: center; margin-top: 20px; font-size: 18px;">我们已经向您的邮箱发送了激活邮件</label>
+					<div style="text-align:center;"><a class="submit_button" target="_blank" id="to_email" >查看我的邮箱</a></div>
+					<div style="float: left; width: 370px; height: 1px; border-bottom: 1px rgb(220, 220, 220) solid; margin-left: 30px; margin-top: 20px; margin-bottom: 20px;"></div>
+					<label style="text-align: center; line-height: 25px; float: left; width: 100%; font-size: 14px;">
+						如果没有收到邮件，请检查垃圾邮件，<br>
+						或者点击下方按钮重新发送
+					</label>
+					<input class="resend" type="button" value="重新发送"/>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$("#next_step").click(function() {
+            var email = $("#to_change_email").val();
+            $.post("{url:/block/checkemail}",{email:email},function(res){
+                if(res == 0){
+                    alert("此邮箱不可用，请更换");
+                    return false;
+                }else{
+                    $.getJSON("{url:/ucenter/modify_email2}",{email:email},function(res){
+                        var server = res.server;
+                        //alert(server);
+                        $("#to_email").attr("href",server);
+                    })
+                    $("#modify_step").css("display", "none");
+                    $("#finish_step").css("display", "block");
+                }
+            });
+            
+	})
+        
+        $(".resend").click(function(){
+            var email = $("#to_change_email").val();
+            $.getJSON("{url:/ucenter/modify_email2}",{email:email},function(res){
+            })
+        });
+</script>

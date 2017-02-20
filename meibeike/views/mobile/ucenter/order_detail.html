@@ -1,0 +1,153 @@
+{set:$item = $this->order_info;}
+{set:$orderStatus = Order_Class::getOrderStatus($item)}
+
+<section>
+	<div class="pending-detial">
+		<h2>订单详情</h2>
+		<!--订单概要 开始-->
+		<ul class="block-row">
+			<li>
+				<p class="head">订单编号：</p>
+				<p class="sum">{$item['order_no']}</p>
+			</li>
+			<li>
+				<p class="head">下单日期：</p>
+				<p class="sum">{$item['create_time']}</p>
+			</li>
+			<li>
+				<p class="head">订单状态：</p>
+
+				<form action='{url:/ucenter/order_status}' method='post'>
+				<p class="sum">
+					{echo:Order_Class::orderStatusText($orderStatus)}
+				    <input type="hidden" name="order_id" value="{$item['id']}" />
+					{if:$orderStatus == 2}
+				    	<input type="hidden" name='op' value='cancel' />
+				    	<input type="submit" value="取消订单" />
+
+						<input type="button" class="orde_sumbit" value="立即付款" onclick="window.location.href='{url:/block/doPay/order_id/$item[id]}'" />
+					{elseif:$orderStatus == 3}
+				    	<input type="hidden" name='op' value='confirm' />
+				    	<input type="submit" value="确认收货" />
+
+						<input type="button" value="快递跟踪" onclick="exdelievey()" />
+				    {elseif:$orderStatus == 6}
+				    	<input type="button" value="申请退款" onclick='javascript:window.location.href="{url:/ucenter/refunds/order_no/$item[order_no]}"' />
+					{/if}
+				</p>
+				</form>
+			</li>
+			<li>
+				<p class="head">订单价格：</p>
+				<p class="sum">
+					商品总金额：￥{$item['real_amount']}
+					<font class="red">+</font> 运费：￥<label id="freightFee">{$item['real_freight']}</label>
+
+		            {if:$item['taxes'] > 0}
+		            <font class="red">+</font> 税金：￥{$item['taxes']}
+		            {/if}
+
+		            {if:$item['pay_fee'] > 0}
+		            <font class="red">+</font> 支付手续费：￥{$item['pay_fee']}
+		            {/if}
+
+		            {if:$item['insured'] > 0}
+		            <font class="red">+</font> 保价：￥{$item['insured']}
+		            {/if}
+
+		            {if:$item['discount'] != 0}
+					<font class="red">+</font> 订单折扣或涨价：￥{$item['discount']}
+		            {/if}
+
+		            {if:$item['promotions'] > 0}
+		            <font class="red">+</font> 促销优惠金额：￥{$item['promotions']}
+		            {/if}
+				</p>
+			</li>
+			<li>
+				<p class="head">共需支付：</p>
+				<p class="sum">￥<label id="order_amount">{$item['order_amount']}</label></p>
+			</li>
+		</ul>
+		<!--订单概要 结束-->
+
+		<!--商品列表 开始-->
+		<h3>商品列表</h3>
+        {set:$order_id=$item['id']}
+        {query:name=order_goods as og join=left join goods as go on og.goods_id eq go.id where=order_id eq $order_id field=og.*,go.point item=$good}
+        {set:$good_info = JSON::decode($good['goods_array'])}
+		<ul class="block-row">
+			<li><a href="{url:/site/products/id/$good[id]}"><img src="{webroot:$good[img]}" class="goods-pic" /></a></li>
+			<li><a target="_blank" href="{url:/site/products/id/$good[id]}">{$good['name']}</a></li>
+			<li> 商品单价：<strong>￥{$good['real_price']}</strong> </li>
+			<li> 商品数量：x {$good['goods_nums']} </li>
+		</ul>
+		{/query}
+		<!--商品列表 结束-->
+
+		<!--收获地址 开始-->
+		<h3>收货地址</h3>
+		<ul class="block-row">
+			<li>
+				<p class="head">收货人：</p>
+				<p class="sum">{$item['accept_name']}</p>
+			</li>
+			<li>
+				<p class="head">固定电话：</p>
+				<p class="sum">{$item['telphone']}</p>
+			</li>
+			<li>
+				<p class="head">手机号码：</p>
+				<p class="sum">{$item['mobile']}</p>
+			</li>
+			<li>
+				<p class="head">收货地址：</p>
+				<p class="sum">{$this->area[$item['province']]} {$this->area[$item['city']]} {$this->area[$item['area']]} {$item['address']}</p>
+			</li>
+		</ul>
+		<!--收获地址 开始-->
+
+		<!--其他信息 开始-->
+		<h3>其他信息</h3>
+		<ul class="block-row">
+			<li class="clearfix">
+				<p class="head">支付方式：</p>
+				<p class="sum">{$this->pay_name}</p>
+			</li>
+			<li class="clearfix">
+				<p class="head">运费：</p>
+				<p class="sum">{$item['real_freight']}</p>
+			</li>
+			<li class="clearfix">
+				<p class="head">物流公司：</p>
+				<p class="sum">{$this->deliveryRow['freight_name']}</p>
+			</li>
+			<li class="clearfix">
+				<p class="head">快递单号：</p>
+				<p class="sum">{$this->deliveryRow['delivery_code']}</p>
+			</li>
+			{if:isset($this->pay_note)}
+			<li class="clearfix">
+				<p class="head">快递单号：</p>
+				<p class="sum">{$this->pay_note}</p>
+			</li>
+			{/if}
+		</ul>
+		<!--其他信息 结束-->
+
+	    <!--发票信息-->
+	    {if:$item['invoice']==1}
+		<h3>其他信息</h3>
+		<ul class="block-row">
+			<li class="clearfix">
+				<p class="head">所需税金：</p>
+				<p class="sum">{$item['taxes']}</p>
+			</li>
+			<li class="clearfix">
+				<p class="head">发票抬头：</p>
+				<p class="sum">{$item['invoice_title']}</p>
+			</li>
+		</ul>
+		{/if}
+	</div>
+</section>

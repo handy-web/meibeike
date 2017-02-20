@@ -1,0 +1,79 @@
+<section>
+	<div class="pending-detial">
+		<h2>账户余额：￥<strong>{$this->memberRow['balance']}</strong></h2>
+
+		{set:$page=(isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}
+		{set:$user_id = $this->user['user_id']}
+		{query:name=withdraw where=user_id eq $user_id and is_del eq 0 page=$page order=id desc id=$withdraw}
+		<ul class="block-row">
+			<li>
+				<p class="head">会员备注：</p>
+				<p class="sum">{$item['note']}</p>
+			</li>
+			<li>
+				<p class="head">管理员备注：</p>
+				<p class="sum">{$item['re_note']}</p>
+			</li>
+			<li>
+				<p class="head">金额：</p>
+				<p class="sum">{$item['amount']} 元</p>
+			</li>
+			<li>
+				<p class="head">申请时间：</p>
+				<p class="sum">{$item['time']}</p>
+			</li>
+			<li>
+				<p class="head">状态：</p>
+				<p class="sum">{echo:$this->getWithdrawStatus($item['status'])}</p>
+			</li>
+			<li>
+				<p class="head">&nbsp;</p>
+				<p class="sum">
+					{if:$item['status']==0}
+					<input type="button" class="btn" value="取消" onclick="delModel({link:'{url:/ucenter/withdraw_del/id/$item[id]}'});" />
+					{/if}
+				</p>
+			</li>
+		</ul>
+		{/query}
+		{$withdraw->getPageBar()}
+	</div>
+
+	<!--体现申请 开始-->
+	<div class="pending-detial">
+		<h3>填写提现申请</h3>
+		<form action='{url:/ucenter/withdraw_act}' method='post' name='withdraw'>
+			<ul class="block-row">
+		        <li>
+		            <p class='head'>收款人姓名：</p>
+		            <p class='sum'><input type="text" name='name' pattern='required' alt='请填写真实的收款人姓名' /></p>
+		        </li>
+		        <li>
+		            <p class='head'>提现金额：</p>
+		            <p class='sum'><input type="text" name='amount' pattern='float' alt='填写体现金额' /></p>
+		        </li>
+		        <li>
+		            <p class='head'>备注信息：</p>
+		            <p class='sum'>
+						<textarea name='note' pattern='required' alt='填写一些必要的提现信息'></textarea><br />
+						<label> 填写必要的提现信息，如开户银行</label>
+		            </p>
+		        </li>
+		        <li>
+		        	<p class='head'>&nbsp;</p>
+		        	<p class='sum'><input type="submit" class="btn" value="提交提现申请" /></p>
+		        </li>
+		    </ul>
+		</form>
+	</div>
+	<!--体现申请 结束-->
+</section>
+
+<script type='text/javascript'>
+	var formObj = new Form('withdraw');
+	formObj.init({
+		'name':'{$this->withdrawRow['name']}',
+		'note':'{$this->withdrawRow['note']}',
+		'amount':'{$this->withdrawRow['amount']}'
+	});
+</script>

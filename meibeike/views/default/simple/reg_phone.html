@@ -1,0 +1,587 @@
+<style type="text/css">
+    .middle_wrapper .middler_content_wrapper .header {float: left; width: 100%; height: 45px; margin-top: 55px; border-bottom: 2px solid rgb(228, 228, 228); text-align: center; }
+    .middle_wrapper .middler_content_wrapper .header .step_first {margin-left: 240px;}
+    .middle_wrapper .middler_content_wrapper .header .step_type {float: left; width: 240px; height: 35px; padding-top: 10px; text-align: center; color: rgb(204, 204, 204); }
+    .middle_wrapper .middler_content_wrapper .header .step_on {border-bottom: 2px solid rgb(255, 26, 0); color: rgb(51, 51, 51);}
+    .middle_wrapper .middler_content_wrapper .header .step_num {  float: left; margin-left: 70px; width: 24px; height: 24px; border-radius: 12px; background-color: rgb(204, 204, 204); color: white;}
+    .middle_wrapper .middler_content_wrapper .header .step_num_on {  background-color: rgb(255, 26, 0);}
+    .middle_wrapper .middler_content_wrapper .header .stop_word {  float: left; margin-left: 5px; height: 24px; }
+
+    .middle_wrapper .middler_content_wrapper .content {float: left; width: 100%; height: 570px;  line-height: 54px; text-align: center; padding-top: 20px; }
+    .middle_wrapper .middler_content_wrapper .content_2 {float: left; width: 720px; height: 360px;  line-height: 54px; border: 1px rgb(217, 217, 217) solid;
+                                                         border-radius: 6px; margin-left: 240px; margin-top: 20px;}
+    .middle_wrapper .middler_content_wrapper #content_second {display: none;}
+
+    .middle_wrapper .middler_content_wrapper .content .unit{float: left; width: 100%; height: 54px; line-height: 54px; text-align: center;}
+    .middle_wrapper .middler_content_wrapper .content .jianxi { float: left; width: 100%; height: 20px;}
+    .middle_wrapper .middler_content_wrapper .content .unit .title { font-weight: bold; }
+    .middle_wrapper .middler_content_wrapper .content .unit .left {float: left; width: 470px; text-align: right; }
+    .middle_wrapper .middler_content_wrapper .content .unit .right {float: left; width: 700px; margin-left: 25px; text-align: left; }
+    .middle_wrapper .middler_content_wrapper .content .unit label {float: left; height: 38px; line-height: 38px; margin-top: 8px;}
+    .middle_wrapper .middler_content_wrapper .content .unit input {float: left; height: 38px; margin-top: 8px; font-size: 18px;  font-family:"Microsoft YaHei","微软雅黑"; color: rgb(94, 95, 97);}
+    .middle_wrapper .middler_content_wrapper .content .unit select {float: left; height: 25px; line-height: 25px; font-size: 18px; margin-top: 15px;}
+    .middle_wrapper .middler_content_wrapper .content .unit input.cb {height: 12px; margin-top: 28px;}
+    .middle_wrapper .middler_content_wrapper .content .unit a { text-decoration: none; color: rgb(255, 26, 0);}
+    .middle_wrapper .middler_content_wrapper .content .unit .next_button { width: 180px; height: 38px; background-color: rgb(252, 62, 57); border: 0px; border-radius: 2px;
+                                                                           font-size: 16px; color : white; cursor: pointer;}
+
+    .middle_wrapper .middler_content_wrapper .content_2 .title {float: left; width: 700px; height: 50px; line-height: 50px; padding-left: 20px; font-size: 16px; 
+                                                                background-color: rgb(252, 252, 252); border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom: 1px rgb(220, 220, 220) solid; color: rgb(150, 150, 150);}
+    .middle_wrapper .middler_content_wrapper .content_2 .unit{float: left; width: 100%; height: 54px; line-height: 54px; text-align: center;}
+    .middle_wrapper .middler_content_wrapper .content_2 .unit .left {float: left; width: 285px; text-align: right; }
+    .middle_wrapper .middler_content_wrapper .content_2 .unit .right {float: left; width: 400px;; margin-left: 25px; text-align: left; }
+    .middle_wrapper .middler_content_wrapper .content_2 .unit input {float: left; height: 38px; margin-top: 8px; font-size: 18px;  font-family:"Microsoft YaHei","微软雅黑"; color: rgb(94, 95, 97);}
+    .middle_wrapper .middler_content_wrapper .content_2 .unit .next_button { width: 180px; height: 38px; background-color: rgb(252, 62, 57); border: 0px; border-radius: 2px;font-size: 16px; color : white; cursor: pointer;}
+        #embed-captcha {
+            width: 300px;
+            margin: 0 auto;
+        }
+        .show {
+            display: block;
+        }
+        .hide {
+            display: none;
+        }
+        #notice {
+            color: red;
+        }
+
+</style>
+<input type="hidden" class="dont_show_float_menu" value="1"/>
+<div class="middle_wrapper" style="background: white; height: 600px;">
+    <div class="middler_content_wrapper">
+        <div class="header">
+            <input id="step_now" value="1" type="hidden" />
+            <span class="step_type step_first step_on">
+                <div class="">
+                    <div class="step_num step_num_on">1</div>
+                    <div class="stop_word">设置账号</div>
+
+                </div>
+            </span>
+            <span class="step_type  step_second">
+                <div class="step_num">2</div>
+                <label>填写账户信息</label>
+            </span>
+            <span class="step_type">
+                <div class="step_num">3</div>
+                <label>注册成功</label>
+            </span>
+        </div>
+
+        <form action='{url:/simple/reg_act}' method='post' id="reg_form">
+            <input type="hidden" name='callback' />
+            <!--注册类型 1邮箱 2短信-->
+            <input type='hidden' name='type' value='2'/>
+            <div class="content" id="content_first">
+                <div class="unit">
+                    <div class="left">所在国家/地区</div>
+                    <div class="right">
+                        <!--[if IE]>
+<select style='float: left; height: 30px; line-height: 30px; padding-bottom: 3px;'>
+                        <![endif]-->
+                        <!--[if !IE]><!-->
+                        <select style=''>
+                            <![endif]-->
+
+                            <option>中国大陆</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="unit">
+                    <div class="left">手机号码</div>
+                    <div class="right">
+                        <!--div style="float: left; margin-top: 5px;  width: 230px; height: 38px; line-height: 38px; border: 1px solid rgb(220, 220, 220);">
+                            <label style="float: left; height: 38px; margin: 0; padding: 0px; line-height: 38px; text-align: center; width: 65px; background-color: rgb(237, 237, 237)">+86</label>
+                            <input name="mobile" style="float: left; height: 38px; margin: 0; padding: 0px 10px; font-size: 14px; line-height: 38px; width: 160px; border: none; outline: none;"/>
+                        </div-->
+                        <input name="mobile" maxlength='11' type="text" class="phone" pattern="^(13|14|15|17|18)[0-9]{9}$" autocomplete="off" style='height: 30px; line-height: 30px;' alt="请输入正确的手机号码" />
+
+                    </div>
+                </div>
+               
+                    
+                    <!--<div class="right">
+                        <input type="text" value="" maxlength="5" class='no_chinese' size="12" name='captcha' style='height: 30px; line-height: 30px;' autocomplete="off"  alt="请输入正确的验证码"/>
+                        <label></label>
+                        <img style="float: left; margin-top: 8px; margin-left: 20px; cursor: pointer;" src='{url:/simple/getCaptcha}' id='captchaImg' />
+                        <!--                        <a href="javascript:changeCaptcha('{url:/simple/getCaptcha}');" style="float: left; margin-left: 0px; margin-top: 15px; width: 40px; height: 40px; display: block; background: url({skin:images/front/u211.png});"></a>-->
+                    <!-- </div> -->
+                    <!-- 弹出式验证  -->
+					<div id="embed-captcha"></div>
+                	<!-- 弹出式验证 -->
+                
+                <div class="unit">
+                    <div class="left">&nbsp;</div>
+                    <div class="right">
+                        <input type="checkbox" id='reg_cb_1' checked class="cb" value="0" style='margin-top: 19px; height: 20px; line-height: 20px;'/>
+                        <label style="">同意 <a target="_blank" href="{url:/site/help/id/74}">《用户协议》</a></label>
+                    </div>
+                </div>
+                <div class="unit">
+                    <div class="left">&nbsp;</div>
+                    <div class="right"><input type="button" class="next_button" id="embed-submit" value="下一步" /></div>
+                </div>
+                <div class="unit">
+                    <div class="left">&nbsp;</div>
+                    <div style="color: rgb(255, 69, 0); float: left; text-align: left; margin-left: 25px; font-size: 14px;">
+                        <a style="text-decoration: none;" href="{url:simple/reg}">使用邮箱注册></a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_2" id="content_first_2" style="display: none; margin-bottom: 180px;">
+                <div class="title">
+                    填写校验码
+                    <!--					<img src="{skin:images/front/close.png}" style="float: right; margin-right: 20px; cursor: pointer; margin-top: 6px;"/>-->
+                </div>
+                <div style="float: left; margin-left: 30px; width: 100%;">
+                    <img src="{skin:images/front/reg_circle.png}" style="float: left; margin-right: 10px; margin-top: 20px;"/>
+                    <label style="float: left; font-size: 14px ;">校验码已发送到你的手机，10分钟内输入有效，请勿泄漏</label>
+                </div>
+                <div class="unit">
+                    <div class="left">手机号码</div>
+                    <div class="right">
+                        <label id="pnumber" style="font-size: 14px; margin-left: 20px;">150-184-44976</label>
+                    </div>
+                </div>
+                <div class="unit">
+                    <div class="left">校验码</div>
+                    <div class="right">
+                        <input type="text" value="" maxlength="6"  size="12" style="height: 30px; line-height: 30px;" autocomplete="off"  name='vcode'/>
+                        <label id="count_label" style="float: left; height: 36px; line-height: 36px; width: 120px;; background-color: rgb(237, 237, 237); margin-top: 9px; margin-left: 10px; padding: 0 5px; font-size: 14px;">
+                            60秒后可重新操作
+                        </label>
+                    </div>
+                </div>
+                <div class="unit">
+                    <div class="left">&nbsp;</div>
+                    <div class="right">
+                        <img src="{skin:images/front/reg_right.png}" style="float: left; margin-top: 15px;"/>
+                        <input id="vcode" value="" type="hidden" />
+                        <label id="vcode_res" style="float: left; font-size: 14px;">校验码已发送到你的手机，请查收</label>
+                    </div>
+                </div>
+                <div class="unit">
+                    <div class="left">&nbsp;</div>
+                    <div class="right"><input style="width: 120px;" type="button" class="next_button" id="to_next" value="确定" /></div>
+                </div>
+            </div>
+
+            <div class="content" id="content_second">
+                <div class="jianxi">&nbsp;</div>
+                <div class="unit">
+                    <div class="left title">账号</div>
+                    <div class="right" id="login_name">12345@qq.com</div>
+                </div>
+                <div class="jianxi">&nbsp;</div>
+                <div class="unit">
+                    <div class="left title">设置登录密码</div>
+                    <div class="right" style="font-size: 14px;">登录时验证，保护账号信息</div>
+                </div>
+                <div class="unit">
+                    <div class="left">登录密码</div>
+                    <div class="right">
+                        <input type="hidden" autocomplete="off"  name="password" id="reg_password"  bind='repassword'/>
+                        <input type="text"  autocomplete="off" target_input="reg_password" class="no_chinese password_show_1 password_input" realvalue="" value=""  size="23" style="font-weight: normal; height: 30px; line-height: 30px; font-size: 14px; padding-left: 10px;" />
+                        <label class="show_error_label_1" style="float: left; background: url({skin:images/front/error_msg_icon.gif}) no-repeat 6px; padding-left: 25px; font-size: 14px; display: none; width: 350px; margin-left: 15px; height: 30px; line-height: 30px; "></label>
+
+                        <!--						<input style="font-weight: normal; height: 30px; line-height: 30px; font-size: 14px; padding-left: 10px;" autocomplete="off" value="" size="23" type="password" name='password' pattern="^\S{6,32}$" bind='repassword' alt='填写6-32个字符' placeholder="设置你的登陆密码"/>-->
+                    </div>
+                </div>
+                <div class="unit">
+                    <div class="left">再次确认</div>
+                    <div class="right">
+                        <input type="hidden" autocomplete="off"  name='repassword' id="reg_password_2"  bind='password'/>
+                        <input type="text" autocomplete="off" realvalue="" target_input="reg_password_2" class="no_chinese password_show_2 password_input" value=""  size="23" style="font-weight: normal; height: 30px; line-height: 30px; font-size: 14px; padding-left: 10px;" />
+
+                        <label class="show_error_label_2" style="float: left; background: url({skin:images/front/error_msg_icon.gif}) no-repeat 6px; padding-left: 25px; font-size: 14px; display: none; width: 350px; margin-left: 15px; height: 30px; line-height: 30px; "></label>
+                        <!--						<input style="font-weight: normal; height: 30px; line-height: 30px; font-size: 14px; padding-left: 10px;" autocomplete="off"  value="" size="23" type="password" name='repassword' pattern="^\S{6,32}$" bind='password' alt='重复上面所填写的密码' placeholder="请再次输入你的登陆密码"/>-->
+                    </div>
+                </div>
+                <div class="jianxi">&nbsp;</div>
+                <div class="unit">
+                    <div class="left title" >设置昵称</div>
+                    <div class="right">&nbsp;</div>
+                </div>
+                <div class="unit">
+                    <div class="left">昵称</div>
+                    <div class="right"><input style="font-weight: normal; height: 30px; line-height: 30px; font-size: 14px; padding-left: 10px;" autocomplete="off"   type="text" value="" size="23" name='username' pattern="^[\w\u0391-\uFFE5]{2,20}$" alt="填写2-20个字符，可以为字母，数字下划线和中文" /></div>
+                </div>
+                <div class="unit">
+                    <div class="left">&nbsp;</div>
+                    <div class="right"><input type="button" class="next_button" id="to_submit" value="确定" /></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var is_all_right = false;
+
+    //全局变量，存储interval对象
+    var intval;
+    var count;
+    $(document).ready(function () {
+		
+		//changeCaptcha('{url:/simple/getCaptcha}');
+		
+//		alert(navigator.userAgent);
+
+ 		$("#reg_cb_1").click(function() {
+			if($(this).attr("checked")) {
+				$("#to_next_1").removeAttr("disabled");
+				$("#to_next_1").css("background-color", "");
+			} else {
+				$("#to_next_1").attr("disabled", true);
+				$("#to_next_1").css("background-color", "grey");
+			}
+		});
+
+		function set_password_right(class_name, text) {
+            $("." + class_name).html(text);
+            $("." + class_name).css("color", "rgb(114, 200, 104)");
+            $("." + class_name).css("background", "url({skin:images/front/success_msg_icon.gif}) no-repeat 6px");
+            $("." + class_name).css("display", "block");
+            is_all_right = true;
+        }
+
+        function set_password_error(class_name, text) {
+            $("." + class_name).html(text);
+            $("." + class_name).css("color", "rgb(252, 62, 57)");
+            $("." + class_name).css("background", "url({skin:images/front/error_msg_icon.gif}) no-repeat 6px");
+            $("." + class_name).css("display", "block");
+            is_all_right = false;
+        }
+
+        $(".password_show_1").blur(function () {
+            var reg = /^[A-Za-z0-9]\w{5,11}$/;
+            if (!reg.test($(this).attr("realvalue"))) {
+                set_password_error("show_error_label_1", "密码由字母数字组成，长度为6~12位");
+            } else {
+                set_password_right("show_error_label_1", "验证通过");
+            }
+        });
+
+        $(".password_show_2").blur(function () {
+            var value_target = $(".password_show_1").attr("realvalue");
+
+            var reg = /^[A-Za-z0-9]\w{5,11}$/;
+            if (!reg.test($(this).attr("realvalue"))) {
+                set_password_error("show_error_label_2", "密码由字母数字组成，长度为6~12位");
+                return
+            }
+
+            if (value_target != $(this).attr("realvalue")) {
+                set_password_error("show_error_label_2", "两次输入密码不一致");
+            } else {
+                set_password_right("show_error_label_2", "验证通过");
+            }
+        });
+
+        if (navigator.userAgent.indexOf("MSIE") >= 0) {
+            $("#reg_cb_1").css("margin-top", "16px")
+        }
+        if (navigator.userAgent.indexOf("BaiduClient") >= 0) {
+            $("#reg_cb_1").css("margin-top", "16px")
+        }
+
+        $("#captchaImg").bind("click", function () {
+            changeCaptcha('{url:/simple/getCaptcha}');
+
+
+            var captcha = $("input[name=captcha]");
+            if (captcha.val()) {
+                captcha.val('');
+                var textfield = captcha[0];
+                var alt = textfield.getAttribute("alt");
+                textfield.className = textfield.className.replace("invalid-text", "");
+                textfield.className = textfield.className.replace("valid-text", "");
+                //alert(1);
+                if (textfield.className.indexOf("invalid-text") == -1)
+                    textfield.className += " invalid-text";
+                //alert(0)
+                var msg = textfield.nextSibling;
+                while (msg && msg.nodeType == 3)
+                    msg = msg.nextSibling;
+                if (msg && (msg.tagName == 'LABEL' || msg.tagName == 'SPAN'))
+                {
+                    //alert(1);
+                    msg.className = "invalid-msg";
+                    if (textfield.getAttribute('initmsg') == null)
+                        textfield.setAttribute('initmsg', msg.innerHTML);
+                    msg.innerHTML = alt;
+                }
+                else if (alt != null)
+                {
+                    //alert(2);
+                    var new_msg = document.createElement("LABEL");
+                    new_msg.className = "invalid-msg";
+                    if (textfield.getAttribute('initmsg') == null)
+                        textfield.setAttribute('initmsg', '');
+                    new_msg.innerHTML = alt;
+                    textfield.parentNode.insertBefore(new_msg, msg);
+                }
+            }
+        });
+
+        $("input[name='captcha']").change(function () {
+            var captcha;
+            var textfield = this;
+            var value = this.value;
+            var alt = textfield.getAttribute("alt");
+            var empty = textfield.getAttribute("empty");
+            //var pattern = textfield.getAttribute("pattern");
+            $.post("{url:simple/show_captcha}", {}, function (data) {
+                captcha = data;
+                if (captcha.toUpperCase() != value.toUpperCase()) {
+                    //alert(captcha + " " + value);
+
+                    textfield.className = textfield.className.replace("invalid-text", "");
+                    textfield.className = textfield.className.replace("valid-text", "");
+                    if (textfield.className.indexOf("invalid-text") == -1)
+                        textfield.className += " invalid-text";
+                    msg = textfield.nextSibling;
+                    while (msg && msg.nodeType == 3)
+                        msg = msg.nextSibling;
+                    if (msg && (msg.tagName == 'LABEL' || msg.tagName == 'SPAN'))
+                    {
+                        msg.className = "invalid-msg";
+                        if (textfield.getAttribute('initmsg') == null)
+                            textfield.setAttribute('initmsg', msg.innerHTML);
+                        msg.innerHTML = alt;
+                    }
+                    else if (alt != null)
+                    {
+                        var new_msg = document.createElement("LABEL");
+                        new_msg.className = "invalid-msg";
+                        if (textfield.getAttribute('initmsg') == null)
+                            textfield.setAttribute('initmsg', '');
+                        new_msg.innerHTML = alt;
+                        textfield.parentNode.insertBefore(new_msg, msg);
+                    }
+                } else {
+                    //alert(captcha + "=" + value);
+
+                    textfield.className = textfield.className.replace("invalid-text", "");
+                    textfield.className = textfield.className.replace("valid-text", "");
+                    if (empty != null && value == '')
+                        ;
+                    else
+                    if (textfield.className.indexOf("valid-text") == -1)
+                        textfield.className += " valid-text";
+                    msg = textfield.nextSibling;
+                    while (msg && msg.nodeType == 3)
+                        msg = msg.nextSibling;
+                    if (msg && (msg.tagName == 'LABEL' || msg.tagName == 'SPAN'))
+                    {
+                        if (empty != null && value == '')
+                            msg.className = "";
+                        else
+                            msg.className = "valid-msg";
+                        if (textfield.getAttribute('initmsg') == null)
+                            textfield.setAttribute('initmsg', msg.innerHTML);
+                        msg.innerHTML = textfield.getAttribute('initmsg');
+                    }
+                    else if (alt != null)
+                    {
+                        var new_msg = document.createElement("LABEL");
+                        if (empty != null && value == '')
+                        {
+                            new_msg.className = "";
+                        }
+                        else
+                        {
+                            new_msg.className = "valid-msg";
+                        }
+                        if (textfield.getAttribute('initmsg') == null)
+                        {
+                            textfield.setAttribute('initmsg', '');
+                        }
+                        new_msg.innerHTML = textfield.getAttribute('initmsg');
+                        textfield.parentNode.insertBefore(new_msg, msg);
+                        msg = new_msg;
+                    }
+
+                }
+            });
+        });
+
+
+        $("#to_next").click(function () {
+            if ($("#step_now").val() == 1) {
+                $.ajax({
+                    type: "POST",
+                    url: "{url:simple/verify_reg_vcode}",
+                    data: "mobile="+$('#pnumber').text()+"&verify_code="+$("input[name=vcode]").val(),
+                    dataType: "json",
+                    success: function (d) {
+                        if (d.code == 1) {
+                            $(".step_second").addClass("step_on");
+                            $(".step_second > .step_num").addClass("step_num_on");
+                            $("#step_now").val(2);
+
+                            $("#content_first").css("display", "none");
+                            $("#content_first_2").css("display", "none");
+                            $("#content_second").css("display", "block");
+
+                            $("#login_name").html($("input[name=mobile]").val());                      	
+                        } else {
+                          	alert(d.message);
+                          	return false;
+                        }
+                    }
+                });
+            }
+        });
+
+        $("#to_submit").click(function () {
+            if (is_all_right == false) {
+                alert("请核对信息后提交");
+                return false;
+            }
+
+            // 去后台验证邮箱和密码
+            jQuery.ajax({
+                type: "POST",
+                url: "{url:simple/verify_password_name}",
+                data: "password=" + $("input[name=password]").val() + "&repassword=" + $("input[name=repassword]").val() + "&username=" + $("input[name=username]").val(),
+                dataType: "Json",
+                success: function (data_ret) {
+                    if (data_ret['code'] == 0) {
+                        alert(data_ret['message']);
+                    } else {
+                        $("#reg_form").submit();
+                    }
+                }
+            });
+        });
+    });
+
+    function sendVerify(mobile) {        
+        $.ajax({
+            type: "POST",
+            url: "{url:simple/verify_mobile_send}",
+            data: "mobile="+mobile,
+            dataType: "Json",
+            success: function (data_ret) {
+                if (data_ret['code'] == 1) {
+                    $("#vcode_res").text("校验码已发送到你的手机，请查收");
+                    count = 60;
+                    $("#count_label").html(count + "秒后可重新操作");
+                    intval = self.setInterval("refreshCount()", 1000);
+                } else {
+                   alert(d.message);
+                }
+            }
+        });
+        
+    }
+
+
+    //刷新倒数栏
+    function refreshCount() {
+        count--;
+        if (count == 0) {
+            var mobile = $("input[name=mobile]").val();
+            $("#count_label").html("<a href='javascript:void(0)' onclick='sendVerify(" + mobile + ")'>重新发送</a>");
+            window.clearInterval(intval);
+        } else {
+            $("#count_label").html(count + "秒后可重新操作");
+        }
+    }
+
+</script>
+
+<script src="http://static.geetest.com/static/tools/gt.js"></script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+    var handlerPopup = function (captchaObj) {
+        $("#embed-submit").click(function (e) {
+            var validate = captchaObj.getValidate();
+            if (!validate) {
+                alert('请先完成验证');
+                return ;
+            } 
+            if (false == validatemobilephone($("input[name=mobile]").val())) {
+                alert("请输入正确的手机号码");
+                return;
+            }
+            if ($("#reg_cb_1").attr('checked')) {
+                //alert("yes");
+            } else {
+                alert("请同意用户协议");
+                return;
+            } 	
+            // 去后台验证手机和效验码
+            jQuery.ajax({
+                type: "POST",
+                url: "{url:simple/verify_mobile_captcha}",
+                data: {"mobile":$("input[name=mobile]").val(),
+                "geetest_challenge": validate.geetest_challenge,
+                "geetest_validate": validate.geetest_validate,
+                "geetest_seccode": validate.geetest_seccode},
+                dataType: "Json",
+                success: function (data_ret) {
+                    if (data_ret['code'] == 0) {
+                        alert(data_ret['message']);
+                        //changeCaptcha('{url:/simple/getCaptcha}');
+                        $("input[name=captcha]").val();
+                        //$("input[name=captcha]").val("");
+//                        setTimeout(function(){
+//                            window.location.reload();
+//                        },500);
+                    } else {
+                        //changeCaptcha('{url:/simple/getCaptcha}');
+                        var mobile = $("input[name=mobile]").val();
+                        $("#pnumber").text(mobile);
+                        //发送验证码
+                        sendVerify(mobile);
+
+                        //
+
+                        $("#content_first").css("display", "none");
+                        $("#content_first_2").css("display", "block");
+                    }
+                }
+            });
+        });
+    	
+    	
+        /*$("#embed-submit").click(function (e) {
+            var validate = captchaObj.getValidate();
+            if (!validate) {
+                $("#notice")[0].className = "show";
+                setTimeout(function () {
+                    $("#notice")[0].className = "hide";
+                }, 2000);
+                e.preventDefault();
+            }
+        });*/
+        // 将验证码加到id为captcha的元素里
+        captchaObj.appendTo("#embed-captcha");
+        captchaObj.bindOn("#embed-submit");
+        //captchaObj.onReady(function () {
+           // $("#wait")[0].className = "hide";
+        //});
+        // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+    };
+    $.ajax({
+        // 获取id，challenge，success（是否启用failback）
+        url: "{url:/simple/create_hkyz/t/}"+(new Date()).getTime(), // 加随机数防止缓存
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            // 使用initGeetest接口
+            // 参数1：配置参数
+            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+            initGeetest({
+                gt: data.gt,
+                challenge: data.challenge,
+                product: "popup", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+            }, handlerPopup);
+        }
+    });
+</script>
+

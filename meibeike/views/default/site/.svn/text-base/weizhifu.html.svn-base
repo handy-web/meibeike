@@ -1,0 +1,45 @@
+<style>
+	.crowd-wrapper{ background-color:white; border: 1px rgb(188, 188, 188) solid; border-radius: 15px;width: 1120px; height: auto; margin: 0 auto; padding-bottom: 50px;}
+	.crowd-wrapper .question-container { width: 1060px; margin: 0 auto; overflow: hidden; font-size: 16px; font-family: "Microsoft YaHei", "微软雅黑"; }
+	.crowd-wrapper .question-container a, .crowd-wrapper .question-container a:hover { color: #6d6d6d; }
+	.crowd-wrapper .question-container .question { text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 40px; margin-top: 30px; }
+	.crowd-wrapper .question-container .answer img { margin-top: 10px; max-width: 1000px; }
+	.crowd-wrapper .question-container .answer dt { font-size: 16px; font-weight: bold; }
+	.crowd-wrapper .question-container .answer dd { margin-left: 20px; }
+	.crowd-wrapper .question-container .answer dd ol { padding-left: 2em; }
+	.crowd-wrapper .question-container .answer dd ol li { margin-bottom: 2em; }
+	.crowd-wrapper .question-container .answer dd ol .red { color: #E53333; }
+</style>
+<div class="crowd-wrapper">
+<div class="question-container">
+  <div class="question"> 如何查看未支付成功的订单 </div>
+  <div class="answer">
+	<dl>
+	  <dt>电脑版:</dt>
+	  <dd>
+		<ol>
+		  <li>登陆京东金融(<a href="http://jr.jd.com/" target="_blank">点我直接登陆</a>);</li>
+		  <li> 点击"<span class="red">我的资产</span>";<br/>
+			<img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225155643_70939.png" alt=""/> </li>
+		  <li> 点击"<span class="red">我的众筹</span>";<br/>
+			<img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225155714_93885.png" alt=""/> </li>
+		  <li> 在"<span class="red">我支持的</span>"中查看未支付成功订单信息点击"<span class="red">立即支付</span>"重新进行支付;<br/>
+			<img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225155742_51809.png" alt=""/> </li>
+		</ol>
+	  </dd>
+	  <dt>手机版: </dt>
+	  <dd>
+		<ol>
+		  <li>登陆京东众筹移动版(<a href="http://m.z.jd.com/" target="_blank">点我直接登陆</a>);</li>
+		  <li> 点击右上角"<span class="red">三</span>"按钮;<br/>
+			<img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225155806_49180.png" alt=""/> </li>
+		  <li> 点击"<span class="red">个人中心</span>";<br/>
+			<img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225155836_64177.png" alt=""/> </li>
+		  <li> 在"<span class="red">我支持的</span>"中查看未支付成功订单信息点击"<span class="red">去支付</span>"重新进行支付;<br/>
+			<img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225155902_34097.png" alt=""/> </li>
+		</ol>
+	  </dd>
+	</dl>
+  </div>
+</div>
+</div>

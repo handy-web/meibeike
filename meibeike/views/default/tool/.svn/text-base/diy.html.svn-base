@@ -1,0 +1,616 @@
+
+<style>
+	body{background: #E8E8E8;}
+</style>	
+<!--中间内容-->
+		<div class="center-cen">
+		<input type='hidden' id='product_id_3' alt='货品ID' value='' />
+		<input type='hidden' id='product_id_7' alt='货品ID' value='' />
+		<input type='hidden' id='product_id_4' alt='货品ID' value='' />
+            <div class="manage-c1-1">
+            	<div class="manage-cen-1">
+            		<div class="gold-muen-1"style="margin-top: 0">
+            				<ul class="gold-ul" style="margin: 20px 0;">		
+								<li><a href="{url:/site/products/id/10}">金甲组合</a></li>
+								<li><a href="{url:/site/products/id/9}">银霸组合</a></li>								
+								<li><a href="{url:/site/products_new/id/16}">金组合</a></li>
+								<li><a href="{url:/site/products_new/id/14}">银组合</a></li>
+								<li class="gold-act"><a href="{url:/tool/diy}">DIY</a></li>
+							</ul>
+						<div class="gold-list">						
+							<div class="gold-mue">
+								<div class="diy-center">
+									<div class="diy-index">
+										<div class="diy-title">DIY说明</div>
+										<div class="diy-list">
+											<div class="pt1">云棒为组件式智能产品，像搭积木一样，搭完即可用</div>
+											<p class="diy-top">1.一套云棒中必须有母棒，母棒负责主体运算和中心控制，母棒也可以直接做无线投射服务；</p>										
+											<p>2.作为私有云服务器必须选择存储组件，存储组件有存储碟和存储棒两类；</p>
+											<p>3.存储棒使用高速轻便的固态硬盘，最多可以同时连接8个到云棒母棒上，每个存储棒又有120G，250G，512G，1000G四个规格两个相同的存储棒可以作为镜像备份；</p>
+											<p>4.存储碟使用大容量高性价比、可7*24小时开机的安防级机械硬盘，有1T，2T两个规格，每套云棒系统中只能装1个存储碟。</p>
+										</div>
+										<div class="diy-title diy-top1">开始DIY</div>
+										<div class="diy-p"><em>●</em>&nbsp;您是否已有母棒？如果没有，请选择一个</div>
+										
+										<ul class="diy-ul" id="goods_3">
+											<li>
+												<div class="diy-ck"><input name="ck-radio" type="checkbox" id="chek_a" value="3"><label for="chek_a"></label></div>												
+											</li>
+											<li>
+												<div class="diy-img"><img src="/{$goods_info_3['img']}" /> </div>
+											</li>
+										
+											<li>
+												<div class="diy-text">
+													<h3>{$goods_info_3['name']}</h3>
+													<div class="diy-cin"></div>
+													<div class="diy-right">														
+														<div class="t4" style="margin-top: 20px;">
+															<div class="goods3_price">价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：<em>&#65509;</em><em>{$goods_info_3['sell_price']}</em><em>元</em></em></div><br>							
+															<div>数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：
+																<span class="reduce" onclick="modified(-1,'buynums3')">-</span>
+																<span><input  class="numer buynums3" type="text"  onchange="checkBuyNums('buynums3')" onblur="checkBuyNums('buynums3')" value="1" maxlength="5" /></span>
+																<span  class="add" onclick="modified(1,'buynums3')">+</span>
+															</div>
+														</div>														
+													</div>																						
+												</div>
+											</li>
+										</ul>
+										
+									</div>
+									<div class="diy-cin1"></div>
+									<div class="diy-p"><em>●</em>&nbsp;您可以选用存储碟和存储棒（一个母棒可以同时连接存储碟和存储棒）</div>
+									<div  class="diy-tn1">请选择存储碟的规格（每套限1个）</div>
+									<ul class="diy-ul" id="goods_7">
+											<li>
+												<div class="diy-ck"><input name="ck-radio" type="checkbox" value="7"  id="chek_b"><label for="chek_b"></label></div>												
+											</li>
+											<li>
+												<div class="diy-img"><img src="/{$goods_info_7['img']}" /></div>
+											</li>
+											{if:empty($productsList7)}
+											该商品已售完
+											{else:}
+												<li>
+												<div class="diy-text">
+													<h3>{$goods_info_7['name']}</h3>
+													<div class="diy-cin"></div>
+													<div class="diy-right">														
+														<div class="t4">	
+															<ul class="diy-but">
+																<span class="flt">选择规格：</span>
+																{foreach:items=$productsList7}
+																{set:$k = $key; $specArray = JSON::decode($item['spec_array']);}	
+																	{foreach:items=$specArray}
+																		{if:$item['type'] == 1}
+																		<li class="item {if:$k=='0'}{echo: 'butt-1'}{/if}"><a href="javascript:void(0);"  value='{"id":"{$item['id']}","type":"{$item['type']}","value":"{$item['value']}","name":"{$item['name']}"}' >{$item['value']}</a></li>
+																		{else:}
+																		<li class="item"><a href="javascript:void(0);"  value='{"id":"{$item['id']}","type":"{$item['type']}","value":"{$item['value']}","name":"{$item['name']}"}' ><img src="{webroot:$spec_value}" width='30px' height='30px' /><span></span></a></li>
+																		{/if}
+																	{/foreach}
+																{/foreach}
+															</ul>
+															<br>
+															<div style="margin: 12px 0;" class="goods7_price">价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：<em>&#65509;</em><em>{$goods_info_7['sell_price']}</em><em>元</em></em></div>							
+															<div>数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：
+																<span class="reduce" onclick="modified(-1,'buynums7')">-</span>
+																<span><input class="numer buynums7" type="text"  onchange="checkBuyNums('buynums7')" onblur="checkBuyNums('buynums7')" value="1" maxlength="5" /></span>
+																<span class="add" onclick="modified(1,'buynums7')">+</span>
+															</div>
+														</div>														
+													</div>																						
+												</div>
+											</li>
+											{/if}
+										</ul>
+									<div class="diy-cin1" style="margin-top: 30px;"></div>
+									<div class="diy-p0">请选择存储棒的规格（如果已选择存储碟，则最多可选4个存储棒）</div>
+									<ul class="diy-ul" id="goods_4">
+											<li>
+												<div class="diy-ck"><input name="ck-radio" type="checkbox" value="4"  id="chek_c"><label for="chek_c"></label></div>												
+											</li>
+											<li>
+												<div class="diy-img"><img src="/{$goods_info_4['img']}" /> </div>
+											</li>
+											{if:empty($productsList4)}
+											该商品已售完
+											{else:}
+												<li>
+												<div class="diy-text">
+													<h3>{$goods_info_4['name']}</h3>
+													<div class="diy-cin"></div>
+													<div class="diy-right">														
+														<div class="t4">											
+															<ul class="diy-but">
+																<span class="flt">选择规格：</span>
+																{foreach:items=$productsList4}
+																{set:$k = $key; $specArray = JSON::decode($item['spec_array']);}	
+																	{foreach:items=$specArray}
+																		{if:$item['type'] == 1}
+																		<li class="item {if:$k=='0'}{echo: 'butt-1'}{/if}"><a href="javascript:void(0);"  value='{"id":"{$item['id']}","type":"{$item['type']}","value":"{$item['value']}","name":"{$item['name']}"}' >{$item['value']}</a></li>
+																		{else:}
+																		<li class="item"><a href="javascript:void(0);"  value='{"id":"{$item['id']}","type":"{$item['type']}","value":"{$spec_value}","name":"{$item['name']}"}' ><img src="{webroot:$spec_value}" width='30px' height='30px' /><span></span></a></li>
+																		{/if}
+																	{/foreach}
+																{/foreach}
+															</ul>
+															<br>
+															<div style="margin: 12px 0;" class="goods4_price">价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：<em>&#65509;</em><em>{$goods_info_4['sell_price']}</em><em>元</em></em></div>							
+															<div>数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：
+																<span class="reduce" onclick="modified(-1,'buynums4')">-</span>
+																<span><input class="numer buynums4" type="text"  onchange="checkBuyNums('buynums4')" onblur="checkBuyNums('buynums4')" value="1" maxlength="5" /></span>
+																<span class="add" onclick="modified(1,'buynums4')">+</span>
+															</div>
+														</div>														
+													</div>																						
+												</div>
+											</li>
+											{/if}
+										</ul>								
+								</div>							
+							</div>											
+						</div>	
+						<div class="diy-bottom">
+							<div class="diy-c1"></div>
+							<div class="diy-s1" id="goods_selected">您已选择的云棒组合：<span></span>&nbsp;&nbsp;<span></span>&nbsp;&nbsp;<span></span></div>
+							<div class="diy-s2" id="totalPrice">总价：<span></span>元</div>
+							<div class="diy-butt" onclick="buy_now()"><a>前去付款</a></div>		
+							
+						</div>				
+            		</div>     		
+            </div>           	    		
+            </div>
+  
+		</div>
+		<!--中间内容over-->
+		
+			<script type="text/javascript">
+			
+			$(document).ready(function(){				
+				if($('#chek_a').attr('checked') == 'checked'){
+					var count3 = $('#goods_3 .buynums3').val();
+					var name = $('#goods_3 h3').html();
+					var str = name+'*'+count3;
+					$('#goods_selected span:eq(0)').html(str);
+					//var totalPrice = parseFloat({$goods_info_3['sell_price']}*count3);
+					//$('#totalPrice span').html(totalPrice);
+				}
+				$('#chek_a,#chek_b,#chek_c').bind("click",function(){
+					if($('#chek_a').attr('checked') == 'checked'){
+						$('#goods_3 .t4').attr('disabled','disabled');
+						var count3 = $('#goods_3 .buynums3').val();
+						var name = $('#goods_3 h3').html();
+						$('#goods_3 .buynums3').attr('disabled','disabled');
+						$('#goods_3 .add').hide();
+						$('#goods_3 .reduce').hide();
+						var str = name+'*'+count3;
+						$('#goods_selected span:eq(0)').html(str);
+					}else{
+						$('#goods_3 .buynums3').attr('disabled',false);
+						$('#goods_3 .add').show();
+						$('#goods_3 .reduce').show();
+						$('#goods_selected span:eq(0)').html("");
+					}
+					
+					if($('#chek_b').attr('checked') == 'checked'){					
+						var count7= $('#goods_7 .buynums7').val();
+						var name = $('#goods_7 h3').html();
+						var rule = $('#goods_7 .butt-1 a').html();
+						var str = rule+name+'*'+count7;
+						$('#goods_7 .butt-1').siblings().hide();
+						$('#goods_7 .buynums7').attr('disabled','disabled');
+						$('#goods_7 .add').hide();
+						$('#goods_7 .reduce').hide();
+						$('#goods_selected span:eq(1)').html(str);
+					}else{
+						$('#goods_7 .butt-1').siblings().show();
+						$('#goods_7 .buynums7').attr('disabled',false);
+						$('#goods_7 .add').show();
+						$('#goods_7 .reduce').show();
+						$('#goods_selected span:eq(1)').html("");
+					}
+					
+					if($('#chek_c').attr('checked') == 'checked'){
+						var count4 = $('#goods_4 .buynums4').val();
+						var name = $('#goods_4 h3').html();
+						var rule = $('#goods_4 .butt-1 a').html();
+						var str = rule+name+'*'+count4;
+						$('#goods_4 .butt-1').siblings().hide();
+						$('#goods_4 .buynums4').attr('disabled','disabled');
+						$('#goods_4 .add').hide();
+						$('#goods_4 .reduce').hide();
+						$('#goods_selected span:eq(2)').html(str);
+					}else{
+						$('#goods_4 .butt-1').siblings().show();
+						$('#goods_4 .buynums4').attr('disabled',false);
+						$('#goods_4 .add').show();
+						$('#goods_4 .reduce').show();
+						$('#goods_selected span:eq(2)').html("");
+					}
+					
+					var count3 = typeof count3=='undefined' ? 0 : count3;
+					var count7 = typeof count7=='undefined' ? 0 : count7;
+					var count4 = typeof count4=='undefined' ? 0 : count4;
+					var totalPrice = parseFloat({$goods_info_3['sell_price']}*count3) + parseFloat($('.goods7_price em:eq(1)').html())*count7 + parseFloat($('.goods4_price em:eq(1)').html())*count4;
+					$('#totalPrice span').html(totalPrice);
+				});
+			
+			});
+			</script>
+			
+			
+			<script>
+
+				$(function() {
+					$(".diy-but1").bind("click", function(e) {
+						e = e || window.event;
+						var tar = e.srcElement || e.target;
+						if (tar.nodeName.toLowerCase() == "li" && !$(tar).hasClass('bg-img')) {
+							$(tar).addClass("bg-img");
+							$(tar).css("color", "#FF0000");
+//							$(".").css("display", "none");
+						} else {
+							$(tar).removeClass("bg-img");
+							$(tar).css("color", "#999");
+			
+						}
+					})
+				})
+			</script>
+			
+			
+<script type="text/javascript">
+$(document).ready(function(){ 
+
+	$(".gold-ul li a").removeClass("gold-act");
+	$(".gold-ul li a").each(function (){ 
+		// alert($(this).text());
+	//if($("a",$(this)).attr("href") == window.location.href){ 		
+		if($($(this)).attr("href") == window.location.href){ 		
+	    $(this).addClass("gold-act");
+	}
+});
+
+//城市地域选择按钮事件
+$('.sel_area').hover(
+	function(){
+		$('.area_box').show();
+	},function(){
+		$('.area_box').hide();
+	}
+);
+$('.area_box').hover(
+	function(){
+		$('.area_box').show();
+	},function(){
+		$('.area_box').hide();
+	}
+);
+
+
+
+//生成商品价格
+var priceHtml = template.render('priceTemplate',{"group_price":"{$group_price}","minSellPrice":"{$minSellPrice}","maxSellPrice":"{$maxSellPrice}","sell_price":"{$sell_price}"});
+$('#priceLi').replaceWith(priceHtml);
+
+//按钮绑定
+$('[name="showButton"]>label').click(function(){
+	$(this).siblings().removeClass('current');
+	if($(this).hasClass('current') == false)
+	{
+		$(this).addClass('current');
+	}
+	$('[name="showBox"]>div').addClass('hidden');
+	$('[name="showBox"]>div:eq('+$(this).index()+')').removeClass('hidden');
+
+	switch($(this).index())
+	{
+		case 1:
+		{
+			comment_ajax();
+		}
+		break;
+
+		case 2:
+		{
+			history_ajax();
+		}
+		break;
+
+		case 3:
+		{
+			refer_ajax();
+		}
+		break;
+
+		case 4:
+		{
+			discuss_ajax();
+		}
+		break;
+	}
+});
+
+});
+
+//禁止购买
+function closeBuy()
+{
+	if($('#buyNowButton').length > 0)
+	{
+		$('#buyNowButton').attr('disabled','disabled');
+		$('#buyNowButton').addClass('disabled');
+	}
+
+	if($('#joinCarButton').length > 0)
+	{
+		$('#joinCarButton').attr('disabled','disabled');
+		$('#joinCarButton').addClass('disabled');
+	}
+}
+
+
+//开放购买
+function openBuy()
+{
+	if($('#buyNowButton').length > 0)
+	{
+		$('#buyNowButton').removeAttr('disabled');
+		$('#buyNowButton').removeClass('disabled');
+	}
+
+	if($('#joinCarButton').length > 0)
+	{
+		$('#joinCarButton').removeAttr('disabled');
+		$('#joinCarButton').removeClass('disabled');
+	}
+}
+
+//加载根据地域获取城市
+function getAddress()
+{
+	//根据IP查询所在地
+	var ipAddress = $.cookie('ipAddress');
+	if(ipAddress)
+	{
+		searchDelivery(ipAddress);
+	}
+	else
+	{
+		$.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js',function(){
+			ipAddress = remote_ip_info['province'];
+			$.cookie('ipAddress',ipAddress);
+			searchDelivery(ipAddress);
+		});
+	}
+}
+
+
+function history_ajax(page)
+{
+	if(!page && $.trim($('#historyBox').text()))
+	{
+		return;
+	}
+	page = page ? page : 1;
+	var url = '{url:/site/history_ajax/page/@page@/goods_id/$id}';
+	url = url.replace("@page@",page);
+	$.getJSON(url,function(json)
+	{
+		//清空购买历史记录
+		$('#historyBox').empty();
+		$('#historyBox').parent().parent().find('.pages_bar').remove();
+
+		for(var item in json.data)
+		{
+			var historyHtml = template.render('historyRowTemplate',json.data[item]);
+			$('#historyBox').append(historyHtml);
+		}
+		$('#historyBox').parent().after(json.pageHtml);
+	});
+}
+
+/**
+ * 规格的选择
+ * @param _self 规格本身
+ */
+
+
+/**
+ * 监测库存操作
+ */
+function checkStoreNums()
+{
+	var storeNums = parseInt($.trim($('#data_storeNums').text()));
+	if(storeNums > 0)
+	{
+		openBuy();
+	}
+	else
+	{
+		closeBuy();
+	}
+}
+
+/**
+ * 检查规格选择是否符合标准
+ * @return boolen
+ */
+function checkSpecSelected()
+{	
+	if($('[name="specCols"]').length === $('[name="specCols"] .current').length)
+	{
+		return true;
+	}
+	return false;
+}
+
+
+
+//检查购买数量是否合法
+function checkBuyNums(element)
+{	
+	//购买数量小于0
+	var buyNums = parseInt($.trim($('.'+element).val()));
+
+	if(buyNums <= 1||buyNums==null)
+	{
+		$('.'+element).val(1);
+		return;
+	}
+	if($.isNumeric(parseInt($.trim($('.'+element).val())))==true)
+	{
+		//var pi = element.length - 1;
+		//var index = element[pi];
+		//var price = parseFloat($('.goods'+index+'_price em:eq(1)').html())*buyNums;
+		//$('.goods'+index+'_price em:eq(1)').html(price);
+	}
+	else
+{
+		$('.'+element).val(1);
+		return;
+	}
+
+
+	//购买数量大于库存
+	var storeNums = parseInt($.trim($('#data_storeNums').text()));
+	if(buyNums >= storeNums)
+	{
+		$('.'+element).val(storeNums);
+		return;
+	}
+}
+
+/**
+ * 购物车数量的加减
+ * @param code 增加或者减少购买的商品数量
+ */
+function modified(code,element)
+{	
+	var buyNums = parseInt($.trim($('.'+element).val()));
+	switch(code)
+	{
+		case 1:
+		{
+			buyNums++;
+		}
+		break;
+
+		case -1:
+		{
+			buyNums--;
+		}
+		break;
+	}
+
+	$('.'+element).val(buyNums);
+	checkBuyNums(element);
+}
+
+
+//立即购买按钮
+function buy_now()
+{	var chek_a = $('#chek_a').attr('checked');
+	var chek_b = $('#chek_b').attr('checked');
+	var chek_c = $('#chek_c').attr('checked');
+	//if(chek_a != 'checked'){
+		//alert("请至少选择一个母棒");
+		//$('.alert_close_img').click(function(){
+			//window.location.href='{url:/tool/diy#chek_a}';
+		//});
+		//return;
+	//}	
+
+	//设置必要参数
+	if(chek_a == 'checked'){
+		var id3 = $('#product_id_3').val();
+		var buyNums3  = parseInt($.trim($('.buynums3').val()));
+	} 
+	
+	if(chek_b == 'checked'){
+		var id7 = $('#product_id_7').val();
+		var buyNums7  = parseInt($.trim($('.buynums7').val()));
+	}
+	
+	if(chek_c == 'checked'){
+		var id4 = $('#product_id_4').val();
+		var buyNums4  = parseInt($.trim($('.buynums4').val()));
+	}
+	
+	if(chek_a !='checked' && chek_b != 'checked' && chek_c != 'checked'){
+		alert('您至少选择一种商品');
+		return false;
+	}
+	type = 'product';
+	//普通购买
+	var url = '{url:/tool/cart_diy_2/id3/@id3@/num3/@buyNums3@/id7/@id7@/num7/@buyNums7@/id4/@id4@/num4/@buyNums4@/type/@type@}';
+	url = url.replace('@id3@',id3).replace('@buyNums3@',buyNums3).replace('@id7@',id7).replace('@buyNums7@',buyNums7).replace('@id4@',id4).replace('@buyNums4@',buyNums4).replace('@type@',type);
+	
+	if ($("input#hidden_user_id").val() == "" || $("input#hidden_user_id").val() == 0) {
+        var pagesize = getPageSize();
+        $(".login_table").height(pagesize[1]);
+        $(".login_table").css("display", "block");
+        $(".login_content").css("display", "block");
+        $('.login_content #login_notice').css('visibility','visible');
+        $('.login_content #login_notice').html("购买需要登录MeiID");
+        var body_width = $(window).width();
+        $(".login_content").css("width","510px").css("height","360px");
+        $(".login_content").css("left", (body_width - 508) / 2 + "px");
+        $('input[name="orderCallback"]').val(url);
+        return false;
+    } 
+	//页面跳转
+	window.location.href = url;
+}
+
+$(function() {
+	//$(".diy-but li").click(function() {
+		//var index = $(this).index();
+		//$(this).addClass("butt-1").siblings().removeClass("butt-1");
+		
+		//sele_spec({$goods_info_4['id']},4,'#goods_4 .butt-1 a');
+		
+	//})
+		
+		$("#goods_7 .diy-but li").click(function() {
+			$(this).addClass("butt-1").siblings().removeClass("butt-1");
+			sele_spec({$goods_info_7['id']},7,'#goods_7 .butt-1 a');
+		})
+		
+		$("#goods_4 .diy-but li").click(function() {
+			$(this).addClass("butt-1").siblings().removeClass("butt-1");
+			sele_spec({$goods_info_4['id']},4,'#goods_4 .butt-1 a');
+		})
+	
+})
+
+function sele_spec(goods_id,index,spec)
+{		
+		var specObj = $(spec).attr('value');
+		var specJSON = '['+specObj+']';
+		if(index == '3'){
+			var specJSON = '[{"id":"9","type":"1","value":"母棒","name":"母棒"}]';
+		}
+		$.getJSON('{url:/tool/getProduct}',{"goods_id":goods_id,"random":Math.random,"specJSON":specJSON},function(json){
+			if(json.flag == 'success')
+			{	
+				$('#product_id_'+index).val(json.data.id);
+				$('.goods'+index+'_price em:eq(1)').html(json.data.sell_price);
+			}
+			else
+			{
+				alert(json.message);
+				closeBuy();
+			}
+		});
+}
+
+$(document).ready(function(){
+	sele_spec({$goods_info_3['id']},3,'#goods_3 .butt-1 a');
+	sele_spec({$goods_info_7['id']},7,'#goods_7 .butt-1 a');
+	sele_spec({$goods_info_4['id']},4,'#goods_4 .butt-1 a');
+});
+</script>
+
+		

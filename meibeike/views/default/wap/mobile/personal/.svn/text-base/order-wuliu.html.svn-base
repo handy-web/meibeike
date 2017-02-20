@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+	    <title>订单物流</title>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <meta name="full-screen" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="format-detection" content="address=no">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../version/css/main.css" />
+		<script type="text/javascript" src="../version/js/jquery.js" ></script>
+	</head>
+	<body>
+		
+		<div class="wuliu-nav">
+			<div class="wuliu-in">
+				<div class="wuliu-l"><img src="../version/img/001.jpg"/> </div>
+				<div class="wuliu-r">
+					<p>物流状态：<em>已收货</em></p>
+					<p>承运来源：<span>顺发运输</span></p>
+					<p>运单编号：<span>P10214521255212</span></p>
+					<p>官方电话：<span>95338</span></p>
+				</div>
+			</div>
+		</div> 
+
+		<section class="wuliu-box">
+			<h2>物流追踪</h2>
+			<ul>
+				<li>
+					<p class="on">快件正常签收，签收人是【XXXX】<br> 2016-06-03 18:00:00</p>
+					<div>&nbsp;</div>
+				</li>
+				<li>
+					<p>顺丰速运的【XXX不】的【张三】正在派件，<br> 电话：
+						<em style=" color:#058be8">13022222222</em><br> 2016-06-03 18:00:00</p>
+					<div>&nbsp;</div>
+				</li>
+				<li>
+					<p>到深圳市【深圳布吉康桥分部】<br> 2016-06-03 18:00:00</p>
+					<div>&nbsp;</div>
+				</li>
+				<li>
+					<p>商家已发货<br> 2016-06-03 18:00:00</p>
+					<div>&nbsp;</div>
+				</li>
+			</ul>
+		</section>
+	</body>
+</html>

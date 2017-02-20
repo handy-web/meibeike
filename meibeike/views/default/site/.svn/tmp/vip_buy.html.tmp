@@ -1,0 +1,233 @@
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/K_public.css" />
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/activity.css" />
+<link rel="stylesheet" type="text/css" href="{skin:vip_buy/css/b_style.css}" />
+<script type='text/javascript' src="{theme:javascript/TC.js}"></script>
+<script type='text/javascript' src="{skin:vip_buy/js/b_pack.js}"></script>
+
+		<style type="text/css">
+		.contbox h4 {font-size:25px;}
+		.contbox h4 #timer { height:70px;line-height:70px;}
+		.contbox h4 #timer span {padding: 10px;border: 1px solid #e53935;margin-left: 10px;margin-right: 10px;display:initial;font-size:25px;}
+
+		.login_content {width:auto;}
+	
+		.STYLE1 {font-size: 16px}
+        .STYLE2 {font-size: 16px; font-weight: bold; }
+        </style>
+
+
+<div class="timerbox">
+<h2>抢购倒计时</h2>
+<div class="timerm-in timerm-in-go">
+<ul>
+<li><p class="day" id="day_show">0</p><span>天</span></li>
+<li class="seperator">:</li>
+<li><p class="day" id="hour_show">0</p><span>时</span></li>
+<li class="seperator">:</li>
+<li><p class="day" id="minute_show">0</p><span>分</span></li>
+<li class="seperator">:</li>
+<li><p class="day" id="second_show">0</p><span>秒</span></li>
+</ul>
+</div>
+</div>
+<p class="STYLE2"  style="text-align:center;">如有任何疑问，请随时在微信公众号上勾搭客服MM或致电400－772－8320</p>
+<p class="STYLE1"  style="text-align:center">&nbsp;</p>
+<p class="STYLE1"  style="text-align:center">&nbsp;</p>
+<div class="contbox layout ">
+<ul>
+<li  onclick="checkgood(1)" id="good1" class="on">
+<div>
+<h2>银霸组合</h2>
+<p>（母棒+2T存储碟）</p>
+<img src="{skin:images/act/images/producta.png}">
+<h3>￥2279</h3>
+</div></li>
+<li  id="good2" onclick="checkgood(2)">
+<div>
+<h2>金甲组合</h2>
+<p>(母棒+250GB存储棒)</p>
+<img src="{skin:images/act/images/productb.png}">
+<h3>￥2670</h3>
+</div>
+</li>
+</ul>
+
+<h3 class="title1">您已经选择：￥2279银霸组合</h3>
+<h3 class="title2" style="display:none;">您已经选择：￥2670金甲组合</h3>
+<input class='pay' style='border:none;color:#fff;display:inline-block;text-align: center;width: 190px;border-radius: 3px;font-size: 24px;line-height: 50px;margin-top: 30px;' type='button' onclick="paynow()" value="立即支付" />
+</div>
+
+<input type="hidden" id="v_goodid" value="9"/>
+
+
+
+
+<script>
+$(function(){
+	
+	$('.top dl').mouseover(function(){
+		$(this).addClass('on');
+		$(this).find('dd').slideDown(150);
+	});
+    $('.top dl').mouseleave(function(){
+		$(this).removeClass('on');
+		$(this).find('dd').stop().slideUp(150);
+	});
+
+	})
+</script>
+
+
+
+<script>
+function login_window()
+{
+
+ var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+					$(".login_content").css("width", "auto");
+                    var body_width = $(window).width();
+                    $(".login_content").css("width","510px").css("height","360px");
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+        	        return false;
+}
+
+function checkgood(t){
+if(t==1) {$("#good1").addClass("on");$("#good2").removeClass("on");$("#v_goodid").val("9");$(".title1").css("display","block");$(".title2").css("display","none");}
+if(t==2) {$("#good2").addClass("on");$("#good1").removeClass("on");$("#v_goodid").val("10");$(".title2").css("display","block");$(".title1").css("display","none");}
+
+}
+function paynow()
+{
+	$.ajax({
+         type: "POST",
+         url: "{url:site/check_user_power}",
+         data: "userid="+$('#hidden_user_id').val()+"&goodid="+$('#v_goodid').val(),
+         dataType: "json",
+         success: function (d,s,r) {
+
+             if (d.code==1) {
+            	 alert(d.message);
+				 return false;
+             }else if(d.code==4){
+        		 //$.showDialog(".login_content");
+				 login_window();
+				 return false;             
+             }else if(d.code==0){
+        		 window.location.href="/site/products/id/"+$("#v_goodid").val();
+				 return false;             
+             }
+         }
+     });	
+   
+}
+
+
+$(function(){
+
+	})
+  $(document).ready(function(){ 
+　　//$(".header").css("display","none")
+}); 
+
+ $("#Appoint").click(function () {
+                //如果已经在登录页，则不变
+                var loginpage = $("#loginpage").val();
+				
+				// 清楚密碼
+				if ($(".password_input").val() != $(".password_input").attr("placeholder")) {
+					if (placeholderSupport()) {
+						$(".password_input").val("");
+					} else {
+						$(".password_input").val($(".password_input").attr("placeholder"));
+						$(".password_input").css("color", "#aaa");
+					}
+					$("#password").val("");
+				}				
+                //alert(loginpage);
+                if (loginpage == 'php') {
+                    return false;
+                } else {
+                    var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+
+                    var body_width = $(window).width();
+
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+                    return false;
+                }
+            });
+
+</script>
+
+<script>
+var EndTime= {$end_time}; 
+var NowTime = {$current_time};
+var t =EndTime - NowTime;
+var intDiff = t;//倒计时总秒数量，60*60*24*n=N天
+function timer(intDiff){
+
+	window.setInterval(function(){
+
+	var day=0,
+
+		hour=0,
+
+		minute=0,
+
+		second=0;//时间默认值		
+
+	if(intDiff > 0){
+
+		day = Math.floor(intDiff / (60 * 60 * 24));
+
+		hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+
+		minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+
+		second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+		
+		$('.pay').attr('disabled','disabled');
+
+	}else{
+		$('.pay').attr('disabled',false);
+		$('.pay').css('background','#fb3e3a').css('cursor','pointer');
+	}
+		
+	if (hour <= 9) hour = '0' + hour;
+		
+	if (minute <= 9) minute = '0' + minute;
+
+	if (second <= 9) second = '0' + second;
+
+	$('#day_show').html('0'+day);
+
+	$('#hour_show').html('<s id="h"></s>'+hour);
+
+	$('#minute_show').html('<s></s>'+minute);
+
+	$('#second_show').html('<s></s>'+second);
+
+	intDiff--;
+
+	}, 1000);
+
+} 
+
+
+
+$(function(){
+
+	timer(intDiff);
+
+});	
+$(function() {
+				clickbox('.pu-box .bd','.pu-box .hd')
+});
+</script>

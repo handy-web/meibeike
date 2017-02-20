@@ -1,0 +1,80 @@
+<style>
+	.crowd-wrapper{ background-color:white; border: 1px rgb(188, 188, 188) solid; border-radius: 15px;width: 1120px; height: auto; margin: 0 auto; padding-bottom: 50px;}
+	.crowd-wrapper .crowd-container { width: 1060px; margin: 0 auto; overflow: hidden; font-size: 16px; font-family: "Microsoft YaHei", "微软雅黑"; }
+	.crowd-wrapper .crowd-container .crowd-definition { margin-top: 40px; margin-bottom: 60px; }
+	.crowd-wrapper .crowd-container .crowd-definition .d-title { font-weight: bold; font-size: 28px; text-align: center; margin-bottom: 40px; }
+	.crowd-wrapper .crowd-container .crowd-definition .d-title .quote { display: inline-block; background: url("http://www.meibeike.com/views/default/skin/default/images_2/quote_0.jpg") left top no-repeat; width: 12px; height: 20px; margin-right: 5px; }
+	.crowd-wrapper .crowd-container .crowd-definition .d-title .quote.q1 { background-image: url("http://www.meibeike.com/views/default/skin/default/images_2/quote_1.jpg"); margin-left: 5px; margin-right: 0; }
+	.crowd-wrapper .crowd-container .crowd-definition div p.info { line-height: 2.0em; text-indent: 2em; }
+	.crowd-wrapper .crowd-container .crowd-definition div p.bg { text-align: center; }
+	.crowd-wrapper .crowd-container .common-questions .q-title { color: #ffffff; font-size: 24px; text-align: center; margin-bottom: 40px; }
+	.crowd-wrapper .crowd-container .common-questions .q-title span { background-color: #e70012; padding: 10px 40px; border-radius: 15px; display: inline-block; }
+	.crowd-wrapper .crowd-container .common-questions .q-container { margin: 0 auto; padding: 0 10px; overflow: hidden; }
+	.crowd-wrapper .crowd-container .common-questions a, .crowd-wrapper .crowd-container .common-questions a:hover { color: #6d6d6d; }
+	.crowd-wrapper .crowd-container .common-questions .q-container .lc { float: left; width: 50%; overflow: hidden; }
+	.crowd-wrapper .crowd-container .common-questions .q-container .q-list { margin-bottom: 25px; background: url("http://www.meibeike.com/views/default/skin/default/images_2/dot.jpg") left 0.6em no-repeat; padding-left: 15px; }
+	.crowd-wrapper .crowd-container .common-questions .q-container .q-list div { line-height: 1.8em; overflow: hidden; }
+	.crowd-wrapper .crowd-container .red { color: #f70909; }
+	.crowd-wrapper .crowd-container .common-questions .q-container .q-list ul { float: left; list-style: none; margin: 0; padding: 0; }
+	.crowd-wrapper .crowd-container .common-questions .q-container .q-list dl { padding: 0; margin: 0; }
+	.crowd-wrapper .crowd-container .common-questions .q-container .q-list .a { color: #6d6d6d; }
+	.crowd-wrapper .crowd-container .common-questions .q-container .q-list .a dt { color: #404040; }
+	.crowd-wrapper .crowd-container .common-questions .q-container .q-list .a ul li { margin-bottom: 10px; }
+	.crowd-wrapper .crowd-container .common-questions .q-container .q-list .a span { float: left; margin-right: 0.5em; }
+</style>
+<div class="crowd-wrapper">
+    <div class="crowd-container">
+        <div class="crowd-definition">
+            <div class="d-title">
+                <span class="quote q0"></span>什么是<span class="red">产品众筹</span><span class="quote q1"></span>
+            </div>
+            <div>
+                <p class="info"><span class="red">产品众筹</span>是指投资人将资金投给筹款人用以开发某种产品(或服务)，待该产品(或服务)开始对外销售或已经具备对外销售的条件的情况下，筹款人按照约定将开发的产品(或服务)无偿或低于成本的方式提供给投资人的一种众筹方式。{<a class="red" href="http://www.meibeike.com/site/vcrowddefi" target="_blank">点击阅读</a>}</p>
+                <p class="bg">
+                    <img src="http://www.meibeike.com/views/default/skin/default/images_2/crowdfunding_bg.jpg" alt=""/><br/>
+                    通俗的说，就是一群人凑钱去完成一个产品的生产，完了产品就是回报。
+                </p>
+            </div>
+        </div>
+        <div class="common-questions">
+            <div class="q-title"><span>京东众筹常见问题</span></div>
+            <div class="q-container">
+                <div class="lc left">
+                    <div class="q-list">
+                        <div class="red q">Q1: <span>如何访问云棒京东众筹页面?</span></div>
+                        <div class="a">A1: <a href="http://z.jd.com/project_details.action?projectId=33821" target="_blank">点击此处直接访问</a></div>
+                    </div>
+                    <div class="q-list">
+                        <div class="red q">Q3: <span>我支付不成功, 是什么原因</span></div>
+                        <div class="a"><span>A3:</span>
+                            <ul>
+                                <li>
+                                    <dl>
+                                        <dt>情况一: 您支付金额较大, 只能通过网银支付</dt>
+                                        <dd><a href="http://www.meibeike.com/site/dajine" target="_self">点击此处查看教程</a></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>情况二: 您是外籍人士</dt>
+                                        <dd><a href="http://www.meibeike.com/site/waijirenshi" target="_self">点击此处查看教程</a></dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc right">
+                    <div class="q-list">
+                        <div class="red q">Q2: <span>我下单后没有完成支付, 如何查看未支付成功的订单信息?</span></div>
+                        <div class="a">A2: <a href="http://www.meibeike.com/site/weizhifu" target="_self">点击此处查看教程</a></div>
+                    </div>
+                    <div class="q-list">
+                        <div class="red q">Q4: <span>我要支持, 但不会操作</span></div>
+                        <div class="a">A4: <a href="http://www.meibeike.com/site/zhichijiaocheng" target="_self">点击此处查看教程</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

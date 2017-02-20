@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+	    <title>邮箱注册</title>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <meta name="full-screen" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="format-detection" content="address=no">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	    <link rel="stylesheet" href="../version/css/main.css" />
+	    <script type="text/javascript" src="../version/js/jquery.js" ></script>
+	</head> 
+	<body style="background: #f5f5f5;">
+			<ul class="reg-c">
+				<li><a href="mobile-reg.html">手机注册</a></li>
+				<li><a class="reg-act">邮箱注册</li></a>
+			</ul>	
+			<div class="reg-line">
+				<div class="reg-input"><input type="tel" name="" maxlength="11" placeholder="请输入邮箱" /> </div>				
+				<div class="reg-input"><input type="password" name="" maxlength="11" placeholder="请输入密码" /> </div>
+				<div class="reg-input"><input type="password" name="" maxlength="11" placeholder="再次输入密码" /> </div>
+				<div class="reg-go"><input type="submit" value="立即注册" /></div>
+				<div class="reg-wr">
+					<div class="login-ck"><input type="checkbox" name="id_ck" id="ck_1" value="" checked /><label for="ck_1"><span>同意并愿意遵守<a>《用户协议》</a></span></label></div>					
+				</div>
+			</div>
+			<div class="reg-mid"><a>已有Mei ID,直接登录</a></div>
+
+	</body>
+</html>
+
+
+
+
+
+

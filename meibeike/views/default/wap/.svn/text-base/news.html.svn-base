@@ -1,0 +1,17 @@
+<style>
+	body{background: #F9F9F9;}
+</style>
+		<div class="cur-more">
+			<ul class="cur-ul">
+				{foreach:items=$list}
+				<li>
+					<a href = "{url:/wap/news_detail/id/}{$item['id']}">
+						<span class="flt news-w"><i>●</i> {$item['name']}</span>	
+						<span class="frt new-time">{echo:date('Y/m/d',$item['dateline'])}</span>
+					</a>
+				</li>
+				{/foreach}
+			</ul>	
+		</div>
+	</body>
+</html>

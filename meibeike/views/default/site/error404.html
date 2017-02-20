@@ -1,0 +1,14 @@
+{set:$msg = IReq::get('msg') ? IReq::get('msg') : '发生错误'}
+
+<style>body{background:rgb(241,241,241);}.error-box{overflow:hidden;width:100%;padding-bottom:50px;}.error-cen{text-align:center;padding:100px 0;}.error-cen h2{font-size:35px;padding-bottom:20px;font-weight:normal;color:rgb(51,51,51);font-family:"microsoft yahei"}.error-cen h3{font-size:22px;padding-bottom:50px;font-weight:normal;color:rgb(51,51,51);}.error-img{text-align:center;padding-bottom:50px;}.error-img img{width:200px;}.error-but{text-align:center;}.error-but a{height:50px;line-height:50px;padding:0 65px;background:rgb(252,62,57);font-size:18px;color:#fff;display:inline-block;}</style>
+
+<div class="error-box">
+	<div class="error-cen">
+		<div class="error-img"><img src="{skin:images/front/G0002_404_head_1.png}"/></div>
+		<h2>Sorry...</h2>
+		<h3>{echo:htmlspecialchars($msg,ENT_QUOTES)}</h3>
+		<div class="error-but">
+			<a href="{url:}">返回首页</a>
+		</div>
+	</div>
+</div>

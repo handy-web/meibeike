@@ -1,0 +1,29 @@
+<section>
+	<div class="pending-detial">
+		<h2>订单已提交</h2>
+		<ul class="block-row">
+			<li>订单编号：{$this->order_num}</li>
+			<li>订单金额：￥<b>{$this->final_sum}</li>
+			<li>备货时间：{$this->stockup_time}天</li>
+			<li>支付方式：{$this->payment}</li>
+			<li>配送方式：{$this->delivery}</li>
+		</ul>
+
+		<ul class="block-row">
+			<li>收货人名：{$accept_name}</li>
+			<li>联系方式：{$mobile}</li>
+			<li>收货时间：{$accept_time}</li>
+			{if:$this->tax_title!=''}
+			<li>发票抬头：{$this->tax_title}</li>
+			{/if}
+		</ul>
+
+		<!--不是货到付款并且支付方式为线上支付-->
+		{if:$this->deliveryType == 0 && $this->paymentType == 1}
+		{set:$tmpId=$this->order_id;}
+		<form action='{url:/block/doPay/order_id/$tmpId}' method='post' target='_blank'>
+			<input type="submit" value="立即支付" class="btn"  />
+		</form>
+		{/if}
+	</div>
+</section>

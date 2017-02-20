@@ -1,0 +1,17 @@
+<style>
+	body{background: #F9F9F9;}
+</style>
+		<div class="reg-suc">
+			<div class="reg-img">
+				<img src="/views/default/wap/mobile/version/img/app-success.png" />
+				<p>恭喜您注册成功！</p>
+			</div>
+			{if:$type == '1'}
+			<div class="reg-fot">
+				<p>系统已经给您的邮箱{$email}</p>
+				<p>发送证件邮件，<span><a href="mailto:{$toemail}" class="reg-a">请点我查阅</a></span></p>
+			</div>
+			{/if}
+		</div>
+	</body>
+</html>

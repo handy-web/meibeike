@@ -1,0 +1,389 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/YunBangI/!svn/ver/10461/Code/MeiWeb/meimbeike/meibeike/classes
+END
+cart.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/cart.php
+END
+point.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/point.php
+END
+statistics.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/statistics.php
+END
+paymentplugin.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/paymentplugin.php
+END
+model.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/model.php
+END
+search_goods.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/search_goods.php
+END
+db_meicloud_old.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/db_meicloud_old.php
+END
+demo1.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/YunBangI/!svn/ver/9585/Code/MeiWeb/meimbeike/meibeike/classes/demo1.php
+END
+db_meicloud.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/YunBangI/!svn/ver/10183/Code/MeiWeb/meimbeike/meibeike/classes/db_meicloud.php
+END
+csvimport_facade.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/csvimport_facade.php
+END
+countsum.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/YunBangI/!svn/ver/10143/Code/MeiWeb/meimbeike/meibeike/classes/countsum.php
+END
+probability.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/YunBangI/!svn/ver/10229/Code/MeiWeb/meimbeike/meibeike/classes/probability.php
+END
+themeroute.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/themeroute.php
+END
+delivery.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/delivery.php
+END
+ad.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/ad.php
+END
+sitemaps.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/sitemaps.php
+END
+class.pop3.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/YunBangI/!svn/ver/9585/Code/MeiWeb/meimbeike/meibeike/classes/class.pop3.php
+END
+common.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/common.php
+END
+photoupload.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/photoupload.php
+END
+order_class.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/YunBangI/!svn/ver/10461/Code/MeiWeb/meimbeike/meibeike/classes/order_class.php
+END
+goods_class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/goods_class.php
+END
+weixin.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/YunBangI/!svn/ver/10392/Code/MeiWeb/meimbeike/meibeike/classes/weixin.php
+END
+swfupload.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/swfupload.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/YunBangI/!svn/ver/9585/Code/MeiWeb/meimbeike/meibeike/classes/index.php
+END
+collect_facade.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/collect_facade.php
+END
+api.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/api.php
+END
+dbbackup.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/dbbackup.php
+END
+sitehelp.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/sitehelp.php
+END
+payment.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/payment.php
+END
+thumb.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/thumb.php
+END
+checkrights_t.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/checkrights_t.php
+END
+article.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/article.php
+END
+demo.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/YunBangI/!svn/ver/9585/Code/MeiWeb/meimbeike/meibeike/classes/demo.php
+END
+class.phpmailer.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/YunBangI/!svn/ver/9585/Code/MeiWeb/meimbeike/meibeike/classes/class.phpmailer.php
+END
+sendgoods.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/sendgoods.php
+END
+db_meicloud_2.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/YunBangI/!svn/ver/9585/Code/MeiWeb/meimbeike/meibeike/classes/db_meicloud_2.php
+END
+checkrights.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/YunBangI/!svn/ver/10227/Code/MeiWeb/meimbeike/meibeike/classes/checkrights.php
+END
+share.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/share.php
+END
+menu.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/YunBangI/!svn/ver/10234/Code/MeiWeb/meimbeike/meibeike/classes/menu.php
+END
+keywords.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/keywords.php
+END
+sonline.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/sonline.php
+END
+area.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/area.php
+END
+hsms.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/hsms.php
+END
+regiment.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/regiment.php
+END
+log.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/log.php
+END
+seo.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/seo.php
+END
+geetestlib.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/YunBangI/!svn/ver/9585/Code/MeiWeb/meimbeike/meibeike/classes/geetestlib.php
+END
+comment_class.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/comment_class.php
+END
+sendmail.phpwh
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/sendmail.phpwh
+END
+layoutroute.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/layoutroute.php
+END
+sendmail.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/YunBangI/!svn/ver/9573/Code/MeiWeb/meimbeike/meibeike/classes/sendmail.php
+END
+accountlog.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/accountlog.php
+END
+safestrategy.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/safestrategy.php
+END
+config.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/config.php
+END
+mess.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/mess.php
+END
+PHPExcel.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/YunBangI/!svn/ver/9585/Code/MeiWeb/meimbeike/meibeike/classes/PHPExcel.php
+END
+oauthbase.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/oauthbase.php
+END
+reserve.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/YunBangI/!svn/ver/9734/Code/MeiWeb/meimbeike/meibeike/classes/reserve.php
+END
+expresswaybill.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/expresswaybill.php
+END
+util.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/YunBangI/!svn/ver/10374/Code/MeiWeb/meimbeike/meibeike/classes/util.php
+END
+oauth.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/oauth.php
+END
+proxy.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/proxy.php
+END
+class.smtp.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/YunBangI/!svn/ver/9585/Code/MeiWeb/meimbeike/meibeike/classes/class.smtp.php
+END
+prorule.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/classes/prorule.php
+END

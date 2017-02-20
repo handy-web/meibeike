@@ -1,0 +1,77 @@
+<div class="headbar">
+	<div class="position">订单<span>></span><span>单据管理</span><span>></span><span>预定单回收站</span></div>
+	<div class="operating">
+		<a href="javascript:;"><button class="operating_btn" type="button" onclick="window.location='{url:/order/order_appoint_list}'"><span class="import">返回列表</span></button></a>
+		<a href="javascript:void(0)" onclick="selectAll('id[]')"><button class="operating_btn" type="button"><span class="sel_all">全选</span></button></a>
+		<a href="javascript:void(0)" onclick="recycle_del()"><button class="operating_btn" type="button"><span class="delete">彻底删除</span></button></a>
+		<a href="javascript:void(0)" onclick="recycle_restore()"><button class="operating_btn"><span class="recover">还原</span></button></a>
+	</div>
+	<div class="field">
+		<table class="list_table">
+			<col width="30px" />
+			<col width="30px" />
+			<col width="170px" />
+			<col />
+			<thead>
+				<tr>
+						<th class="t_c">选择</th>
+					<th></th>
+					<th>MeiID昵称</th>
+					<th>手机号</th>
+					<th>邮箱</th>
+					<th>内部ID</th>
+					<th>购买时间</th>
+					<th>预约时间</th>
+					<th>帐号类型</th>
+					<th>网盘帐号</th>
+					<th>截图地址</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+<form name="orderForm" action="" method="post">
+<div class="content">
+	<table class="list_table">
+		<col width="30px" />
+		<col width="30px" />
+		<col width="170px" />
+		<col />
+		<tbody>
+				{set:$page= (isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}
+			{query: name=appointment as c join=left join user as o on c.mei_id eq o.meiid fields=o.username,o.mobile,o.email,c.appointment_no,c.create_time,c.purchase_time,c.order_id,c.mei_id,c.vendor_id,c.pic_url,c.user_type where=c.if_del eq 1 order= c.create_time desc  page=$page }
+			<tr>
+				<td class="t_c"><input name="id[]" type="checkbox" value="{$item['order_id']}" /></td>
+				<td><!--a href="{url:/order/collection_show/id/$item[order_id]}"><img class="operator" src="{skin:images/admin/icon_check.gif}" title="查看" /></a--></td>
+				<td>{$item['username']}</td>
+				<td>{$item['mobile']}</td>
+				<td>{$item['email']}</td>
+				<td>{$item['mei_id']}</td>
+				<td>{$item['purchase_time']}</td>
+				<td>{$item['create_time']}</td>
+				<td>{if:$item['user_type']==1}普通用户{else:}华为网盘{/if}</td>				
+				<td>{$item['vendor_id']}</td>
+				<td><a href="{$item['pic_url']}" target="_blank">{$item['pic_url']}</a></td>
+			</tr>
+			{/query}
+		</tbody>
+	</table>
+</div>
+{$query->getPageBar()}
+</form>
+
+<script type="text/javascript">
+//恢复数据
+function recycle_restore()
+{
+	$("form[name='orderForm']").attr('action','{url:/order/appoint_recycle_restore}');
+	confirm('确定要还原所选中的信息吗？','formSubmit(\'orderForm\')');
+}
+
+//删除数据
+function recycle_del()
+{
+	$("form[name='orderForm']").attr('action','{url:/order/appoint_recycle_del}');
+	confirm('确定要彻底删除所选中的信息吗？','formSubmit(\'orderForm\')');
+}
+</script>

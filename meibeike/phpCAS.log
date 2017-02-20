@@ -1,0 +1,2333 @@
+A519 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+A519 .=> phpCAS::setServerLoginURL('https://192.168.142.1:80/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://localhost/phpCasClient/user.php?a=loginCas') [block.php:512]
+A519 .<= ''
+A519 .=> phpCAS::setNoCasServerValidation() [block.php:513]
+A519 .<= ''
+A519 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+A519 .|    Not a logout request [client.php:1292]
+A519 .<= ''
+A519 .=> phpCAS::checkAuthentication() [block.php:516]
+A519 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+A519 .|    |    => CASClient::isAuthenticated() [client.php:994]
+A519 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+A519 .|    |    |    |    no user found [client.php:1216]
+A519 .|    |    |    <= false
+A519 .|    |    |    no ticket found [client.php:1109]
+A519 .|    |    <= false
+A519 .|    |    user is not authenticated (cache reset) [client.php:1025]
+A519 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+A519 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+A519 .|    |    |    <= 'https://192.168.142.1:80/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://localhost/phpCasClient/user.php?a=loginCas'
+A519 .|    |    |    Redirect to : https://192.168.142.1:80/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://localhost/phpCasClient/user.php?a=loginCas [client.php:1234]
+A519 .|    |    |    exit()
+A519 .|    |    |    -
+A519 .|    |    -
+A519 .|    -
+58CA .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+58CA .=> phpCAS::setServerLoginURL('https://192.168.142.1:80/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://localhost/phpCasClient/user.php?a=loginCas') [block.php:512]
+58CA .<= ''
+58CA .=> phpCAS::setNoCasServerValidation() [block.php:513]
+58CA .<= ''
+58CA .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+58CA .|    Not a logout request [client.php:1292]
+58CA .<= ''
+58CA .=> phpCAS::checkAuthentication() [block.php:516]
+58CA .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+58CA .|    |    => CASClient::isAuthenticated() [client.php:994]
+58CA .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+58CA .|    |    |    |    no user found [client.php:1216]
+58CA .|    |    |    <= false
+58CA .|    |    |    no ticket found [client.php:1109]
+58CA .|    |    <= false
+58CA .|    |    user is not authenticated (cache reset) [client.php:1025]
+58CA .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+58CA .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+58CA .|    |    |    <= 'https://192.168.142.1:80/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://localhost/phpCasClient/user.php?a=loginCas'
+58CA .|    |    |    Redirect to : https://192.168.142.1:80/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://localhost/phpCasClient/user.php?a=loginCas [client.php:1234]
+58CA .|    |    |    exit()
+58CA .|    |    |    -
+58CA .|    |    -
+58CA .|    -
+BDBE .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+BDBE .=> phpCAS::setServerLoginURL('https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1/meibeike') [block.php:512]
+BDBE .<= ''
+BDBE .=> phpCAS::setNoCasServerValidation() [block.php:513]
+BDBE .<= ''
+BDBE .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+BDBE .|    Not a logout request [client.php:1292]
+BDBE .<= ''
+BDBE .=> phpCAS::checkAuthentication() [block.php:516]
+BDBE .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+BDBE .|    |    => CASClient::isAuthenticated() [client.php:994]
+BDBE .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+BDBE .|    |    |    |    no user found [client.php:1216]
+BDBE .|    |    |    <= false
+BDBE .|    |    |    no ticket found [client.php:1109]
+BDBE .|    |    <= false
+BDBE .|    |    user is not authenticated (cache reset) [client.php:1025]
+BDBE .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+BDBE .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+BDBE .|    |    |    <= 'https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1/meibeike'
+BDBE .|    |    |    Redirect to : https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1/meibeike [client.php:1234]
+BDBE .|    |    |    exit()
+BDBE .|    |    |    -
+BDBE .|    |    -
+BDBE .|    -
+B40A .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+B40A .=> phpCAS::setServerLoginURL('https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login') [block.php:512]
+B40A .<= ''
+B40A .=> phpCAS::setNoCasServerValidation() [block.php:513]
+B40A .<= ''
+B40A .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+B40A .|    Not a logout request [client.php:1292]
+B40A .<= ''
+B40A .=> phpCAS::checkAuthentication() [block.php:516]
+B40A .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+B40A .|    |    => CASClient::isAuthenticated() [client.php:994]
+B40A .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+B40A .|    |    |    |    no user found [client.php:1216]
+B40A .|    |    |    <= false
+B40A .|    |    |    no ticket found [client.php:1109]
+B40A .|    |    <= false
+B40A .|    <= false
+B40A .<= false
+B40A .=> phpCAS::forceAuthentication() [block.php:524]
+B40A .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+B40A .|    |    => CASClient::isAuthenticated() [client.php:952]
+B40A .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+B40A .|    |    |    |    no user found [client.php:1216]
+B40A .|    |    |    <= false
+B40A .|    |    |    no ticket found [client.php:1109]
+B40A .|    |    <= false
+B40A .|    |    => CASClient::redirectToCas(false) [client.php:961]
+B40A .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+B40A .|    |    |    <= 'https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login'
+B40A .|    |    |    Redirect to : https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login [client.php:1234]
+B40A .|    |    |    exit()
+B40A .|    |    |    -
+B40A .|    |    -
+B40A .|    -
+2F7F .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+2F7F .=> phpCAS::setServerLoginURL('https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login') [block.php:512]
+2F7F .<= ''
+2F7F .=> phpCAS::setNoCasServerValidation() [block.php:513]
+2F7F .<= ''
+2F7F .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+2F7F .|    Not a logout request [client.php:1292]
+2F7F .<= ''
+2F7F .=> phpCAS::checkAuthentication() [block.php:516]
+2F7F .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+2F7F .|    |    => CASClient::isAuthenticated() [client.php:994]
+2F7F .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+2F7F .|    |    |    |    no user found [client.php:1216]
+2F7F .|    |    |    <= false
+2F7F .|    |    |    no ticket found [client.php:1109]
+2F7F .|    |    <= false
+2F7F .|    |    user is not authenticated (cache reset) [client.php:1025]
+2F7F .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+2F7F .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+2F7F .|    |    |    <= 'https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login'
+2F7F .|    |    |    Redirect to : https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login [client.php:1234]
+2F7F .|    |    |    exit()
+2F7F .|    |    |    -
+2F7F .|    |    -
+2F7F .|    -
+5EAB .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+5EAB .=> phpCAS::setServerLoginURL('https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login') [block.php:512]
+5EAB .<= ''
+5EAB .=> phpCAS::setNoCasServerValidation() [block.php:513]
+5EAB .<= ''
+5EAB .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+5EAB .|    Not a logout request [client.php:1292]
+5EAB .<= ''
+5EAB .=> phpCAS::checkAuthentication() [block.php:516]
+5EAB .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+5EAB .|    |    => CASClient::isAuthenticated() [client.php:994]
+5EAB .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+5EAB .|    |    |    |    no user found [client.php:1216]
+5EAB .|    |    |    <= false
+5EAB .|    |    |    no ticket found [client.php:1109]
+5EAB .|    |    <= false
+5EAB .|    <= false
+5EAB .<= false
+5EAB .=> phpCAS::forceAuthentication() [block.php:524]
+5EAB .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+5EAB .|    |    => CASClient::isAuthenticated() [client.php:952]
+5EAB .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+5EAB .|    |    |    |    no user found [client.php:1216]
+5EAB .|    |    |    <= false
+5EAB .|    |    |    no ticket found [client.php:1109]
+5EAB .|    |    <= false
+5EAB .|    |    => CASClient::redirectToCas(false) [client.php:961]
+5EAB .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+5EAB .|    |    |    <= 'https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login'
+5EAB .|    |    |    Redirect to : https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login [client.php:1234]
+5EAB .|    |    |    exit()
+5EAB .|    |    |    -
+5EAB .|    |    -
+5EAB .|    -
+FF42 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+FF42 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login') [block.php:512]
+FF42 .<= ''
+FF42 .=> phpCAS::setNoCasServerValidation() [block.php:513]
+FF42 .<= ''
+FF42 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+FF42 .|    Not a logout request [client.php:1292]
+FF42 .<= ''
+FF42 .=> phpCAS::checkAuthentication() [block.php:516]
+FF42 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+FF42 .|    |    => CASClient::isAuthenticated() [client.php:994]
+FF42 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+FF42 .|    |    |    |    no user found [client.php:1216]
+FF42 .|    |    |    <= false
+FF42 .|    |    |    no ticket found [client.php:1109]
+FF42 .|    |    <= false
+FF42 .|    |    user is not authenticated (cache reset) [client.php:1025]
+FF42 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+FF42 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+FF42 .|    |    |    <= 'https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login'
+FF42 .|    |    |    Redirect to : https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://192.168.2.108:8086/cas/login [client.php:1234]
+FF42 .|    |    |    exit()
+FF42 .|    |    |    -
+FF42 .|    |    -
+FF42 .|    -
+FE7C .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+FE7C .=> phpCAS::setServerLoginURL('https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1') [block.php:512]
+FE7C .<= ''
+FE7C .=> phpCAS::setNoCasServerValidation() [block.php:513]
+FE7C .<= ''
+FE7C .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+FE7C .|    Not a logout request [client.php:1292]
+FE7C .<= ''
+FE7C .=> phpCAS::checkAuthentication() [block.php:516]
+FE7C .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+FE7C .|    |    => CASClient::isAuthenticated() [client.php:994]
+FE7C .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+FE7C .|    |    |    |    no user found [client.php:1216]
+FE7C .|    |    |    <= false
+FE7C .|    |    |    no ticket found [client.php:1109]
+FE7C .|    |    <= false
+FE7C .|    <= false
+FE7C .<= false
+FE7C .=> phpCAS::forceAuthentication() [block.php:524]
+FE7C .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+FE7C .|    |    => CASClient::isAuthenticated() [client.php:952]
+FE7C .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+FE7C .|    |    |    |    no user found [client.php:1216]
+FE7C .|    |    |    <= false
+FE7C .|    |    |    no ticket found [client.php:1109]
+FE7C .|    |    <= false
+FE7C .|    |    => CASClient::redirectToCas(false) [client.php:961]
+FE7C .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+FE7C .|    |    |    <= 'https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1'
+FE7C .|    |    |    Redirect to : https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1 [client.php:1234]
+FE7C .|    |    |    exit()
+FE7C .|    |    |    -
+FE7C .|    |    -
+FE7C .|    -
+3513 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+3513 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1') [block.php:512]
+3513 .<= ''
+3513 .=> phpCAS::setNoCasServerValidation() [block.php:513]
+3513 .<= ''
+3513 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+3513 .|    Not a logout request [client.php:1292]
+3513 .<= ''
+3513 .=> phpCAS::checkAuthentication() [block.php:516]
+3513 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+3513 .|    |    => CASClient::isAuthenticated() [client.php:994]
+3513 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+3513 .|    |    |    |    no user found [client.php:1216]
+3513 .|    |    |    <= false
+3513 .|    |    |    no ticket found [client.php:1109]
+3513 .|    |    <= false
+3513 .|    |    user is not authenticated (cache reset) [client.php:1025]
+3513 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+3513 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+3513 .|    |    |    <= 'https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1'
+3513 .|    |    |    Redirect to : https://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1 [client.php:1234]
+3513 .|    |    |    exit()
+3513 .|    |    |    -
+3513 .|    |    -
+3513 .|    -
+FE2B .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+FE2B .=> phpCAS::setServerLoginURL('http://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1') [block.php:512]
+FE2B .<= ''
+FE2B .=> phpCAS::setNoCasServerValidation() [block.php:513]
+FE2B .<= ''
+FE2B .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+FE2B .|    Not a logout request [client.php:1292]
+FE2B .<= ''
+FE2B .=> phpCAS::checkAuthentication() [block.php:516]
+FE2B .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+FE2B .|    |    => CASClient::isAuthenticated() [client.php:994]
+FE2B .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+FE2B .|    |    |    |    no user found [client.php:1216]
+FE2B .|    |    |    <= false
+FE2B .|    |    |    no ticket found [client.php:1109]
+FE2B .|    |    <= false
+FE2B .|    <= false
+FE2B .<= false
+FE2B .=> phpCAS::forceAuthentication() [block.php:524]
+FE2B .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+FE2B .|    |    => CASClient::isAuthenticated() [client.php:952]
+FE2B .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+FE2B .|    |    |    |    no user found [client.php:1216]
+FE2B .|    |    |    <= false
+FE2B .|    |    |    no ticket found [client.php:1109]
+FE2B .|    |    <= false
+FE2B .|    |    => CASClient::redirectToCas(false) [client.php:961]
+FE2B .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+FE2B .|    |    |    <= 'http://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1'
+FE2B .|    |    |    Redirect to : http://192.168.2.108:8086/cas/login?embed=true&cssUrl=http://localhost/phpCasClient/style/login.css&service=http://127.0.0.1 [client.php:1234]
+FE2B .|    |    |    exit()
+FE2B .|    |    |    -
+FE2B .|    |    -
+FE2B .|    -
+69D2 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+69D2 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8086/cas/login?embed=true&service=http://127.0.0.1') [block.php:512]
+69D2 .<= ''
+69D2 .=> phpCAS::setNoCasServerValidation() [block.php:513]
+69D2 .<= ''
+69D2 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+69D2 .|    Not a logout request [client.php:1292]
+69D2 .<= ''
+69D2 .=> phpCAS::checkAuthentication() [block.php:516]
+69D2 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+69D2 .|    |    => CASClient::isAuthenticated() [client.php:994]
+69D2 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+69D2 .|    |    |    |    no user found [client.php:1216]
+69D2 .|    |    |    <= false
+69D2 .|    |    |    no ticket found [client.php:1109]
+69D2 .|    |    <= false
+69D2 .|    |    user is not authenticated (cache reset) [client.php:1025]
+69D2 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+69D2 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+69D2 .|    |    |    <= 'http://192.168.2.108:8086/cas/login?embed=true&service=http://127.0.0.1'
+69D2 .|    |    |    Redirect to : http://192.168.2.108:8086/cas/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+69D2 .|    |    |    exit()
+69D2 .|    |    |    -
+69D2 .|    |    -
+69D2 .|    -
+C21D .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+C21D .=> phpCAS::setServerLoginURL('http://192.168.2.108:8086/cas/login?embed=true&service=http://127.0.0.1') [block.php:512]
+C21D .<= ''
+C21D .=> phpCAS::setNoCasServerValidation() [block.php:513]
+C21D .<= ''
+C21D .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+C21D .|    Not a logout request [client.php:1292]
+C21D .<= ''
+C21D .=> phpCAS::checkAuthentication() [block.php:516]
+C21D .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+C21D .|    |    => CASClient::isAuthenticated() [client.php:994]
+C21D .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+C21D .|    |    |    |    no user found [client.php:1216]
+C21D .|    |    |    <= false
+C21D .|    |    |    no ticket found [client.php:1109]
+C21D .|    |    <= false
+C21D .|    <= false
+C21D .<= false
+C21D .=> phpCAS::forceAuthentication() [block.php:524]
+C21D .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+C21D .|    |    => CASClient::isAuthenticated() [client.php:952]
+C21D .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+C21D .|    |    |    |    no user found [client.php:1216]
+C21D .|    |    |    <= false
+C21D .|    |    |    no ticket found [client.php:1109]
+C21D .|    |    <= false
+C21D .|    |    => CASClient::redirectToCas(false) [client.php:961]
+C21D .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+C21D .|    |    |    <= 'http://192.168.2.108:8086/cas/login?embed=true&service=http://127.0.0.1'
+C21D .|    |    |    Redirect to : http://192.168.2.108:8086/cas/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+C21D .|    |    |    exit()
+C21D .|    |    |    -
+C21D .|    |    -
+C21D .|    -
+C151 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+C151 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1') [block.php:512]
+C151 .<= ''
+C151 .=> phpCAS::setNoCasServerValidation() [block.php:513]
+C151 .<= ''
+C151 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+C151 .|    Not a logout request [client.php:1292]
+C151 .<= ''
+C151 .=> phpCAS::checkAuthentication() [block.php:516]
+C151 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+C151 .|    |    => CASClient::isAuthenticated() [client.php:994]
+C151 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+C151 .|    |    |    |    no user found [client.php:1216]
+C151 .|    |    |    <= false
+C151 .|    |    |    no ticket found [client.php:1109]
+C151 .|    |    <= false
+C151 .|    |    user is not authenticated (cache reset) [client.php:1025]
+C151 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+C151 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+C151 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1'
+C151 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+C151 .|    |    |    exit()
+C151 .|    |    |    -
+C151 .|    |    -
+C151 .|    -
+8812 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+8812 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas') [block.php:561]
+8812 .<= ''
+8812 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+8812 .<= ''
+8812 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+8812 .|    Not a logout request [client.php:1292]
+8812 .<= ''
+8812 .=> phpCAS::checkAuthentication() [block.php:565]
+8812 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+8812 .|    |    => CASClient::isAuthenticated() [client.php:994]
+8812 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+8812 .|    |    |    |    no user found [client.php:1216]
+8812 .|    |    |    <= false
+8812 .|    |    |    no ticket found [client.php:1109]
+8812 .|    |    <= false
+8812 .|    |    user is not authenticated (cache reset) [client.php:1025]
+8812 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+8812 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+8812 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas'
+8812 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas [client.php:1234]
+8812 .|    |    |    exit()
+8812 .|    |    |    -
+8812 .|    |    -
+8812 .|    -
+B91D .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+B91D .=> phpCAS::setServerLoginURL('http://127.0.0.1/meibeike/index.php?controller=site&action=testCas') [block.php:561]
+B91D .<= ''
+B91D .=> phpCAS::setNoCasServerValidation() [block.php:562]
+B91D .<= ''
+B91D .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+B91D .|    Not a logout request [client.php:1292]
+B91D .<= ''
+B91D .=> phpCAS::checkAuthentication() [block.php:565]
+B91D .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+B91D .|    |    => CASClient::isAuthenticated() [client.php:994]
+B91D .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+B91D .|    |    |    |    no user found [client.php:1216]
+B91D .|    |    |    <= false
+B91D .|    |    |    no ticket found [client.php:1109]
+B91D .|    |    <= false
+B91D .|    <= false
+B91D .<= false
+B91D .=> phpCAS::forceAuthentication() [block.php:607]
+B91D .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+B91D .|    |    => CASClient::isAuthenticated() [client.php:952]
+B91D .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+B91D .|    |    |    |    no user found [client.php:1216]
+B91D .|    |    |    <= false
+B91D .|    |    |    no ticket found [client.php:1109]
+B91D .|    |    <= false
+B91D .|    |    => CASClient::redirectToCas(false) [client.php:961]
+B91D .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+B91D .|    |    |    <= 'http://127.0.0.1/meibeike/index.php?controller=site&action=testCas'
+B91D .|    |    |    Redirect to : http://127.0.0.1/meibeike/index.php?controller=site&action=testCas [client.php:1234]
+B91D .|    |    |    exit()
+B91D .|    |    |    -
+B91D .|    |    -
+B91D .|    -
+64A7 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+64A7 .=> phpCAS::setServerLoginURL('http://127.0.0.1/meibeike/index.php?controller=site&action=testCas') [block.php:561]
+64A7 .<= ''
+64A7 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+64A7 .<= ''
+64A7 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+64A7 .|    Not a logout request [client.php:1292]
+64A7 .<= ''
+64A7 .=> phpCAS::checkAuthentication() [block.php:565]
+64A7 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+64A7 .|    |    => CASClient::isAuthenticated() [client.php:994]
+64A7 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+64A7 .|    |    |    |    no user found [client.php:1216]
+64A7 .|    |    |    <= false
+64A7 .|    |    |    no ticket found [client.php:1109]
+64A7 .|    |    <= false
+64A7 .|    |    user is not authenticated (cache reset) [client.php:1025]
+64A7 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+64A7 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+64A7 .|    |    |    <= 'http://127.0.0.1/meibeike/index.php?controller=site&action=testCas'
+64A7 .|    |    |    Redirect to : http://127.0.0.1/meibeike/index.php?controller=site&action=testCas [client.php:1234]
+64A7 .|    |    |    exit()
+64A7 .|    |    |    -
+64A7 .|    |    -
+64A7 .|    -
+4F30 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+4F30 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas') [block.php:561]
+4F30 .<= ''
+4F30 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+4F30 .<= ''
+4F30 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+4F30 .|    Not a logout request [client.php:1292]
+4F30 .<= ''
+4F30 .=> phpCAS::checkAuthentication() [block.php:565]
+4F30 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+4F30 .|    |    => CASClient::isAuthenticated() [client.php:994]
+4F30 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+4F30 .|    |    |    |    no user found [client.php:1216]
+4F30 .|    |    |    <= false
+4F30 .|    |    |    no ticket found [client.php:1109]
+4F30 .|    |    <= false
+4F30 .|    |    user is not authenticated (cache reset) [client.php:1025]
+4F30 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+4F30 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+4F30 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas'
+4F30 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas [client.php:1234]
+4F30 .|    |    |    exit()
+4F30 .|    |    |    -
+4F30 .|    |    -
+4F30 .|    -
+5252 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+5252 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas') [block.php:561]
+5252 .<= ''
+5252 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+5252 .<= ''
+5252 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+5252 .|    Not a logout request [client.php:1292]
+5252 .<= ''
+5252 .=> phpCAS::checkAuthentication() [block.php:565]
+5252 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+5252 .|    |    => CASClient::isAuthenticated() [client.php:994]
+5252 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+5252 .|    |    |    |    no user found [client.php:1216]
+5252 .|    |    |    <= false
+5252 .|    |    |    no ticket found [client.php:1109]
+5252 .|    |    <= false
+5252 .|    |    user is not authenticated (cache reset) [client.php:1025]
+5252 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+5252 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+5252 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas'
+5252 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas [client.php:1234]
+5252 .|    |    |    exit()
+5252 .|    |    |    -
+5252 .|    |    -
+5252 .|    -
+D231 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+D231 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas') [block.php:561]
+D231 .<= ''
+D231 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+D231 .<= ''
+D231 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+D231 .|    Not a logout request [client.php:1292]
+D231 .<= ''
+D231 .=> phpCAS::checkAuthentication() [block.php:565]
+D231 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+D231 .|    |    => CASClient::isAuthenticated() [client.php:994]
+D231 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+D231 .|    |    |    |    no user found [client.php:1216]
+D231 .|    |    |    <= false
+D231 .|    |    |    no ticket found [client.php:1109]
+D231 .|    |    <= false
+D231 .|    |    user is not authenticated (cache reset) [client.php:1025]
+D231 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+D231 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+D231 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas'
+D231 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas [client.php:1234]
+D231 .|    |    |    exit()
+D231 .|    |    |    -
+D231 .|    |    -
+D231 .|    -
+5152 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+5152 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas') [block.php:561]
+5152 .<= ''
+5152 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+5152 .<= ''
+5152 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+5152 .|    Not a logout request [client.php:1292]
+5152 .<= ''
+5152 .=> phpCAS::checkAuthentication() [block.php:565]
+5152 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+5152 .|    |    => CASClient::isAuthenticated() [client.php:994]
+5152 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+5152 .|    |    |    |    no user found [client.php:1216]
+5152 .|    |    |    <= false
+5152 .|    |    |    no ticket found [client.php:1109]
+5152 .|    |    <= false
+5152 .|    |    user is not authenticated (cache reset) [client.php:1025]
+5152 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+5152 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+5152 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas'
+5152 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas [client.php:1234]
+5152 .|    |    |    exit()
+5152 .|    |    |    -
+5152 .|    |    -
+5152 .|    -
+895C .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+895C .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas') [block.php:561]
+895C .<= ''
+895C .=> phpCAS::setNoCasServerValidation() [block.php:562]
+895C .<= ''
+895C .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+895C .|    Not a logout request [client.php:1292]
+895C .<= ''
+895C .=> phpCAS::checkAuthentication() [block.php:565]
+895C .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+895C .|    |    => CASClient::isAuthenticated() [client.php:994]
+895C .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+895C .|    |    |    |    no user found [client.php:1216]
+895C .|    |    |    <= false
+895C .|    |    |    no ticket found [client.php:1109]
+895C .|    |    <= false
+895C .|    <= false
+895C .<= false
+895C .=> phpCAS::forceAuthentication() [block.php:607]
+895C .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+895C .|    |    => CASClient::isAuthenticated() [client.php:952]
+895C .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+895C .|    |    |    |    no user found [client.php:1216]
+895C .|    |    |    <= false
+895C .|    |    |    no ticket found [client.php:1109]
+895C .|    |    <= false
+895C .|    |    => CASClient::redirectToCas(false) [client.php:961]
+895C .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+895C .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas'
+895C .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://192.168.2.144/meibeike/index.php?controller=site&action=testCas [client.php:1234]
+895C .|    |    |    exit()
+895C .|    |    |    -
+895C .|    |    -
+895C .|    -
+8E4B .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+8E4B .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas') [block.php:561]
+8E4B .<= ''
+8E4B .=> phpCAS::setNoCasServerValidation() [block.php:562]
+8E4B .<= ''
+8E4B .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+8E4B .|    Not a logout request [client.php:1292]
+8E4B .<= ''
+8E4B .=> phpCAS::checkAuthentication() [block.php:565]
+8E4B .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+8E4B .|    |    => CASClient::isAuthenticated() [client.php:994]
+8E4B .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+8E4B .|    |    |    |    no user found [client.php:1216]
+8E4B .|    |    |    <= false
+8E4B .|    |    |    no ticket found [client.php:1109]
+8E4B .|    |    <= false
+8E4B .|    |    user is not authenticated (cache reset) [client.php:1025]
+8E4B .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+8E4B .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+8E4B .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas'
+8E4B .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas [client.php:1234]
+8E4B .|    |    |    exit()
+8E4B .|    |    |    -
+8E4B .|    |    -
+8E4B .|    -
+11A6 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+11A6 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas') [block.php:561]
+11A6 .<= ''
+11A6 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+11A6 .<= ''
+11A6 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+11A6 .|    Not a logout request [client.php:1292]
+11A6 .<= ''
+11A6 .=> phpCAS::checkAuthentication() [block.php:565]
+11A6 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+11A6 .|    |    => CASClient::isAuthenticated() [client.php:994]
+11A6 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+11A6 .|    |    |    |    no user found [client.php:1216]
+11A6 .|    |    |    <= false
+11A6 .|    |    |    no ticket found [client.php:1109]
+11A6 .|    |    <= false
+11A6 .|    <= false
+11A6 .<= false
+11A6 .=> phpCAS::forceAuthentication() [block.php:607]
+11A6 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+11A6 .|    |    => CASClient::isAuthenticated() [client.php:952]
+11A6 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+11A6 .|    |    |    |    no user found [client.php:1216]
+11A6 .|    |    |    <= false
+11A6 .|    |    |    no ticket found [client.php:1109]
+11A6 .|    |    <= false
+11A6 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+11A6 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+11A6 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas'
+11A6 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=site&action=testCas [client.php:1234]
+11A6 .|    |    |    exit()
+11A6 .|    |    |    -
+11A6 .|    |    -
+11A6 .|    -
+7A87 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+7A87 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1//meibeike/index.php?controller=site&action=testCas') [block.php:561]
+7A87 .<= ''
+7A87 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+7A87 .<= ''
+7A87 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+7A87 .|    Not a logout request [client.php:1292]
+7A87 .<= ''
+7A87 .=> phpCAS::checkAuthentication() [block.php:565]
+7A87 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+7A87 .|    |    => CASClient::isAuthenticated() [client.php:994]
+7A87 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+7A87 .|    |    |    |    no user found [client.php:1216]
+7A87 .|    |    |    <= false
+7A87 .|    |    |    no ticket found [client.php:1109]
+7A87 .|    |    <= false
+7A87 .|    |    user is not authenticated (cache reset) [client.php:1025]
+7A87 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+7A87 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+7A87 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1//meibeike/index.php?controller=site&action=testCas'
+7A87 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1//meibeike/index.php?controller=site&action=testCas [client.php:1234]
+7A87 .|    |    |    exit()
+7A87 .|    |    |    -
+7A87 .|    |    -
+7A87 .|    -
+E174 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+E174 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1//meibeike/index.php?controller=site&action=testCas') [block.php:561]
+E174 .<= ''
+E174 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+E174 .<= ''
+E174 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+E174 .|    Not a logout request [client.php:1292]
+E174 .<= ''
+E174 .=> phpCAS::checkAuthentication() [block.php:565]
+E174 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+E174 .|    |    => CASClient::isAuthenticated() [client.php:994]
+E174 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+E174 .|    |    |    |    no user found [client.php:1216]
+E174 .|    |    |    <= false
+E174 .|    |    |    no ticket found [client.php:1109]
+E174 .|    |    <= false
+E174 .|    <= false
+E174 .<= false
+E174 .=> phpCAS::forceAuthentication() [block.php:607]
+E174 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+E174 .|    |    => CASClient::isAuthenticated() [client.php:952]
+E174 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+E174 .|    |    |    |    no user found [client.php:1216]
+E174 .|    |    |    <= false
+E174 .|    |    |    no ticket found [client.php:1109]
+E174 .|    |    <= false
+E174 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+E174 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+E174 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1//meibeike/index.php?controller=site&action=testCas'
+E174 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1//meibeike/index.php?controller=site&action=testCas [client.php:1234]
+E174 .|    |    |    exit()
+E174 .|    |    |    -
+E174 .|    |    -
+E174 .|    -
+9D0B .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+9D0B .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/') [block.php:561]
+9D0B .<= ''
+9D0B .=> phpCAS::setNoCasServerValidation() [block.php:562]
+9D0B .<= ''
+9D0B .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+9D0B .|    Not a logout request [client.php:1292]
+9D0B .<= ''
+9D0B .=> phpCAS::checkAuthentication() [block.php:565]
+9D0B .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+9D0B .|    |    => CASClient::isAuthenticated() [client.php:994]
+9D0B .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+9D0B .|    |    |    |    no user found [client.php:1216]
+9D0B .|    |    |    <= false
+9D0B .|    |    |    no ticket found [client.php:1109]
+9D0B .|    |    <= false
+9D0B .|    |    user is not authenticated (cache reset) [client.php:1025]
+9D0B .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+9D0B .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+9D0B .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/'
+9D0B .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/ [client.php:1234]
+9D0B .|    |    |    exit()
+9D0B .|    |    |    -
+9D0B .|    |    -
+9D0B .|    -
+9A70 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+9A70 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/') [block.php:561]
+9A70 .<= ''
+9A70 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+9A70 .<= ''
+9A70 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+9A70 .|    Not a logout request [client.php:1292]
+9A70 .<= ''
+9A70 .=> phpCAS::checkAuthentication() [block.php:565]
+9A70 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+9A70 .|    |    => CASClient::isAuthenticated() [client.php:994]
+9A70 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+9A70 .|    |    |    |    no user found [client.php:1216]
+9A70 .|    |    |    <= false
+9A70 .|    |    |    no ticket found [client.php:1109]
+9A70 .|    |    <= false
+9A70 .|    <= false
+9A70 .<= false
+9A70 .=> phpCAS::forceAuthentication() [block.php:607]
+9A70 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+9A70 .|    |    => CASClient::isAuthenticated() [client.php:952]
+9A70 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+9A70 .|    |    |    |    no user found [client.php:1216]
+9A70 .|    |    |    <= false
+9A70 .|    |    |    no ticket found [client.php:1109]
+9A70 .|    |    <= false
+9A70 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+9A70 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+9A70 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/'
+9A70 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/ [client.php:1234]
+9A70 .|    |    |    exit()
+9A70 .|    |    |    -
+9A70 .|    |    -
+9A70 .|    -
+7A64 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+7A64 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/') [block.php:561]
+7A64 .<= ''
+7A64 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+7A64 .<= ''
+7A64 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+7A64 .|    Not a logout request [client.php:1292]
+7A64 .<= ''
+7A64 .=> phpCAS::checkAuthentication() [block.php:565]
+7A64 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+7A64 .|    |    => CASClient::isAuthenticated() [client.php:994]
+7A64 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+7A64 .|    |    |    |    no user found [client.php:1216]
+7A64 .|    |    |    <= false
+7A64 .|    |    |    no ticket found [client.php:1109]
+7A64 .|    |    <= false
+7A64 .|    |    user is not authenticated (cache reset) [client.php:1025]
+7A64 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+7A64 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+7A64 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/'
+7A64 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/ [client.php:1234]
+7A64 .|    |    |    exit()
+7A64 .|    |    |    -
+7A64 .|    |    -
+7A64 .|    -
+F769 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+F769 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/') [block.php:561]
+F769 .<= ''
+F769 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+F769 .<= ''
+F769 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+F769 .|    Not a logout request [client.php:1292]
+F769 .<= ''
+F769 .=> phpCAS::checkAuthentication() [block.php:565]
+F769 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+F769 .|    |    => CASClient::isAuthenticated() [client.php:994]
+F769 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+F769 .|    |    |    |    no user found [client.php:1216]
+F769 .|    |    |    <= false
+F769 .|    |    |    no ticket found [client.php:1109]
+F769 .|    |    <= false
+F769 .|    <= false
+F769 .<= false
+F769 .=> phpCAS::forceAuthentication() [block.php:607]
+F769 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+F769 .|    |    => CASClient::isAuthenticated() [client.php:952]
+F769 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+F769 .|    |    |    |    no user found [client.php:1216]
+F769 .|    |    |    <= false
+F769 .|    |    |    no ticket found [client.php:1109]
+F769 .|    |    <= false
+F769 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+F769 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+F769 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/'
+F769 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/ [client.php:1234]
+F769 .|    |    |    exit()
+F769 .|    |    |    -
+F769 .|    |    -
+F769 .|    -
+7666 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+7666 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/') [block.php:561]
+7666 .<= ''
+7666 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+7666 .<= ''
+7666 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+7666 .|    Not a logout request [client.php:1292]
+7666 .<= ''
+7666 .=> phpCAS::checkAuthentication() [block.php:565]
+7666 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+7666 .|    |    => CASClient::isAuthenticated() [client.php:994]
+7666 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+7666 .|    |    |    |    no user found [client.php:1216]
+7666 .|    |    |    <= false
+7666 .|    |    |    no ticket found [client.php:1109]
+7666 .|    |    <= false
+7666 .|    |    user is not authenticated (cache reset) [client.php:1025]
+7666 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+7666 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+7666 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/'
+7666 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/ [client.php:1234]
+7666 .|    |    |    exit()
+7666 .|    |    |    -
+7666 .|    |    -
+7666 .|    -
+C21B .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+C21B .=> phpCAS::setServerLoginURL('http://127.0.0.1/') [block.php:561]
+C21B .<= ''
+C21B .=> phpCAS::setNoCasServerValidation() [block.php:562]
+C21B .<= ''
+C21B .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+C21B .|    Not a logout request [client.php:1292]
+C21B .<= ''
+C21B .=> phpCAS::checkAuthentication() [block.php:565]
+C21B .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+C21B .|    |    => CASClient::isAuthenticated() [client.php:994]
+C21B .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+C21B .|    |    |    |    no user found [client.php:1216]
+C21B .|    |    |    <= false
+C21B .|    |    |    no ticket found [client.php:1109]
+C21B .|    |    <= false
+C21B .|    |    user is not authenticated (cache reset) [client.php:1025]
+C21B .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+C21B .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+C21B .|    |    |    <= 'http://127.0.0.1/'
+C21B .|    |    |    Redirect to : http://127.0.0.1/ [client.php:1234]
+C21B .|    |    |    exit()
+C21B .|    |    |    -
+C21B .|    |    -
+C21B .|    -
+6563 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+6563 .=> phpCAS::setServerLoginURL('http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:561]
+6563 .<= ''
+6563 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+6563 .<= ''
+6563 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+6563 .|    Not a logout request [client.php:1292]
+6563 .<= ''
+6563 .=> phpCAS::checkAuthentication() [block.php:565]
+6563 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+6563 .|    |    => CASClient::isAuthenticated() [client.php:994]
+6563 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+6563 .|    |    |    |    no user found [client.php:1216]
+6563 .|    |    |    <= false
+6563 .|    |    |    no ticket found [client.php:1109]
+6563 .|    |    <= false
+6563 .|    <= false
+6563 .<= false
+6563 .=> phpCAS::forceAuthentication() [block.php:607]
+6563 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+6563 .|    |    => CASClient::isAuthenticated() [client.php:952]
+6563 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+6563 .|    |    |    |    no user found [client.php:1216]
+6563 .|    |    |    <= false
+6563 .|    |    |    no ticket found [client.php:1109]
+6563 .|    |    <= false
+6563 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+6563 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+6563 .|    |    |    <= 'http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+6563 .|    |    |    Redirect to : http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+6563 .|    |    |    exit()
+6563 .|    |    |    -
+6563 .|    |    -
+6563 .|    -
+CB24 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+CB24 .=> phpCAS::setServerLoginURL('http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:562]
+CB24 .<= ''
+CB24 .=> phpCAS::setNoCasServerValidation() [block.php:563]
+CB24 .<= ''
+CB24 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+CB24 .|    Not a logout request [client.php:1292]
+CB24 .<= ''
+CB24 .=> phpCAS::checkAuthentication() [block.php:566]
+CB24 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+CB24 .|    |    => CASClient::isAuthenticated() [client.php:994]
+CB24 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+CB24 .|    |    |    |    no user found [client.php:1216]
+CB24 .|    |    |    <= false
+CB24 .|    |    |    no ticket found [client.php:1109]
+CB24 .|    |    <= false
+CB24 .|    |    user is not authenticated (cache reset) [client.php:1025]
+CB24 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+CB24 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+CB24 .|    |    |    <= 'http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+CB24 .|    |    |    Redirect to : http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+CB24 .|    |    |    exit()
+CB24 .|    |    |    -
+CB24 .|    |    -
+CB24 .|    -
+9012 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+9012 .=> phpCAS::setServerLoginURL('http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:563]
+9012 .<= ''
+9012 .=> phpCAS::setNoCasServerValidation() [block.php:564]
+9012 .<= ''
+9012 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+9012 .|    Not a logout request [client.php:1292]
+9012 .<= ''
+9012 .=> phpCAS::checkAuthentication() [block.php:567]
+9012 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+9012 .|    |    => CASClient::isAuthenticated() [client.php:994]
+9012 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+9012 .|    |    |    |    no user found [client.php:1216]
+9012 .|    |    |    <= false
+9012 .|    |    |    no ticket found [client.php:1109]
+9012 .|    |    <= false
+9012 .|    <= false
+9012 .<= false
+9012 .=> phpCAS::forceAuthentication() [block.php:609]
+9012 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+9012 .|    |    => CASClient::isAuthenticated() [client.php:952]
+9012 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+9012 .|    |    |    |    no user found [client.php:1216]
+9012 .|    |    |    <= false
+9012 .|    |    |    no ticket found [client.php:1109]
+9012 .|    |    <= false
+9012 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+9012 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+9012 .|    |    |    <= 'http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+9012 .|    |    |    Redirect to : http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+9012 .|    |    |    exit()
+9012 .|    |    |    -
+9012 .|    |    -
+9012 .|    -
+4D3C .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+4D3C .=> phpCAS::setServerLoginURL('http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:566]
+4D3C .<= ''
+4D3C .=> phpCAS::setNoCasServerValidation() [block.php:567]
+4D3C .<= ''
+4D3C .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+4D3C .|    Not a logout request [client.php:1292]
+4D3C .<= ''
+4D3C .=> phpCAS::checkAuthentication() [block.php:570]
+4D3C .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+4D3C .|    |    => CASClient::isAuthenticated() [client.php:994]
+4D3C .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+4D3C .|    |    |    |    no user found [client.php:1216]
+4D3C .|    |    |    <= false
+4D3C .|    |    |    no ticket found [client.php:1109]
+4D3C .|    |    <= false
+4D3C .|    |    user is not authenticated (cache reset) [client.php:1025]
+4D3C .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+4D3C .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+4D3C .|    |    |    <= 'http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+4D3C .|    |    |    Redirect to : http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+4D3C .|    |    |    exit()
+4D3C .|    |    |    -
+4D3C .|    |    -
+4D3C .|    -
+CD09 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+CD09 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:561]
+CD09 .<= ''
+CD09 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+CD09 .<= ''
+CD09 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+CD09 .|    Not a logout request [client.php:1292]
+CD09 .<= ''
+CD09 .=> phpCAS::checkAuthentication() [block.php:565]
+CD09 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+CD09 .|    |    => CASClient::isAuthenticated() [client.php:994]
+CD09 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+CD09 .|    |    |    |    no user found [client.php:1216]
+CD09 .|    |    |    <= false
+CD09 .|    |    |    no ticket found [client.php:1109]
+CD09 .|    |    <= false
+CD09 .|    <= false
+CD09 .<= false
+CD09 .=> phpCAS::forceAuthentication() [block.php:607]
+CD09 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+CD09 .|    |    => CASClient::isAuthenticated() [client.php:952]
+CD09 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+CD09 .|    |    |    |    no user found [client.php:1216]
+CD09 .|    |    |    <= false
+CD09 .|    |    |    no ticket found [client.php:1109]
+CD09 .|    |    <= false
+CD09 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+CD09 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+CD09 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+CD09 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+CD09 .|    |    |    exit()
+CD09 .|    |    |    -
+CD09 .|    |    -
+CD09 .|    -
+FBE7 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+FBE7 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:561]
+FBE7 .<= ''
+FBE7 .=> phpCAS::setNoCasServerValidation() [block.php:562]
+FBE7 .<= ''
+FBE7 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+FBE7 .|    Not a logout request [client.php:1292]
+FBE7 .<= ''
+FBE7 .=> phpCAS::checkAuthentication() [block.php:565]
+FBE7 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+FBE7 .|    |    => CASClient::isAuthenticated() [client.php:994]
+FBE7 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+FBE7 .|    |    |    |    no user found [client.php:1216]
+FBE7 .|    |    |    <= false
+FBE7 .|    |    |    no ticket found [client.php:1109]
+FBE7 .|    |    <= false
+FBE7 .|    |    user is not authenticated (cache reset) [client.php:1025]
+FBE7 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+FBE7 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+FBE7 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+FBE7 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+FBE7 .|    |    |    exit()
+FBE7 .|    |    |    -
+FBE7 .|    |    -
+FBE7 .|    -
+1ABC .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+1ABC .=> phpCAS::setServerLoginURL('https://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+1ABC .<= ''
+1ABC .=> phpCAS::setNoCasServerValidation() [block.php:566]
+1ABC .<= ''
+1ABC .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+1ABC .|    Not a logout request [client.php:1292]
+1ABC .<= ''
+1ABC .=> phpCAS::checkAuthentication() [block.php:569]
+1ABC .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+1ABC .|    |    => CASClient::isAuthenticated() [client.php:994]
+1ABC .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+1ABC .|    |    |    |    no user found [client.php:1216]
+1ABC .|    |    |    <= false
+1ABC .|    |    |    no ticket found [client.php:1109]
+1ABC .|    |    <= false
+1ABC .|    <= false
+1ABC .<= false
+1ABC .=> phpCAS::forceAuthentication() [block.php:611]
+1ABC .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+1ABC .|    |    => CASClient::isAuthenticated() [client.php:952]
+1ABC .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+1ABC .|    |    |    |    no user found [client.php:1216]
+1ABC .|    |    |    <= false
+1ABC .|    |    |    no ticket found [client.php:1109]
+1ABC .|    |    <= false
+1ABC .|    |    => CASClient::redirectToCas(false) [client.php:961]
+1ABC .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+1ABC .|    |    |    <= 'https://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+1ABC .|    |    |    Redirect to : https://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+1ABC .|    |    |    exit()
+1ABC .|    |    |    -
+1ABC .|    |    -
+1ABC .|    -
+28A3 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+28A3 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+28A3 .<= ''
+28A3 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+28A3 .<= ''
+28A3 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+28A3 .|    Not a logout request [client.php:1292]
+28A3 .<= ''
+28A3 .=> phpCAS::checkAuthentication() [block.php:569]
+28A3 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+28A3 .|    |    => CASClient::isAuthenticated() [client.php:994]
+28A3 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+28A3 .|    |    |    |    no user found [client.php:1216]
+28A3 .|    |    |    <= false
+28A3 .|    |    |    no ticket found [client.php:1109]
+28A3 .|    |    <= false
+28A3 .|    |    user is not authenticated (cache reset) [client.php:1025]
+28A3 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+28A3 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+28A3 .|    |    |    <= 'https://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+28A3 .|    |    |    Redirect to : https://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+28A3 .|    |    |    exit()
+28A3 .|    |    |    -
+28A3 .|    |    -
+28A3 .|    -
+074C .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+074C .=> phpCAS::setServerLoginURL('https://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+074C .<= ''
+074C .=> phpCAS::setNoCasServerValidation() [block.php:566]
+074C .<= ''
+074C .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+074C .|    Not a logout request [client.php:1292]
+074C .<= ''
+074C .=> phpCAS::checkAuthentication() [block.php:569]
+074C .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+074C .|    |    => CASClient::isAuthenticated() [client.php:994]
+074C .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+074C .|    |    |    |    no user found [client.php:1216]
+074C .|    |    |    <= false
+074C .|    |    |    no ticket found [client.php:1109]
+074C .|    |    <= false
+074C .|    |    user is not authenticated (cache reset) [client.php:1025]
+074C .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+074C .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+074C .|    |    |    <= 'https://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+074C .|    |    |    Redirect to : https://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+074C .|    |    |    exit()
+074C .|    |    |    -
+074C .|    |    -
+074C .|    -
+B893 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+B893 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+B893 .<= ''
+B893 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+B893 .<= ''
+B893 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+B893 .|    Not a logout request [client.php:1292]
+B893 .<= ''
+B893 .=> phpCAS::checkAuthentication() [block.php:569]
+B893 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+B893 .|    |    => CASClient::isAuthenticated() [client.php:994]
+B893 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+B893 .|    |    |    |    no user found [client.php:1216]
+B893 .|    |    |    <= false
+B893 .|    |    |    no ticket found [client.php:1109]
+B893 .|    |    <= false
+B893 .|    |    user is not authenticated (cache reset) [client.php:1025]
+B893 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+B893 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+B893 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+B893 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+B893 .|    |    |    exit()
+B893 .|    |    |    -
+B893 .|    |    -
+B893 .|    -
+307E .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+307E .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+307E .<= ''
+307E .=> phpCAS::setNoCasServerValidation() [block.php:566]
+307E .<= ''
+307E .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+307E .|    Not a logout request [client.php:1292]
+307E .<= ''
+307E .=> phpCAS::checkAuthentication() [block.php:569]
+307E .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+307E .|    |    => CASClient::isAuthenticated() [client.php:994]
+307E .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+307E .|    |    |    |    no user found [client.php:1216]
+307E .|    |    |    <= false
+307E .|    |    |    no ticket found [client.php:1109]
+307E .|    |    <= false
+307E .|    <= false
+307E .<= false
+307E .=> phpCAS::forceAuthentication() [block.php:611]
+307E .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+307E .|    |    => CASClient::isAuthenticated() [client.php:952]
+307E .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+307E .|    |    |    |    no user found [client.php:1216]
+307E .|    |    |    <= false
+307E .|    |    |    no ticket found [client.php:1109]
+307E .|    |    <= false
+307E .|    |    => CASClient::redirectToCas(false) [client.php:961]
+307E .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+307E .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+307E .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+307E .|    |    |    exit()
+307E .|    |    |    -
+307E .|    |    -
+307E .|    -
+077A .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+077A .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+077A .<= ''
+077A .=> phpCAS::setNoCasServerValidation() [block.php:566]
+077A .<= ''
+077A .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+077A .|    Not a logout request [client.php:1292]
+077A .<= ''
+077A .=> phpCAS::checkAuthentication() [block.php:569]
+077A .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+077A .|    |    => CASClient::isAuthenticated() [client.php:994]
+077A .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+077A .|    |    |    |    no user found [client.php:1216]
+077A .|    |    |    <= false
+077A .|    |    |    no ticket found [client.php:1109]
+077A .|    |    <= false
+077A .|    |    user is not authenticated (cache reset) [client.php:1025]
+077A .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+077A .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+077A .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+077A .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+077A .|    |    |    exit()
+077A .|    |    |    -
+077A .|    |    -
+077A .|    -
+1270 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+1270 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+1270 .<= ''
+1270 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+1270 .<= ''
+1270 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+1270 .|    Not a logout request [client.php:1292]
+1270 .<= ''
+1270 .=> phpCAS::checkAuthentication() [block.php:569]
+1270 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+1270 .|    |    => CASClient::isAuthenticated() [client.php:994]
+1270 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+1270 .|    |    |    |    no user found [client.php:1216]
+1270 .|    |    |    <= false
+1270 .|    |    |    no ticket found [client.php:1109]
+1270 .|    |    <= false
+1270 .|    <= false
+1270 .<= false
+2C20 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+2C20 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+2C20 .<= ''
+2C20 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+2C20 .<= ''
+2C20 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+2C20 .|    Not a logout request [client.php:1292]
+2C20 .<= ''
+2C20 .=> phpCAS::checkAuthentication() [block.php:569]
+2C20 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+2C20 .|    |    => CASClient::isAuthenticated() [client.php:994]
+2C20 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+2C20 .|    |    |    |    no user found [client.php:1216]
+2C20 .|    |    |    <= false
+2C20 .|    |    |    no ticket found [client.php:1109]
+2C20 .|    |    <= false
+2C20 .|    |    user is not authenticated (cache reset) [client.php:1025]
+2C20 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+2C20 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+2C20 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+2C20 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+2C20 .|    |    |    exit()
+2C20 .|    |    |    -
+2C20 .|    |    -
+2C20 .|    -
+8228 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+8228 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+8228 .<= ''
+8228 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+8228 .<= ''
+8228 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+8228 .|    Not a logout request [client.php:1292]
+8228 .<= ''
+8228 .=> phpCAS::checkAuthentication() [block.php:569]
+8228 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+8228 .|    |    => CASClient::isAuthenticated() [client.php:994]
+8228 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+8228 .|    |    |    |    no user found [client.php:1216]
+8228 .|    |    |    <= false
+8228 .|    |    |    no ticket found [client.php:1109]
+8228 .|    |    <= false
+8228 .|    <= false
+8228 .<= false
+B75F .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+B75F .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+B75F .<= ''
+B75F .=> phpCAS::setNoCasServerValidation() [block.php:566]
+B75F .<= ''
+B75F .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+B75F .|    Not a logout request [client.php:1292]
+B75F .<= ''
+B75F .=> phpCAS::checkAuthentication() [block.php:569]
+B75F .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+B75F .|    |    => CASClient::isAuthenticated() [client.php:994]
+B75F .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+B75F .|    |    |    |    no user found [client.php:1216]
+B75F .|    |    |    <= false
+B75F .|    |    |    no ticket found [client.php:1109]
+B75F .|    |    <= false
+B75F .|    |    user is not authenticated (cache reset) [client.php:1025]
+B75F .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+B75F .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+B75F .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+B75F .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+B75F .|    |    |    exit()
+B75F .|    |    |    -
+B75F .|    |    -
+B75F .|    -
+4F83 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+4F83 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+4F83 .<= ''
+4F83 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+4F83 .<= ''
+4F83 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+4F83 .|    Not a logout request [client.php:1292]
+4F83 .<= ''
+4F83 .=> phpCAS::checkAuthentication() [block.php:569]
+4F83 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+4F83 .|    |    => CASClient::isAuthenticated() [client.php:994]
+4F83 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+4F83 .|    |    |    |    no user found [client.php:1216]
+4F83 .|    |    |    <= false
+4F83 .|    |    |    no ticket found [client.php:1109]
+4F83 .|    |    <= false
+4F83 .|    <= false
+4F83 .<= false
+4F83 .=> phpCAS::checkAuthentication() [block.php:611]
+4F83 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+4F83 .|    |    => CASClient::isAuthenticated() [client.php:994]
+4F83 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+4F83 .|    |    |    |    no user found [client.php:1216]
+4F83 .|    |    |    <= false
+4F83 .|    |    |    no ticket found [client.php:1109]
+4F83 .|    |    <= false
+4F83 .|    |    user is not authenticated (cache reset) [client.php:1025]
+4F83 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+4F83 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+4F83 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+4F83 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+4F83 .|    |    |    exit()
+4F83 .|    |    |    -
+4F83 .|    |    -
+4F83 .|    -
+AE9B .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+AE9B .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+AE9B .<= ''
+AE9B .=> phpCAS::setNoCasServerValidation() [block.php:566]
+AE9B .<= ''
+AE9B .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+AE9B .|    Not a logout request [client.php:1292]
+AE9B .<= ''
+AE9B .=> phpCAS::checkAuthentication() [block.php:569]
+AE9B .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+AE9B .|    |    => CASClient::isAuthenticated() [client.php:994]
+AE9B .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+AE9B .|    |    |    |    no user found [client.php:1216]
+AE9B .|    |    |    <= false
+AE9B .|    |    |    no ticket found [client.php:1109]
+AE9B .|    |    <= false
+AE9B .|    <= false
+AE9B .<= false
+AE9B .=> phpCAS::checkAuthentication() [block.php:611]
+AE9B .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+AE9B .|    |    => CASClient::isAuthenticated() [client.php:994]
+AE9B .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+AE9B .|    |    |    |    no user found [client.php:1216]
+AE9B .|    |    |    <= false
+AE9B .|    |    |    no ticket found [client.php:1109]
+AE9B .|    |    <= false
+AE9B .|    |    user is not authenticated (cache reset) [client.php:1025]
+AE9B .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+AE9B .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+AE9B .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+AE9B .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+AE9B .|    |    |    exit()
+AE9B .|    |    |    -
+AE9B .|    |    -
+AE9B .|    -
+54E9 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+54E9 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+54E9 .<= ''
+54E9 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+54E9 .<= ''
+54E9 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+54E9 .|    Not a logout request [client.php:1292]
+54E9 .<= ''
+54E9 .=> phpCAS::checkAuthentication() [block.php:569]
+54E9 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+54E9 .|    |    => CASClient::isAuthenticated() [client.php:994]
+54E9 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+54E9 .|    |    |    |    no user found [client.php:1216]
+54E9 .|    |    |    <= false
+54E9 .|    |    |    no ticket found [client.php:1109]
+54E9 .|    |    <= false
+54E9 .|    |    user is not authenticated (cache reset) [client.php:1025]
+54E9 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+54E9 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+54E9 .|    |    |    <= 'http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+54E9 .|    |    |    Redirect to : http://192.168.2.108:8087/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+54E9 .|    |    |    exit()
+54E9 .|    |    |    -
+54E9 .|    |    -
+54E9 .|    -
+14EE .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+14EE .=> phpCAS::setServerLoginURL('https://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+14EE .<= ''
+14EE .=> phpCAS::setNoCasServerValidation() [block.php:566]
+14EE .<= ''
+14EE .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+14EE .|    Not a logout request [client.php:1292]
+14EE .<= ''
+14EE .=> phpCAS::checkAuthentication() [block.php:569]
+14EE .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+14EE .|    |    => CASClient::isAuthenticated() [client.php:994]
+14EE .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+14EE .|    |    |    |    no user found [client.php:1216]
+14EE .|    |    |    <= false
+14EE .|    |    |    no ticket found [client.php:1109]
+14EE .|    |    <= false
+14EE .|    <= false
+14EE .<= false
+14EE .=> phpCAS::checkAuthentication() [block.php:611]
+14EE .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+14EE .|    |    => CASClient::isAuthenticated() [client.php:994]
+14EE .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+14EE .|    |    |    |    no user found [client.php:1216]
+14EE .|    |    |    <= false
+14EE .|    |    |    no ticket found [client.php:1109]
+14EE .|    |    <= false
+14EE .|    |    user is not authenticated (cache reset) [client.php:1025]
+14EE .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+14EE .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+14EE .|    |    |    <= 'https://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+14EE .|    |    |    Redirect to : https://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+14EE .|    |    |    exit()
+14EE .|    |    |    -
+14EE .|    |    -
+14EE .|    -
+480B .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+480B .=> phpCAS::setServerLoginURL('http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+480B .<= ''
+480B .=> phpCAS::setNoCasServerValidation() [block.php:566]
+480B .<= ''
+480B .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+480B .|    Not a logout request [client.php:1292]
+480B .<= ''
+480B .=> phpCAS::checkAuthentication() [block.php:569]
+480B .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+480B .|    |    => CASClient::isAuthenticated() [client.php:994]
+480B .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+480B .|    |    |    |    no user found [client.php:1216]
+480B .|    |    |    <= false
+480B .|    |    |    no ticket found [client.php:1109]
+480B .|    |    <= false
+480B .|    |    user is not authenticated (cache reset) [client.php:1025]
+480B .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+480B .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+480B .|    |    |    <= 'http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+480B .|    |    |    Redirect to : http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+480B .|    |    |    exit()
+480B .|    |    |    -
+480B .|    |    -
+480B .|    -
+EAA5 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+EAA5 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+EAA5 .<= ''
+EAA5 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+EAA5 .<= ''
+EAA5 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+EAA5 .|    Not a logout request [client.php:1292]
+EAA5 .<= ''
+EAA5 .=> phpCAS::checkAuthentication() [block.php:569]
+EAA5 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+EAA5 .|    |    => CASClient::isAuthenticated() [client.php:994]
+EAA5 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+EAA5 .|    |    |    |    no user found [client.php:1216]
+EAA5 .|    |    |    <= false
+EAA5 .|    |    |    no ticket found [client.php:1109]
+EAA5 .|    |    <= false
+EAA5 .|    |    user is not authenticated (cache reset) [client.php:1025]
+EAA5 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+EAA5 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+EAA5 .|    |    |    <= 'http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+EAA5 .|    |    |    Redirect to : http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+EAA5 .|    |    |    exit()
+EAA5 .|    |    |    -
+EAA5 .|    |    -
+EAA5 .|    -
+CB97 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+CB97 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:565]
+CB97 .<= ''
+CB97 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+CB97 .<= ''
+CB97 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+CB97 .|    Not a logout request [client.php:1292]
+CB97 .<= ''
+CB97 .=> phpCAS::checkAuthentication() [block.php:569]
+CB97 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+CB97 .|    |    => CASClient::isAuthenticated() [client.php:994]
+CB97 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+CB97 .|    |    |    |    no user found [client.php:1216]
+CB97 .|    |    |    <= false
+CB97 .|    |    |    no ticket found [client.php:1109]
+CB97 .|    |    <= false
+CB97 .|    |    user is not authenticated (cache reset) [client.php:1025]
+CB97 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+CB97 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+CB97 .|    |    |    <= 'http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+CB97 .|    |    |    Redirect to : http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+CB97 .|    |    |    exit()
+CB97 .|    |    |    -
+CB97 .|    |    -
+CB97 .|    -
+A509 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+A509 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1') [block.php:565]
+A509 .<= ''
+A509 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+A509 .<= ''
+A509 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+A509 .|    Not a logout request [client.php:1292]
+A509 .<= ''
+A509 .=> phpCAS::checkAuthentication() [block.php:569]
+A509 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+A509 .|    |    => CASClient::isAuthenticated() [client.php:994]
+A509 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+A509 .|    |    |    |    no user found [client.php:1216]
+A509 .|    |    |    <= false
+A509 .|    |    |    no ticket found [client.php:1109]
+A509 .|    |    <= false
+A509 .|    |    user is not authenticated (cache reset) [client.php:1025]
+A509 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+A509 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+A509 .|    |    |    <= 'http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1'
+A509 .|    |    |    Redirect to : http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+A509 .|    |    |    exit()
+A509 .|    |    |    -
+A509 .|    |    -
+A509 .|    -
+E103 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+E103 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1') [block.php:565]
+E103 .<= ''
+E103 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+E103 .<= ''
+E103 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+E103 .|    Not a logout request [client.php:1292]
+E103 .<= ''
+E103 .=> phpCAS::checkAuthentication() [block.php:569]
+E103 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+E103 .|    |    => CASClient::isAuthenticated() [client.php:994]
+E103 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+E103 .|    |    |    |    no user found [client.php:1216]
+E103 .|    |    |    <= false
+E103 .|    |    |    no ticket found [client.php:1109]
+E103 .|    |    <= false
+E103 .|    |    user is not authenticated (cache reset) [client.php:1025]
+E103 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+E103 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+E103 .|    |    |    <= 'http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1'
+E103 .|    |    |    Redirect to : http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+E103 .|    |    |    exit()
+E103 .|    |    |    -
+E103 .|    |    -
+E103 .|    -
+262E .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+262E .=> phpCAS::setServerLoginURL('https://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1') [block.php:565]
+262E .<= ''
+262E .=> phpCAS::setNoCasServerValidation() [block.php:566]
+262E .<= ''
+262E .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+262E .|    Not a logout request [client.php:1292]
+262E .<= ''
+262E .=> phpCAS::checkAuthentication() [block.php:569]
+262E .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+262E .|    |    => CASClient::isAuthenticated() [client.php:994]
+262E .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+262E .|    |    |    |    no user found [client.php:1216]
+262E .|    |    |    <= false
+262E .|    |    |    no ticket found [client.php:1109]
+262E .|    |    <= false
+262E .|    |    user is not authenticated (cache reset) [client.php:1025]
+262E .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+262E .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+262E .|    |    |    <= 'https://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1'
+262E .|    |    |    Redirect to : https://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+262E .|    |    |    exit()
+262E .|    |    |    -
+262E .|    |    -
+262E .|    -
+263A .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+263A .=> phpCAS::setServerLoginURL('https://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1') [block.php:565]
+263A .<= ''
+263A .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+263A .|    Not a logout request [client.php:1292]
+263A .<= ''
+263A .=> phpCAS::checkAuthentication() [block.php:569]
+263A .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+263A .|    |    => CASClient::isAuthenticated() [client.php:994]
+263A .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+263A .|    |    |    |    no user found [client.php:1216]
+263A .|    |    |    <= false
+263A .|    |    |    no ticket found [client.php:1109]
+263A .|    |    <= false
+263A .|    |    user is not authenticated (cache reset) [client.php:1025]
+263A .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+263A .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+263A .|    |    |    <= 'https://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1'
+263A .|    |    |    Redirect to : https://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+263A .|    |    |    exit()
+263A .|    |    |    -
+263A .|    |    -
+263A .|    -
+A64A .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+A64A .=> phpCAS::setServerLoginURL('http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1') [block.php:565]
+A64A .<= ''
+A64A .=> phpCAS::setNoCasServerValidation() [block.php:566]
+A64A .<= ''
+A64A .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+A64A .|    Not a logout request [client.php:1292]
+A64A .<= ''
+A64A .=> phpCAS::checkAuthentication() [block.php:569]
+A64A .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+A64A .|    |    => CASClient::isAuthenticated() [client.php:994]
+A64A .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+A64A .|    |    |    |    no user found [client.php:1216]
+A64A .|    |    |    <= false
+A64A .|    |    |    no ticket found [client.php:1109]
+A64A .|    |    <= false
+A64A .|    <= false
+A64A .<= false
+A64A .=> phpCAS::checkAuthentication() [block.php:611]
+A64A .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+A64A .|    |    => CASClient::isAuthenticated() [client.php:994]
+A64A .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+A64A .|    |    |    |    no user found [client.php:1216]
+A64A .|    |    |    <= false
+A64A .|    |    |    no ticket found [client.php:1109]
+A64A .|    |    <= false
+A64A .|    |    user is not authenticated (cache reset) [client.php:1025]
+A64A .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+A64A .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+A64A .|    |    |    <= 'http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1'
+A64A .|    |    |    Redirect to : http://192.168.2.108:8088/sso-demo1/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+A64A .|    |    |    exit()
+A64A .|    |    |    -
+A64A .|    |    -
+A64A .|    -
+D70C .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+D70C .=> phpCAS::setServerLoginURL('http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1') [block.php:565]
+D70C .<= ''
+D70C .=> phpCAS::setNoCasServerValidation() [block.php:566]
+D70C .<= ''
+D70C .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+D70C .|    Not a logout request [client.php:1292]
+D70C .<= ''
+D70C .=> phpCAS::checkAuthentication() [block.php:569]
+D70C .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+D70C .|    |    => CASClient::isAuthenticated() [client.php:994]
+D70C .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+D70C .|    |    |    |    no user found [client.php:1216]
+D70C .|    |    |    <= false
+D70C .|    |    |    no ticket found [client.php:1109]
+D70C .|    |    <= false
+D70C .|    |    user is not authenticated (cache reset) [client.php:1025]
+D70C .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+D70C .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+D70C .|    |    |    <= 'http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1'
+D70C .|    |    |    Redirect to : http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+D70C .|    |    |    exit()
+D70C .|    |    |    -
+D70C .|    |    -
+D70C .|    -
+63CD .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+63CD .=> phpCAS::setServerLoginURL('http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1') [block.php:565]
+63CD .<= ''
+63CD .=> phpCAS::setNoCasServerValidation() [block.php:566]
+63CD .<= ''
+63CD .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+63CD .|    Not a logout request [client.php:1292]
+63CD .<= ''
+63CD .=> phpCAS::checkAuthentication() [block.php:569]
+63CD .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+63CD .|    |    => CASClient::isAuthenticated() [client.php:994]
+63CD .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+63CD .|    |    |    |    no user found [client.php:1216]
+63CD .|    |    |    <= false
+63CD .|    |    |    no ticket found [client.php:1109]
+63CD .|    |    <= false
+63CD .|    |    user is not authenticated (cache reset) [client.php:1025]
+63CD .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+63CD .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+63CD .|    |    |    <= 'http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1'
+63CD .|    |    |    Redirect to : http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+63CD .|    |    |    exit()
+63CD .|    |    |    -
+63CD .|    |    -
+63CD .|    -
+D4A8 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+D4A8 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1') [block.php:565]
+D4A8 .<= ''
+D4A8 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+D4A8 .<= ''
+D4A8 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+D4A8 .|    Not a logout request [client.php:1292]
+D4A8 .<= ''
+D4A8 .=> phpCAS::checkAuthentication() [block.php:569]
+D4A8 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+D4A8 .|    |    => CASClient::isAuthenticated() [client.php:994]
+D4A8 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+D4A8 .|    |    |    |    no user found [client.php:1216]
+D4A8 .|    |    |    <= false
+D4A8 .|    |    |    no ticket found [client.php:1109]
+D4A8 .|    |    <= false
+D4A8 .|    <= false
+D4A8 .<= false
+D4A8 .=> phpCAS::forceAuthentication() [block.php:612]
+D4A8 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+D4A8 .|    |    => CASClient::isAuthenticated() [client.php:952]
+D4A8 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+D4A8 .|    |    |    |    no user found [client.php:1216]
+D4A8 .|    |    |    <= false
+D4A8 .|    |    |    no ticket found [client.php:1109]
+D4A8 .|    |    <= false
+D4A8 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+D4A8 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+D4A8 .|    |    |    <= 'http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1'
+D4A8 .|    |    |    Redirect to : http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+D4A8 .|    |    |    exit()
+D4A8 .|    |    |    -
+D4A8 .|    |    -
+D4A8 .|    -
+3362 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+3362 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1') [block.php:565]
+3362 .<= ''
+3362 .=> phpCAS::setNoCasServerValidation() [block.php:566]
+3362 .<= ''
+3362 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+3362 .|    Not a logout request [client.php:1292]
+3362 .<= ''
+3362 .=> phpCAS::checkAuthentication() [block.php:569]
+3362 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+3362 .|    |    => CASClient::isAuthenticated() [client.php:994]
+3362 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+3362 .|    |    |    |    no user found [client.php:1216]
+3362 .|    |    |    <= false
+3362 .|    |    |    no ticket found [client.php:1109]
+3362 .|    |    <= false
+3362 .|    |    user is not authenticated (cache reset) [client.php:1025]
+3362 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+3362 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+3362 .|    |    |    <= 'http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1'
+3362 .|    |    |    Redirect to : http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+3362 .|    |    |    exit()
+3362 .|    |    |    -
+3362 .|    |    -
+3362 .|    -
+2FAE .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+2FAE .=> phpCAS::setServerLoginURL('http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1') [block.php:565]
+2FAE .<= ''
+2FAE .=> phpCAS::setNoCasServerValidation() [block.php:566]
+2FAE .<= ''
+2FAE .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+2FAE .|    Not a logout request [client.php:1292]
+2FAE .<= ''
+2FAE .=> phpCAS::checkAuthentication() [block.php:569]
+2FAE .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+2FAE .|    |    => CASClient::isAuthenticated() [client.php:994]
+2FAE .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+2FAE .|    |    |    |    no user found [client.php:1216]
+2FAE .|    |    |    <= false
+2FAE .|    |    |    no ticket found [client.php:1109]
+2FAE .|    |    <= false
+2FAE .|    <= false
+2FAE .<= false
+2FAE .=> phpCAS::forceAuthentication() [block.php:612]
+2FAE .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+2FAE .|    |    => CASClient::isAuthenticated() [client.php:952]
+2FAE .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+2FAE .|    |    |    |    no user found [client.php:1216]
+2FAE .|    |    |    <= false
+2FAE .|    |    |    no ticket found [client.php:1109]
+2FAE .|    |    <= false
+2FAE .|    |    => CASClient::redirectToCas(false) [client.php:961]
+2FAE .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+2FAE .|    |    |    <= 'http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1'
+2FAE .|    |    |    Redirect to : http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+2FAE .|    |    |    exit()
+2FAE .|    |    |    -
+2FAE .|    |    -
+2FAE .|    -
+99D1 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+99D1 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1') [block.php:566]
+99D1 .<= ''
+99D1 .=> phpCAS::setNoCasServerValidation() [block.php:567]
+99D1 .<= ''
+99D1 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+99D1 .|    Not a logout request [client.php:1292]
+99D1 .<= ''
+99D1 .=> phpCAS::checkAuthentication() [block.php:570]
+99D1 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+99D1 .|    |    => CASClient::isAuthenticated() [client.php:994]
+99D1 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+99D1 .|    |    |    |    no user found [client.php:1216]
+99D1 .|    |    |    <= false
+99D1 .|    |    |    no ticket found [client.php:1109]
+99D1 .|    |    <= false
+99D1 .|    |    user is not authenticated (cache reset) [client.php:1025]
+99D1 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+99D1 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+99D1 .|    |    |    <= 'http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1'
+99D1 .|    |    |    Redirect to : http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+99D1 .|    |    |    exit()
+99D1 .|    |    |    -
+99D1 .|    |    -
+99D1 .|    -
+5133 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+5133 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1') [block.php:566]
+5133 .<= ''
+5133 .=> phpCAS::setNoCasServerValidation() [block.php:567]
+5133 .<= ''
+5133 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+5133 .|    Not a logout request [client.php:1292]
+5133 .<= ''
+5133 .=> phpCAS::checkAuthentication() [block.php:570]
+5133 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+5133 .|    |    => CASClient::isAuthenticated() [client.php:994]
+5133 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+5133 .|    |    |    |    no user found [client.php:1216]
+5133 .|    |    |    <= false
+5133 .|    |    |    no ticket found [client.php:1109]
+5133 .|    |    <= false
+5133 .|    |    user is not authenticated (cache reset) [client.php:1025]
+5133 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+5133 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+5133 .|    |    |    <= 'http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1'
+5133 .|    |    |    Redirect to : http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+5133 .|    |    |    exit()
+5133 .|    |    |    -
+5133 .|    |    -
+5133 .|    -
+1370 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+1370 .=> phpCAS::setServerLoginURL('http://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1') [block.php:566]
+1370 .<= ''
+1370 .=> phpCAS::setNoCasServerValidation() [block.php:567]
+1370 .<= ''
+1370 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+1370 .|    Not a logout request [client.php:1292]
+1370 .<= ''
+1370 .=> phpCAS::checkAuthentication() [block.php:570]
+1370 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+1370 .|    |    => CASClient::isAuthenticated() [client.php:994]
+1370 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+1370 .|    |    |    |    no user found [client.php:1216]
+1370 .|    |    |    <= false
+1370 .|    |    |    no ticket found [client.php:1109]
+1370 .|    |    <= false
+1370 .|    <= false
+1370 .<= false
+F161 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+F161 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1') [block.php:566]
+F161 .<= ''
+F161 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+F161 .|    Not a logout request [client.php:1292]
+F161 .<= ''
+F161 .=> phpCAS::checkAuthentication() [block.php:570]
+F161 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+F161 .|    |    => CASClient::isAuthenticated() [client.php:994]
+F161 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+F161 .|    |    |    |    no user found [client.php:1216]
+F161 .|    |    |    <= false
+F161 .|    |    |    no ticket found [client.php:1109]
+F161 .|    |    <= false
+F161 .|    |    user is not authenticated (cache reset) [client.php:1025]
+F161 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+F161 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+F161 .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1'
+F161 .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1 [client.php:1234]
+F161 .|    |    |    exit()
+F161 .|    |    |    -
+F161 .|    |    -
+F161 .|    -
+D84E .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+D84E .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:566]
+D84E .<= ''
+D84E .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+D84E .|    Not a logout request [client.php:1292]
+D84E .<= ''
+D84E .=> phpCAS::checkAuthentication() [block.php:570]
+D84E .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+D84E .|    |    => CASClient::isAuthenticated() [client.php:994]
+D84E .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+D84E .|    |    |    |    no user found [client.php:1216]
+D84E .|    |    |    <= false
+D84E .|    |    |    no ticket found [client.php:1109]
+D84E .|    |    <= false
+D84E .|    |    user is not authenticated (cache reset) [client.php:1025]
+D84E .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+D84E .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+D84E .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+D84E .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+D84E .|    |    |    exit()
+D84E .|    |    |    -
+D84E .|    |    -
+D84E .|    -
+89E2 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+89E2 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:567]
+89E2 .<= ''
+89E2 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+89E2 .|    Not a logout request [client.php:1292]
+89E2 .<= ''
+89E2 .=> phpCAS::checkAuthentication() [block.php:571]
+89E2 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+89E2 .|    |    => CASClient::isAuthenticated() [client.php:994]
+89E2 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+89E2 .|    |    |    |    no user found [client.php:1216]
+89E2 .|    |    |    <= false
+89E2 .|    |    |    no ticket found [client.php:1109]
+89E2 .|    |    <= false
+89E2 .|    <= false
+89E2 .<= false
+89E2 .=> phpCAS::forceAuthentication() [block.php:615]
+89E2 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+89E2 .|    |    => CASClient::isAuthenticated() [client.php:952]
+89E2 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+89E2 .|    |    |    |    no user found [client.php:1216]
+89E2 .|    |    |    <= false
+89E2 .|    |    |    no ticket found [client.php:1109]
+89E2 .|    |    <= false
+89E2 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+89E2 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+89E2 .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+89E2 .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+89E2 .|    |    |    exit()
+89E2 .|    |    |    -
+89E2 .|    |    -
+89E2 .|    -
+79F7 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+79F7 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:567]
+79F7 .<= ''
+79F7 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+79F7 .|    Not a logout request [client.php:1292]
+79F7 .<= ''
+79F7 .=> phpCAS::checkAuthentication() [block.php:571]
+79F7 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+79F7 .|    |    => CASClient::isAuthenticated() [client.php:994]
+79F7 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+79F7 .|    |    |    |    no user found [client.php:1216]
+79F7 .|    |    |    <= false
+79F7 .|    |    |    no ticket found [client.php:1109]
+79F7 .|    |    <= false
+79F7 .|    |    user is not authenticated (cache reset) [client.php:1025]
+79F7 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+79F7 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+79F7 .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+79F7 .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+79F7 .|    |    |    exit()
+79F7 .|    |    |    -
+79F7 .|    |    -
+79F7 .|    -
+12A7 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+12A7 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:567]
+12A7 .<= ''
+12A7 .=> phpCAS::setNoCasServerValidation() [block.php:568]
+12A7 .<= ''
+12A7 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+12A7 .|    Not a logout request [client.php:1292]
+12A7 .<= ''
+12A7 .=> phpCAS::checkAuthentication() [block.php:571]
+12A7 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+12A7 .|    |    => CASClient::isAuthenticated() [client.php:994]
+12A7 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+12A7 .|    |    |    |    no user found [client.php:1216]
+12A7 .|    |    |    <= false
+12A7 .|    |    |    no ticket found [client.php:1109]
+12A7 .|    |    <= false
+12A7 .|    |    user is not authenticated (cache reset) [client.php:1025]
+12A7 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+12A7 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+12A7 .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+12A7 .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+12A7 .|    |    |    exit()
+12A7 .|    |    |    -
+12A7 .|    |    -
+12A7 .|    -
+C2F7 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+C2F7 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas_login') [block.php:567]
+C2F7 .<= ''
+C2F7 .=> phpCAS::setNoCasServerValidation() [block.php:568]
+C2F7 .<= ''
+C2F7 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+C2F7 .|    Not a logout request [client.php:1292]
+C2F7 .<= ''
+C2F7 .=> phpCAS::checkAuthentication() [block.php:571]
+C2F7 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+C2F7 .|    |    => CASClient::isAuthenticated() [client.php:994]
+C2F7 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+C2F7 .|    |    |    |    no user found [client.php:1216]
+C2F7 .|    |    |    <= false
+C2F7 .|    |    |    no ticket found [client.php:1109]
+C2F7 .|    |    <= false
+C2F7 .|    |    user is not authenticated (cache reset) [client.php:1025]
+C2F7 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+C2F7 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+C2F7 .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas_login'
+C2F7 .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas_login [client.php:1234]
+C2F7 .|    |    |    exit()
+C2F7 .|    |    |    -
+C2F7 .|    |    -
+C2F7 .|    -
+F045 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+F045 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas') [block.php:567]
+F045 .<= ''
+F045 .=> phpCAS::setNoCasServerValidation() [block.php:568]
+F045 .<= ''
+F045 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+F045 .|    Not a logout request [client.php:1292]
+F045 .<= ''
+F045 .=> phpCAS::checkAuthentication() [block.php:571]
+F045 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+F045 .|    |    => CASClient::isAuthenticated() [client.php:994]
+F045 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+F045 .|    |    |    |    no user found [client.php:1216]
+F045 .|    |    |    <= false
+F045 .|    |    |    no ticket found [client.php:1109]
+F045 .|    |    <= false
+F045 .|    <= false
+F045 .<= false
+F045 .=> phpCAS::forceAuthentication() [block.php:615]
+F045 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+F045 .|    |    => CASClient::isAuthenticated() [client.php:952]
+F045 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+F045 .|    |    |    |    no user found [client.php:1216]
+F045 .|    |    |    <= false
+F045 .|    |    |    no ticket found [client.php:1109]
+F045 .|    |    <= false
+F045 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+F045 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+F045 .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas'
+F045 .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block&action=testCas [client.php:1234]
+F045 .|    |    |    exit()
+F045 .|    |    |    -
+F045 .|    |    -
+F045 .|    -
+F47B .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+F47B .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block') [block.php:568]
+F47B .<= ''
+F47B .=> phpCAS::setNoCasServerValidation() [block.php:569]
+F47B .<= ''
+F47B .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+F47B .|    Not a logout request [client.php:1292]
+F47B .<= ''
+F47B .=> phpCAS::checkAuthentication() [block.php:572]
+F47B .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+F47B .|    |    => CASClient::isAuthenticated() [client.php:994]
+F47B .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+F47B .|    |    |    |    no user found [client.php:1216]
+F47B .|    |    |    <= false
+F47B .|    |    |    no ticket found [client.php:1109]
+F47B .|    |    <= false
+F47B .|    |    user is not authenticated (cache reset) [client.php:1025]
+F47B .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+F47B .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+F47B .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block'
+F47B .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block [client.php:1234]
+F47B .|    |    |    exit()
+F47B .|    |    |    -
+F47B .|    |    -
+F47B .|    -
+6D8F .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+6D8F .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block') [block.php:568]
+6D8F .<= ''
+6D8F .=> phpCAS::setNoCasServerValidation() [block.php:569]
+6D8F .<= ''
+6D8F .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+6D8F .|    Not a logout request [client.php:1292]
+6D8F .<= ''
+6D8F .=> phpCAS::checkAuthentication() [block.php:572]
+6D8F .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+6D8F .|    |    => CASClient::isAuthenticated() [client.php:994]
+6D8F .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+6D8F .|    |    |    |    no user found [client.php:1216]
+6D8F .|    |    |    <= false
+6D8F .|    |    |    no ticket found [client.php:1109]
+6D8F .|    |    <= false
+6D8F .|    |    user is not authenticated (cache reset) [client.php:1025]
+6D8F .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+6D8F .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+6D8F .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block'
+6D8F .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block [client.php:1234]
+6D8F .|    |    |    exit()
+6D8F .|    |    |    -
+6D8F .|    |    -
+6D8F .|    -
+1AD9 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+1AD9 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block') [block.php:568]
+1AD9 .<= ''
+1AD9 .=> phpCAS::setNoCasServerValidation() [block.php:569]
+1AD9 .<= ''
+1AD9 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+1AD9 .|    Not a logout request [client.php:1292]
+1AD9 .<= ''
+1AD9 .=> phpCAS::checkAuthentication() [block.php:572]
+1AD9 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+1AD9 .|    |    => CASClient::isAuthenticated() [client.php:994]
+1AD9 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+1AD9 .|    |    |    |    user = `luceas3' [client.php:1206]
+1AD9 .|    |    |    |    proxies = "" [client.php:1211]
+1AD9 .|    |    |    <= true
+1AD9 .|    |    |    user was already authenticated, no need to look for tickets [client.php:1058]
+1AD9 .|    |    <= true
+1AD9 .|    |    user is authenticated [client.php:995]
+1AD9 .|    <= true
+1AD9 .<= true
+AF3B .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+AF3B .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block') [block.php:568]
+AF3B .<= ''
+AF3B .=> phpCAS::setNoCasServerValidation() [block.php:569]
+AF3B .<= ''
+AF3B .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+AF3B .|    Not a logout request [client.php:1292]
+AF3B .<= ''
+AF3B .=> phpCAS::checkAuthentication() [block.php:572]
+AF3B .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+AF3B .|    |    => CASClient::isAuthenticated() [client.php:994]
+AF3B .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+AF3B .|    |    |    |    user = `luceas3' [client.php:1206]
+AF3B .|    |    |    |    proxies = "" [client.php:1211]
+AF3B .|    |    |    <= true
+AF3B .|    |    |    user was already authenticated, no need to look for tickets [client.php:1058]
+AF3B .|    |    <= true
+AF3B .|    |    user is authenticated [client.php:995]
+AF3B .|    <= true
+AF3B .<= true
+D15D .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+D15D .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block') [block.php:568]
+D15D .<= ''
+D15D .=> phpCAS::setNoCasServerValidation() [block.php:569]
+D15D .<= ''
+D15D .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+D15D .|    Not a logout request [client.php:1292]
+D15D .<= ''
+D15D .=> phpCAS::checkAuthentication() [block.php:572]
+D15D .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+D15D .|    |    => CASClient::isAuthenticated() [client.php:994]
+D15D .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+D15D .|    |    |    |    no user found [client.php:1216]
+D15D .|    |    |    <= false
+D15D .|    |    |    no ticket found [client.php:1109]
+D15D .|    |    <= false
+D15D .|    |    user is not authenticated (cache reset) [client.php:1025]
+D15D .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+D15D .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+D15D .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block'
+D15D .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block [client.php:1234]
+D15D .|    |    |    exit()
+D15D .|    |    |    -
+D15D .|    |    -
+D15D .|    -
+C006 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+C006 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block') [block.php:569]
+C006 .<= ''
+C006 .=> phpCAS::setNoCasServerValidation() [block.php:570]
+C006 .<= ''
+C006 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+C006 .|    Not a logout request [client.php:1292]
+C006 .<= ''
+C006 .=> phpCAS::checkAuthentication() [block.php:573]
+C006 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+C006 .|    |    => CASClient::isAuthenticated() [client.php:994]
+C006 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+C006 .|    |    |    |    user = `luceas3' [client.php:1206]
+C006 .|    |    |    |    proxies = "" [client.php:1211]
+C006 .|    |    |    <= true
+C006 .|    |    |    user was already authenticated, no need to look for tickets [client.php:1058]
+C006 .|    |    <= true
+C006 .|    |    user is authenticated [client.php:995]
+C006 .|    <= true
+C006 .<= true
+1EB9 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+1EB9 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block') [block.php:569]
+1EB9 .<= ''
+1EB9 .=> phpCAS::setNoCasServerValidation() [block.php:570]
+1EB9 .<= ''
+1EB9 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+1EB9 .|    Not a logout request [client.php:1292]
+1EB9 .<= ''
+1EB9 .=> phpCAS::checkAuthentication() [block.php:573]
+1EB9 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+1EB9 .|    |    => CASClient::isAuthenticated() [client.php:994]
+1EB9 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+1EB9 .|    |    |    |    no user found [client.php:1216]
+1EB9 .|    |    |    <= false
+1EB9 .|    |    |    no ticket found [client.php:1109]
+1EB9 .|    |    <= false
+1EB9 .|    |    user is not authenticated (cache reset) [client.php:1025]
+1EB9 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+1EB9 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+1EB9 .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block'
+1EB9 .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block [client.php:1234]
+1EB9 .|    |    |    exit()
+1EB9 .|    |    |    -
+1EB9 .|    |    -
+1EB9 .|    -
+3BAE .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+3BAE .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block') [block.php:569]
+3BAE .<= ''
+3BAE .=> phpCAS::setNoCasServerValidation() [block.php:570]
+3BAE .<= ''
+3BAE .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+3BAE .|    Not a logout request [client.php:1292]
+3BAE .<= ''
+3BAE .=> phpCAS::checkAuthentication() [block.php:573]
+3BAE .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+3BAE .|    |    => CASClient::isAuthenticated() [client.php:994]
+3BAE .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+3BAE .|    |    |    |    no user found [client.php:1216]
+3BAE .|    |    |    <= false
+3BAE .|    |    |    no ticket found [client.php:1109]
+3BAE .|    |    <= false
+3BAE .|    |    user is not authenticated (cache reset) [client.php:1025]
+3BAE .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+3BAE .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+3BAE .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block'
+3BAE .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block [client.php:1234]
+3BAE .|    |    |    exit()
+3BAE .|    |    |    -
+3BAE .|    |    -
+3BAE .|    -
+3D28 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+3D28 .=> phpCAS::setServerLoginURL('https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block') [block.php:569]
+3D28 .<= ''
+3D28 .=> phpCAS::setNoCasServerValidation() [block.php:570]
+3D28 .<= ''
+3D28 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+3D28 .|    Not a logout request [client.php:1292]
+3D28 .<= ''
+3D28 .=> phpCAS::checkAuthentication() [block.php:573]
+3D28 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+3D28 .|    |    => CASClient::isAuthenticated() [client.php:994]
+3D28 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+3D28 .|    |    |    |    no user found [client.php:1216]
+3D28 .|    |    |    <= false
+3D28 .|    |    |    no ticket found [client.php:1109]
+3D28 .|    |    <= false
+3D28 .|    |    user is not authenticated (cache reset) [client.php:1025]
+3D28 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+3D28 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+3D28 .|    |    |    <= 'https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block'
+3D28 .|    |    |    Redirect to : https://192.168.2.108:8443/cas/login?embed=true&service=http://127.0.0.1/meibeike/index.php?controller=block [client.php:1234]
+3D28 .|    |    |    exit()
+3D28 .|    |    |    -
+3D28 .|    |    -
+3D28 .|    -
+0B59 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+0B59 .=> phpCAS::setServerLoginURL('https://cas.test.com:8444/cas/login?embed=true&service=http://www.meibeike.com/meibeike/index.php?controller=block') [block.php:573]
+0B59 .<= ''
+0B59 .=> phpCAS::setNoCasServerValidation() [block.php:574]
+0B59 .<= ''
+0B59 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+0B59 .|    Not a logout request [client.php:1292]
+0B59 .<= ''
+0B59 .=> phpCAS::checkAuthentication() [block.php:577]
+0B59 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+0B59 .|    |    => CASClient::isAuthenticated() [client.php:994]
+0B59 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+0B59 .|    |    |    |    no user found [client.php:1216]
+0B59 .|    |    |    <= false
+0B59 .|    |    |    no ticket found [client.php:1109]
+0B59 .|    |    <= false
+0B59 .|    |    user is not authenticated (cache reset) [client.php:1025]
+0B59 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+0B59 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+0B59 .|    |    |    <= 'https://cas.test.com:8444/cas/login?embed=true&service=http://www.meibeike.com/meibeike/index.php?controller=block'
+0B59 .|    |    |    Redirect to : https://cas.test.com:8444/cas/login?embed=true&service=http://www.meibeike.com/meibeike/index.php?controller=block [client.php:1234]
+0B59 .|    |    |    exit()
+0B59 .|    |    |    -
+0B59 .|    |    -
+0B59 .|    -
+0B01 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+0B01 .=> phpCAS::setServerLoginURL('https://cas.test.com:8444/cas/login?embed=true&service=http://www.meibeike.com/meibeike/index.php?controller=block') [block.php:573]
+0B01 .<= ''
+0B01 .=> phpCAS::setNoCasServerValidation() [block.php:574]
+0B01 .<= ''
+0B01 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+0B01 .|    Not a logout request [client.php:1292]
+0B01 .<= ''
+0B01 .=> phpCAS::checkAuthentication() [block.php:577]
+0B01 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+0B01 .|    |    => CASClient::isAuthenticated() [client.php:994]
+0B01 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+0B01 .|    |    |    |    no user found [client.php:1216]
+0B01 .|    |    |    <= false
+0B01 .|    |    |    no ticket found [client.php:1109]
+0B01 .|    |    <= false
+0B01 .|    |    user is not authenticated (cache reset) [client.php:1025]
+0B01 .|    |    => CASClient::redirectToCas(true) [client.php:1026]
+0B01 .|    |    |    => CASClient::getServerLoginURL(true, false) [client.php:1232]
+0B01 .|    |    |    <= 'https://cas.test.com:8444/cas/login?embed=true&service=http://www.meibeike.com/meibeike/index.php?controller=block'
+0B01 .|    |    |    Redirect to : https://cas.test.com:8444/cas/login?embed=true&service=http://www.meibeike.com/meibeike/index.php?controller=block [client.php:1234]
+0B01 .|    |    |    exit()
+0B01 .|    |    |    -
+0B01 .|    |    -
+0B01 .|    -
+11F1 .START phpCAS-1.2.0RC2 ****************** [phpCAS.php:471]
+11F1 .=> phpCAS::setServerLoginURL('https://sso.meibeike.com:8443/cas/login?embed=true&service=http://www.meibeike.com/meibeike/index.php?controller=block') [block.php:572]
+11F1 .<= ''
+11F1 .=> phpCAS::setNoCasServerValidation() [block.php:574]
+11F1 .<= ''
+11F1 .=> CASClient::handleLogoutRequests(true, false) [phpCAS.php:1161]
+11F1 .|    Not a logout request [client.php:1292]
+11F1 .<= ''
+11F1 .=> phpCAS::checkAuthentication() [block.php:577]
+11F1 .|    => CASClient::checkAuthentication() [phpCAS.php:922]
+11F1 .|    |    => CASClient::isAuthenticated() [client.php:994]
+11F1 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+11F1 .|    |    |    |    no user found [client.php:1216]
+11F1 .|    |    |    <= false
+11F1 .|    |    |    no ticket found [client.php:1109]
+11F1 .|    |    <= false
+11F1 .|    <= false
+11F1 .<= false
+11F1 .=> phpCAS::forceAuthentication() [block.php:621]
+11F1 .|    => CASClient::forceAuthentication() [phpCAS.php:950]
+11F1 .|    |    => CASClient::isAuthenticated() [client.php:952]
+11F1 .|    |    |    => CASClient::wasPreviouslyAuthenticated() [client.php:1047]
+11F1 .|    |    |    |    no user found [client.php:1216]
+11F1 .|    |    |    <= false
+11F1 .|    |    |    no ticket found [client.php:1109]
+11F1 .|    |    <= false
+11F1 .|    |    => CASClient::redirectToCas(false) [client.php:961]
+11F1 .|    |    |    => CASClient::getServerLoginURL(false, false) [client.php:1232]
+11F1 .|    |    |    <= 'https://sso.meibeike.com:8443/cas/login?embed=true&service=http://www.meibeike.com/meibeike/index.php?controller=block'
+11F1 .|    |    |    Redirect to : https://sso.meibeike.com:8443/cas/login?embed=true&service=http://www.meibeike.com/meibeike/index.php?controller=block [client.php:1234]
+11F1 .|    |    |    exit()
+11F1 .|    |    |    -
+11F1 .|    |    -
+11F1 .|    -

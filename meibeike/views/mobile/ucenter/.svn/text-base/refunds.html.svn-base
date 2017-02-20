@@ -1,0 +1,88 @@
+<section>
+	<!--退款申请列表 开始-->
+	<div class="pending-detial">
+		{set:$page= (isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}
+		{set:$user_id = $this->user['user_id']}
+		{query:name=refundment_doc where=user_id eq $user_id order=id desc page=$page}
+		<ul class="block-row">
+			<li>
+				<p class="head">退款订单</p>
+				<p class="sum">{$item['order_no']}</p>
+			</li>
+			<li>
+				<p class="head">状态</p>
+				<p class="sum">
+					{if:$item['pay_status']==0}等待{elseif:$item['pay_status']==1}失败{elseif:$item['pay_status']==2}成功{/if}
+				</p>
+			</li>
+			<li>
+				<p class="head">操作</p>
+				<p class="sum">
+				  	{if:$item['pay_status']==0}
+				  	<input type='button' onclick='delModel({link:"{url:/ucenter/refunds_del/id/$item[id]}"})' value='取消' />
+				  	<input type='button' onclick='form_back({echo:JSON::encode($item)})' value='修改' />
+				  	{/if}
+				  	<input type='button' onclick='window.location.href="{url:/ucenter/refund_detail/id/$item[id]}";' value='查看' />
+				</p>
+			</li>
+		</ul>
+		{/query}
+		{$query->getPageBar()}
+	</div>
+	<!--退款申请列表 结束-->
+
+	<!--申请退款 开始-->
+	<div class="pending-detial">
+		<h3>填写退款申请</h3>
+	    <form action="{url:/ucenter/refunds_edit}" method='post' name='refunds'>
+		    <input type="hidden" name="id" value="" />
+		    <ul class="block-row">
+		        <li>
+		            <p class='head'>涉及订单号：</p>
+		            <p class='sum'><input type="text" name="order_no" pattern='required' alt='订单号不能为空' value="{echo:IReq::get('order_no')}" /></p>
+		        </li>
+		        <li>
+		        	<p class='head'>申请原因：</p>
+		        	<p class='sum'><textarea name="content" pattern="required" style="height:80px;"></textarea></p>
+		        </li>
+		        <li>
+		        	<p class='head'>&nbsp;</p>
+		        	<p class='sum'><input type="submit" class='btn' value="提交退款申请" /></p>
+		        </li>
+		    </ul>
+	    </form>
+	</div>
+	<!--申请退款 结束-->
+</section>
+
+<script type='text/javascript'>
+	//DOM加载完毕
+	$(function()
+	{
+		{if:IReq::get('order_no')}
+	    $('#refunds_list').toggle();
+	    $('#refunds_form').toggle();
+		{/if}
+	})
+
+	function form_back(obj)
+	{
+	    var form = new Form('refunds');
+	    form.init(obj);
+	    $('#refunds_list').hide();
+	    $('#refunds_form').show();
+	}
+
+	function form_add()
+	{
+	    var form = new Form('refunds');
+	    form.init({"order_no":"","amount":"","content":""});
+	}
+
+	{if:isset($this->msg) && $this->msg!=''}
+	alert('{$this->msg}');
+	var form = new Form('refunds');
+	var obj = {$this->info};
+	form.init(obj);
+	{/if}
+</script>

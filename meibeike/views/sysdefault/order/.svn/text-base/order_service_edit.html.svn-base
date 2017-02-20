@@ -1,0 +1,79 @@
+{js:artTemplate}
+<script type='text/javascript' src='{theme:javascript/artTemplate/area_select.js}'></script>
+<div class="headbar clearfix">
+	<div class="position">订单<span>></span><span>单据管理</span><span>></span><span>{if:isset($this->orderRow)}服务订单修改{else:}服务订单添加{/if}</span></div>
+
+	<div class="operating">
+		<a href="javascript:void(0);"><button class="operating_btn" type="button" onclick="searchOrder('{url:/block/search_order}',searchOrderCallback);"><span class="addition">关联订单</span></button></a>
+	</div>
+
+	<ul class="tab" name="menu">
+		<li id="button_1" class="selected"><a href="javascript:selectTab('1');" hidefocus="true">服务详情</a></li>
+	</ul>
+
+</div>
+
+<form name="ModelForm" action="{url:/order/service_update}" method="post">
+	<input type='hidden' name='id' value='' />
+
+	<!--订单配置-->
+	<div id="tab-1" class="content_box" style="display:block">
+		<div class="content form_content">
+			<table class="form_table">
+				<col width="150px" />
+				<col />
+				<tbody>
+					<tr>
+						<th>订单编号：</th>
+						<td>
+                                                    <input  class="normal" pattern="required" alt="请输入订单编号" type="text" name="order_no" />
+						</td>
+					</tr>
+					<tr>
+						<th>服务类型：</th>
+						<td>
+							<select name="type" pattern="required" alt="请选择服务类型" class="normal">
+								<option value="1">退货</option>
+								<option value="2">换货</option>
+                                                                <option value="3">维修</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>服务原因：</th>
+						<td>
+                                                    <textarea class="normal" type="edit" name="reason" value="" ></textarea>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+	<div class="pages_bar"><div class="t_c"><button type="submit" class="submit"><span>保 存</span></button></div></div>
+</form>
+
+<script type="text/javascript">
+
+//选择当前Tab
+function selectTab(curr_tab)
+{
+	if(curr_tab == 1)
+	{
+		$('.field').show();
+	}
+	else
+	{
+		$('.field').hide();
+	}
+
+	$("div[id^=tab-]").hide();
+	$("#tab-"+curr_tab).show();
+
+	$("li[id^='button-']").removeClass('selected');
+	$("#button-"+curr_tab).addClass('selected');
+}
+
+
+</script>

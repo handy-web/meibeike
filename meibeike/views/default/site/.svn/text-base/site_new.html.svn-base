@@ -1,0 +1,1180 @@
+<!--[if lte IE 9]>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <style type="text/css">
+            .modify_info_all {display: none; position: absolute; height: 440px; width: 700px; z-index: 90000; top: 0; left: 0; border-radius: 15px;}
+            .modify_info_all .content {float: left; width: 700px; height: 440px; border-radius: 10px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+            .modify_info_all  .content .ac_header {float: left; width: 100%; height: 60px; line-height: 60px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+            .modify_info_all  .content .ac_header img {float: right; margin-right: 15px; cursor: pointer; margin-top: 10px;}
+            .modify_info_all  .content .ac_header label {margin-left: 30px; font-size: 20px;}
+            .modify_info_all  .content .ac_body {float: left; padding: 15px 30px;}
+
+            .modify_info_all  .content .ac_body .line {float: left; width: 640px; height: 120px; border-bottom: 1px solid rgb(218, 218, 218);}
+            .modify_info_all  .content .ac_body .last {border: 0px;}
+            .modify_info_all  .content .ac_body .line .left {float: left; width: 60px; height: 120px;}
+            .modify_info_all  .content .ac_body .line .left img {margin-top: 20px; margin-left: 25px;}
+            .modify_info_all  .content .ac_body .line .middle {float: left; width: 450px; height: 120px;}
+            .modify_info_all  .content .ac_body .line .middle .m_title {float: left; width: 100%; height: 30px; font-size: 18px; margin-top: 25px;}
+            .modify_info_all  .content .ac_body .line .middle .m_detail {float: left; width:100%; height: 60px; line-height: 25px; margin-top: 5px; font-size: 14px;}
+
+            .modify_info_all  .content .ac_body .line .right {float: left; width: 130px; height: 120px;}
+            .modify_info_all  .content .ac_body .line .right .r_action {float: left; width: 100px; margin-left: 20px; margin-top: 46px; font-size: 14px; color: rgb(132, 163, 227)}
+            .modify_info_all  .content .ac_body .line .right .r_action a {text-decoration: none; color: rgb(132, 163, 227)}
+        </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8">
+			
+		{if:$this->menu_key_name && $this->menu_key_name!=""}
+			<title>{echo:$this->menu_key_name}-美贝壳</title>
+			<meta name="description" content="深圳市美贝壳科技有限公司，位于深圳市南山区科技园内，是一家以“保护个人隐私数据”为理念，研发以私有云为基础的智能家居服务器产品的高新科技企业。公司秉承“不将就！创造一款用户极致体验的产品！“的企业文化，怀着”让私有数据真正隐私化“的愿景，至力于真正解决”私人隐私数据自动收集、安全存储、无线分享“的问题。目前，公司已经成功研发云棒1号产品，云棒产品集成了多项核心专利，已经取得实用及发明专利152项，现已面向中国、美国、加拿大三国公开销售。">
+			<meta name="keyword" content="云棒,云棒1,云棒1号,云棒一号">
+		{/if}
+<!--		{if:$this->show_title_key=="aboutus"}
+			<title>关于我们-美贝壳</title>
+			<meta name="description" content="深圳市美贝壳科技有限公司，位于深圳市南山区科技园内，是一家以“保护个人隐私数据”为理念，研发以私有云为基础的智能家居服务器产品的高新科技企业。公司秉承“不将就！创造一款用户极致体验的产品！“的企业文化，怀着”让私有数据真正隐私化“的愿景，至力于真正解决”私人隐私数据自动收集、安全存储、无线分享“的问题。目前，公司已经成功研发云棒1号产品，云棒产品集成了多项核心专利，已经取得实用及发明专利152项，现已面向中国、美国、加拿大三国公开销售。">
+			<meta name="keyword" content="云棒,云棒1,云棒1号,云棒一号">
+		{/if}
+		{if:$this->show_title_key=="contactus"}
+			<title>联系我们-美贝壳</title>
+			<meta name="description" content="深圳市美贝壳科技有限公司，位于深圳市南山区科技园内，是一家以“保护个人隐私数据”为理念，研发以私有云为基础的智能家居服务器产品的高新科技企业。公司秉承“不将就！创造一款用户极致体验的产品！“的企业文化，怀着”让私有数据真正隐私化“的愿景，至力于真正解决”私人隐私数据自动收集、安全存储、无线分享“的问题。目前，公司已经成功研发云棒1号产品，云棒产品集成了多项核心专利，已经取得实用及发明专利152项，现已面向中国、美国、加拿大三国公开销售。">
+			<meta name="keyword" content="云棒,云棒1,云棒1号,云棒一号,私有云">
+		{/if}-->
+
+		{if:$this->menu_name=="index"}
+			<title>美贝壳-云棒官方网站</title>
+			<meta name="description" content="深圳市美贝壳科技有限公司，位于深圳市南山区科技园内，是一家以“保护个人隐私数据”为理念，研发以私有云为基础的智能家居服务器产品的高新科技企业。公司秉承“不将就！创造一款用户极致体验的产品！“的企业文化，怀着”让私有数据真正隐私化“的愿景，至力于真正解决”私人隐私数据自动收集、安全存储、无线分享“的问题。目前，公司已经成功研发云棒1号产品，云棒产品集成了多项核心专利，已经取得实用及发明专利152项，现已面向中国、美国、加拿大三国公开销售。">
+			<meta name="keyword" content="美贝壳,贝壳,云棒,云棒1,云棒1号,云棒一号,云服务,私有云,无线存储,无线备份,nas">
+		{/if}
+
+		{if:$this->menu_name=="news"}
+			<title>新闻中心-美贝壳</title>
+			<meta name="description" content="深圳市美贝壳科技有限公司，位于深圳市南山区科技园内，是一家以“保护个人隐私数据”为理念，研发以私有云为基础的智能家居服务器产品的高新科技企业。公司秉承“不将就！创造一款用户极致体验的产品！“的企业文化，怀着”让私有数据真正隐私化“的愿景，至力于真正解决”私人隐私数据自动收集、安全存储、无线分享“的问题。目前，公司已经成功研发云棒1号产品，云棒产品集成了多项核心专利，已经取得实用及发明专利152项，现已面向中国、美国、加拿大三国公开销售。">
+			<meta name="keyword" content="美贝壳">
+		{/if}
+		{if:$this->menu_name=="newsunit"}
+			<title><?php echo $this->newtitle;?>-美贝壳</title>
+			<meta name="description" content="<?php echo $this->newdescription;?>">
+			<meta name="keyword" content="美贝壳">
+		{/if}
+<!--		{if:$this->show_title_key=="protocol"}
+			<title>用户协议-美贝壳</title>
+			<meta name="description" content="深圳市美贝壳科技有限公司，位于深圳市南山区科技园内，是一家以“保护个人隐私数据”为理念，研发以私有云为基础的智能家居服务器产品的高新科技企业。公司秉承“不将就！创造一款用户极致体验的产品！“的企业文化，怀着”让私有数据真正隐私化“的愿景，至力于真正解决”私人隐私数据自动收集、安全存储、无线分享“的问题。目前，公司已经成功研发云棒1号产品，云棒产品集成了多项核心专利，已经取得实用及发明专利152项，现已面向中国、美国、加拿大三国公开销售。">
+			<meta name="keyword" content="云棒,云棒1,云棒1号,云棒一号">
+		{/if}-->
+		{if:$this->menu_name=="yunbang"}
+			{if:$this->sub_menu_name=="overview"}
+				<title>云棒1,云棒1号,云棒-美贝壳</title>
+			{/if}
+			{if:$this->sub_menu_name=="parameter"}
+				<title>云棒1,云棒1号,云棒 参数--美贝壳</title>
+			{/if}
+			{if:$this->sub_menu_name=="protect"}
+				<title>云棒1,云棒1号,云棒 隐私保护-美贝壳</title>
+			{/if}
+			{if:$this->sub_menu_name=="picture"}
+				<title>云棒1,云棒1号,云棒 照片管理-美贝壳</title>
+			{/if}
+			 {if:$this->sub_menu_name=="video"}
+			                                 <title>云棒1,云棒1号,云棒 介绍视频-美贝壳</title>
+			{/if}
+			<meta name="description" content="深圳市美贝壳科技有限公司，位于深圳市南山区科技园内，是一家以“保护个人隐私数据”为理念，研发以私有云为基础的智能家居服务器产品的高新科技企业。公司秉承“不将就！创造一款用户极致体验的产品！“的企业文化，怀着”让私有数据真正隐私化“的愿景，至力于真正解决”私人隐私数据自动收集、安全存储、无线分享“的问题。目前，公司已经成功研发云棒1号产品，云棒产品集成了多项核心专利，已经取得实用及发明专利152项，现已面向中国、美国、加拿大三国公开销售。">
+			<meta name="keyword" content="云棒,云棒1,云棒1号,云棒一号,云服务,私有云,无线存储,无线备份">
+		{/if}
+		{if:$this->help_cat_id==4}
+			<title>服务与支持-美贝壳</title>
+			<meta name="description" content="美贝壳官方网站在线提供服务支持，帮您解答有关云棒的一切问题，了解云棒最新动态，使用问题，售后服务等。">
+			<meta name="keyword" content="云棒,云棒1,云棒1号,云棒一号,云棒服务">
+		{/if}
+		{if:$this->menu_name=="download"}
+			<title>手机应用-美贝壳</title>
+			<meta name="description" content="深圳市美贝壳科技有限公司，位于深圳市南山区科技园内，是一家以“保护个人隐私数据”为理念，研发以私有云为基础的智能家居服务器产品的高新科技企业。公司秉承“不将就！创造一款用户极致体验的产品！“的企业文化，怀着”让私有数据真正隐私化“的愿景，至力于真正解决”私人隐私数据自动收集、安全存储、无线分享“的问题。目前，公司已经成功研发云棒1号产品，云棒产品集成了多项核心专利，已经取得实用及发明专利152项，现已面向中国、美国、加拿大三国公开销售。">
+			<meta name="keyword" content="云棒,云棒1,云棒1号,云棒一号,手机应用">
+		{/if}
+		{if:$_REQUEST["action"]=="book"  || $_REQUEST["action"]=="book2"}
+			<title>云棒 CloudBar-美贝壳</title>
+			<meta name="keyword" content="云棒,云棒1,云棒1号,美贝壳云棒">
+		{/if}
+		{if:$_REQUEST["action"]=="reg_phone"  || $_REQUEST["action"]=="reg"}
+			<title>注册-美贝壳</title>
+			<meta name="keyword" content="云棒,云棒1,云棒1号,美贝壳云棒">
+		{/if}
+		{if:$_REQUEST["action"]=="order"}
+			<title>我的订单-美贝壳</title>
+			<meta name="keyword" content="云棒,云棒1,云棒1号,美贝壳云棒">
+		{/if}
+		{if:$_REQUEST["action"]=="address"}
+			<title>管理地址-美贝壳</title>
+			<meta name="keyword" content="云棒,云棒1,云棒1号,美贝壳云棒">
+		{/if}
+		{if:$_REQUEST["action"]=="modify_password"}
+			<title>修改密码-美贝壳</title>
+			<meta name="keyword" content="云棒,云棒1,云棒1号,美贝壳云棒">
+		{/if}
+		
+        
+        <link type="image/x-icon" href="favicon.ico" rel="icon">
+            <link rel="stylesheet" href="{skin:css/index_new.css}" />
+            {js:jquery}
+            {js:form}
+            {js:validate}
+            {js:dialog}
+            {js:artTemplate}
+            <script type='text/javascript' src="{theme:javascript/common.js}"></script>
+            <script type='text/javascript' src='{theme:javascript/site.js}'></script>
+            <script type="text/javascript" src="{theme:javascript/jquery.cookie/jquery.cookie.js}"></script>
+            {set:$sonline = new Sonline();$sonline->show($siteConfig->phone,$siteConfig->service_online);}
+
+    </head>
+
+    <body style="margin:0px auto;min-width:1250px; ">    
+		<input type="hidden" value="{$this->menu_name}" id="hidden_menu_name"/>
+        <input type="hidden" value="{echo:$this->user['user_id']}" id="hidden_user_id"/>
+        <div class="wrapper_all">
+            <div class="header">
+                <div class="header_content">
+                    <a href="{url:/site/}" class="logo" style='padding-top:5px;'>
+                        <img src="{skin:images/front/logo.png}"  style="border: 0px;"/>
+                    </a>
+					<label class="logo_label"></label>
+                    <div class="nav-list">
+                        <ul>
+                            <li style="width: 73px;" {if:$this->menu_name=="index"}{echo:'class="on"'}{/if}><a href="{url:/site/index}">首页</a></li>
+                            <li style="width: 73px;" {if:$this->menu_name=="yunbang"}{echo:'class="on"'}{/if}><a href="{url:/site/overview/id/$id}">云棒</a></li> <!--这里默认以overview为第一个子菜单-->
+                            <li style="width: 73px;" {if:$this->help_cat_id==4}{echo:'class="on"'}{/if}><a href="{url:/site/help/id/68}">服务</a></li> <!--这里默认以overview为第一个子菜单-->
+                            <li style="width: 90px;" {if:$this->menu_name=="download"}{echo:'class="on"'}{/if}><a href="{url:/site/download/id/$id}">手机应用</a></li>
+                            <li style="width: 73px;"><a href="http://www.meibeike.com/site/newsunit/id/115" target="_blank">什么是众筹</a></li>
+							<li style="width: 90px;" {if:$this->menu_name=="news"}{echo:'class="on"'}{/if}><a href="{url:/site/news}">新闻中心</a></li>
+                            <!-- <li style="width: 73px;"><a href="http://bbs.meibeike.com" target="_blank">社区</a></li> -->  <!--这里默认以overview为第一个子菜单-->
+                            <!--li style="width: 70px;" ><a href="http://www.baidu.com" target="_blank">社区</a></li-->
+							
+                        </ul>
+                        <!-- 
+                         <div class="buy-col">
+                            {if:IWeb::$app->config['tradeModel'] == '1'}
+                                <a class="buy-button" href="{url:/site/book}">现在预订</a>
+                            {else: }
+                                <a class="buy-button" href="http://z.jd.com/project/details/33821.html">现在预订</a>
+                            {/if}
+                        </div> -->
+                    </div>
+                </div>
+                <style type="text/css">
+                </style>
+                <div class="header-menu-wrapper" style="height: 40px; line-height: 40px; border: 0px;">
+                    <div class="header-container">
+			{if:$this->menu_name=="yunbang"}
+                        <div class="left_menu">
+<!--                            <div class="menu_select">
+                                <label>YUMBUNG1</label> <img src="{skin:images/front/u41.png}" height="8" width="10"/>
+                                <div class="menu_select_child">
+                                    <a class="menu_select_child_a" href="" target="_blank">BANG UI</a>
+                                </div>
+                            </div>-->
+				<ul>
+				<li style="width: 56px;" {if:$this->sub_menu_name=="overview"}{echo:'class="on"'}{/if}><a href="{url:/site/overview/id/$id}">概述</a></li>
+				<li style="width: 85px;" {if:$this->sub_menu_name=="protect"}{echo:'class="on"'}{/if}><a href="{url:/site/protect/id/$id}">隐私保护</a></li>
+				<li style="width: 85px;" {if:$this->sub_menu_name=="picture"}{echo:'class="on"'}{/if}><a href="{url:/site/picture/id/$id}">照片管理</a></li>
+                                <li style="width: 55px;" {if:$this->sub_menu_name=="parameter"}{echo:'class="on"'}{/if}><a href="{url:/site/parameter/id/$id}">参数</a></li>  				                       <li style="width: 85px;" {if:$this->sub_menu_name=="video"}{echo:'class="on"'}{/if}><a href="{url:/site/video/id/$id}">介绍视频</a></li>
+                        	</ul>
+                        </div>
+			{/if}   
+                        <div class="account">
+                            {if:$this->user['user_id']}
+                            <div class="left_part">
+<!--                                <a class="normal-link  left" href="{url:/ucenter/order}">我的订单</a>-->
+                            </div>
+                            <div class="middle_part">
+<!--								| -->
+							</div>
+							<input type="hidden" id="show_select_menu" value="0"/>
+                            <div class="right_part">
+                                <div class="menu_select">
+                                    <label>个人中心</label> <img style="margin-top: 17px;" src="{skin:images/front/u41.png}" height="8" width="10"/>
+                                    {if:IWeb::$app->config['tradeModel'] == '1'}
+										<input type="hidden" id="all_menu_child" value="1"/>
+									{else:}	
+										<input type="hidden" id="all_menu_child" value="0"/>
+									{/if}
+									<div class="menu_select_child">
+                                        {if:IWeb::$app->config['tradeModel'] == '1'}
+					<a class="normal-menu_select_child_a" href="{url:/ucenter/order}">我的订单</a>
+                                        {/if}
+                                        <a class="menu_select_child_a" id='account_maneger' href="">账号设置</a>
+                                        {if:IWeb::$app->config['tradeModel'] == '1'}
+                                        <a class="menu_select_child_a" href="{url:/ucenter/address}" >管理地址</a>
+                                        {/if}
+                                        <a class="menu_select_child_a" href="{url:/simple/logout}" target="_self">退出</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {else:}
+                            <div class="not_login">
+                                <a id="login" class="normal-link" href="{url:/simple/login?callback=$callback}">登录</a> &nbsp;|&nbsp;
+                                <a id="register" class="normal-link" href="{url:/simple/reg_phone?callback=$callback}">注册</a>
+                            </div>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="header-shadow"></div>
+                </div>
+            </div>
+
+            {viewcontent}
+
+            <div class="footer" style="position: relative; float: left; display: block;">
+                <div class="help_info">
+                    <div class="footer_wrapper">
+                        <div class="footer_content" style="margin-left: 10px;">
+							<div style="float: left; height: 10px;; width: 50px;"></div>
+                            {query:name=help_category where=position_foot eq 1 order=sort ASC,id desc limit=3 item=$helpCat}
+							<?php if ($helpCat['name'] != "订单服务") { ?>
+                            <dl>
+                                <dt style="font-weight: bold;">
+									<label style="float: left; width: 120px; text-align: center; margin-bottom: 10px;">
+										{$helpCat['name']}
+									</label>
+								</dt>
+                                {query:name=help where=cat_id eq $helpCat[id] order=sort ASC,id desc}
+                                <dd>
+									<a style="float: left; width: 120px; text-align: center;" href="{url:/site/help/id/$item[id]}">{$item['name']}</a>
+								</dd>
+                                {/query}
+                            </dl>
+							<?php } ?>
+                            {/query}
+							<dl>
+                                <dt style="font-weight: bold;">
+									<label style="float: left; width: 120px; text-align: center; margin-bottom: 10px;">
+										关注我们
+									</label>
+								</dt>
+                                <dd>
+									<a id="erweima_a" style="float: left; width: 120px; text-align: center;"  href="#">
+										官方微信
+									</a>
+								</dd>
+								<dd>
+									<a style="float: left; width: 120px; text-align: center;" target="_blank" href="http://weibo.com/u/5813687636">
+										官方微博
+									</a>
+								</dd>
+                            </dl>
+                            <div class="footer_contack" style="float: right; width: 300px; height: 160px; margin-top: 20px;">
+                                <div style='display:none;'><a href='http://www.live800.com'>live800Link.webchat2</a></div><script language="javascript" src="http://chat16.live800.com/live800/chatClient/staticButton.js?jid=8840651284&companyID=538241&configID=80777&codeType=custom"></script><div style='display:none;'><a href='http://en.live800.com'>live chat</a></div>
+								<!--a target="_blank" href="http://chat16.live800.com/live800/chatClient/staticButton.js?jid=8840651284&companyID=538241&configID=80777&codeType=custom"
+								   style="display: block; width: 200px; height: 40px; line-height: 40px; border-radius: 5px; background: rgb(251, 62, 58);
+								   text-align: center; color: white; font-size: 16px; text-decoration: none; margin-top: 55px;">在线客服</a-->
+<!--                                <label style="float: left; width: 100%; margin-top: 35px; height: 40px; line-height: 40px; font-size: 36px; font-weight: 200; ">0755-2660 2223</label>-->
+<!--                                <label style="float: left; width: 100%; margin-top: 40px; height: 20px; line-height: 20px; font-size: 16px; font-weight: 200; ">服 务 时 段 ：   7 * 24 仅 收 市 话 费 用</label>
+                                div style="float: left; width: 230px; margin-top: 10px; height: 55px; border-radius: 5px; border: 1px rgb(180, 180, 180) solid;">
+                                    <img src="{skin:/images/front/footer_icon.png}" width="35" height="35" style="float: left; margin-top: 10px; margin-left: 25px;"/>
+                                    <label style="float: left; height: 55px; line-height: 55px; margin-left: 25px;">24小时在线客服</label>
+                                </div
+                                <div style="float: left; width: 230px; margin-top: 10px; height: 55px;">
+                                <div style='display:none;'><a href='http://www.live800.com'>live800Link.webchat2</a></div><script language="javascript" src="http://chat16.live800.com/live800/chatClient/staticButton.js?jid=8840651284&companyID=538241&configID=80777&codeType=custom"></script><div style='display:none;'><a href='http://en.live800.com'>live chat</a></div>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publish_info">
+                    <div class="publish_wrapper">
+                        <div class="publish_content">
+                            {set:$conf = new Config('site_config');}
+                            {set:$config_info = $conf->getInfo();}
+                            <font style="font-size: 12px;">{$config_info['icp_info_1']}</font>
+                            <br>     
+                                <font style="font-size: 12px; color: rgb(191, 191, 191)">{$config_info['icp_info_2']}</font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+		<!--
+		{set:$fixCount = 0}
+		{if:$this->sub_menu_name=="overview"}
+			{set:$fixCount = 9}
+		{elseif:$this->sub_menu_name=="design"}
+			{set:$fixCount = 6}
+		{elseif:$this->sub_menu_name=="picture"}
+			{set:$fixCount = 5}
+		{elseif:$this->sub_menu_name=="wireless"}
+			{set:$fixCount = 3}
+		{elseif:$this->sub_menu_name=="performance"}
+			{set:$fixCount = 9}
+		{/if}
+		
+		<input id="fixed_r_count" type="hidden" value="{$fixCount}"/>
+		
+		{if:$fixCount>0}
+        <div class="fixed_r">
+            <ul>
+				<?php for ($i = 1; $i <= $fixCount; ++$i) { ?>
+					{if:$i==1}
+						<li class="menu_li on" style="width: 0px;"></li>
+					{else:}
+						<li class="menu_li" style="width: 0px;"></li>
+					{/if}
+				<?php } ?>
+            </ul>
+        </div>
+		{/if}
+        -->
+
+        <!-- 顶部隐形菜单 -->
+        <div class="product-nav-slide">
+            <input type="hidden" value="0" id="has_show" />
+            <div class="product-header-content">
+                <span class="slide-logo" style=" background: url({skin:images/front/top_logo.png}) no-repeat;"></span> 
+                <div class="buy-col">
+                    <a class="buy-button" href="{url:/site/book}"><span>现在预订</span></a>
+                </div>
+                <ul>
+                    <li><a href="{url:/site/overview/id/$id}" class="active">概述</a></li>
+                    <li><a href="{url:/site/design/id/$id}">设计</a></li>
+                    <li><a href="{url:/site/feature/id/$id}">功能</a></li>
+                    <li><a href="{url:/site/system/id/$id}">系统</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="login_table" style="display: none; position: absolute; z-index: 1499; top: 0px; left: 0px; height: 100%; width: 100%; background: #000; 
+             font-family:Microsoft YaHei,微软雅黑; color: rgb(94, 95, 97);
+             filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5; ">
+        </div>
+        <div class="login_content">
+            <div class="title" style=" ">
+                <label style="float: left;">登录/注册</label>
+                <div class="close">
+                    <img src="{skin:images/front/u140.png}"/>
+                </div>
+            </div>
+
+            <div style="width: 100%; height: 35px;"></div>
+            <form id="login_form" action='{url:/simple/login_act}' method='post'>
+                <input type='hidden' name='callback' value='{$callback}' />
+                <div class="line">
+                    <img src="{skin:images/front/u130.png}"/>
+                    <input name="login_info" autocomplete="off" value="{echo:ICookie::get('loginName');}" alt='填写邮箱' style="margin-top: 2px; height: 34px; line-height: 34px;"  placeholder="输入手机号码/输入邮箱" />
+                </div>
+                <div class="line">
+                    <img src="{skin:images/front/u132.png}"/>
+					<input type="hidden"  autocomplete="off"  name="password" id="password" value=""/>
+					<input type="text"  ime-mode='disabled'  autocomplete="off" target_input="password" class=" no_chinese password_input" placeholder="输入密码" style="margin-top: 2px; height: 34px; line-height: 34px;"  value=""/>
+
+<!--                    <input type="password" id="password" autocomplete="off" name="password" alt='填写密码' placeholder="输入密码" style="margin-top: 3px; height: 34px; line-height: 34px;"  />-->
+                </div>
+
+                <div style="width: 100%; height: 30px;"></div>
+
+                <div class="btn login_btn">
+                    <a class="a_login">登录</a>
+                </div>
+                <div class="btn register_btn">
+                    <a href="{url:/simple/reg_phone?callback=$callback}" class="grey" href="">注册</a>
+                </div>
+                <div class="bottom">
+                    <!--img src="{skin:images/front/u138.png}" /-->
+                    <a href="{url:/simple/fogot_password_1}">忘记密码？</a>
+                </div>
+
+                <div id='failed_check' style='display:none; width:100%; height: 50px; font-family:"Microsoft YaHei","微软雅黑";' >
+                    <div style='float:left;margin-left: 60px;margin-top:30px; width:60px;'>验证码</div>
+						<input style='float: left; margin-top: 27px;  width: 60px;height: 30px;line-height: 30px;' type="text" value="" size="12"  class='no_chinese' name='captcha2' alt="请输入正确的验证码"/>
+                        <img style="float: left; margin-top: 25px; margin-left: 10px; width: 100px;" src='{url:/simple/getCaptcha}' id='captchaImg' />
+                        <a id='changeCaptcha2' href="javascript:changeCaptcha('{url:/simple/getCaptcha}');" style="float: left; margin-left: 0px; margin-top: 20px; width: 40px; height: 40px; display: block; background: url({skin:images/front/u211.png});"></a>
+                </div>
+            </form>
+        </div>
+
+        {if:ISafe::get("user_id")}
+        <div class="modify_info_bg_all" style="position: absolute; z-index: 80000; top: 0; left: 0; margin-left: 0; margin-top: 0; display: none; width: 100%; height: 500px; background: #000; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5;"></div>
+        <div class="modify_info_all">
+            <div class="content">
+                <div class="ac_header">
+                    <label>账户设置</label>
+                    <img id="close_img_2" src="{skin:images/front/close.png}">
+                </div>
+                <div class="ac_body">
+                    {set:$uid = ISafe::get("user_id")}
+                    {set:$userinfo = Api::run('getUserInfo', array("#uid#",$uid))}
+                    {set:$userinfo = $userinfo[0]}
+                    <div class="line">
+                        <span class="left">
+                            <img src="{skin:images/front/gou.png}"/>
+                        </span>
+                        <span class="middle">
+                            <label class="m_title">登录密码</label>
+                            <label class="m_detail">
+                                互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。
+                            </label>
+                        </span>
+                        <span class="right">
+                            <label class="r_action"><a href="{url:ucenter/modify_password}" target="_blank">修改</a></label>
+                        </span>
+                    </div>
+                    {if:ISafe::get("email") && ISafe::get("active") == 0}
+                    <div class="line">
+                        <span class="left" style="margin-top: 7px;">
+                            <img src="{skin:images/front/gantan.png}"/>
+                        </span>
+                        <span class="middle" style="margin-top: 7px;">
+                            <label class="m_title">邮箱验证</label>
+                            <label class="m_detail">
+                                请访问您注册时填写的邮箱 {echo:ISafe::get("email")}，查看激活邮件，并验证。
+                            </label>
+                        </span>
+                        <span class="right"   style="margin-top: 0px;">
+                            <label class="r_action"><a target="_blank" href="http://{echo:Isafe::get("email_prox")}">查看验证邮件</a></label>
+                            <label class="r_action" style="margin-top: 0px;"><a id="send_email_active" href="javascript:void(0);">重发验证邮件</a></label>
+                        </span>
+                    </div>
+                    {elseif:!ISafe::get("email")}
+                    <div class="line">
+                        <span class="left" style="margin-top: 7px;">
+                            <img src="{skin:images/front/gantan.png}"/>
+                        </span>
+                        <span class="middle" style="margin-top: 7px;">
+                            <label class="m_title">邮箱验证</label>
+                            <label class="m_detail">
+                                您还没有验证邮箱。
+                            </label>
+                        </span>
+                        <span class="right" style="margin-top: 7px;">
+                            <label class="r_action"><a class="not_open" href="{url:ucenter/auth}&ctarget=1">验证</a></label>
+                            <!--label class="r_action" style="margin-top: 0px;"><a id="send_email_active" href="javascript:void(0);">发送验证邮件</a></label-->
+                        </span>
+                    </div>
+                    {else:}
+                    <div class="line">
+                        <span class="left" style="margin-top: 7px;">
+                            <img src="{skin:images/front/gou.png}"/>
+                        </span>
+                        <span class="middle" style="margin-top: 7px;">
+                            <label class="m_title">邮箱验证</label>
+                            <label class="m_detail">
+                                您已验证过邮箱 {echo:$userinfo["email"]}。
+                            </label>
+                        </span>
+                        <span class="right" style="margin-top: 7px;">
+                            <label class="r_action"><a class="not_open" href="{url:ucenter/auth}&ctarget=1">修改</a></label>
+                            <!--label class="r_action" style="margin-top: 0px;"><a id="send_email_active" href="javascript:void(0);">发送验证邮件</a></label-->
+                        </span>
+                    </div>
+                    {/if}
+                    {if:ISafe::get("mobile")}
+                    <div class="line last">
+                        <span class="left" style="margin-top: 6px;">
+                            <img src="{skin:images/front/gou.png}"/>
+                        </span>
+                        <span class="middle" style="margin-top: 6px;">
+                            <label class="m_title">手机验证</label>
+                            <label class="m_detail">
+                                您验证的手机：{echo:$userinfo["mobile"]}
+                            </label>
+                        </span>
+                        <span class="right" style="margin-top: 6px;">
+                            <label class="r_action"><a class="not_open" href="{url:ucenter/auth}&ctarget=2">修改</a></label>
+                        </span>
+                    </div>
+                    {else:}
+                    <div class="line last">
+                        <span class="left" style="margin-top: 6px;">
+                            <img src="{skin:images/front/gantan.png}"/>
+                        </span>
+                        <span class="middle" style="margin-top: 6px;">
+                            <label class="m_title">手机验证</label>
+                            <label class="m_detail">
+                                您还没有验证手机
+                            </label>
+                        </span>
+                        <span class="right" style="margin-top: 6px;">
+                            <label class="r_action"><a class="not_open" href="{url:ucenter/mobile_bind}">验证</a></label>
+                        </span>
+                    </div>
+                    {/if}
+                    <!--div class="line last" >
+                            <span class="left">
+                                    <img src="{skin:images/front/gantan.png}"/>
+                            </span>
+                            <span class="middle">
+                                    <label class="m_title">安全问题</label>
+                                    <label class="m_detail">
+                                            未设置安全问题。
+                                    </label>
+                            </span>
+                            <span class="right">
+                                    <label class="r_action"><a href="">立即设置</a></label>
+                            </span>
+                    </div-->
+                </div>
+            </div>
+
+        </div>
+        {/if}
+        <script type="text/javascript">
+            /*
+             $(".buy-button").click(function () {
+             //如果未登录，则引导登录
+             if ($("input#hidden_user_id").val() == "" || $("input#hidden_user_id").val() == 0) {
+             //如果已在php登录页面,则无变化。
+             var loginpage = $("#loginpage").val();
+             //alert(loginpage);
+             if (loginpage == 'php') {
+             alert("请先登录！");
+             return false;
+             } else {
+             var pagesize = getPageSize();
+             //$("body").eq(0).css("overflow", "hidden");
+             $(".login_table").height(pagesize[1]);
+             $(".login_table").css("display", "block");
+             $(".login_content").css("display", "block");
+             
+             var body_width = $(window).width();
+             
+             $(".login_content").css("left", (body_width - 380) / 2 + "px");
+             return false;
+             }
+             }
+             });*/
+
+
+            $(".buy-button").click(function () {
+                //清除cookies
+                $.cookie("mbk_goods_id", "");
+                $.cookie("mbk_colorselected", "");
+                $.cookie("mbk_volumeselected", "");
+            });
+
+            window.onscroll = function () {
+                var dont_show_float = $(".dont_show_float_menu").val();
+                if (dont_show_float) {
+                    return true;
+                }
+                var t = document.documentElement.scrollTop || document.body.scrollTop;
+				/*
+					if (t >= 140) {
+						if ($("#has_show").val() == 0) {
+							$(".product-nav-slide").animate({top: "0"}, 700);
+							$("#has_show").val(1);
+						}
+					} else {
+						if ($("#has_show").val() == 1) {
+							$(".product-nav-slide").animate({top: "-55"}, 700);
+							$("#has_show").val(0);
+						}
+					}
+				*/
+            }
+
+            $("#login").click(function () {
+                //如果已经在登录页，则不变
+                var loginpage = $("#loginpage").val();
+				
+				// 清楚密碼
+				if ($(".password_input").val() != $(".password_input").attr("placeholder")) {
+					if (placeholderSupport()) {
+						$(".password_input").val("");
+					} else {
+						$(".password_input").val($(".password_input").attr("placeholder"));
+						$(".password_input").css("color", "#aaa");
+					}
+					$("#password").val("");
+				}
+
+				
+                //alert(loginpage);
+                if (loginpage == 'php') {
+                    return false;
+                } else {
+                    var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+
+                    var body_width = $(window).width();
+
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+                    return false;
+                }
+            });
+
+
+            $(".close").click(function () {
+                $("body").eq(0).css("overflow", "");
+                $(".login_table").css("display", "none");
+                $(".login_content").css("display", "none");
+            });
+
+            $(".a_login").click(function () {
+                //如果失败5次，则需要验证码
+                /*if ($.cookie("error_try") >= 5) {
+                 jQuery.ajax({
+                 type: "POST",
+                 url: "{url:simple/verify_captcha}",
+                 data: "captcha=" + $("input[name=captcha2]").val(),
+                 dataType: "Json",
+                 success: function (data_ret) {
+                 if (data_ret['code'] == 0) {
+                 alert(data_ret['message']);
+                 return false;
+                 } else {
+                 jQuery.ajax({
+                 type: "POST",
+                 url: "{url:simple/check_login}",
+                 data: "login_info=" + $("input[name=login_info]").val() + "&password=" + $("input#password").val(),
+                 dataType: "Json",
+                 success: function (data_ret) {
+                 if (data_ret['code'] == 0) {
+                 alert(data_ret['message']);
+                 //查询cookie，是否有失败记录 
+                 if ($.cookie("error_try")) {
+                 $.cookie("error_try", parseInt($.cookie("error_try")) + 1);
+                 } else {
+                 $.cookie("error_try", 1);
+                 }
+                 if ($.cookie("error_try") >= 5) {
+                 $(".login_content").css("height", "530px");
+                 $("#failed_check").css("display", "block");
+                 } else if (data_ret["valid_required"]) {
+                 //服务端的拦截
+                 $(".login_content").css("height", "530px");
+                 $("#failed_check").css("display", "block");
+                 //alert("12312312312");
+                 }
+                 
+                 } else {
+                 $.cookie("error_try", 0);
+                 $("#login_form").submit();
+                 }
+                 }
+                 });
+                 }
+                 }
+                 });
+                 } else {*/
+                jQuery.ajax({
+                    type: "POST",
+                    url: "{url:simple/check_login}",
+                    data: "login_info=" + $("input[name=login_info]").val() + "&password=" + $("input#password").val() + "&captcha=" + $("input[name=captcha2]").val(),
+                    dataType: "Json",
+                    success: function (data_ret) {
+                        if (data_ret['code'] == 0) {
+                            alert(data_ret['message']);
+                            //查询cookie，是否有失败记录 
+                            /*if ($.cookie("error_try")) {
+                             $.cookie("error_try", parseInt($.cookie("error_try")) + 1);
+                             } else {
+                             $.cookie("error_try", 1);
+                             }
+                             if ($.cookie("error_try") >= 5) {
+                             $(".login_content").css("height", "530px");
+                             $("#failed_check").css("display", "block");
+                             } else */if (data_ret["valid_required"]) {
+                                //服务端的拦截
+                                $(".login_content").css("height", "480px");
+                                $("#failed_check").css("display", "block");
+                                //alert("12312312312");
+                            }
+                            return false;
+
+                        } else {
+                            //$.cookie("error_try", 0);
+                            $("#login_form").submit();
+                        }
+                    }
+                });
+                //}
+
+
+            });
+
+            $().ready(function () {				
+				// 调整fixed_r的top
+				var fixed_r_count = $("#fixed_r_count").val();
+				if (fixed_r_count > 0) {
+					var height = $("body").eq(0).height();
+					//if (navigator.userAgent.indexOf("Firefox") >= 0)
+						height = $(window).height();
+					var fixed_top = (height - fixed_r_count * 40) / 2;
+					//alert(height + "--"+ fixed_top)
+					$(".fixed_r").css("top", fixed_top);
+				}
+				
+                $("#close_img_2").click(function () {
+                    $("body").css("overflow", "");
+                    $(".modify_info_bg_all").css("display", "none");
+                    $(".modify_info_all").css("display", "none");
+
+                });
+
+                $("#account_maneger").click(function () {
+                    var dont_show_this = $(".dont_show_account_manager").val();
+                    if (dont_show_this) {
+                        return false;
+                    }
+
+                    var pagesize = getPageSize();
+
+                    var height = $("body").eq(0).height();
+					if (navigator.userAgent.indexOf("MSIE") >= 0)
+						height = $(window).height();
+                    var width = $(window).width();
+					
+                    var show_top = (height - 440) / 2 - 20;
+					if (show_top <= 0) {
+						show_top = 150;
+					}
+                    var show_left = (width - 700) / 2;
+					
+					var sh = $(window).scrollTop();
+					show_top = sh + 150;
+
+                    $(".modify_info_all").css("left", show_left);
+                    $(".modify_info_all").css("top", show_top);
+
+                    $(".modify_info_bg_all").height(pagesize[1]);
+                    $(".modify_info_bg_all").css("display", "block");
+                    $(".modify_info_all").css("display", "block");
+                    //$("body").css("overflow", "hidden");
+                    return false;
+                });
+
+                $("#send_email_active").click(function () {
+                    $.getJSON("{url:/simple/reg_email_send}");
+                });
+            });
+        </script>
+
+
+<script type="text/javascript">
+var _py = _py || [];
+_py.push(['a', 'hls..8hTypLiufBHwkOM8r-4BE0']);
+_py.push(['domain','stats.ipinyou.com']);
+_py.push(['e','']);
+-function(d) {
+var s = d.createElement('script'),
+e = d.body.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e),
+f = 'https:' == location.protocol;
+s.src = (f ? 'https' : 'http') + '://'+(f?'fm.ipinyou.com':'fm.p0y.cn')+'/j/adv.js';
+}(document);
+</script>
+<noscript><img src="//stats.ipinyou.com/adv.gif?a=hls..8hTypLiufBHwkOM8r-4BE0&e=" style="display:none;"/></noscript>
+
+
+    </body>
+
+
+
+
+    <!--erweima表单-->
+    <div class="erweima_bg" style="position: absolute; z-index: 10000000; top: 0; left: 0; margin-left: 0; margin-top: 0; display: none; width: 100%; height: 100%; background: #000; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5;"></div>	
+    <div class="erweima_body" style="display: none; position: absolute; z-index: 10000001;  margin: 0 auto; top: 200px;; width: 700px; height: 400px; border-radius: 15px; background-color: rgb(251, 251, 251);">
+        <div class="title" style="float: left; height: 60px; line-height: 60px; width: 670px; padding-left: 30px; border-top-left-radius: 15px; border-top-right-radius: 15px; 
+             background-color: rgb(241, 241, 241); border-bottom: 1px rgb(180, 180, 180) solid; font-size: 20px; font-family:Microsoft YaHei,微软雅黑; color: rgb(94, 95, 97)">
+            微信二维码
+            <img class="erweima_close_img" src="{skin:images/front/alert_close.png}" style="float: right; margin: 18px 20px 0 0; cursor: pointer;"/>
+        </div>
+        <img src="{skin:images/front/weixin.jpg}" width="200" height="200" style="float: left; margin-left: 250px; margin-top:20px; margin-right: 200px;" />
+        <label class="" style="float: left; width: 500px; margin-left: 100px; text-align: center; color: rgb(121, 121, 121); line-height: 25px; height: 45px; margin-bottom: 5px; overflow: hidden">
+			请扫描官方微信二维码进行关注，更多实时动态信息为您提供！
+        </label>
+        <label class="erweima_close_img" style="float: left; margin-left: 300px; cursor: pointer;border: 0px rgb(252, 62, 57) solid;  width: 100px; height: 40px; line-height: 40px; background-color: rgb(252, 62, 57); border-radius: 10px; text-align: center; color: #FFF;">我知道了</label>
+    </div>
+    <!--alert表单-->
+    <div class="alert_bg" style="position: absolute; z-index: 10000000; top: 0; left: 0; margin-left: 0; margin-top: 0; display: none; width: 100%; height: 100%; background: #000; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5;"></div>	
+    <div class="alert_body" style="display: none; position: absolute; z-index: 10000001;  margin: 0 auto; top: 200px;; width: 700px; height: 400px; border-radius: 15px; background-color: rgb(251, 251, 251);">
+        <div class="title" style="float: left; height: 60px; line-height: 60px; width: 670px; padding-left: 30px; border-top-left-radius: 15px; border-top-right-radius: 15px; 
+             background-color: rgb(241, 241, 241); border-bottom: 1px rgb(180, 180, 180) solid; font-size: 20px; font-family:Microsoft YaHei,微软雅黑; color: rgb(94, 95, 97)">
+            提示信息
+            <img class="alert_close_img" src="{skin:images/front/alert_close.png}" style="float: right; margin: 18px 20px 0 0; cursor: pointer;"/>
+        </div>
+        <img src="{skin:images/front/alert_content.png}" style="float: left; margin-left: 250px; margin-right: 200px;" />
+        <label class="alert_label" style="float: left; width: 500px; margin-left: 100px; text-align: center; color: rgb(121, 121, 121); line-height: 25px; height: 75px; margin-bottom: 5px; overflow: hidden">
+
+        </label>
+        <label class="alert_close_img" style="float: left; margin-left: 300px; cursor: pointer;border: 0px rgb(252, 62, 57) solid;  width: 100px; height: 40px; line-height: 40px; background-color: rgb(252, 62, 57); border-radius: 10px; text-align: center; color: #FFF;">我知道了</label>
+    </div>
+    <!--comfirm表单-->
+    <div class="comfirm_bg" style="position: absolute; z-index: 10000000; top: 0; left: 0; margin-left: 0; margin-top: 0; display: none; width: 100%; height: 100%; background: #000; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5;"></div>	
+    <div class="comfirm_body" style="display: none; position: absolute; z-index: 10000001;  margin: 0 auto; top: 200px;; width: 700px; height: 460px; border-radius: 15px; background-color: rgb(251, 251, 251);">
+        <div class="title" style="float: left; height: 60px; line-height: 60px; width: 670px; padding-left: 30px; border-top-left-radius: 15px; border-top-right-radius: 15px; 
+             background-color: rgb(241, 241, 241); border-bottom: 1px rgb(180, 180, 180) solid; font-size: 20px; font-family:Microsoft YaHei,微软雅黑; color: rgb(94, 95, 97)">
+            确认信息
+            <img class="comfirm_close_img" src="{skin:images/front/alert_close.png}" style="float: right; margin: 18px 20px 0 0; cursor: pointer;"/>
+        </div>
+        <img src="{skin:images/front/pay_success.png}" style="float: left; margin-left: 190px; margin-right: 200px;" />
+        <label class="comfirm_label" style="float: left; width: 500px; margin-left: 100px; text-align: center; color: rgb(121, 121, 121); line-height: 25px; height: 50px; margin-bottom: 5px; overflow: hidden">
+
+        </label>
+        <label class="comfirm_close_img" id="sureButton" style="float: left; margin-left: 225px; cursor: pointer;border: 1px rgb(252, 62, 57) solid;  width: 100px; height: 40px; line-height: 40px; background-color: rgb(252, 62, 57); border-radius: 10px; text-align: center; color: #FFF;">确定</label>
+        <label class="comfirm_close_img" id="cancelButton" style="float: left; margin-left: 50px; cursor: pointer;border: 1px rgb(252, 62, 57) solid;  width: 100px; height: 40px; line-height: 40px; background-color: rgb(252, 62, 57); border-radius: 10px; text-align: center; color: #FFF;">取消</label>
+        <input type="hidden" id="confirm_url" value=""/>
+    </div>
+    <script type="text/javascript">
+//		confirm('支付是否成功',"http://localhost/meibeike/index.php?controller=site&action=design&id=2");
+
+        function alert(message) {
+            make_alert_full_screen();
+
+            $(".alert_label").html(message);
+
+            $(".alert_bg").css("display", "block");
+            $(".alert_body").css("display", "block");
+        }
+        function erweima() {
+            make_erweima_full_screen();
+
+            $(".erweima_bg").css("display", "block");
+            $(".erweima_body").css("display", "block");
+			
+			return false;
+        }
+		
+		$("#erweima_a").click(function() {
+			erweima();
+			return false;
+		})
+		
+		
+
+        function confirm(message, url) {
+            make_comfirm_full_screen();
+
+            $("#confirm_url").val(url);
+
+            $(".comfirm_label").html(message);
+
+            $(".comfirm_bg").css("display", "block");
+            $(".comfirm_body").css("display", "block");
+        }
+
+        function make_alert_full_screen() {
+			var sh = $(window).scrollTop();
+			var box_top = sh + 100;
+
+			var pagesize = getPageSize();
+            $(".alert_bg").css("height", pagesize[1]);
+            $(".alert_body").css("left", pagesize[0] / 2 - 350);
+			$(".alert_body").css("top", box_top);
+        }
+        function make_erweima_full_screen() {
+			var sh = $(window).scrollTop();
+			var box_top = sh + 100;
+
+			var pagesize = getPageSize();
+            $(".erweima_bg").css("height", pagesize[1]);
+            $(".erweima_body").css("left", pagesize[0] / 2 - 350);
+			$(".erweima_body").css("top", box_top);
+       }
+        $(".alert_close_img").click(function () {
+            $(".alert_bg").css("display", "none");
+            $(".alert_body").css("display", "none");
+        });
+        $(".erweima_close_img").click(function () {
+            $(".erweima_bg").css("display", "none");
+            $(".erweima_body").css("display", "none");
+        });
+        function make_comfirm_full_screen() {
+			var sh = $(window).scrollTop();
+			var box_top = sh + 100;
+						
+			var pagesize = getPageSize();
+            $(".comfirm_bg").css("height", pagesize[1]);
+            $(".comfirm_body").css("left", pagesize[0] / 2 - 350);
+			$(".comfirm_body").css("top", box_top);
+
+        }
+        $(".comfirm_close_img").click(function () {
+            var url = $("#confirm_url").val();
+            $("#confirm_url").val("");
+
+            $(".comfirm_bg").css("display", "none");
+            $(".comfirm_body").css("display", "none");
+
+            if ($(this).attr("id") == "sureButton") {
+                location.href = url;
+            }
+        });
+
+        var userAgent = navigator.userAgent,
+                rMsie = /(msie\s|trident.*rv:)([\w.]+)/,
+                rFirefox = /(firefox)\/([\w.]+)/,
+                rOpera = /(opera).+version\/([\w.]+)/,
+                rChrome = /(chrome)\/([\w.]+)/,
+                rSafari = /version\/([\w.]+).*(safari)/;
+
+        var browser;
+
+        var version;
+
+        var ua = userAgent.toLowerCase();
+
+        function uaMatch(ua) {
+
+            var match = rMsie.exec(ua);
+
+            if (match != null) {
+
+                return {browser: "IE", version: match[2] || "0"};
+
+            }
+
+            var match = rFirefox.exec(ua);
+
+            if (match != null) {
+
+                return {browser: match[1] || "", version: match[2] || "0"};
+
+            }
+
+            var match = rOpera.exec(ua);
+
+            if (match != null) {
+
+                return {browser: match[1] || "", version: match[2] || "0"};
+
+            }
+
+            var match = rChrome.exec(ua);
+
+            if (match != null) {
+
+                return {browser: match[1] || "", version: match[2] || "0"};
+
+            }
+
+            var match = rSafari.exec(ua);
+
+            if (match != null) {
+
+                return {browser: match[2] || "", version: match[1] || "0"};
+
+            }
+
+            if (match != null) {
+
+                return {browser: "", version: "0"};
+
+            }
+
+        }
+
+        var browserMatch = uaMatch(userAgent.toLowerCase());
+
+        if (browserMatch.browser) {
+
+            browser = browserMatch.browser;
+
+            version = browserMatch.version;
+
+        }
+
+        //alert(browser+version);  
+        if (browser == 'IE') {
+            version = parseFloat(version);
+            //alert(version);
+            if (version < 7) {
+                window.location.href = '{url:/error/upbrowser}';
+                /*if(version != '11.0' && version != '10.0' && version != '9.0'){
+                 window.location.href = '{url:/error/upbrowser}';
+                 */
+            }
+        } else if (browser == 'firefox' || browser == 'chrome' || browser == 'safari') {
+            ;
+        } else {
+            window.location.href = '{url:/error/upbrowser}';
+        }
+
+        $().ready(function () {
+		
+            make_alert_full_screen();
+            $.post("{url:simple/get_failed_cont}", {}, function (res) {
+                if (parseInt(res) >= 5) {
+                    $(".login_content").css("height", "480px");
+                    $("#failed_check").css("display", "block");
+                }
+            })
+            
+            
+            //回车点击登录
+            $(document).keypress(function(e) { 
+                // 回车键事件 
+                if(e.which == 13) { 
+                    if($(".login_content").css("display") == "block"){
+                        $(".a_login").click();
+                    }
+                } 
+            }); 
+            
+            $(".not_open").click(function(){
+                alert("由于安全原因，此功能暂未开放。");
+                return false;
+            })
+		
+        });
+		
+		// 验证码长度
+		var input_cap_just_change = 0;
+		function validate_cap_length(obj) {
+			if ($(obj).attr("maxlength") == "") {
+				return;
+			}
+			
+			if (input_cap_just_change == 1) {
+				return true;
+			}
+			input_cap_just_change = 1;
+		
+			var len = $(obj).val().length;
+			if (len > parseInt($(obj).attr("maxlength"))) {
+				var value_new = $(obj).val().substring(0, $(obj).attr("maxlength"));
+				$(this).val(value_new);
+			}
+		
+			input_cap_just_change = 0;
+		}
+		$("input[name=captcha]").bind('input propertychange', function(event) {
+			validate_cap_length($(this));
+		});  
+		$("input[name=vcode]").bind('input propertychange', function(event) {
+			//alert("dd")
+			validate_cap_length($(this));
+		});  
+		
+		$(".no_chinese").keyup(function() {
+			this.value=this.value.replace(/[\u4e00-\u9fa5]/g,'');
+		});
+		
+		
+		var input_just_change = 0;
+		
+		function passwordchange(obj) {
+			
+			var value = $(obj).val();
+			value = value.replace(/\s/g,"");
+			var target = $(obj).attr("target_input");
+			var valuebk = $("#" + target).val();
+			
+			var placeholder = $(obj).attr("placeholder");
+			if (placeholder == value) {
+				return true;
+			}
+												
+			value=value.replace(/[\u4e00-\u9fa5]/g,'');
+
+			if (valuebk == "") {
+				valuebk = value;
+			} else {
+				if (valuebk.length < value.length) {
+					var count = value.length - valuebk.length;
+					valuebk = valuebk + value.substring(value.length-count, value.length);
+				} else if (valuebk.length > value.length) {
+//					var count = valuebk.length - value.length
+//					valuebk = valuebk.substring(0, valuebk.length-count);
+					valuebk = value;
+				}
+			}
+
+			$("#" + target).val(valuebk);
+
+			var length = value.length;
+			var value_show = "";
+			for (var i = 0 ; i < length; i++) {
+				value_show = value_show + "*";
+			}
+			
+			$(obj).val(value_show);	
+			$(obj).attr("realvalue", valuebk);
+		}
+		
+		$('.password_input').bind('input propertychange', function(event) {
+			if (input_just_change == 1) {
+				return true;
+			}
+			input_just_change = 1;
+			passwordchange($(this));
+			input_just_change = 0;
+		});  
+	
+	
+	function checkplaceholder() {
+		if(!placeholderSupport()){   // 判断浏览器是否支持 placeholder
+			function show_place(obj) {
+				obj.addClass('placeholder');
+				obj.val(obj.attr('placeholder'));
+				obj.css("color", "#aaa");
+			}
+			function hide_place(obj) {
+				obj.val('');
+				obj.removeClass('placeholder');
+				obj.css("color", "#000");
+			}
+			
+			jQuery(':input[placeholder]').each(function(index, element) {
+				if ($(this).attr("type") != "password" && $(this).attr("type") != "repassword") { 
+					$(this).focus(function() {
+						var input = $(this);
+						if (input.val() == input.attr('placeholder')) {
+							hide_place(input);
+						}
+					}).blur(function() {
+						var input = $(this);
+						if (input.val() == '' || input.val() == input.attr('placeholder')) {
+							show_place(input);
+						}
+					});
+
+					if ($(this).val() == '' || $(this).val() == $(this).attr('placeholder')) {
+						var input = $(this);
+						show_place(input);
+					} else {
+						$(this).css("color", "#000");
+					}
+				}
+			});
+		};
+	}
+	
+	function checkplaceholderchange(obj) {
+		if (obj.attr("placeholder") == obj.val()) {
+			return false;
+		}
+		return true;
+	}
+	
+	function validatemobilephone(mobile) { 
+		if(mobile.length==0) { 
+		   return false; 
+		}     
+		if(mobile.length!=11) { 
+			return false; 
+		} 
+
+		var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+		if(!myreg.test(mobile)) { 
+			return false; 
+		} 
+		
+		return true;
+	} 
+	
+	$().ready(function(){
+		checkplaceholder();
+	})
+	function placeholderSupport() {
+		return 'placeholder' in document.createElement('input');
+	}
+	
+	
+	
+	
+	</script>
+</html>

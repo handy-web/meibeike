@@ -1,0 +1,56 @@
+<script type='text/javascript' src='{theme:javascript/event.js}' charset="UTF-8"></script>
+
+<div class="headbar">
+
+	<div class="position"><span>营销</span><span>></span><span>F码管理</span><span>></span><span>F码申领列表</span><span>></span><span>申领详情</span></div>
+
+</div>
+
+<div class="content_box">
+
+	<div class="content form_content">
+
+			<table class="form_table">
+
+				<col width="150px" />
+
+				<col />
+
+				<tr>
+
+					<th>昵称：</th>
+
+					<td>
+
+						{$detail['username']}
+
+					</td>
+
+				</tr>
+
+				<tr>
+
+					<th>Mei ID：</th>
+			
+					<td>{if:empty($detail['email'])}{echo: $detail['mobile']}{else:}{echo: $detail['mobile']}{/if}</td>
+
+				</tr>
+
+				<tr>
+
+					<th>申领时间：</th>
+
+					<td>
+						{$detail['apply_time']}
+					</td>
+
+				</tr>
+				<tr>
+					<th>申领说明：</th>
+					<td>
+						{$detail['apply_comment']}
+					</td>
+				</tr>
+			</table>
+	</div>
+</div>

@@ -1,0 +1,92 @@
+<style>
+	body{background: #F9F9F9;}
+</style>
+		<ul class="reg-c">
+			<li><a href="{url:/wap/phone_reg}">手机注册</a></li>
+			<li><a class="reg-act" href="{url:/wap/mail_reg}">邮箱注册</li></a>
+		</ul>	
+		<form action="{url:/wap/reg_act}" method="post" id="reg_form">
+		<input type="hidden" name="type" value='1' />
+		<div class="reg-line">
+			<div class="reg-input"><input type="text" name="email"  placeholder="请输入邮箱" /> </div>				
+			<div class="reg-input"><input type="password" name="password"  placeholder="请输入密码" /> </div>
+			<div class="reg-input"><input type="password" name="repassword"  placeholder="再次输入密码" /> </div>
+			<div class="reg-go"><input type="button" id="to_submit" value="立即注册" /></div>
+			<div class="reg-wr">
+				<div class="login-ck"><input type="checkbox" name="id_ck" id="ck_1" value="" checked /><label for="ck_1"><span>同意并愿意遵守<a>《用户协议》</a></span></label></div>					
+			</div>
+		</div>
+		</form>
+		<div class="reg-mid"><a href="{url:/wap/login}">已有Mei ID,直接登录</a></div>
+		<div id="embed-captcha"></div>
+<script src="http://static.geetest.com/static/tools/gt.js"></script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+    var handlerPopup = function (captchaObj) {
+        $("#to_submit").click(function () {
+            var validate = captchaObj.getValidate();
+            if (!validate) {
+                alert('请先完成验证');
+                return ;
+            } 
+            
+            if ($("#ck_1").attr('checked') != 'checked') {
+                alert("请同意用户协议");
+                return;
+            } 
+            
+    		if($("input[name=email]").val().indexOf("mail.bccto.me")>1)
+    		{
+    			alert("请输入正确的邮箱");
+    			return;
+    		}
+            // 去后台验证邮箱和密码
+            jQuery.ajax({
+                type: "POST",
+                url: "{url:wap/verify_email_captcha}",
+               	data:{"email":$("input[name=email]").val(),
+                	"password":$('input[name="password"]').val(),
+                	"repassword":$('input[name="repassword"]').val(),
+                    "geetest_challenge": validate.geetest_challenge,
+                    "geetest_validate": validate.geetest_validate,
+                    "geetest_seccode": validate.geetest_seccode},
+                dataType: "Json",
+                success: function (d) {
+                    if (d.status == 0) {
+                        alert(d.message);
+                    } else {
+						$('#reg_form').submit();
+                    }
+                }
+            });
+
+        });
+        captchaObj.appendTo("#embed-captcha");
+        captchaObj.bindOn("#to_submit");
+    };
+    $.ajax({
+        // 获取id，challenge，success（是否启用failback）
+        url: "{url:/wap/create_hkyz/t/}"+(new Date()).getTime(), // 加随机数防止缓存
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            // 使用initGeetest接口
+            // 参数1：配置参数
+            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+            initGeetest({
+                gt: data.gt,
+                challenge: data.challenge,
+                product: "popup", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+            }, handlerPopup);
+        }
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+

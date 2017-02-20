@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+	    <title>软件中心</title>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <meta name="full-screen" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="format-detection" content="address=no">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../version/css/main.css" />
+	</head>
+	<body>
+
+		<div class="soft-conter">
+			<h1>全新视觉体验</h1>
+			<h3>功能更强悍！界面更简洁！</h3>
+			<div class="soft-line"><img src="../version/img/app-az.png" /></div>
+			<div class="soft-but">
+				<a>免费下载云棒APP</a>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<style type="text/css">
+	.help_wrapper {float: left; width: 100%; background-color: rgb(230, 230, 230);margin-top: 0px; }	
+    .help_wrapper .help_content {width: 1120px; height: auto; margin: 0 auto; padding-top: 30px; padding-bottom: 50px;}	
+	.help_wrapper .help_content .right {float: left; border: 1px rgb(188, 188, 188) solid; border-radius: 15px; padding-bottom: 5px; width: 1120px; 
+		   height: auto; min-height: 600px; padding-bottom: 50px; background-color: white;margin-bottom: 25px;}
+	.help_wrapper .help_content .right .title {float: left; width: 1090px; height: 60px; padding-left: 30px; margin-bottom: 30px; line-height: 60px; border-bottom: 1px rgb(188, 188, 188) solid; background-color: rgb(242, 242, 242); 
+		   border-top-left-radius: 15px; border-top-right-radius: 15px; font-size: 18px;}
+	.help_wrapper .help_content .right .unit {float: left; width: 1060px; margin-left:30px; height: 40px; line-height: 40px; border-bottom: 1px #999999 dashed;}
+	.help_wrapper .help_content .right .unit .lhs {float: left; margin-left: 5px;}
+	.help_wrapper .help_content .right .unit .lhs a, a:hover {text-decoration: none; color: #333333; cursor: pointer;}
+	.help_wrapper .help_content .right .unit .rhs {float: right; margin-right: 15px; font-size: 14px; color: #333333;}
+	
+	.help_wrapper .help_content .right .page {float: left; width: 100%; height: 40px; line-height: 40px; margin-top: 40px;}
+	.help_wrapper .help_content .right .page .page_a {float: left; display: block; height: 30px; line-height: 30px; text-align: center; cursor: pointer;
+			width: 70px; border: 1px solid #999999; margin-right: 10px; }
+	.help_wrapper .help_content .right .page a, a:hover {text-decoration: none; color: #333333; cursor: pointer;}
+	.help_wrapper .help_content .right .page select {float: left; width: 40px; height: 32px; line-height: 20px; padding: 6px 0px; margin-left: 0px; margin-right: 10px; border: 1px solid #999999;}
+	.help_wrapper .help_content .right .page .page_label {float: left; height: 30px; line-height: 30px; text-align: center; width: 40px; margin-right: 10px;}
+</style>
+<div class="help_wrapper">
+	<div class="help_content">
+	<div class="right">
+			<label class="title" style="color: #5E5F61;">新闻列表</label>
+			<?php foreach ($this->newslist as $new) { ?>
+			<?php $newurl = IUrl::creatUrl("/site/newsunit/id/") . $new['id']; ?>
+            <label class="unit">
+				<label class="lhs"><a href="<?php echo $newurl; ?>">&nbsp;◆&nbsp;&nbsp;<?php echo $new['name'];?></a></label>
+				<label class="rhs">[<?php echo date('Y/m/d', $new['dateline'])?>]</label>
+			</label>            
+			<?php } ?>
+ 
+			<input type="hidden" id="pageurl" value="{url:/site/news/page/}"/>
+			<label class="page">
+				<a class="page_a" href="{url:/site/news/page/1}" style="margin-left: 380px;">首页</a>
+				<a class="page_a" href="{url:/site/news/page/$this->lastPage}">上一页</a>
+				<select id="pageselect">
+				<?php for ($i = 1; $i <= $this->totalPage; $i++) { ?>
+				<option value="{$i}" <?php if ($i == $this->curPage) echo 'selected'; ?>>{$i}</option>
+				<?php } ?>
+				</select>
+				<a class="page_a" href="{url:/site/news/page/$this->nextPage}">下一页</a>
+				<a class="page_a" href="{url:/site/news/page/$this->totalPage}">尾页</a>
+			</label>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	$("#pageselect").change(function() {
+		var page = $(this).val();
+		var url = $("#pageurl").val() + page;
+		window.location.href = url;
+	});
+	
+	function jumpto() {
+		    var cat_id = $("[name=cat_id]").val();
+            $("#cat_"+cat_id).children("a.child").css("background-color","rgb(251, 62, 58)");
+            $("#cat_"+cat_id).children("a.child").css("color","white");
+            $("div.left").children("div").last().children("a.child").addClass("last");
+            
+            //跳转到锚点
+            var help_id = $("#help_id").val();
+            if(help_id){
+				window.location.replace("#help_"+help_id);
+                //window.location.href="#help_"+help_id;
+            }
+
+	}
+    
+	$(document).ready(function(){
+		
+			window.setTimeout("jumpto()", 500);
+		
+ 			
+			if ($(".sub_content").height() <= 400) {
+				$(".sub_content").css("height", "400px");
+			}
+        });
+        
+</script>
+

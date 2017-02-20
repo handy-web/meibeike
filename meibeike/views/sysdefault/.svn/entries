@@ -1,0 +1,138 @@
+10
+
+dir
+10495
+http://192.168.2.31:8001/YunBangI/Code/MeiWeb/meimbeike/meibeike/views/sysdefault
+http://192.168.2.31:8001/YunBangI
+
+
+
+2016-07-26T11:51:52.774646Z
+10234
+z.peijun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ef0999cd-408c-4ad0-a2b8-8a3827a9271e
+
+market
+dir
+
+system
+dir
+
+message
+dir
+
+brand
+dir
+
+block
+dir
+
+config.php
+file
+
+
+
+
+2016-07-15T01:36:41.132626Z
+25ba1d655f09ec41b8c3b5483c52f7bc
+2016-06-06T06:03:56.478329Z
+9561
+z.peijun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+310
+
+systemadmin
+dir
+
+preview.jpg
+file
+
+
+
+
+2016-07-15T01:36:41.136626Z
+461ec451c07ccaacd4b3c75a254019ee
+2016-06-06T06:03:56.478329Z
+9561
+z.peijun
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+660401
+
+tools
+dir
+
+layouts
+dir
+
+comment
+dir
+
+skin
+dir
+
+javascript
+dir
+
+member
+dir
+
+goods
+dir
+
+order
+dir
+

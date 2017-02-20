@@ -1,0 +1,74 @@
+<script type='text/javascript'>
+jQuery(function(){
+	//查看订单详情按钮
+	$('#order_a').click(function(){
+		$(this).toggleClass('fold');
+		$(this).toggleClass('unfold');
+		$('#order_detail').toggle('slow');
+	});
+});
+</script>
+
+		<!--中间内容-->
+		<div class="place">
+			<div class="center">
+				<ul class="conet">
+					<li>
+						<div class="sco1"></div>
+					</li>
+					<li>
+						<div class="sco1"></div>
+					</li>
+				</ul>
+				<ul class="conet1">
+					<li>
+						<div class="pla-radiu pla-radiu-left1"></div>
+						<div class="pla-radiu-text1">选择抢购商品</div>
+					</li>
+					<li>
+						<div class="pla-radiu pla-radiu-left2"></div>
+						<div class="pla-radiu-text2">填写订单详情</div>
+					</li>
+					<li>
+						<div class="pla-radiu2 pla-radiu-left3"></div>
+						<div class="pla-radiu-text4">支付结算</div>
+					</li>
+				</ul>
+				
+				<div class="succer-cen">
+					{if:$this->user['user_id']}
+					{set:$tmpId=$this->order_id;}
+					<div class="succer-left"><img src="{skin:images/front/img/ico-success.png}" /></div>
+					<div class="succer-left">
+						<div class="tx1">订单提交成功，应付金额<span class="tx2">&#65509;{echo:sprintf('%.2f',$this->final_sum)}</span></div>
+						<div class="tx3">订单号：<span>{$this->order_num}</span>，请在{$this->payLine}小时内完成支付，否则订单会被取消<span class="tx4">&nbsp;<a href="{url:/ucenter/order_detail/id/$tmpId}">[查看订单详情]</a></span></div>
+					</div>
+					
+					<div class="succer-tltle">选择支付方式</div>
+					<div class="succer-zfb"><img src="{skin:images/front/img/ico-zfb.png}" /> </div>					
+					{/if}
+				</div>
+				{if:$this->deliveryType == 0 && $this->paymentType == 1}
+				{set:$tmpId=$this->order_id;}
+				<form action='{url:/block/doPay/order_id/$tmpId}' method='post' target='_blank'>
+					<div class="succer-but"><input class="succer-in" type="submit" value="前往支付" onclick="return dopay();" /></div>
+				</form>
+				{/if}
+				
+				
+			</div>
+		</div>
+		<!--中间内容over-->
+		<style>
+			.succer-in{background:#FB3E3A;border:1px solid #FB3E3A;color:#fff;padding:8px 50px;font-size: 17px;cursor: pointer;}
+			.succer-in:hover{border:1px solid #EA2723;background:#EA2723;}
+			.succer-in:active{border:1px solid #C2201D;background:#C2201D;color:#fff;}
+		</style>
+		
+
+<script type="text/javascript">
+function dopay()
+{
+	confirm('支付是否成功',"{url:/ucenter/order_detail/id/$tmpId}");
+}
+</script>

@@ -1,0 +1,220 @@
+<style>
+
+body{background:#e8e8e8}
+
+</style>
+		<!--中间内容-->
+		<div class="center-cen">
+
+            <div class="manage-c1">
+            	<div class="manage-cen">
+            		<div class="manage-dav">
+            			<span><a style="color: #666;" href="{url:/site/sy}">首页</a></span><span> > </span><span>个人中心</span>
+            		</div>
+            		
+            		<div class="manage-left">
+            			<div class="manage-left-cen">
+            				<ul class="manage-left-ul">
+            					<li style="text-indent:0;background:#fff;cursor:auto;"><a style="color: #FA3D39;font-weight: bold;" href="{url:/tool/account}">账号管理 ></a></li>
+            					<li><a href="{url:/site/myorder}">我的预约</a></li>
+            					<li><a href="{url:/tool/order}">我的订单</a></li>
+            					<li style="color: #eee;" class="mana-cin">———————</li>
+            					<li><a href="{url:/ucenter/address}">我的地址</a></li>
+            					<li><a href="{url:/site/myprize}">我的奖品</a></li>
+            					<li><a href="{url:/tool/myfcode}">我的F码</a></li>
+            				</ul> 
+            			</div>
+            		</div>
+            		<div class="manage-right" style="height: 450px;">
+            			<div class="manage-right-top">账号管理</div>
+            			<div class="manage-right-center">
+            				<h3>您好，{echo: ISafe::get('username')}，欢迎您来到美贝壳官网个人中心！</h3>
+            				<div class="mana-box">
+            					<ul class="zh-ul">
+            							<li>
+            								<div><img class="zh-img" src="{if:empty($this->user['head_ico'])}{skin:images/front/img/pc-img.png}{else:}{echo:$this->user['head_ico']}{/if}" /></div>          								
+            							</li>
+            							<li>
+            								<div class="zh-cen">
+            									{if:$this->user['user_id']}
+	            								<div>昵 &nbsp;&nbsp;称：<span>{echo: ISafe::get('username')}</span><span class="zh-nc">修改昵称</span> </div>
+	            								<div class="zh-div">MeiID：<span>{if:empty($this->user['email'])}{echo:$this->user['mobile']}{else:}{echo:$this->user['email']}{/if}</span><span class="zh-mm">修改密码</span> </div>
+            									{/if}
+            								</div>
+            							</li>           							
+            						</ul>
+            				</div>     			
+            			</div>
+            		</div>
+            	</div>           	
+            </div>
+         
+		</div>
+		<!--中间内容over-->
+		
+			
+		<!--更改密码弹框-->
+		<div style="display: none;" class="manage-m1">
+			<div class="manage-km">
+				<div class="manage-div"> 
+					<div class="manage-title">修改密码
+						<span><img class="aoc" src="{skin:images/front/corico.png}" /></span>
+					</div>
+					 <form method='post' action='{url:ucenter/change_password}'>
+					<div class="manage-line">
+						<table>
+							<tbody>
+								<tr>						
+									<th>原密码：</th>
+									<td>
+										<input type="hidden" autocomplete="off"  name="fpassword" id="modify_password_1"/>
+										<input type="password" autocomplete="off" class="no_chinese password_input"   target_input="modify_password_1" placeholder="请输入原密码" value="" />
+									</td>
+								</tr>
+								<tr>															
+									<th>新密码：</th>
+									<td>
+										<input type="hidden" autocomplete="off"  name="password" id="modify_password_2"/>
+										<input type="password" autocomplete="off" class="no_chinese password_input"  target_input="modify_password_2" value="" placeholder="请输入新密码" />
+									</td>
+								</tr>
+								<tr>
+									<th>确认密码：</th>
+									<td>
+										<input type="hidden" autocomplete="off" name="repassword" id="modify_password_3"/>
+										<input type="password" autocomplete="off" class="no_chinese password_input" target_input="modify_password_3" value="" placeholder="请确认密码" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="manage-but">
+							<input class="but submit_button" type="button" value="确定更改密码"/>
+							<!--<a class="submit_button">保存</a>-->
+						</div>
+					</div>	
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!--更改昵称弹框-->
+		
+		<div style="display: none;" class="manage-m">
+				<div class="manage-km">
+					<div class="manage-div">
+						<div class="manage-title">修改昵称
+							<span><img class="acc" src="{skin:images/front/corico.png}" /></span>
+						</div>
+						<div class="manage-lable">						
+							<label>昵称：</label>
+							<input type="text" name="username"   placeholder="请输入昵称"  />
+							<div class="manage-bc"><a>保存</a></div>						
+						</div>							
+					</div>
+				</div>
+		</div>
+		<script type='text/javascript'>
+		    $(document).ready(function(){
+		    })
+		</script>
+		 <script type="text/javascript">
+				//密码弹框 
+				$(".zh-mm").click(function(event) {
+					$(".manage-m1").slideToggle(0);
+					event.stopImmediatePropagation();
+				}); 
+			
+				$(".aoc").click(function(event) {
+					$(".manage-m1").hide();
+				});
+				
+				$('.submit_button').click(function(){
+					var fpassword = $('input[name="fpassword"]').val();
+					var password = $('input[name="password"]').val();
+					var repassword = $('input[name="repassword"]').val();
+					var patt = /^\w{6,32}$/;
+					if(!patt.test(fpassword)){
+						alert('原始密码格式不正确');
+						$('.alert_close_img').click(function(){
+							$('input[target_input="modify_password_1"]').focus();
+						});
+						return false;
+					}
+					
+					if(!patt.test(password)){
+						alert('请输入6到32位由数字字母下划线组成的新密码');
+						$('.alert_close_img').click(function(){
+							$('input[target_input="modify_password_2"]').focus();
+						});
+						return false;
+					}
+					
+					if(password != repassword){
+						alert('两次密码输入不一致');
+						$('.alert_close_img').click(function(){
+							$('input[target_input="modify_password_3"]').focus();
+						});
+						return false;
+					}
+					
+					$.ajax({
+						url:'{url:/ucenter/change_password}',
+						type:'get',
+						dataType:'json',
+						data:{'fpassword':fpassword,'password':password,'repassword':repassword},
+						success:function(d){
+							if(d.status == '1'){
+								alert(d.message);
+								$('.alert_close_img').click(function(){
+									window.location.reload();
+								});
+							}else{
+								alert(d.message);
+								$('input[target_input="modify_password_1"]').val("");
+								$('input[target_input="modify_password_2"]').val("");
+								$('input[target_input="modify_password_3"]').val("");
+							}
+						}
+					});
+				});
+		</script>
+		<script type="text/javascript">
+				//昵称弹框
+				$(".zh-nc").click(function(event) {
+					$(".manage-m").slideToggle(0);
+					event.stopImmediatePropagation();
+				}); 
+			
+				$(".acc").click(function(event) {
+					$(".manage-m").hide();
+				});
+				
+				$('.manage-bc a').click(function(){
+					var username = $('input[name="username"]').val();
+					//$('.manage-lable').trigger('submit');
+					var patt = /^[\w\u0391-\uFFE5]{2,20}$/;
+					if(!patt.test(username)){
+						alert('请输入2-20个由数字字母下划线和中文组成的字符');
+						return false;
+					}else{
+						$.ajax({
+							url:'{url:/tool/modify_username}',
+							type:'post',
+							dataType:'json',
+							data:{"username":username},
+							success:function(d){
+								if(d.status == '1'){
+									//alert(d.message);
+									//$('.alert_close_img').click(function(){
+										window.location.href='/tool/account?'+Math.random();
+									//});
+								}else{
+									alert(d.message);
+								}
+							}
+						});
+					}
+
+				});
+		</script>
+		

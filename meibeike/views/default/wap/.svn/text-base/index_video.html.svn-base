@@ -1,0 +1,25 @@
+
+<!--<link rel="stylesheet" type="text/css" href="/views/default/wap/videoplay/images/common.css"/>-->
+<script type="text/javascript" src="/views/default/wap/videoplay/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/views/default/wap/videoplay/js/action.js"></script>
+<style>
+	body{background: #000;}
+</style>
+
+<div style="margin-top: 27%;"></div>
+<script language=JavaScript>
+var vID        = ""; 
+var vWidth     = "100%";
+var vHeight    = 380;
+var vFile      = "/views/default/wap/videoplay/CuSunV2set.xml";
+var vPlayer    = "/views/default/wap/videoplay/player.swf?v=2.5";
+var vPic       = "/views/default/wap/videoplay/images/ybgg.png";
+var vCssurl    = "/views/default/wap/videoplay/images/mini.css";
+//PC,安卓,iOS
+var vMp4url    = "http://o8nj7d5m4.bkt.clouddn.com/ybgg.mp4";
+</script>  
+
+<script  class="CuPlayerVideo" data-mce-role="CuPlayerVideo" type="text/javascript" src="/views/default/wap/videoplay/js/CuSunX1.min.js"></script>
+ 
+</body>
+</html>

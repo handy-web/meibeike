@@ -1,0 +1,89 @@
+10
+
+dir
+10495
+http://192.168.2.31:8001/YunBangI/Code/MeiWeb/meimbeike/meibeike/lib
+http://192.168.2.31:8001/YunBangI
+
+
+
+2016-07-05T12:41:03.600893Z
+9881
+z.peijun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ef0999cd-408c-4ad0-a2b8-8a3827a9271e
+
+test
+dir
+
+lang
+dir
+
+log
+dir
+
+db
+dir
+
+module
+dir
+
+core
+dir
+
+iweb.php
+file
+
+
+
+
+2016-07-15T01:36:17.466272Z
+c2a7174ba0df3e1c5a61fba73354a6ac
+2016-06-06T06:03:56.478329Z
+9561
+z.peijun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6034
+
+vendor
+dir
+
+web
+dir
+
+document
+dir
+

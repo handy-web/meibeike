@@ -1,0 +1,391 @@
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>    
+<style>
+body{background:#e8e8e8}
+</style>
+<style>
+     	.share-box{display:none;margin: 0 auto;width:500px;height:254px;text-align: center;position: absolute;background: #fff;z-index: 99999;}
+     	.share-wximg {float: right;padding: 0 12px;padding-top: 12px;}
+     	.share-top{padding-top: 8%;}
+     	.share-top p{font-size: 15px;color: #000;padding-bottom: 10px;}
+     	.share-top p:last-child{font-size: 12px;color: #666;padding-top: 10px;}
+     	.share-wximg img{width: 20px;cursor: pointer;}
+		.share-wximg img{opacity: 0.8;filter:alpha(opacity=80); -moz-opacity:0.8; -khtml-opacity: 0.8;}
+     </style>
+<!--中间内容-->
+		<div class="center-cen">
+            <div class="manage-c1">
+            	<div class="manage-cen">
+            		<div class="manage-dav">
+            			<span><a style="color: #666;" href="{url:/site/sy}">首页</a></span><span> > </span><span>个人中心</span> 
+            		</div>
+            		
+            		<div class="manage-left">
+            			<div class="manage-left-cen">
+            				<ul class="manage-left-ul">
+            					<li><a href="{url:/tool/account}">账号管理</a></li>
+            					<li><a href="{url:/site/myorder}">我的预约</a></li>
+            					<li><a href="{url:/tool/order}">我的订单</a></li>
+            					<li style="color: #eee;" class="mana-cin">———————</li>
+            					<li><a href="{url:/ucenter/address}">我的地址</a></li>
+            					<li><a href="{url:/site/myprize}">我的奖品</a></li>
+            					<li style="text-indent:0;background:#fff;cursor:auto;"><a style="color: #FA3D39;font-weight: bold;" href="{url:/tool/myfcode}">我的F码 ></a></li>
+            				</ul>
+            			</div>
+            		</div>
+            		
+            		<div class="manage-right">
+            			<div class="manage-right-top">我的F码</div>
+            			<div class="myorder-center">       
+            				<div class="myf">可用F码（{$unused}个）
+            					<span class="myf-sp1">已用F码（{$used}个）</span>
+            					<span class="myf-sp2">
+            						<span><a class="but-1">申请F码</a></span>
+            						<span><a class="but-2">F码使用规则</a></span>
+            					</span>
+            				</div>
+            				<table class="myfcode-list">
+            					<tbody>
+            						<tr>
+            							<td style="padding: 5px 0;">序号</td>
+            							<td style="padding: 5px 0;">F码</td>
+            							<td style="padding: 5px 0;">有效期</td>
+            							<td style="padding: 5px 0;">状态</td>
+            							<td style="padding: 5px 0;">操作</td>
+            						</tr>
+            						{foreach:items=$flist}
+            						<tr>
+            							<td>{$item['id']}</td>
+            							<td>{$item['f_code']}</td>
+            							<td>{$item['start_time']}至{$item['end_time']}</td>
+            							<td>{if:empty($item['use_time'])}{echo: '未使用'}{else:}{echo: '已使用'}{/if}</td>
+            							<td>
+            								<div class="myfcode-span">
+            									{if:$item['is_shared']=='0'}<span class="share_fr" onclick="sharing('{$item["f_code"]}')">分享给朋友 </span>{/if}
+            									{if:$item['is_shared']=='1'}<span style='color:#666;cursor:auto;text-decoration:none'>&nbsp;已分享</span>{else:}<span onclick="mark('{$item["f_code"]}')">&nbsp;标记已分享</span>{/if}
+            								</div> 
+            							</td>
+            						</tr>
+            						{/foreach}          						 
+            					</tbody>
+            				</table>
+            				<input type='hidden' name='fcode' value='' />  
+            				<!--暂无订单-->
+            				<div style='{if:empty($flist)}{echo "display:block"}{else:}{echo: "display:none"}{/if}' class="myorder-none">
+            					<img src="{skin:images/front/none-fm.png}" />
+            					<p style="color: #999">暂无F码</p>
+            				</div>
+
+            				<div class="myco-page">
+								{$pagebar}
+            				</div>
+            			</div>
+            		</div>
+            	</div>           	
+            </div>
+         </div> 
+         <!--中间内容over-->
+    
+       <!--分享给朋友-->
+		<div class="share-m" style="display: none;">			
+			<div class="share-cen">				
+				<div class="share-nav">
+					<!--微信分享弹出二维码-->
+					<div class="share-box" id="qrcode">
+		  				<div class="share-wximg"><img class="wx-img" src="{skin:images/front/corico.png}" /></div>
+		  				<div class="share-top">
+		  					<p>分享给微信好友</p>
+		  					<img title="美贝壳官网" style="cursor:pointer" src="http://qr.liantu.com/api.php?w=68&m=0&text=http://www.meibeike.com/site/products_wap/id/14&logo=http://o8nj7d5m4.bkt.clouddn.com/logonew.png" alt="美贝壳官网" width="120" height="120" />
+							<p>使用“扫一扫”即可将网页分享给微信好友。</p>
+		  				</div>
+		  			</div>
+					<div class="share-title">分享到
+						<span><img class="ioc" src="{skin:images/front/corico.png}" /></span>
+					</div>					
+					<div class="share-inc">
+						<ul class="share-ul">
+							<li>
+								<div class="shareimg1"></div>
+								<div class="share-p1">新浪微博</div>
+							</li>
+							<li>
+								<div class="shareimg2"></div>	
+								<div class="share-p2">QQ好友</div>
+							</li>
+							<!--  <li>
+								<div class="shareimg3"></div>	
+								<div class="share-p3">微信好友</div>
+							</li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<script type="text/javascript">			
+			function sharing(fcode){
+				$(".share-m").show();
+				$('input[name="fcode"]').val(fcode);
+			}
+			
+			function mark(fcode){
+				$.ajax({
+					url:'{url:/tool/mark}',
+					type:'post',
+					dataType:'json',
+					data:{"fcode":fcode},
+					success:function(d){
+						if(d.status == '1'){
+							alert(d.message);
+							$('.alert_close_img').click(function(){
+								window.location.reload();
+							});
+						}else{
+							alert(d.message);
+							$('.alert_close_img').click(function(){
+								window.location.reload();
+							});
+						}
+					}
+				});
+			}
+			
+			$(".ioc").click(function(){
+				$(".share-m").hide();
+			})		
+			$(".wx-img").click(function(){
+				$(".share-box").hide();
+			})
+		</script>
+		<!-- 新浪微博分享开始 -->
+		<script type="text/javascript">
+			$('.share-m .shareimg1').bind('click',function(){
+				 var fcode = $('input[name="fcode"]').val();
+				 var title = '我分享了F码:'+fcode+',使用F码购买云棒优惠多多哦!';//分享标题
+				 var url = 'http://www.meibeike.com/tool/newbuy';//分享链接
+				 var pic = 'http://www.meibeike.com/views/default/skin/default/lottery/images/b_logo.png';//分享图片
+				 window.open('http://v.t.sina.com.cn/share/share.php?title=' + title + '&url=' + url + '&pic=' + pic, '_blank');
+			});
+		</script>
+		<!-- 新浪微博分享结束 -->
+		<!--QQ分享 开始-->
+		<script type="text/javascript">
+		        $('.share-m .shareimg2').click(function(){
+			 		var fcode = $('input[name="fcode"]').val();
+					var p = {
+			        url: 'http://www.meibeike.com/tool/newbuy',/*获取URL，可加上来自分享到QQ标识，方便统计*/
+			        title : '我分享了F码:'+fcode+',使用F码购买云棒优惠多多哦!',/*分享标题(可选)*/
+			        summary : '云棒官网:http://www.meibeike.com',/*分享描述(可选)*/
+			        desc: '我分享了F码:'+fcode+',使用F码购买云棒优惠多多哦!', /*分享理由(风格应模拟用户对话),支持多分享语随机展现（使用|分隔）*/
+			        pics : 'http://www.meibeike.com/views/default/skin/default/lottery/images/b_logo.png',/*分享图片(可选)*/
+			        flash : '',	/*视频地址(可选)*/
+			        commonClient : true, /*客户端嵌入标志*/
+			        site: 'QQ分享',/*分享来源 (可选) ，如：QQ分享*/
+			        };
+			        var s = [];
+			        for (var i in p) {
+			       		s.push(i + '=' + encodeURIComponent(p[i] || ''));
+			        }
+		        	window.open("http://connect.qq.com/widget/shareqq/index.html?" + s.join('&'));
+		        });	  
+		</script>
+		<!-- QQ分享结束 -->
+		<!-- 微信分享开始 -->
+		<script type='text/javascript'>
+			$('.share-m .shareimg3').click(function(){
+				$('#qrcode').show();
+			});
+		</script>
+		<!--  微信分享结束 -->
+		<script> 
+			       /* wx.config({    
+			            debug: false,    
+			            appId: '${shakeMap.appId}',    
+			            timestamp: '${shakeMap.timestamp}',    
+			            nonceStr: '${shakeMap.nonceStr}',    
+			            signature: '${shakeMap.signature}',    
+		            	jsApiList: [    
+			                'checkJsApi',    
+			                'onMenuShareTimeline',    
+			                'onMenuShareAppMessage'    
+			            ]    
+			        }); */
+			        $('#wxsharess').click(function(){
+			        	var pageUrl = window.location.href.split('#')[0];  
+			        	pageUrl = pageUrl.replace(/\&/g, '%26');
+			        	$.ajax({
+			        		url:'{url:/tool/test2}',
+			        		type:'post',
+			        		dataType:'json',
+			        		data:{'url':pageUrl},
+			        		success:function(d){
+			        			if(d.status == '1'){
+							        wx.config({    
+							            debug: true,    
+							            appId: d.appId,    
+							            timestamp: d.timestamp,    
+							            nonceStr: d.noncestr,    
+							            signature: d.signature,    
+						            	jsApiList: [    
+							                'checkJsApi',    
+							                'onMenuShareTimeline',    
+							                'onMenuShareAppMessage'    
+							            ]    
+							        });  
+			        			}else{
+			        				alert('签名失败');
+			        			}
+			        		}
+			        	});
+
+				        wx.ready(function () {    
+			                   
+					           /* var shareData = {    
+					                title: '${title}',    
+					                desc: '${description}',    
+					                link: '${url}',    
+					                imgUrl: '${headImgUrl}',    
+					                success: function (res) {    
+					                    //alert('已分享');    
+					                },    
+					                cancel: function (res) {    
+					                }    
+					            }; */   
+					                  
+					            wx.onMenuShareAppMessage({    
+					                title: '微信分享好友测试',    
+					                desc: '微信分享好友测试',    
+					                link: 'http://www.meibeike.com',    
+					                imgUrl: '',    
+					                trigger: function (res) {    
+					                            alert('用户点击发送给朋友');    
+					                },    
+					                success: function (res) {    
+					                    alert('已分享');    
+					                },    
+					                cancel: function (res) {    
+					                    alert('已取消');    
+					                },    
+					                fail: function (res) {    
+					                    alert(JSON.stringify(res));    
+					                }    
+					            });    
+					              
+					            //wx.onMenuShareTimeline(shareData);    
+					        });    
+			  
+					        wx.error(function (res) {    
+					            alert("error: " + res.errMsg);    
+					        });    
+			        });
+
+		</script>
+		<!--申请F码弹框-->
+		<div style="display: none;" class="cover-m">
+			<div class="cover-km">
+				<div class="cover-div">
+					<div class="cover-title">申请F码
+						<span><img class="acc" src="{skin:images/front/corico.png}" /></span>
+					</div>
+					<div class="cover-in">				
+						<textarea rows="6" cols="10" name="apply_comment" maxlength="1000" onblur="if(this.innerHTML==''){this.innerHTML='请在这里填写您申领说明';this.style.color='#666'}" onfocus="if(this.innerHTML=='请在这里填写您申领说明'){this.innerHTML='';this.style.color='#666'}">请在这里填写您申领说明</textarea>					
+						<input name="contact_way" type="text" placeholder="请留下你的联系方式或邮箱地址（选填）" />
+						<div class="cover-but" >
+							<a>提交</a>
+						</div>
+					</div> 					
+				</div>
+			</div>
+		</div>
+		<!--码使用规则弹框-->
+		<div class="cov-gz" style="display: none;">
+				<div class="cover-km-2">
+					<div class="cover-div-2">
+						<div class="cover-title">F码使用规则
+							<span><img class="adc" src="{skin:images/front/corico.png}" /></span>
+						</div>					
+						<div class="cover-bottom">
+							<p>1、F码本人无法使用，只能转赠给朋友使用。</p>
+							<p>2、F码转赠给朋友后，当朋友使用F码购买云棒时，对方可获得一定的优惠或奖品，同时，当您的F码使用的数量达到N时，您也会获得奖品（使用方法以具体活动规则为准）。</p>
+							<p>3、如果您在F码使用过程中遇到问题，请联系客服：400-772-8320。</p>
+						</div>
+					</div>
+				</div>
+		</div>
+		<script>
+			//IE8兼容
+			if($.browser.msie && parseInt($.browser.version) == 8){
+				$('.myfcode-list td:nth-child(1)').css('width','90px');
+				$('.myfcode-list td:nth-child(2)').css('width','150px');
+				$('.myfcode-list td:nth-child(3)').css('width','400px');
+				$('.myfcode-list td:nth-child(4)').css('width','90px');
+				$('.myfcode-list td:nth-child(5)').css('width','250px');
+			}
+		</script>
+		 <script type="text/javascript">
+		 	$(document).ready(function(){
+		 		$('.cover-m .cover-but').bind("click",function(){
+		 			var apply_comment = $('textarea').val();
+		 			var waitReviewCount = {$waitReviewCount};
+		 			var contact_way = $('input[name="contact_way"]').val();
+		 			if(apply_comment == '' || apply_comment == '请在这里填写您申领说明'){
+		 				alert('请输入申领说明');
+		 				return false;
+		 			}
+		 			if(waitReviewCount>0){
+		 				alert("您的F码申请正在处理中,请稍候再试");
+		 				return false;
+		 			}
+		 			$.ajax({
+		 				url:"{url:tool/do_apply_fcode}",
+		 				type:"post",
+		 				dataType:"json",
+		 				data:{"apply_comment":apply_comment,"contact_way":contact_way},
+		 				success:function(d,s,r){
+		 					if(d.status == '1'){
+		 						alert(d.message);	
+		 						$('.alert_close_img').bind("click",function(){
+		 							window.location.reload();
+		 						});
+		 					}else{
+		 						alert(d.message);
+		 						$('.alert_close_img').bind("click",function(){
+		 							window.location.reload();
+		 						});
+		 					}
+		 				}
+		 			});
+		 		});
+		 	});
+		 </script>
+		 <script type="text/javascript">
+				//购物车弹框
+				$(".but-img").click(function(event) {
+					$(".buy-gw").slideToggle(0);
+					event.stopImmediatePropagation();
+				}); 
+				
+				$("body").click(function(event) {
+					$(".buy-gw").hide();
+				});
+		</script>
+       <script type="text/javascript">
+         //弹框1
+	        $(".but-1").click(function(event){
+	            $(".cover-m").slideToggle(0);	           
+	            event.stopImmediatePropagation();	            
+	        });
+	
+	        $(".acc").click(function(event){
+	            $(".cover-m").hide();
+	        });
+	        
+         //弹框2
+	        $(".but-2").click(function(event){
+	            $(".cov-gz").slideToggle(0);	              
+	            event.stopImmediatePropagation();          
+	        });	
+	        $(".adc").click(function(event){
+	            $(".cov-gz").hide();
+	        });
+	        
+	   </script>
+

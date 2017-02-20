@@ -1,0 +1,50 @@
+<style>
+	body{background: #F9F9F9;}
+</style>
+		{if:$this->user['user_id']}
+		{set:$tmpId=$this->order_id;}
+		<div class="pay-title">
+			订单成交成功，请支付！
+		</div>
+		<div class="pay-line">
+			<div class="pay-tab">
+				<p>订单名称：{$this->order_name}</p>
+				<p>订单编号：{$this->order_num}</p>
+				<p>应付金额：<span>&#65509;{echo:sprintf('%.2f',$this->final_sum)}</span></p>
+				<div>请在{$this->payLine}小时内付款，过期订单将自动取消</div>
+			</div>
+		</div>
+		<div class="pay-list">
+			<ul class="pay-box">
+				<li>选择支付方式</li>
+				<li>
+					<span><img class="pay-zfb" src="/views/default/wap/mobile/version/img/app-zfb.png"/></span><span class="pay-t">支付宝支付</span>
+					<div class="pay-ck">
+						<input type="checkbox" name="ck-c" id="cke_1"  checked='checked' /><label for="cke_1"></label>
+					</div>
+				</li>
+			</ul>
+		</div>
+		{/if}
+		{if:$this->deliveryType == 0 && $this->paymentType == 1}
+		{set:$tmpId=$this->order_id;}
+		<div class="pay-but">
+			<form action='{url:/wap/doPay/order_id/$tmpId}' method='post' name='payform' target='_blank'>
+				<input type="button"  id="paynow" value="立即支付" />
+			</form>
+		</div>
+		{/if}	
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#paynow').click(function(){
+		if(!$('input[name="ck-c"]').is(':checked')){
+			alert('请选择支付方式');
+			return false;
+		}
+		$('form[name="payform"]').submit();
+	});
+});
+
+</script>
+</body>
+</html>

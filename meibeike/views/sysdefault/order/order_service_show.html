@@ -1,0 +1,255 @@
+<div class="headbar clearfix">
+	<div class="position">订单<span>></span><span>订单管理</span><span>></span><span>订单查看</span></div>
+	<ul class="tab" name="menu1">
+		<li id="li_1"><a href="javascript:selectTab('1');" hidefocus="true">基本信息</a></li>
+	</ul>
+</div>
+
+<div id="tab-1" name="table" style="display:none">
+	<div class="content">
+		<table class="list_table">
+			<col width="550px" />
+			<col width="100px" />
+			<col width="100px" />
+			<col width="100px" />
+			<col />
+			<thead>
+				<tr>
+					<th>商品名称</th>
+					<th>商品价格</th>
+					<th>商品数量</th>
+					<th>服务类型</th>
+					<th>服务原因</th>
+				</tr>
+			</thead>
+			<tbody>
+				{query:name=order_goods where=id eq $order_goods_id}
+				<tr>
+					<td>
+						{set:$goodsRow = JSON::decode($item['goods_array'])}
+						{$goodsRow['name']} &nbsp;&nbsp; {$goodsRow['value']}
+					</td>
+					<td>{$item['goods_price']}</td>
+					<td>{$item['goods_nums']}</td>
+					<td>{echo:Api::run("getServiceType",$type)}</td>
+					<td>{$reason}</td>
+				</tr>
+				{/query}
+			</tbody>
+		</table>
+
+		<table style="width:300px;margin-right:20px;" class="border_table f_l">
+			<col width="80px" />
+			<col />
+			<thead>
+				<tr><th colspan="2">收货人信息</th></tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>发货日期:</th><td>{$send_time}</td>
+				</tr>
+				<tr>
+					<th>姓名:</th><td>{$accept_name}</td>
+				</tr>
+				<tr>
+					<th>电话:</th><td>{$telphone}</td>
+				</tr>
+				<tr>
+					<th>手机 :</th><td>{$mobile}</td>
+				</tr>
+				<tr>
+					<th>地区:</th><td>{$area_addr}</td>
+				</tr>
+				<tr>
+					<th>地址:</th><td>{$address}</td>
+				</tr>
+				<tr>
+					<th>邮编:</th><td>{$postcode}</td>
+				</tr>
+				<tr>
+					<th>送货时间:</th><td>{$accept_time}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table style="width:300px;margin-right:20px;" class="border_table f_l">
+			<col width="80px" />
+			<col />
+			<thead>
+				<tr><th colspan="2">买家信息</th></tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>用户名:</th><td>{$username}</td>
+				</tr>
+				<tr>
+					<th>姓名:</th><td>{$true_name}</td>
+				</tr>
+				<tr>
+					<th>电话:</th><td>{$u_mobile}</td>
+				</tr>
+				<tr>
+					<th>地区:</th><td>{$contact_addr}</td>
+				</tr>
+				<tr>
+					<th>Email:</th><td>{$email}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+<div class="pages_bar">
+	<div class="t_c" id="ctrlButtonArea">
+		<button type="button" class="btn" id="to_operate" onclick="operate({$id});"><span>办理</span></button>
+                <button type="button" class="btn" id="to_prepare" onclick="prepare({$id});"><span>配货</span></button>
+		<button type="button" class="btn" id="to_deliver" onclick="deliver({$id});"><span>出库</span></button>
+		<button type="button" class="btn" onclick="complete({$id})"><span>完成</span></button>
+	</div>
+</div>
+
+<script type='text/javascript'>
+
+
+//DOM加载完毕后运行
+$(function()
+{
+	selectTab(1);
+	initButton();
+});
+
+/**
+ * 订单操作按钮初始化
+ */
+function initButton()
+{
+	//订单当前为活跃状态
+	{if:$status < 7}
+                //办理按钮锁定 已在办理中
+		{if:$status >= 4}
+			$('#to_operate').attr('disabled','disabled');
+			$('#to_operate').addClass('inactive');
+		{/if}
+                    
+                //备货按钮锁定 已在配货中
+		{if:$status >= 5}
+			$('#to_prepare').attr('disabled','disabled');
+			$('#to_prepare').addClass('inactive');
+		{/if}
+
+		//出库按钮锁定 已经发过货
+		{if:$status >= 6}
+			$('#to_deliver').attr('disabled','disabled');
+			$('#to_deliver').addClass('inactive');
+		{/if}
+
+	//订单当前为非活跃状态
+	{else:}
+		//全部操作区域的按钮锁定
+		$('#ctrlButtonArea button').attr('disabled','disabled');
+		$('#ctrlButtonArea button').addClass('inactive');
+
+	{/if}
+}
+
+//选择当前Tab
+function selectTab(curr_tab)
+{
+	$("div[name='table']").hide();
+	$("#tab-"+curr_tab).show();
+	$("ul[name=menu1] > li").removeClass('selected');
+	$('#li_'+curr_tab).addClass('selected');
+}
+//办理
+function operate(id)
+{
+
+	$.get("{url:/order/service_operate}",{'id':id}, function(data)
+	{
+		if(data=='success')
+		{
+			actionCallback();
+		}
+		else
+		{
+			alert('发生错误');
+		}
+	});
+}
+//备货
+function prepare(id)
+{
+
+	$.get("{url:/order/service_prepare}",{'id':id}, function(data)
+	{
+		if(data=='success')
+		{
+			actionCallback();
+		}
+		else
+		{
+			alert('发生错误');
+		}
+	});
+}
+
+//完成或作废订单
+function complete(id)
+{
+
+	$.get("{url:/order/service_complete}",{'id':id}, function(data)
+	{
+		if(data=='success')
+		{
+			actionCallback();
+		}
+		else
+		{
+			alert('发生错误');
+		}
+	});
+}
+
+
+//发货
+function deliver(id)
+{
+	var tempUrl = '{url:/order/service_deliver/id/@id@}';
+	tempUrl     = tempUrl.replace('@id@',id);
+
+	var deliv = art.dialog.open(tempUrl,{
+		id:'deliver',
+	    title: '订单号:{$service_no}【发货】',
+	    cancelVal:'关闭',
+		okVal:'发货',
+	    ok:function(iframeWin, topWin){
+	    	var checkedNums = $(iframeWin.document).find('[name="sendgoods[]"]:checked').length;
+	    	if(checkedNums == 0)
+	    	{
+	    		alert('请选择要发货的商品');
+	    		return false;
+	    	}
+	    	iframeWin.document.forms[0].submit();
+	    	return false;
+	    },
+	    cancel:function (){
+	    	return true;
+		}
+	});
+}
+
+//执行回调处理
+function actionCallback(msg)
+{
+	msg ? alert(msg) : window.location.reload();
+}
+
+//操作失败回调
+function actionFailCallback(msg)
+{
+	var alertText = msg ? msg : '操作失败';
+	alert(alertText);
+}
+</script>

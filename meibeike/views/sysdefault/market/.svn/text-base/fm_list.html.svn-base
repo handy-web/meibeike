@@ -1,0 +1,61 @@
+<div class="headbar">
+<div class="position"><span>营销</span><span>></span><span>F码管理</span><span>></span><span>F码活动列表</span><span>></span><span>{$activity_name}</span><span>></span><span>F码列表</span></div>
+	<div class="operating">		<a href="javascript:void(0)" onclick="selectAll('id[]');"><button class="operating_btn" type="button"><span class="sel_all">全选</span></button></a>			<a href="javascript:void(0)" onclick="send()"><button class="operating_btn" type="button"><span class="sel_all" style="background: url({skin:images/admin/icon.gif}) 50% -1030px no-repeat;">发放</span></button></a>	</div><form action="{url:/market/fm_list/aid/}{$aid}" method="get" name="fmlist"><div class="searchbar vselect"><select name="send_status" class="auto">	<option value="">选择发放状态</option>	<option value="0">未发放</option>	<option value="1">已发放</option></select><select  name="use_status" class="auto">	<option value="">选择使用状态</option>	<option value="0">未使用</option>	<option value="1">已使用</option></select><select  name="exchange_status" class="auto">	<option value="">选择兑奖状态</option>	<option value="0">未兑奖</option>	<option value="1">已兑奖</option></select><button class="btn" type="submit"><span class="sel">筛 选</span></button></div></form><script type="text/javascript">$(document).ready(function(){	$('.btn').bind('click',function(){		var send_status = $('select[name="send_status"]').val();		var use_status = $('select[name="use_status"]').val();		var exchange_status = $('select[name="exchange_status"]').val();		if(send_status == '' && use_status == '' && exchange_status == ''){			alert('至少选择一个筛选条件');			return false;		}	});});function send(){	var str = getArray('id[]','checkbox');	if(str == '') {		alert('请至少选择一个F码');		return false;	}	var tempUrl = '{url:/market/send_fm/fcode/}'+str+'/aid/'+{$aid};	//tempUrl     = tempUrl.replace('@id@',id);	art.dialog.open(tempUrl,{		id:'send',		cancelVal:'取消',		okVal:'发放',	    title: '发放F码',	    ok:function(iframeWin, topWin){	    	iframeWin.document.forms[1].submit();	    	return false;	    },	    cancel:function(){	    	return true;		}	});}</script>	<div class="field">
+		<table class="list_table">
+			<col width="40px" />
+			<col width="40px" />
+			<col width="40px" />
+			<col width="200px" />
+			<col width="40px" />			<col width="80px" />			<col width="80px" />			<col width="80px" />						<col width="100px" />			<col width="80px" />			<col width="80px" />			<col width="40px" />
+			<thead>				<tr>
+					<th>选择</th>
+					<th>序号</th>
+					<th>F码</th>
+					<th>有效期</th>
+					<th>发放状态</th>
+					<th>发放时间</th>
+					<th>F码接收人 Mei ID</th>					<th>使用状态</th>					<th>使用时间</th>					<th>F码使用人Mei ID</th>					<th>兑奖状态</th>					<th>操作</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+<div class="content">
+	<form method='post' action='#'>
+		<table class="list_table">
+			<col width="40px" />			<col width="40px" />			<col width="40px" />			<col width="200px" />			<col width="40px" />			<col width="80px" />			<col width="80px" />			<col width="80px" />						<col width="100px" />			<col width="80px" />			<col width="80px" />			<col width="40px" />
+			<tbody>				{foreach:items= $fm_list}
+				<tr>
+					<td><input type='checkbox' name='id[]' value="{$item['id']}" {if:$item['send_status']=='1'} disabled {/if}/></td>
+					<td>{$item['id']}</td>
+					<td>{$item['f_code']}</td>
+					<td>{$item['start_time']} 到     {$item['end_time']}</td>
+					<td>{if:$item['send_status'] == '1'}{echo: '已发放'}{else:}{echo: '未发放'}{/if}</td>
+					<td>{if:empty($item['send_time'])}{echo: '-'}{else:}{echo: $item['send_time']}{/if}</td>
+					<td>{if:empty($item['email'])}{echo: $item['mobile']}{else:}{echo: $item['email']}{/if}</td>										<td>{if:!empty($item['order_number'])}{echo: '已使用'} {else:} {echo: '未使用'}{/if}</td>										<td>{if:empty($item['use_time'])}{echo: '-'}{else:}{echo: $item['use_time']}{/if}</td>										<td>{$item['user_meiid']}</td>										<td>{if:$item['exchange_status'] == '1'}{echo: '已兑奖'}{else:}{echo: '未兑奖'}{/if}</td>										<td>操作</td>
+				</tr>
+				{/foreach}
+			</tbody>
+		</table>
+	</form>
+</div>
+<script type='text/javascript'>
+	//创建优惠券
+	function create_dialog(ticket_id)
+	{
+		art.dialog.prompt('请输入生成线下实体代金券数量：',function(num)
+		{
+			var num = parseInt(num);
+			if(isNaN(num) || num <= 0)
+			{
+				alert('请填写正确的数量');
+				return false;
+			}
+
+			var url = '{url:/market/ticket_create/ticket_id/@ticket_id@/num/@num@}';
+			    url = url.replace('@ticket_id@',ticket_id).replace('@num@',num);
+			window.location.href = url;
+		});
+	}
+</script>
+<script type='text/javascript'>//DOM加载结束    $(function () {        var formInstance = new Form('fmlist');        formInstance.init({            "send_status": "{$send_status}",            "exchange_status": "{$exchange_status}",            "use_status":"{$use_status}"        });    });</script>

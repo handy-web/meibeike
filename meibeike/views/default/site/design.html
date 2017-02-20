@@ -1,0 +1,182 @@
+
+<script src="{theme:javascript/jquery-1.7.2.min.js}"></script>
+<script src="{theme:javascript/jquery.mousewheel.js}"></script>
+<script src="{theme:javascript/jquery.quanpin.scroll/quanpin.scroll.js}"></script>
+<link rel="stylesheet" href="{skin:css/jquery.quanpin.css}" />
+
+<style type="text/css">
+	.num {color: rgb(70, 70, 70);}
+	a {text-decoration: none; color: rgb(110, 160, 236); }
+
+	.style_1 { width: 100%; }
+	.style_1 .content {width: 1200px; height: 100%; margin: 0 auto;}
+	.style_1 .content .left {float: left; width: 600px; margin-left: 100px;}
+	.style_1 .content .left .layer_1 { float: left; width: 100%; margin-top: 100px;  text-align: left; height: 50px; line-height: 50px; font-size: 44px;}
+	.style_1 .content .left .layer_2 { float: left; width: 100%; margin-top: 30px;  font-weight: lighter;text-align: left; height: 35px; line-height: 35px; font-size: 20px; color:#898989;}
+	.style_1 .content .left .layer_3 { float: left; width: 100%; margin-top: 80px; text-align: left; height: 35px; line-height: 35px; font-size: 20px; color:#898989;}
+        .style_1 .content .left .layer_4 { float: left; width: 400px; margin-left: 10px; margin-top: 100px; text-align: left; height: 40px; font-size: 20px;color:#898989;}
+	.style_1 .content .right {float: left; width: 400px; margin-top: 70px;}
+	.style_1 .content .right img {margin: 0 auto;}
+	
+	.style_2 { width: 100%; }
+	.style_2 .content {width: 1200px; height: 100%; margin: 0 auto;}
+	.style_2 .content .layer_1 { float: left; width: 100%; margin-top: 30px;  text-align: center; height: 50px; line-height: 50px; font-size: 44px;}
+	.style_2 .content .layer_2 { float: left; width: 100%; margin-top: 30px; text-align: center;  font-weight: lighter;height: 35px; line-height: 35px; font-size: 20px;color:#898989; }
+	.style_2 .content .layer_3 { float: left; width: 100%; margin-top: 150px;color:#898989;}
+	.style_2 .content .layer_3 img {margin: 0 auto;}
+
+
+</style>
+
+<input type="hidden" value=1 id="is_top_show"/>
+<input type="hidden" value=0 id="is_bottom_show"/>
+<input type="hidden" value="0" class="cur_disappear"/>
+<input type="hidden" value="0" class="is_in_scroll"/>
+
+<div class="num_box" >
+	<div class="num style_1" id="num_0">
+            {set:$pics_0=JSON::decode($attrbutes[0]["value"])}
+		<div class="content">
+			<div class="left">
+				<div class="layer_1">{$attrbutes[0]["name"]}</div>
+				<div class="layer_2">{$attrbutes[0]["content"]}</div>
+			</div>
+			<div class="right">
+				<img class="my_img" src="{webroot:$pics_0[0]}">
+			</div>
+		</div>
+	</div>
+	<div class="num style_1" id="num_1">
+            {set:$pics_1=JSON::decode($attrbutes[1]["value"])}
+		<div class="content">
+			<div class="left">
+				<div class="layer_1">{$attrbutes[1]["name"]}</div>
+				<!--div class="layer_2" style="width: 400px;">雅观的设计雅观的设计雅观的设计雅观的设计雅观的设计雅观的设计</div>
+				<div class="layer_3" style="margin-top: 80px;">摆在哪里，都是一件艺术品</div-->
+                                <div class="layer_2" style="width: 400px;">{$attrbutes[1]["content"]}</div>
+			</div>
+			<div class="right">
+				<img class="my_img" src="{webroot:$pics_1[0]}">
+			</div>
+		</div>
+	</div>
+	<div class="num style_2" id="num_2">
+            {set:$pics_2=JSON::decode($attrbutes[2]["value"])}
+		<div class="content">
+				<div class="layer_1">{$attrbutes[2]["name"]}</div>
+				<div class="layer_2">{$attrbutes[2]["content"]}</div>
+				<div class="layer_3">
+					<img class="my_img" src="{webroot:$pics_2[0]}">
+				</div>
+		</div>
+	</div>
+	<div class="num style_2" id="num_3">
+            {set:$pics_3=JSON::decode($attrbutes[3]["value"])}
+		<div class="content">
+				<div class="layer_1">{$attrbutes[3]["name"]}</div>
+				<div class="layer_2">{$attrbutes[3]["content"]}</div>
+				<div class="layer_3">
+					<img class="my_img" src="{webroot:$pics_3[0]}">
+				</div>
+		</div>
+	</div>
+	<div class="num style_2" id="num_4">
+            {set:$pics_4=JSON::decode($attrbutes[4]["value"])}
+		<div class="content">
+				<div class="layer_1">{$attrbutes[4]["name"]}</div>
+				<div class="layer_2">{$attrbutes[4]["content"]}</div>
+				<div class="layer_3">
+					<img class="my_img" src="{webroot:$pics_4[0]}">
+				</div>
+		</div>
+	</div>
+	<div class="num style_1" id="num_5">
+            {set:$pics_5=JSON::decode($attrbutes[5]["value"])}
+		<div class="content">
+			<div class="left">
+				<div class="layer_1">{$attrbutes[5]["name"]}</div>
+				<div class="layer_2">{$attrbutes[5]["content"]}</div>
+			</div>
+			<div class="right">
+				<img class="my_img" src="{webroot:$pics_5[0]}">
+			</div>
+		</div>
+	</div>
+    
+        <div class="num style_1" id="num_6">
+            {set:$pics_6=JSON::decode($attrbutes[6]["value"])}
+		<div class="content" style="background-color:#323232;width:2000px;">
+			<div class="left" style="width:400px;">
+				<div class="layer_2" style="color:#FFFFFF;">{$attrbutes[6]["name"]}</div>
+				<div class="layer_1" style="color:#FFFFFF;">{$attrbutes[6]["content"]}</div>
+                                <div class="layer_4"><a href="{url:site/picture}">进一步了解 ></a></div>
+			</div>
+			<div class="right" style="width:600px;">
+				<img class="my_img" src="{webroot:$pics_6[0]}">
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	$().ready(function() {
+		$("#word_height").val($(".word").css("height"));
+	});
+	// direction 0向下 1向上
+	function onEnter(index, direction) {
+		if (index == "0") {
+			if (direction == "0") 
+				$(".word").animate({"opacity": 0}, 1000);
+			else
+				$(".word").css("opacity", 0);
+		}
+	}
+	
+	function onExit(index, direction) {
+		if (index == "0" && direction == "1") {
+			var height = $("#word_height").val();
+			$(".word").animate({"opacity": 1}, 1000);
+		}
+	}
+	
+	function onResizeWin(index, win_height) {
+		
+	}
+	
+	//$().ready(function() {
+	function imgAdjust() {
+		//图片大小自适应代码
+		var height = $("body").eq(0).height();
+		//if (navigator.userAgent.indexOf("Firefox") >= 0)
+			height = $(window).height();
+		var my_height;
+		$(".my_img").each(function(){
+			var cls_str = $(this).parents("div.num").attr("class");
+			if(cls_str.indexOf("style_1")>0){
+				//continue;
+				//右边的
+				my_height = height - 70;//margin-top: 130px;
+
+			}else if(cls_str.indexOf("style_2")>0){
+				my_height = height - 210;  
+				$(this).parent("div").prevAll("div").each(function(){
+					my_height = my_height - $(this).height();
+				});
+			}
+			//获取原图大小
+			var img = $(this);
+			var theImage = new Image();
+			theImage.src = img.attr("src");
+			if (my_height < theImage.height){
+				$(this).css("height",my_height+"px");
+			}
+		});
+	}
+	window.onload = function() { 
+		imgAdjust();
+	}; 
+	//});
+	
+	
+</script>

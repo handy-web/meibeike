@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/plugins/cas/CAS/Request
+END
+RequestInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/plugins/cas/CAS/Request/RequestInterface.php
+END
+AbstractRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/plugins/cas/CAS/Request/AbstractRequest.php
+END
+CurlRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/plugins/cas/CAS/Request/CurlRequest.php
+END

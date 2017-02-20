@@ -1,0 +1,471 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>预约成功-抽奖</title>
+<link rel="stylesheet" type="text/css" href="{skin:lottery/css/pc_public.css}" />
+<link rel="stylesheet" type="text/css" href="{skin:lottery/css/activity.css}" />
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/pc_yuyue/css/layer.css" />
+<script src="{skin:lottery/js/jquery-1.9.0.min.js}"></script>
+<script src="{skin:lottery/js/awardRotate.js}"></script>
+<script src="{skin:lottery/js/activeity.js}"></script>
+<script type="text/javascript" src="{skin:images/pc_yuyue/js/layer.js}"></script>
+</head>
+
+<body class="ededed">
+<div class="top layout rel">
+  <span class="top-right"><a href="/"><i class="icon-people"></i>{$username}</a><a href="/">进入官网</a></span>
+  <span class="logo" ><a href="/"><img src="{skin:lottery/images/b_logo.png}"></a>重新定义个人云储存</span> </div>
+<div class="order-ok"> <img src="{skin:lottery/images/ordered-ok-icon.png}">
+  <p id="notice">预约号：<em>1472154</em></p>
+  <h2><em class="red">7月30日10点</em>开抢，请别忘记哦！</h2>
+<div style="margin:0 auto;text-align:center;width:600px;font-size:16px">怕抢购不到？走VIP通道，可获赠1T存储碟或120G存储棒，<span style="color:red">每天限额50名</span></div>
+<br/>
+<a href="{url:/site/vip_order}"><div style="margin:2px auto;background:red;text-align:center;color:#fff;line-height:30px;width:160px;">我要VIP预约</div></a>
+</div>
+<div class="drawbox"> 
+  <!--转盘--> 
+  <img src="{skin:lottery/images/cj01.png}" id="shi" style="display:none;" /> <img src="{skin:lottery/images/cj02.png}" id="ershi" style="display:none;" /> <img src="{skin:lottery/images/cj03.png}" id="sanshi" style="display:none;" /> <img src="{skin:lottery/images/cj04.png}" id="sishi" style="display:none;" /> <img src="{skin:lottery/images/cj05.png}" id="wushi" style="display:none;" /> <img src="{skin:lottery/images/cj06.png}" id="lishi" style="display:none;" />
+  <div class="banner">
+    <div class="turnplate" style="background-image:url(images/turnplate-bg.png);background-size:100% 100%;">
+      <canvas class="item" id="wheelcanvas" width="422px" height="422px"></canvas>
+      <img class="pointer" src="{skin:lottery/images/turnplate-pointer.png}" /> </div>
+  </div>
+  <!--转盘over--> 
+  
+</div>
+
+
+<h2 class="draw-rule"><a>抽奖规则<em class="st">&gt;</em></a></h2>
+<div class="winning-box">
+  <h3><em></em>中奖名单<em></em></h3>
+  <div class="inbox">
+    <dl>
+      <dt><span>中奖者</span><span class="b">奖品</span></dt>
+      <dd>
+        <ul class="mask-ul">
+          <li><span>小美</span><span class="b"> 获得60元现金券</span></li>
+          <li><span>来自~会会</span><span class="b"> 获得60元现金券</span></li>
+          <li><span>文思</span><span class="b"> 获得40元现金券</span></li>
+          <li><span>dontey</span><span class="b"> 获得60元现金券</span></li>
+          <li><span>均均俊俊</span><span class="b"> 获得50元现金券</span></li>
+          <li><span>来自星星的你</span><span class="b"> 获得30元现金券</span></li>
+          <li><span>LadyGaga</span><span class="b"> 获得30元现金券</span></li>
+          <li><span>莫莫木木</span><span class="b"> 获得30元现金券</span></li>
+          <li><span>大嗓门</span><span class="b"> 获得60元现金券</span></li>
+          <li><span>小河淌淌</span><span class="b"> 获得40元现金券</span></li>
+          <li><span>啊杰哥</span><span class="b"> 获得50元现金券</span></li>
+          <li><span>唐老鸭</span><span class="b"> 获得30元现金券</span></li>
+          <li><span>一柱擎天</span><span class="b"> 获得60元现金券</span></li>
+          <li><span>独孤糗百</span><span class="b"> 获得30元现金券</span></li>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<!-- 遮罩 抽中了 -->
+
+<div class="mask-box good-box">
+  <div class="coupon">
+    <h2>&nbsp;<a class="close">&nbsp;</a></h2>
+    <img src="{skin:lottery/images/coupon-60.png}">
+    <h3 class="red">恭喜您，抽中60元现金券</h3>
+    <h4><a href="{url:/site/myprize}" class="btn-a">查看奖励</a></h4>
+  </div>
+</div>
+
+<!-- 遮罩 没机会 -->
+
+<div class="mask-box nogood-box">
+  <div class="coupon nogood">
+    <h2>&nbsp;<a class="close">&nbsp;</a></h2>
+    <img src="{skin:lottery/images/happy-icon.png}">
+    <h3 class="red">恭喜您，机会已全部用完了</h3>
+    <h4><a href="#" class="btn-a">知道了</a></h4>
+  </div>
+</div>
+
+
+<!-- 遮罩 规则 -->
+
+<div class="mask-box rule-box">
+  <div class="coupon ">
+    <h5>抽奖规则 <a class="close">&nbsp;</a></h5>
+    <div class="rule-in">
+      <p>1、每一个预约用户仅有一次抽奖机会；<br>
+        2、抽得奖品为云棒抢购现金抵扣券；<br>
+        3、现金抵扣券有效期仅限6月20日当天使用；<br>
+        4、现金抵扣券仅限抽取时的账号使用，不能转赠和重复使用；<br>
+        5、本次活动解释权归美贝壳所有。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 抽奖网盘认证 -->
+
+
+
+<!--  <div class="mask-box  disk">
+  <div class="disk-box">
+    <h5>网盘用户身份认证 <a class="close">&nbsp;</a></h5>
+    <p class="title">请选择您是那种用户</p>
+    <ul>
+       <li><input type="radio" id="huawei" name="disk-radio" checked><label for="huawei">华为网盘</label></li>
+       <li><input type="radio" id="sina" name="disk-radio"><label for="sina">新浪微盘</label></li>
+       <li><input type="radio" id="jinshan" name="disk-radio"><label for="jinshan">金山快盘</label></li>
+    </ul>
+    <div class="input-box">
+    <input type="text" placeholder="请输入华为网盘账号名" style=" display:block;">
+    <input type="text" placeholder="请输入新浪微盘账号名">
+    <input type="text" placeholder="请输入金山快盘账号名">
+    </div>
+    <a href="#" class="sub-btn">提交</a>
+   
+  </div>
+</div>-->
+
+<!-- 提交-提示 -->
+
+<div class="mask-box hint">
+  <div class="hint-box">
+    <h5>提示 <a class="close">&nbsp;</a></h5>
+    <div class="hint-in">
+    <p>您的资料已提交，请等待审核</p>
+    </div>
+    <a href="#" class="sub-btn">知道了</a>
+   
+  </div>
+</div>
+
+
+<!-- 提交-成功 -->
+
+<div class="mask-box hint-ok">
+  <div class="hint-okbox">
+    <h2>&nbsp;<a class="close">&nbsp;</a></h2>
+    <img src="{skin:lottery/images/submit-ok-icon.png}">
+    <p>您的资料已提交，相关工作人员会在24小时内对您提交的资料进行审核。</p>
+    <h4><a href="#" class="btn-a">知道了</a></h4>
+  </div>
+</div>
+
+<!--  
+
+fadebox(boxname,closename);//遮罩事件
+  //boxname = 遮罩的class名称
+  //closename = 遮罩class里面的关闭按钮
+
+-->
+<div id="tong" class="layer_box">
+<div id="content_top"  class="layer_icon" style="font-size:24px;color#000">请选择您是哪种用户</div>
+<div class="layer_icon" style="display:none" id="success_notice"><span></span></div>
+<div class="content_mid">
+	<label><input name="account_type" type = "radio" value = '0'  />华为网盘</label>
+	<label><input name="account_type" type = "radio" value = '1' checked="checked"/>新浪网盘</label>
+	<label><input name="account_type" type = "radio" value = '2' />金山快盘</label>
+	<div class="end" style="margin-top:36px;margin-left:100px;width:276px;height:30px"><input style="height:30px;width:270px" name="account" maxlength="250" type="text"/></div>
+</div>	
+	<div class="sub"><input id="btn" style="width:148px;height:40px;margin:0 auto;background:rgb(230,57,53);color:#fff;font-size:16px" type="submit" value="提交"></div>
+</div>
+<style>
+label{
+	font-size:18px;
+	margin-left:24px;
+}
+#tong{
+	height:360px;
+}
+#tong .sub{
+	margin-top:36px;margin-left:100px;width:276px;height:40px;;
+}
+</style>
+<script>
+$(function(){
+	var apk = {$apk};
+	if(apk == ''){
+		alert('非法请求');
+	}
+	$('#notice em').html(apk);
+	$('.draw-rule a').click(function(){
+		fadebox('.rule-box','.close');
+		
+		});
+	tabradio('.mask-box .disk-box li','.mask-box .disk-box .input-box input')	
+	});
+</script> 
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#wangpan').click(function(){
+		layer.open({
+			  type: 1,
+			  title: false,
+			  closeBtn: 1,
+			  area: '516px',
+			  shadeClose: true,
+			  content: $('#tong')});
+		
+				$("#tong input[name='account_type']").each(function(){
+					if($(this).val()=='0'){}
+					   if($("#tong input[name='account_type']:checked").val()=='0'){
+							$("#tong input[name='account']").val('请输入华为网盘账号');
+						}else if($("#tong input[name='account_type']:checked").val()=='1'){
+							$("#tong input[name='account']").val('请输入新浪微盘账号');
+						}else if($("#tong input[name='account_type']:checked").val()=='2'){
+							$("#tong input[name='account']").val('请输入金山快盘账号');
+						}
+				});
+				
+				$("#tong input[name='account_type']").click(function(){
+					if($(this).val()=='0'){
+						$("#tong input[name='account']").val('请输入华为网盘账号');
+					}else if($(this).val()=='1'){
+						$("#tong input[name='account']").val('请输入新浪微盘账号');
+					}else if($(this).val()=='2'){
+						$("#tong input[name='account']").val('请输入金山快盘账号');
+					}
+				});
+				
+				$("#tong input[name='account']").focus(function(){
+					$("#tong input[name='account']").val('');
+				});
+				
+				$('#btn').click(function(){
+					var account_type = $("#tong input[name='account_type']:checked").val();
+					var account = $("#tong input[name='account']").val();
+					if(account == '' || account == '请输入华为网盘账号' || account == '请输入新浪微盘账号' || account == '请输入金山快盘账号'){
+						alert('请输入网盘账号');
+						return false;
+					}
+				    $.ajax({
+				        type: "POST",
+				        url: "{url:/lottery/netDiskVerify}",
+				        data: {
+				        "account_type":account_type,"account":account
+				        },
+				        dataType: "json",
+				        success: function (d,s,r) {
+				            if (d.code==1) {
+				            	$('#content_top').hide();
+				            	$('#success_notice').show();
+								$('#tong .content_mid').html(d.message);
+								$('#tong #btn').val("我知道了");
+								$("#tong input[name='account']").val('');
+								$('#btn').click(function(){
+									window.location.reload();
+								});
+				            }else{
+				            	alert(d.message);
+				            }
+				        }
+				    });
+					
+				});
+	});	
+	
+});
+</script>
+<script type="text/javascript">
+			var turnplate = {
+				restaraunts: [], //大转盘奖品名称
+				colors: [], //大转盘奖品区块对应背景颜色
+				outsideRadius: 184, //大转盘外圆的半径
+				textRadius: 100, //大转盘奖品位置距离圆心的距离
+				insideRadius: 50, //大转盘内圆的半径
+				startAngle: 0, //开始角度
+				bRotate: false //false:停止;ture:旋转
+			};
+			$(document).ready(function() {
+				//动态添加大转盘的奖品与奖品区域背景颜色
+				turnplate.restaraunts = ["10", "20", "30", "40", "50", "60"];
+				turnplate.colors = ["#fbf24d", "#ffd200", "#fbf24d", "#ffd200", "#fbf24d", "#ffd200"];
+				var rotateTimeOut = function() {
+					$('#wheelcanvas').rotate({
+						angle: 0,
+						animateTo: 2160,
+						duration: 8000,
+						callback: function() {
+							alert('网络超时，请检查您的网络设置！');
+						}
+						
+					});
+				};
+				//旋转转盘 item:奖品位置; txt：提示语;
+				var rotateFn = function(item, txt) {
+					var angles = item * (360 / turnplate.restaraunts.length) - (360 / (turnplate.restaraunts.length * 2));
+					if (angles < 270) {
+						angles = 270 - angles;
+					} else {
+						angles = 360 - angles + 270;
+					}
+					$('#wheelcanvas').stopRotate();
+					$('#wheelcanvas').rotate({
+						angle: 0,
+						animateTo: angles + 1800,
+						duration: 8000,
+						callback: function() {
+							$('.mask-box img').attr('src','{skin:lottery/images/}'+'coupon-'+txt+'.png')													
+							$('.mask-box h3').html('恭喜您，抽中'+txt+'元优惠券');
+							//alert(txt);
+							turnplate.bRotate = !turnplate.bRotate;
+							fadebox('.good-box','.close');
+						}
+					});
+				};
+				$('.pointer').click(function() {
+					if (turnplate.bRotate) return;
+					turnplate.bRotate = !turnplate.bRotate;
+					//获取随机数(奖品个数范围内)
+					//var item = rnd(1, turnplate.restaraunts.length);
+					//alert(item);
+					//奖品数量等于10,指针落在对应奖品区域的中心角度[252, 216, 180, 144, 108, 72, 36, 360, 324, 288]
+					//rotateFn(item, turnplate.restaraunts[item - 1]);
+					//console.log(item);
+			        $.ajax({
+			             type: "POST",
+			             url: "{url:simple/appointment_lottery}",
+			             data: {"purchase_time":'20160730'},
+			             dataType: "json",
+			             success: function (d,s,r) {
+			                 if (d.code==1) {
+		                	 	 var item = d.description;
+		 						 rotateFn(item, turnplate.restaraunts[item - 1]);
+							     console.log(item);
+			                 }else if(d.code==2){
+			                	 alert(d.message);	
+								 var jump = function(){
+									 window.location.href="/site/yuyue";
+								 }
+								 setInterval(jump,500); 
+			                 }else{
+			                	 alert(d.message);
+			                 }
+			             }
+			        });
+				});
+			});
+
+			function rnd(n, m) {
+				var random = Math.floor(Math.random() * (m - n + 1) + n);
+				return random; /*随机数*/
+			}
+			//页面所有元素加载完毕后执行drawRouletteWheel()方法对转盘进行渲染
+			window.onload = function() {
+				drawRouletteWheel();
+			};
+
+			function drawRouletteWheel() {
+				var canvas = document.getElementById("wheelcanvas");
+				if (canvas.getContext) {
+					//根据奖品个数计算圆周角度
+					var arc = Math.PI / (turnplate.restaraunts.length / 2);
+					var ctx = canvas.getContext("2d");
+					//在给定矩形内清空一个矩形
+					ctx.clearRect(0, 0, 422, 422);
+					//strokeStyle 属性设置或返回用于笔触的颜色、渐变或模式  
+					ctx.strokeStyle = "#FFBE04";
+					//font 属性设置或返回画布上文本内容的当前字体属性
+					ctx.font = '0px Microsoft YaHei';
+					for (var i = 0; i < turnplate.restaraunts.length; i++) {
+						var angle = turnplate.startAngle + i * arc;
+						ctx.fillStyle = turnplate.colors[i];
+						ctx.beginPath();
+						//arc(x,y,r,起始角,结束角,绘制方向) 方法创建弧/曲线（用于创建圆或部分圆）    
+						ctx.arc(211, 211, turnplate.outsideRadius, angle, angle + arc, false);
+						ctx.arc(211, 211, turnplate.insideRadius, angle + arc, angle, true);
+						ctx.stroke();
+						ctx.fill();
+						//锁画布(为了保存之前的画布状态)
+						ctx.save();
+						//----绘制奖品开始----
+						ctx.fillStyle = "#ff0a27";
+						var text = turnplate.restaraunts[i];
+						var line_height = 17;
+						//translate方法重新映射画布上的 (0,0) 位置
+						ctx.translate(211 + Math.cos(angle + arc / 2) * turnplate.textRadius, 211 + Math.sin(angle + arc / 2) * turnplate.textRadius);
+						//rotate方法旋转当前的绘图
+						ctx.rotate(angle + arc / 2 + Math.PI / 2);
+						/** 下面代码根据奖品类型、奖品名称长度渲染不同效果，如字体、颜色、图片效果。(具体根据实际情况改变) **/
+						if (text.indexOf("M") > 0) { //流量包
+							var texts = text.split("M");
+							for (var j = 0; j < texts.length; j++) {
+								ctx.font = j == 0 ? 'bold 20px Microsoft YaHei' : '16px Microsoft YaHei';
+								if (j == 0) {
+									ctx.fillText(texts[j] + "M", -ctx.measureText(texts[j] + "M").width / 2, j * line_height);
+								} else {
+									ctx.fillText(texts[j], -ctx.measureText(texts[j]).width / 2, j * line_height);
+								}
+							}
+						} else if (text.indexOf("M") == -1 && text.length > 7) { //奖品名称长度超过一定范围 
+							text = text.substring(0, 7) + "||" + text.substring(7);
+							var texts = text.split("||");
+							for (var j = 0; j < texts.length; j++) {
+								ctx.fillText(texts[j], -ctx.measureText(texts[j]).width / 2, j * line_height);
+							}
+						} else {
+							//在画布上绘制填色的文本。文本的默认颜色是黑色
+							//measureText()方法返回包含一个对象，该对象包含以像素计的指定字体宽度
+							ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+						}
+						//添加对应图标
+						if (text == "10") {
+							var img = document.getElementById("shi");
+							img.onload = function() {
+								ctx.drawImage(img, -87, -80);
+							};
+							ctx.drawImage(img, -87, -80);
+						} else if (text == "20") {
+							var img = document.getElementById("ershi");
+							img.onload = function() {
+								ctx.drawImage(img, -87, -80);
+							};
+							ctx.drawImage(img, -87, -80);
+						} else if (text == "30") {
+							var img = document.getElementById("sanshi");
+							img.onload = function() {
+								ctx.drawImage(img, -87, -80);
+							};
+							ctx.drawImage(img, -87, -80);
+						} else if (text == "40") {
+							var img = document.getElementById("sishi");
+							img.onload = function() {
+								ctx.drawImage(img, -87, -80);
+							};
+							ctx.drawImage(img, -87, -80);
+						} else if (text == "50") {
+							var img = document.getElementById("wushi");
+							img.onload = function() {
+								ctx.drawImage(img, -87, -80);
+							};
+							ctx.drawImage(img, -87, -80);
+						}else if (text == "60") {
+							var img = document.getElementById("lishi");
+							img.onload = function() {
+								ctx.drawImage(img, -87, -80);
+							};
+							ctx.drawImage(img, -87, -80);
+						}
+						//把当前画布返回（调整）到上一个save()状态之前 
+						ctx.restore();
+						//----绘制奖品结束----
+					}
+				}
+			}
+		</script> 
+<script>
+$(function(){
+	
+	$('.top dl').mouseover(function(){
+		$(this).addClass('on');
+		$(this).find('dd').slideDown(150);
+	});
+    $('.top dl').mouseleave(function(){
+		$(this).removeClass('on');
+		$(this).find('dd').stop().slideUp(150);
+	});
+
+	})
+</script>
+</body>
+</html>

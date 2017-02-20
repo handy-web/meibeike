@@ -1,0 +1,17 @@
+<script src="http://api.html5media.info/1.1.4/html5media.min.js"></script> 
+<div style="width:1000px;margin:0 auto">
+<video width="1000" height="444" src="/videoplay/video/ybgg.mp4" poster="/videoplay/images/ybgg.png" controls="controls" autoplay="autoplay" preload="auto" loop="loop">
+<!--  <SCRIPT LANGUAGE=JavaScript>
+var vID        = ""; 
+var vWidth     = "100%";
+var vHeight    = 400;
+var vFile      = "/videoplay/CuSunV2set.xml";
+var vPlayer    = "/videoplay/player.swf?v=2.5";
+var vPic       = "/videoplay/images/ybgg.png";
+var vCssurl    = "/videoplay/images/mini.css";
+//PC,安卓,iOS
+var vMp4url    = "/videoplay/video/ybgg.mp4";
+</SCRIPT> 
+<script  class="CuPlayerVideo" data-mce-role="CuPlayerVideo" type="text/javascript" src="/videoplay/js/CuSunX1.min.js"></script>-->
+</div>
+

@@ -1,0 +1,26 @@
+<div class="middle_wrapper" style="background: white; height: 600px;">
+    <div class="middler_content_wrapper">
+        <div class="feedback" style="width: 1180px; height: 250px; margin: 0 auto; margin-top: 57px; margin-bottom: 360px; border-radius: 5px; border: 1px solid rgb(215, 215, 215); background-color: rgb(254, 252, 224);">
+            <div class="title" style="width: 100%; height: 40px; margin-top: 40px; padding-left: 130px; font-size: 16px;">
+                <label style="float: left; width: 30px; height: 30px; line-height: 30px; text-align: center; border-radius: 15px; background-color: rgb(0, 195, 180); color: #FFF;">√</label>
+                <label style="float: left: width: 100px; height: 30px; line-height: 30px; margin-left: 10px;">恭喜注册成功！你的账户为：</label>
+            </div>
+            <!--邮箱验证需告知验证邮件事宜-->
+            {if:ISafe::get('email') }
+            <div class="content" style="width: 100%; height: 40px; padding-left: 170px; line-height: 40px; font-size: 14px;">
+                邮箱：{echo:ISafe::get('email')}  <a target="_blank" href='http://{echo:Isafe::get("email_prox")}'>系统已给您发送验证邮件，请点我查阅</a>
+            </div>
+            {else:ISafe::get('mobile')}
+            <div class="content" style="width: 100%; height: 40px; padding-left: 170px; line-height: 40px; font-size: 14px;">
+                手机号码：{echo:ISafe::get('mobile')}
+            </div>
+            {/if}
+            <div class="content" style="width: 100%; height: 40px; padding-left: 170px; line-height: 40px; font-size: 14px;">
+                昵称：{echo:ISafe::get('username')}
+            </div>
+            <div class="content" style="width: 100%; height: 40px; margin-top: 20px; padding-left: 170px; line-height: 40px; font-size: 14px;">
+                <a href="{url:/site/index}" style="text-decoration: none; text-align: center; float: left; width: 180px; height: 40px; line-height: 40px; background-color: rgb(252, 62, 57); border-radius: 3px; border: 0px; color: #FFF; font-size: 16px; cursor: pointer;">完成</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+{set:$user_id = $this->user['user_id']}
+{query:name=member where=user_id eq $user_id item=$user}{/query}
+{query:name=order fields=sum(order_amount) as amount,count(id) as num where=user_id eq $user_id and pay_status eq 1 item=$statistics}{/query}
+{set:$msgObj = new Mess($user_id);$msgNum = $msgObj->needReadNum()}
+{set:$propIds = trim($user['prop'],',');$propIds = $propIds ? $propIds : 0}
+{query:fields=count(id) as prop_num name=prop where= id in ($propIds) and type eq 0 item=$propData}{/query}
+
+<section style="width:100%">
+	<div class="user">
+		<!--顶部基本信息 开始-->
+	    <div class="info">
+	        <table width="100%">
+	            <tbody>
+	                <tr style="height:30px;">
+	                    <td width="50%">
+	                        用户名：{$this->user['username']}
+	                    </td>
+	                    <td>
+	                        余额：
+	                        <strong>￥{$user['balance']}</strong>
+	                    </td>
+	                </tr>
+	                <tr style="height:30px;">
+	                    <td>
+	                        积分：
+	                        <strong>{$user['point']}</strong>
+	                    </td>
+	                    <td>
+	                    	代金券：
+	                        <strong>{$propData['prop_num']} 张</strong>
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </div>
+	    <!--顶部基本信息 结束-->
+
+		<!--账户管理菜单 开始-->
+		<div class="menu">
+			<ul>
+				<li>
+					<a href="{url:/ucenter/order}">我的订单</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/integral}">我的积分</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/redpacket}">我的代金券</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/refunds}">退款申请</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/account_log}">账户余额</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/withdraw}">申请提现</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/evaluation}">我的评论</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/favorite}">我的收藏</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/online_recharge}">在线充值</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/address}">地址管理</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/info}">个人资料</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+
+				<li>
+					<a href="{url:ucenter/password}">密码修改</a>
+					<a class="link"><span class="more"><span class="inner"></span></span></a>
+				</li>
+			</ul>
+		</div>
+		<!--账户管理菜单 结束-->
+
+		<!--退出按钮 开始-->
+	    <div class="quit">
+	        <a href="{url:/simple/logout}" id="btn_quit" class="btn">
+	            退出登录
+	        </a>
+	    </div>
+	    <!--退出按钮 结束-->
+	</div>
+</section>

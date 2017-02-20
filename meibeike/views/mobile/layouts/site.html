@@ -1,0 +1,72 @@
+{set:
+	$myCartObj  = new Cart();
+	$myCartInfo = $myCartObj->getMyCart();
+	$siteConfig = new Config("site_config");
+	$callback   = IReq::get('callback') ? urlencode(IFilter::act(IReq::get('callback'),'url')) : '';
+	$pcTheme = $this->module->config['theme']['pc'];
+	$pcSkin  = $this->module->config['skin']['pc'];
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{echo:$siteConfig->name}</title>
+	<link type="image/x-icon" href="favicon.ico" rel="icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+	<link rel="apple-touch-icon-precomposed" href="{skin:images/front/logo.gif}">
+	<link rel="stylesheet" href="{skin:css/home.css}" />
+
+	{js:jquery}
+	{js:form}
+	{js:validate}
+	{js:dialog}
+	{js:artTemplate}
+
+	<script type='text/javascript' src="{theme:javascript/common.js}"></script>
+	<script type='text/javascript' src='{theme:javascript/site.js}'></script>
+</head>
+
+<body>
+	<!--头部信息 开始-->
+	<header>
+		<div class="header">
+			<a class="back" href="javascript:void(0)" onclick="history.back();" title="返回"></a>
+			<span class="headline">{echo:$siteConfig->name}</span>
+			<a class="search" href="javascript:void(0)" onclick="$('.search-area').toggle('slow');" title="搜索商品"></a>
+		</div>
+	</header>
+	<!--头部信息 结束-->
+
+	<div class="viewport" style="margin-top:80px;margin-bottom:20px;">
+		<!--搜索框 开始-->
+		<div class="search-area">
+			<form method='get' action='{url:/}'>
+				<input type='hidden' name='controller' value='site' />
+				<input type='hidden' name='action' value='search_list' />
+				<input class="large" type="text" name='word' autocomplete="off" value="输入关键字..." />
+				<input class="btn" type="submit" value="搜索" onclick="checkInput('word','输入关键字...');" />
+			</form>
+		</div>
+		<!--搜索框 结束-->
+
+		{viewcontent}
+	</div>
+
+	<!--页脚 开始-->
+    <div class="footer">
+        <div class="g_1">
+            <a href="{url:}">首页</a>
+            <a href="{url:/ucenter/index}">用户中心</a>
+            <a href="{url:/simple/cart}">购物车</a>
+            <a href="{url:/site/index/__theme/$pcTheme/__skin/$pcSkin}">电脑版</a>
+        </div>
+
+        <div class="g_2">
+        	<a href="#">返回顶部</a>
+        </div>
+    </div>
+    <!--页脚 结束-->
+</body>
+</html>

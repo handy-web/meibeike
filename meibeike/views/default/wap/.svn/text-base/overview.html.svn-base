@@ -1,0 +1,33 @@
+<div id="wrapper">
+      <div  class="container" id="detail">
+        <div class="row">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_01.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_02.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_03.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_04.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_05.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_06.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_07.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_08.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_09.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_10.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_11.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_12.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_13.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_14.jpg" class="img-responsive">
+          <img src="http://o8nj7d5m4.bkt.clouddn.com/yuyue_detail_15.jpg" class="img-responsive">  
+	      <div class="row">
+	      </div>
+    </div>
+    </div>
+     <!--<div class="over-tab">
+          <h1>预约<span>云棒</span></h1>
+          <h2 class="headline h2">皆有机会获得1T存储碟</h2>
+          <p>9月3日上午11点开抢</p>
+          <div class="over-but">
+          	 <a href="/wap/yuyue">现在去预约</a>
+          </div> 
+     </div>-->
+</body>
+</html>
+

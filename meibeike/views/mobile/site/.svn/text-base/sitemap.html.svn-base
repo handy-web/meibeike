@@ -1,0 +1,29 @@
+<!--分类信息 开始-->
+<div class="tab">
+	<div class="label">
+		<a class="label1" href="javascript:void(0)">
+			<i class="on"></i>分类浏览
+		</a>
+	</div>
+
+	<div class='category'>
+	    <ul>
+	    	{query:name=category where=parent_id eq 0 order=sort asc item=$first items=$firsts}
+	        <li class="clearfix">
+	            <div class="info">
+	                <p class="name">
+	                    <a href="{url:/site/pro_list/cat/$first[id]}">{$first['name']}</a>
+	                </p>
+
+	                <div class="data">
+	                    {query:name=category where=parent_id eq $first[id] order=sort asc item=$second items=$seconds}
+						<a href="{url:/site/pro_list/cat/$second[id]}">{$second['name']}</a>
+						{/query}
+	                </div>
+	            </div>
+	        </li>
+	        {/query}
+	    </ul>
+	</div>
+</div>
+<!--分类信息 结束-->

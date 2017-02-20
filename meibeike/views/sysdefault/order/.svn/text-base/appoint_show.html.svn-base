@@ -1,0 +1,41 @@
+<div class="headbar clearfix">
+	<div class="position">订单<span>></span><span>单据管理</span><span>></span><span>预约单信息</span></div>
+</div>
+
+<div class="content">
+	<table width="100%" class="border_table" style="margin:10px auto">
+		<col width="200px" />
+		<col />
+		<tbody>
+			<tr class='t_l'>
+				<th>预约号码：</th><td>{$appointment_no}</td>
+			</tr>
+      <tr class='t_l'>
+				<th>预约活动号码：</th><td>{$purchase_time}</td>
+			</tr>
+			<tr class='t_l'>
+				<th>预约时间：</th><td>{$create_time}</td>
+			</tr>
+      <tr class='t_l'>
+				<th>昵称：</th><td>{$username}</td>
+			</tr>
+      <tr class='t_l'>
+				<th>MeiID：</th><td>{if:!empty($mobile)}手机：{$mobile}{/if}{if:!empty($email)} &nbsp;&nbsp;Email:{$email}{/if}</td>
+			</tr>
+		  <tr class='t_l'>
+				<th>内部ID：</th><td>{$mei_id}</td>
+			</tr>
+      <tr class='t_l'>
+				<th>预约来源：</th><td>{if:strpos($appointment_from,"http://") === 0}<a href="{$appointment_from}" target="_blank">{$appointment_from}</a>{else:}{$appointment_from}{/if}</td>
+			</tr>
+			<tr class='t_l'>
+				<th>网盘厂家：</th><td>{if:$user_type==1}普通用户{else:}华为网盘{/if}</td>
+			</tr>
+		
+			<tr class='t_l'>
+				<th>网盘截图：</th><td><img src="{$pic_url}"/></td>
+			</tr>
+		
+		</tbody>
+	</table>
+</div>

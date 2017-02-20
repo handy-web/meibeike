@@ -1,0 +1,178 @@
+{js:my97date}
+
+<input type='hidden' id="v_name" value='{$name}' />
+<input type='hidden' id="v_order_no" value='{$order_no}' />
+<input type='hidden' id="v_start_time" value='{$start_time}' />
+<input type='hidden' id="v_end_time" value='{$end_time}' />
+
+
+<div class="headbar">
+    <div class="position">订单<span>></span><span>订单管理</span><span>></span><span>订单列表</span></div>
+    <div class="operating">
+
+        <div class="search f_r">
+            <form name="serachuser" action="{url:/}" method="get">
+                <input type='hidden' name='controller' value='order' />
+                <input type='hidden' name='action' value='order_beihuo' />
+              
+           
+        </div>
+        <div class="search f_r">
+           
+
+				用户名：<input class="small" name="name" type="text" value="{$name}" />
+                订单号：<input class="small" name="order_no" type="text" value="{$order_no}" />
+				开始时间：<input type='text' id='start_time' name='start_time' class='Wdate' value="{$start_time}" pattern='datetime' readonly=true onFocus="WdatePicker({startDate:'%y-%M-{%d-1} 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})" onblur="FireEvent(this,'onchange');"  /> 
+				结束时间：		<input type='text' id='end_time' name='end_time' class='Wdate' value="{$end_time}" pattern='datetime' readonly=true onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onblur="FireEvent(this,'onchange');"  />
+				
+                <button class="btn" type="submit"><span class="sch">搜 索</span></button>
+            </form>
+        </div>
+        <a href="javascript:void(0);" onclick="selectAll('id[]')"><button class="operating_btn" type="button"><span class="sel_all">全选</span></button></a>
+        <a href="javascript:void(0);" onclick="delModel({form: 'orderForm'})"><button class="operating_btn" type="button"><span class="delete">批量删除</span></button></a>
+    </div>
+  <form action="{url:/}" method="get" name="order_list">
+        
+           
+        </form>
+    <div class="field">
+        <table class="list_table">
+            <col width="30px" />
+            <col width="220px" />
+            <col width="100px" />
+            <col width="80px" />
+            <col width="150px" />
+            <col width="280px" />
+            <col width="115px" />
+            <col width="80px" />
+            <col />
+            <thead>
+                <tr>
+                    <th class="t_c">选择</th>
+                    <th>订单号</th>
+                    <th>订单状态</th>
+                    <th>操作人</th>
+                    <th>操作时间</th>
+                    <th>购买商品</th>
+                    <th>订单金额</th>
+                    <th>配送方式</th>
+                    <th>支付方式</th>
+                    <th>MeiID</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<form name="orderForm" id="orderForm" action="{url:/order/order_del}" method="post">
+    <div class="content">
+        <table class="list_table">
+            <col width="30px" />
+            <col width="220px" />
+            <col width="100px" />
+            <col width="80px" />
+            <col width="150px" />
+            <col width="280px" />
+            <col width="115px" />
+            <col width="80px" />
+            <col />
+            <tbody>
+                {set:$page= (isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}
+                {query: name=order as o join=left join delivery as d on o.distribution eq d.id left join payment as p on o.pay_type eq p.id left join user as u on u.id eq o.user_id left join order_goods as a on a.order_id eq o.id   fields=o.id as oid,d.name as dname,o.pay_type,p.name as pname,o.order_no,o.accept_name,o.pay_status,o.distribution_status,u.username,u.meiid,u.mobile,u.email,o.status,o.if_print,a.goods_array,a.real_price where=if_del eq 0 and o.pay_status eq 1 and o.fahuo_status eq 1 $where order=o.id desc page=$page }
+                <tr>
+                    <td class="t_c"><input name="id[]" type="checkbox" value="{$item['oid']}" /></td>
+                    <td title="{$item['order_no']}"><a href="/order/order_show/id/{$item['oid']}">{$item['order_no']}</a></td>
+                    <td >待备货</td>
+                    <td title="{$item['user_id']}">{echo:Order_Class::getoperatorname($item['oid'])}</td>
+                    <td title="{$item['createtime']}">{echo:Order_Class::getoperatortime($item['oid'])}</td>
+                    <td><span>{echo:Order_Class::getOrderGoodsNameText($item['goods_array'])}</span></td>
+                    <td>{$item['real_price']}</td>
+                    <td title="{$item['dname']}">{$item['dname']}</td>         
+					<td>{$item['pname']}</td>
+                    <td>{if:!empty($item['mobile'])}{$item['mobile']}{/if}{if:!empty($item['email'])}<br />{$item['email']}{/if}</td>
+                    <td><a href="javascript:comfirmmoney({$item['oid']},{$item['order_no']})">确认备货</a></td>
+                </tr>
+                {/query}
+            </tbody>
+        </table>
+    </div>
+    {$query->getPageBar()}
+</form>
+
+<script type='text/javascript'>
+$(document).ready(function(){ 
+	if($("#start_time").val()==""){
+	var s = new Date();
+	var e = new Date();
+	s.setDate(e.getDate()-180);
+　　$("#start_time").val(getdate(s));
+    $("#end_time").val(getdate(e));
+	$("#v_start_time").val(getdate(s));
+    $("#v_end_time").val(getdate(e));
+	}
+
+}); 
+
+//DOM加载结束
+    $(function () {
+        var formInstance = new Form('order_list');
+        formInstance.init({
+            "pay_status": "{$pay_status}",
+            "distribution_status": "{$distribution_status}",
+            "status": "{$status}"
+        });
+
+        //高亮色彩
+        $('[name="payStatusColor1"]').addClass('green');
+        $('[name="disStatusColor1"]').addClass('green');
+       
+    });
+
+function getdate(d)
+{
+
+var vYear = d.getFullYear()
+var vMon = d.getMonth() + 1
+var vDay = d.getDate()
+var h = d.getHours(); 
+var m = d.getMinutes(); 
+var se = d.getSeconds(); 
+s=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay)+" "+(h<10 ? "0"+ h : h)+":"+(m<10 ? "0" + m : m)+":"+(se<10 ? "0" +se : se);
+return s;
+}
+
+function comfirmmoney(i,j)
+{
+	if(confirm("确定已经备货了吗？"))
+	{
+	//alert(i+"111");
+	 $.ajax({
+         type: "POST",
+         url: "{url:order/addfahuolog}",
+         data: "oid="+i+"&status=2",
+         dataType: "json",
+         success: function (d,s,r) {
+
+             alert(d.message);
+             if (d.code==1) {
+				 $.get("{url:/order/order_prepare}",{'order_no':j,'id':i}, function(data)
+					{
+						if(data=='success')
+						{
+							actionCallback();
+						}
+						else
+						{
+							alert('发生错误');
+						}
+					});
+				 window.location.reload();
+				 return false;
+             }
+         }
+     });	
+	 }
+
+}
+</script>

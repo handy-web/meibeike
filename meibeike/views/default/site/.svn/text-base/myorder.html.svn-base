@@ -1,0 +1,100 @@
+
+<style>body{background:#e8e8e8}</style>
+
+ <div class="manage-c1" style="margin-bottom: 50px;overflow: hidden;">
+            	<div class="manage-cen">
+            		<div class="manage-dav">
+            			<span><a style="color: #666;" href="{url:/site/sy}">首页</a></span><span> > </span><span>个人中心</span>
+            		</div>
+            		
+            		<div class="manage-left">
+            			<div class="manage-left-cen">
+            				<ul class="manage-left-ul">
+            					<li><a href="{url:/tool/account}">账号管理</a></li>
+            					<li style="text-indent:0;background:#fff;cursor:auto;"><a style="color: #FA3D39;font-weight: bold;" href="{url:/site/myorder}">我的预约 ></i></a></li>
+            					<li><a href="{url:/tool/order}">我的订单</a></li>
+            					<li style="color: #eee;" class="mana-cin">———————</li>
+            					<li><a href="{url:/ucenter/address}">我的地址</a></li>
+            					<li><a href="{url:/site/myprize}">我的奖品</a></li>
+            					<li><a href="{url:/tool/myfcode}">我的F码</a></li>
+            				</ul>
+            			</div>
+            		</div>
+
+            		
+            		<div class="manage-right">
+            			<div class="manage-right-top">我的预约</div>
+            			<div class="myorder-center" style="margin-bottom: 40px;">           				
+            				<table class="myorder-yy">
+            					<tbody>
+            						<tr>
+            							<td style="padding: 5px 0;">活动名称</td>
+            							<td style="padding: 5px 0;">预约号</td>
+            							<td style="padding: 5px 0;">预约时间</td>
+            							<td style="padding: 5px 0;">抢购时间</td>          							
+            						</tr>
+            						{foreach:items=$order}
+            						 <tr>
+	            						<td>{$item['activity_desc']}</td>				            			
+				            			<td>{$item['appointment_no']}</td>
+				            			<td>{$item['create_time']}</td>				 
+				            			<td>{$item['purchase_date']}</td>
+	            					</tr>
+	            					{/foreach}
+            					</tbody>
+            				</table>
+            				
+            				<!--暂无订单-->
+            				<div style='{if:empty($order)}{echo "display:block"}{else:}{echo: "display:none"}{/if};padding: 106px 0;' class="myorder-none">
+            					<img src="{skin:images/front/img/none-yy.png}" />
+            					<p>暂无预约</p>
+            				</div>
+            				
+            			</div>
+            		</div>
+            	</div>           	
+            </div>
+          
+		</div>
+		<script>
+			//IE8兼容
+			if($.browser.msie && parseInt($.browser.version) == 8){
+				$('.myorder-yy td:nth-child(1)').css('width','290px');
+				$('.myorder-yy td:nth-child(2)').css('width','150px');
+				$('.myorder-yy td:nth-child(3)').css('width','290px');
+				$('.myorder-yy td:nth-child(4)').css('width','250px');				
+			}
+		</script>
+		<!--中间内容over-->
+
+
+
+
+
+
+
+<!--
+<style type="text/css">
+.content {width:1120px;margin:0 auto;}
+.content .table_content {min-height:500px;}
+.content .table_content table  {width:100%;border: 1px solid #ccc;}
+.content .table_content table tr {text-align:center;height:35px;line-height:35px;}
+.content .table_content table tr td {border-right: 1px solid #ccc;}
+.content .order_th {background:#eee;}
+</style>
+<div class="content">
+<div class="title"><h1>我的预约</h1></div>
+<div class="table_content">
+<table border="1">
+<tr class="order_th"><td>活动名称</td><td>预约号</td><td>预约时间</td><td>抢购时间</td></tr>
+{foreach:items=$order}
+<tr>
+<td>{$item['activity_desc']}</td>
+<td>{$item['appointment_no']}</td>
+<td>{$item['create_time']}</td>
+<td>{$item['purchase_time']}</td>
+</tr>
+{/foreach}
+</table>
+</div>
+</div>-->

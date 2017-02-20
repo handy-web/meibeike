@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/lib/core/util/phpmailer
+END
+PHPMailerAutoload.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/lib/core/util/phpmailer/PHPMailerAutoload.php
+END
+class.phpmailer.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/lib/core/util/phpmailer/class.phpmailer.php
+END
+class.pop3.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/lib/core/util/phpmailer/class.pop3.php
+END
+class.smtp.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/lib/core/util/phpmailer/class.smtp.php
+END

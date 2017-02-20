@@ -1,0 +1,1417 @@
+<style type="text/css">
+    .alert_input {border: 2px red solid;}
+
+    .book_wrapper {float: left; width: 100%; background-color: rgb(255,255,255); padding-bottom: 30px;}	
+    .book_wrapper .book_content {width: 1200px; height: auto; margin: 0 auto;}
+    .book_wrapper .book_content #content_2 {display: none;}
+    .book_wrapper .book_content .header {float: left; width: 100%; height: 90px; line-height: 90px; margin-top: 10px; padding-left: 0px; font-size: 32px;}
+    .book_wrapper .book_content .content {float: left; width: 1200px; height: 721px; margin-left: 0px; border-radius: 5px; 
+                                          border: rgb(188, 188, 188) 1px solid; box-shadow: 0 0 5px rgb(180, 180, 180); background-color: #FFF;}
+    .book_wrapper .book_content .content .c_left {float: left; width: 734px; padding-left: 40px; height: 640px; border-right: 1px rgb(217, 217, 217) solid; 
+                                                  background-color: rgb(252, 252, 252); border-top-left-radius: 5px; border-bottom-left-radius: 5px;}
+
+    .book_wrapper .book_content .content .c_left .ui-carousel { height: 100px; margin: 0; overflow: auto; padding: 0; position: relative;  width: 300px }
+    .book_wrapper .book_content .content .c_left .ui-carousel > .wrapper { margin: 0; padding: 0; width: 9999px; }
+    .book_wrapper .book_content .content .c_left .ui-carousel > .wrapper > * { border: 0; display: block; float: left; height: 100px; overflow: hidden; width: 100px; }			
+    .book_wrapper .book_content .content .c_left #container { float: left; width: 100%; height: 520px; position: relative;  margin: 0 auto; margin-top: 40px;  }			
+    .book_wrapper .book_content .content .c_left .carousel { float: left; position: relative; width: 410px; left: 135px; text-align: center; }			
+    .book_wrapper .book_content .content .c_left #ui-carousel-next, #ui-carousel-prev { width: 40px; height: 40px; background: url({skin:/images/front/arrow_left.png}) rgb(252, 252, 252) center center no-repeat;
+    display: block; position: absolute; top: 235px;; z-index: 100; }
+    .book_wrapper .book_content .content .c_left #ui-carousel-next { right: 60px; background-image: url({skin:/images/front/arrow_right.png}); }
+    .book_wrapper .book_content .content .c_left #ui-carousel-prev { left: 45px; }			
+    .book_wrapper .book_content .content .c_left #ui-carousel-next > span, #ui-carousel-prev > span { display: none; }			
+    .book_wrapper .book_content .content .c_left .slide { float: left; width: 100%; height: 100%; text-align : center; margin: 0; position: relative; }						
+    .book_wrapper .book_content .content .c_left .slide > img { position: absolute; left: 0px; top: 0px; }
+    .book_wrapper .book_content .content .c_left #pages { float: left; height: 50px; line-height: 50px; width: 300px; }		
+    .book_wrapper .book_content .content .c_left .bullet { display: block; width: 40px; height: 40px; margin-bottom: 0px; margin-right: 15px; margin-top: 10px; float: left;}
+    .book_wrapper .book_content .content .c_left .on { }
+    .book_wrapper .book_content .content .c_left .off { }
+
+
+    .book_wrapper .book_content .content .c_right {float: left; width: 420px; height: 640px;}
+    .book_wrapper .book_content .content .c_right .cr_title {float: left; margin-left: 10px; height: 94px;  width: 400px; border-bottom: 1px solid rgb(217, 217, 217);}
+    .book_wrapper .book_content .content .c_right .cr_title label {float: left; margin-left: 20px; margin-top: 30px;font-size: 28px; }
+    .book_wrapper .book_content .content .c_right .cr_title img {float: left; margin-top: 27px; margin-left: 10px;}
+
+    .book_wrapper .book_content .content .c_right .sel_color {float: left; width: 100%; height: 100px; line-height: 100px; font-size: 18px; text-align: center;}
+    .book_wrapper .book_content .content .c_right .sel_color .circle {float: left; margin-top: 27px; margin-right: 32px; width: 46px; height: 46px; border-radius: 25px; cursor: pointer;}
+    .book_wrapper .book_content .content .c_right .sel_color .circle_sub {float: left; width: 40px; height: 40px; border-radius: 18px;  margin: 3px;}
+    .book_wrapper .book_content .content .c_right .sel_color .left {float: left; text-align: left; margin-left: 40px; width: 110px;}
+    .book_wrapper .book_content .content .c_right .sel_cap {float: left; margin-left: 40px; width: 300px; height: 50px; line-height: 50px; font-size: 18px;}
+
+    .book_wrapper .book_content .content .c_right .sel_cap_cb {float: left; margin-left: 40px; width: 300px; line-height: 50px; font-size: 20px;}
+    .book_wrapper .book_content .content .c_right .sel_cap_cb label.out {float: left; margin-bottom: 20px; width: 358px; height: 66px; line-height: 66px; cursor: pointer; }
+    .book_wrapper .book_content .content .c_right .sel_cap_cb label.in_left {float: left; padding-left: 60px; }
+    .book_wrapper .book_content .content .c_right .sel_cap_cb label.in_right {float: right; padding-right: 25px; }
+    .book_wrapper .book_content .content .c_right .sel_cap_cb label.sel_on {color: #FFF; background: url({skin:images/front/cb_selected.png})}
+    .book_wrapper .book_content .content .c_right .sel_cap_cb label.sel_off {color: rgb(182, 188, 196); background: url({skin:images/front/cb_not_selected.png})}
+
+    .book_wrapper .book_content .content .c_right .jishu {float: left; margin-top: 10px; width: 360px; height: 25px; line-height: 26px; font-size: 12px; padding-left: 40px;}
+    .book_wrapper .book_content .content .c_right .zhifu {float: left; margin-top: 0px; width: 360px; height: 60px; line-height: 26px; font-size: 12px; padding-left: 40px;}
+
+    .book_wrapper .book_content .content .c_footer {float: left; width: 100%; height: 80px; border-top: 1px rgb(217, 217, 217) solid; 
+                                                    background-color: rgb(252, 252, 252); border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;}
+
+    .book_wrapper .book_content .tech_rule {float: left; width: 1002px; margin-left: 99px; margin-top: 50px;
+                                            background-color: #FFF;}
+    .book_wrapper .book_c.book_wrapper .book_content .step_div {float: left; width: 100%; height: 60px; margin-top: 50px;}			 
+    .book_wrapper .book_content .step_div img {margin-left: 32px;}
+    .book_wrapper .book_content .tech_rule .tr_header {float: left; width: 100%; border-top-left-radius: 5px; border-top-right-radius: 5px; 
+                                                       background-color: rgb(252, 252, 252); height: 70px; line-height: 70px; border-bottom: 1px solid rgb(217, 217, 217); font-size: 18px;}
+    .book_wrapper .book_content .tech_rule .tr_header label {margin-left: 35px;}
+    .book_wrapper .book_content .tech_rule .tr_color {float: left; padding-left: 32px; padding-top: 70px; margin-bottom: 50px;}
+    .book_wrapper .book_content .tech_rule .tr_color .trc_left {float: left; width: 300px; height: 330px; border-bottom: 1px solid rgb(217, 217, 217); font-size: 18px;padding-top: 20px; padding-left: 20px;}
+    .book_wrapper .book_content .tech_rule .tr_color .trc_right {float: left; width: 650px; height: 350px; margin-left: 90px; border-bottom: 1px solid rgb(217, 217, 217);}
+
+    .book_wrapper .book_content .tech_rule .tr_rule {float: left;  padding-left: 32px; margin-bottom: 50px; }
+    .book_wrapper .book_content .tech_rule .tr_rule .trr_left {float: left; width: 300px; height: 80px; padding-top: 20px; padding-left: 20px;  font-size: 18px; border-bottom: 1px solid rgb(217, 217, 217);}
+    .book_wrapper .book_content .tech_rule .tr_rule .trr_right {float: left; width: 650px; height: 100px; line-height: 25px; margin-left: 90px; border-bottom: 1px solid rgb(217, 217, 217);}
+
+    .book_wrapper .book_content .tech_rule .tr_shuoming {float: left; width: 100%; text-align: center; height: 60px; line-height: 60px; font-size: 18px;}
+    .book_wrapper .book_content .tech_rule .tr_detail {}
+
+    .book_wrapper .book_content .tech_rule .tr_detail table { width: 1050px; font-size: 12px; text-align: center; margin-top: 50px; margin-bottom: 100px; margin-left: 30px;}
+    .book_wrapper .book_content .tech_rule .tr_detail table tr {}
+    .book_wrapper .book_content .tech_rule .tr_detail table th { border: 1px rgb(239, 239, 239) solid; height: 40px; line-height: 40px; background: rgb(245, 245, 245); text-align: center;}
+    .book_wrapper .book_content .tech_rule .tr_detail table td { border: 1px rgb(239, 239, 239) solid; line-height: 25px; padding-top: 20px; padding-left: 20px; padding-bottom: 20px;}
+    .book_wrapper .book_content .tech_rule .tr_detail table .style_col {width: 150px; }
+    .book_wrapper .book_content .tech_rule .tr_detail table .content_col {width: 300px;}
+    .book_wrapper .book_content .tech_rule .tr_detail table td .word_line {width: 100%; text-align: left; }
+    .book_wrapper .book_content .tech_rule .tr_detail table td.first {padding: 0px;}
+
+
+
+    .book_wrapper .book_content .step_div {float: left; width: 100%; height: 60px; margin-top: 50px;}			 
+    .book_wrapper .book_content .step_div img {margin-left: 32px;}
+    .book_wrapper .book_content .address {float: left; margin-left: 40px; width: 1120px; height: 370px; margin-bottom: 0; }
+    .book_wrapper .book_content .address .content {float: left; width: 100%; height: 370px; border-radius: 5px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+    .book_wrapper .book_content .address .content .ac_header {float: left; width: 100%; height: 60px; line-height: 60px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+    .book_wrapper .book_content .address .content .ac_header label {margin-left: 30px;}
+    .book_wrapper .book_content .address .content .ac_header a {display: block; cursor: pointer; float: right; margin-right: 20px; margin-top: 12px; height: 36px; line-height: 36px; text-align: center; padding: 0 15px; border-radius: 3px; background-color: rgb(228, 228, 228);}
+    .book_wrapper .book_content .address .content .ac_body {float: left; padding-left: 60px; padding-top: 20px;}
+    .book_wrapper .book_content .address .content .ac_body input {float: left; font-size: 14px; padding-left: 10px; height: 30px; line-height: 30px; }
+    .book_wrapper .book_content .address .content .ac_body select {float: left; font-size: 14px; padding-left: 10px; }
+    .book_wrapper .book_content .address .content .ac_body label.col {float: left; width: 20px; height: 30px;}
+    .book_wrapper .book_content .address .content .ac_body label.row {float: left; width: 100%; height: 15px;}
+    .book_wrapper .book_content .address .content .ac_body label.row_s {float: left; width: 100%; height: 10px;}
+    .book_wrapper .book_content .address .content .ac_body .acb_left {float: left; width: 450px; height: 100%;}
+    .book_wrapper .book_content .address .content .ac_body .acb_right {float: left; margin-left: 90px; width: 400px;}
+
+    .book_wrapper .book_content .jianxi {float: left; width: 100%; height: 35px;}
+    .book_wrapper .book_content .bank {float: left; margin-left: 40px; width: 1120px;; margin-bottom: 0;}
+    .book_wrapper .book_content .bank .content {float: left; width: 100%;  height: 170px; border-radius: 5px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+    .book_wrapper .book_content .bank .content .bc_header {float: left; width: 100%; height: 60px;; line-height: 60px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+    .book_wrapper .book_content .bank .content .bc_header label {margin-left: 30px;}
+    .book_wrapper .book_content .bank .content .bc_header_2 {float: left; width: 100%; height: 65px; line-height: 65px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+    .book_wrapper .book_content .bank .content .bc_header_2 label {margin-left: 10px;}
+    .book_wrapper .book_content .bank .content .bc_header_2 label input {margin-left: 20px; font-size: 14px;}
+
+    .book_wrapper .book_content .bank .content .banks {float: left; display: none;  padding-left: 30px; padding-right: 20px; padding-top: 30px;}
+    .book_wrapper .book_content .bank .content .banks input {float: left; margin-top: 20px; margin-bottom: 20px;}
+    .book_wrapper .book_content .bank .content .banks img {float: left; margin-right: 40px;  margin-bottom: 20px;}
+
+    .book_wrapper .book_content .bank .content .zhifus {float: left; padding-left: 30px; padding-right: 20px; padding-top: 30px;}
+    .book_wrapper .book_content .bank .content .zhifus input {float: left; margin-top: 20px; margin-bottom: 20px;}
+    .book_wrapper .book_content .bank .content .zhifus img {float: left; margin-right: 40px;  margin-bottom: 20px;}
+
+    .book_wrapper .book_content .fapiao {float: left; margin-left: 40px; width: 350px; height: 230px;  margin-bottom: 0;}
+    .book_wrapper .book_content .fapiao .content {float: left; width: 100%; height: 230px; border-radius: 5px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+    .book_wrapper .book_content .fapiao .content .fc_header {float: left; width: 100%; height: 60px; line-height: 60px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+    .book_wrapper .book_content .fapiao .content .fc_header label {margin-left: 30px;}
+    .book_wrapper .book_content .fapiao .content .line_1 {float: left; width: 100%; line-height: 40px; height: 40px; padding-left: 30px;} 
+    .book_wrapper .book_content .fapiao .content .line_1 img {float: left; margin-top: 15px; margin-right: 10px;}
+    .book_wrapper .book_content .fapiao .content .line_1 label {float: left; margin-top: 10px;}
+    .book_wrapper .book_content .fapiao .content .line_1 input {display: none;}
+
+    .book_wrapper .book_content .remark {float: left; width: 740px; height: 230px; margin-left: 30px; margin-bottom: 0;}
+    .book_wrapper .book_content .remark .content {float: left; width: 100%; height: 230px; border-radius: 5px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+    .book_wrapper .book_content .remark .content .rc_header {float: left; width: 100%; height: 60px; line-height: 60px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+    .book_wrapper .book_content .remark .content .rc_header label {margin-left: 30px;}
+
+    .book_wrapper .book_content .sel_address {float: left; display: none; width: 1120px; margin-left: 40px; border-radius: 8px; 
+                                              border: rgb(188, 188, 188) 1px solid; box-shadow: 0 0 5px rgb(180, 180, 180); background-color: #FFF; }
+    .book_wrapper .book_content .sel_address .number {float: left; width: 100%; height: 50px; line-height: 50px; color: rgb(121, 121, 121);
+                                                      border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgb(252, 252, 252);}
+    .book_wrapper .book_content .sel_address .number label {float: left; margin-left: 30px;}
+    .book_wrapper .book_content .sel_address .number a {display: block; cursor: pointer; float: right; margin-right: 20px; margin-top: 7px; height: 36px; line-height: 36px; text-align: center; padding: 0 15px; border-radius: 3px; background-color: rgb(228, 228, 228);}
+    .book_wrapper .book_content .sel_address table {float: left; width: 100%; margin-bottom: 10px; }	
+    .book_wrapper .book_content .sel_address table tr.first {background-color: rgb(230, 231, 232); line-height: 40px; }
+    .book_wrapper .book_content .sel_address table tr {background-color: #FFF; line-height: 100px; }
+    .book_wrapper .book_content .sel_address table td, th {text-align: left; font-family: normal;}
+
+    .sel_taocan {float: left; width: 100%; height: 80px; line-height: 100px; font-size: 18px; text-align: center;}
+    .sel_taocan .left {float: left; width: 100px; text-align: left; margin-left: 40px;;}
+    .sel_taocan .taocan {float: left; width: 270px; padding-top: 37px;}
+    .sel_taocan .taocan .shuoming{float: left; display: none; width: 100%; height: 25px; line-height: 25px; text-align: left; font-size: 16px; color: rgb(252, 62, 57); padding-top: 10px;}
+    .sel_taocan .taocan .tc_unit {float: left; width: 72px; height: 25px; border: 2px rgb(153, 153, 153) solid; margin-right: 13px; text-align: center; line-height: 25px; cursor: pointer;}
+
+    .sel_zhubang {float: left; width: 100%; height: 60px; line-height: 100px; font-size: 18px; text-align: center;}
+    .sel_zhubang .left {float: left; width: 100px; text-align: left; margin-left: 40px;;}
+    .sel_zhubang .zhubang {float: left; width: 270px; padding-top: 37px;}
+    .sel_zhubang .zhubang .zb_unit {float: left; width: 72px; height: 25px; border: 2px rgb(153, 153, 153) solid; margin-right: 13px; text-align: center; line-height: 25px; cursor: pointer;}
+
+    .sel_bang {float: left; width: 100%; height: 60px; line-height: 100px; font-size: 18px; text-align: center;}
+    .sel_bang .left {float: left; width: 100px; text-align: left; margin-left: 40px;;}
+    .sel_bang .bang {float: left; width: 270px; padding-top: 37px;}
+    .sel_bang .bang .bang_unit {float: left; width: 72px; height: 25px; border: 2px rgb(153, 153, 153) solid; margin-right: 13px; text-align: center; line-height: 25px; cursor: pointer;}
+
+    .sel_bing {float: left; width: 100%; height: 60px; line-height: 100px; font-size: 18px; text-align: center;}
+    .sel_bing .left {float: left; width: 100px; text-align: left; margin-left: 40px;;}
+    .sel_bing .bing {float: left; width: 270px; padding-top: 37px;}
+    .sel_bing .bing .bing_unit {float: left; width: 72px; height: 25px; border: 2px rgb(153, 153, 153) solid; margin-right: 13px; text-align: center; line-height: 25px; cursor: pointer;}
+
+    .sel_num {float: left; width: 100%; height: 60px; line-height: 100px; font-size: 18px; text-align: center;}
+    .sel_num .left {float: left; width: 100px; text-align: left; margin-left: 40px;;}
+    .sel_num input {float: left; margin-top: 32px; height: 33px; width: 40px; }
+    .sel_num .updown {float: left; margin-left: 5px; width: 20px; height: 35px;}
+    .sel_num .updown .numup {float: left; margin-top: 32px; width: 22px; height: 14px; cursor: pointer; background: url({skin:images/front/up.png}) no-repeat;}
+    .sel_num .updown .numdown {float: left; margin-top: 5px; width: 22px; height: 14px; cursor: pointer; background: url({skin:images/front/down.png}) no-repeat;}
+
+    .all_price {float: left; width: 100%; height: 60px; line-height: 100px; font-size: 18px; text-align: center;}
+    .all_price .left {float: left; width: 100px; text-align: left; margin-left: 40px;;}
+    .all_price .right {float: left; width: 100px; text-align: left; margin-left: 0px; color: rgb(252, 62, 57); font-weight: bold; font-size: 20px;}
+
+</style>
+
+
+<div class="book_wrapper">
+    <div class='book_content'>
+        <form action="{url:/ucenter/book2}" method='post' id="order_form" >
+            <input type='hidden' name='goods_id' id='goods_id' value='{$id}' />
+            <input type='hidden' name='product_id' id='product_id' value='0' />
+            <input type='hidden' name='goods_nums' id='goods_nums' value='1' />
+            <input type='hidden' name='goods_price' id='goods_price' value='{$sell_price}' />
+            <input type='hidden' name='timeKey' value='{echo:time()}' />
+            <input type="hidden" name="user_id" value="{echo:Isafe::get('user_id')}" />
+            <input type='hidden' id='sel_tc_id' value='' />
+            <input type='hidden' name="sel_tz" id='sel_tz' value='' />
+            <input type='hidden' id='sel_ccbang' value='' />
+            <input type='hidden' id='sel_ccbing' value='' />
+            <input type="hidden" name="tz_name"  value="濂楄3" />
+            <div id="content_1">
+                <div class='header' style='color: rgb(94, 95, 97)'>
+                    浜戞 CloudBar_{$id}_{$tz}_{$n}_{$nv}
+                </div>
+                <div class="content">
+                    <div class="c_left">
+                        <div id="container" >
+                            <!--鍒濆鐢熸垚鍥剧墖鍦板潃瀛樺偍浼樺寲鐗�-->
+                            {foreach: items = $tz key=$n item=$nv}
+                            {set:$count=0;}
+                            {set:$n = $n+1;}
+                            {foreach: items = $tz_pics[$nv] key=$k item=$v}
+                            {set:$count=$count+1;}
+                            <input type="hidden" value="{webroot:$v}"銆�class="img_hidden_{$n}" id="img_{$n}_{$k}"/>
+                            {/foreach}
+                            <input type="hidden" value="{$count}" id="count_{$n}"/>
+                            {/foreach}
+                            <!-- 鍒濆鐢熸垚鍥剧墖鍦板潃瀛樺偍 
+                            {set:$count_1=0;}
+{foreach: items = $tz_zb_ccbang key=$k item=$v}
+                                    {set:$count_1=$count_1+1;}
+                                    <input type="hidden" value="{webroot:$v}"銆�class="img_hidden_1" id="img_1_{$k}"/>
+{/foreach}
+                            <input type="hidden" value="{$count_1}" id="count_1"/>
+                            {set:$count_2=0;}
+{foreach: items = $tz_zb_ccbing key=$k item=$v}
+                                    {set:$count_2=$count_2+1;}
+                                    <input type="hidden" value="{webroot:$v}" class="img_hidden_2" id="img_2_{$k}"/>
+{/foreach}
+                            <input type="hidden" value="{$count_2}" id="count_2"/>
+                            {set:$count_3=0;}
+{foreach: items = $tz_zb_ccbang_ccbing key=$k item=$v}
+                                    {set:$count_3=$count_3+1;}
+                                    <input type="hidden" value="{webroot:$v}" class="img_hidden_3" id="img_3_{$k}"/>
+{/foreach}
+                            <input type="hidden" value="{$count_3}" id="count_3"/>
+                            <!-- 鍒濆鐢熸垚鍥剧墖鍦板潃瀛樺偍 -->
+
+                            <div class="carousel" name="姣嶆+瀛樺偍妫�" id="car_a" style="display:none;">
+                                {foreach: items = $tz_zb_ccbang key=$k item=$v}
+                                <div id="slide{$k}" class="slide">
+                                    <img height="520" width="410" src="{webroot:$v}" alt="test_pro" id="img_{$k}"/>
+                                </div>
+                                {/foreach}
+                            </div>
+                            <div class="carousel" name="姣嶆+瀛樺偍纰�"  style="display:none;">
+                                {foreach: items = $tz_zb_ccbing key=$k item=$v}
+                                <div id="slide{$k}" class="slide">
+                                    <img height="520" width="410" src="{webroot:$v}" alt="test_pro" />
+                                </div>
+                                {/foreach}
+                            </div>
+                            <div class="carousel" name="姣嶆+瀛樺偍妫�+瀛樺偍纰�"  style="display:none;">
+                                {foreach: items = $tz_zb_ccbang_ccbing key=$k item=$v}
+                                <div id="slide{$k}" class="slide">
+                                    <img height="520" width="410" src="{webroot:$v}" alt="test_pro" />
+                                </div>
+                                {/foreach}
+                            </div>
+                            <a href="#" id="ui-carousel-next"><span>next</span></a>
+                            <a href="#" id="ui-carousel-prev"><span>prev</span></a>
+                            <div id="pages"></div>
+                        </div>
+                    </div>
+                    <div class="c_right">
+                        <div class="cr_title">
+                            <label style='font-size: 24px;'>閫夋嫨浣犻渶瑕佽喘涔扮殑浜戞 CloudBar<!--font style="color: red;"> 1</font--></label>
+                        </div>
+                        <!--瑙勬牸閫夋嫨-->
+                        {foreach:items=$spec_array key=$k item=$v}
+                        <input type="hidden"  id="spec_{$v['name']}" value='{"id":"{$k}","type":"1","value":"spec_value","name":"{$v['name']}"}' />
+                               <input type="hidden"  id="spec_{$v['name']}2" value='{"id":"{$k}","type":"1","value":"spec_value","name":"{$v['name']}"}' />
+                               {/foreach}
+
+                               <div class="sel_taocan">
+                            <label class="left">閫夋嫨濂楄锛�</label>
+                            <div class="taocan">
+                                <!--label class="tc_unit" tc_id="1">濂楅1</label>
+                                <label class="tc_unit" tc_id="2">濂楅2</label>
+                                <label class="tc_unit" tc_id="3">濂楅3</label-->
+								{foreach:items=$tz key=$k item=$v}
+                                {set:$k=$k+1;}
+                                <label class="tc_unit" tc_id="{$k}" tc_value='{$v}'>濂楄{$k}</label>
+                                {/foreach}
+                                <!--<label class="tc_unit" tc_id="1" tc_value='姣嶆+瀛樺偍妫�'>濂楄1</label>
+                                <label class="tc_unit" tc_id="2" tc_value='姣嶆+瀛樺偍纰�'>濂楄2</label>
+                                <label class="tc_unit" tc_id="3" tc_value='姣嶆+瀛樺偍妫�+瀛樺偍纰�'>濂楄3</label>
+                                <!--label class="shuoming shuoming1">濂楅1鍖呭惈锛氭瘝妫�+瀛樺偍妫�</label>
+                                <label class="shuoming shuoming2">濂楅1鍖呭惈锛氭瘝妫�+瀛樺偍鏌�</label>
+                                <label class="shuoming shuoming3">濂楅1鍖呭惈锛氭瘝妫�+瀛樺偍妫�+瀛樺偍鏌�</label-->
+                                {foreach:items=$tz key=$k item=$v}
+                                {set:$k=$k+1;}
+                                <label class="shuoming shuoming{$k}">濂楄{$k}鍖呭惈锛�<span>{$v}</span></label>
+                                {/foreach}
+                            </div>
+                        </div>
+                        <div class="sel_zhubang">
+                            <label class="left">涓�&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;妫�&nbsp;锛�</label>
+                            <div class="zhubang">
+                                <label class="zb_unit"><img style="margin-top: 2px;" src="{skin:images/front/selzhubang.png}"></label>
+                            </div>
+                        </div>
+                        <div class="sel_bang">
+                            <label class="left">瀛�&nbsp;鍌�&nbsp;妫�&nbsp;锛�</label>
+                            <div class="bang">
+                                <!--label class="bang_unit">125G</label>
+                                <label class="bang_unit">256G</label-->
+                                {foreach:items=$ccbang key=$k item=$v}
+                                {set:$k=$k+1;}
+                                <label class="bang_unit">{$v}</label>
+                                {/foreach}
+                            </div>
+                        </div>
+                        <div class="sel_bing">
+                            <label class="left">瀛�&nbsp;鍌�&nbsp;纰�&nbsp;锛�</label>
+                            <div class="bing">
+                                <!--label class="bing_unit">1T</label>
+                                <label class="bing_unit">2T</label>
+                                <label class="bing_unit">3T</label-->
+                                {foreach:items=$ccbing key=$k item=$v}
+                                {set:$k=$k+1;}
+                                <label class="bing_unit">{$v}</label>
+                                {/foreach}
+                            </div>
+                        </div>
+                        <div class="sel_num">
+                            <label class="left">鏁�&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;閲�&nbsp;锛�</label>
+                            <!--[if IE]>
+                                    <input id="sel_num_val" type="text" value="1" style="float: left; font-size: 16px;  height: 27px; line-height: 27px;"/>
+                            <![endif]-->
+                            <!--[if !IE]><-->
+                            <input id="sel_num_val" type="text" value="1" onkeyup="this.value=this.value.replace(/\D/g,''); if (parseInt(this.value)<=0) {this.value='1'}" onafterpaste="this.value=this.value.replace(/\D/g,''); if (parseInt(this.value)<=0) {this.value='1'}"  maxlength="2" style="float: left; font-size: 16px;  height: 33px; line-height: 33px;"/>
+                            <![endif]-->
+                            <div class="updown">
+                                <div class="numup">&nbsp;</div>
+                                <div class="numdown">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="all_price">
+                            <label class="left">浠�&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鏍�&nbsp;锛�</label>
+                            <label class="right price_show"></label>
+                        </div>
+
+                        <!--                        <div class="sel_color">
+                                                    <input type='hidden' id='colorselected' value='0' />
+                                                    <label class="left" style="">閫夋嫨棰滆壊锛�</label>
+                                                    {foreach:items=$spec_array}
+                                                    {if:$item['name'] == '棰滆壊'}
+                                                    {set:$specVal=explode(',',trim($item['value'],','))}
+                                                    {foreach:items=$specVal item=$spec_value key=$k}
+                                                    <div class="circle" id='circle_{$k}' cid="{$k}" style="border: 2px rgb(229, 229, 229) solid;">
+                                                        <div class="circle_sub" style="background-color: {$spec_value};"></div>
+                                                        <input type="hidden" name="color" value='{"id":"{$item['id']}","type":"{$item['type']}","value":"{$spec_value}","name":"{$item['name']}"}' />
+                                                    </div>
+                                                    {/foreach}
+                                                    {/if}
+                                                    {/foreach}
+                                                </div>
+                                                <div class="sel_cap">
+                                                    閫夋嫨瀹归噺锛�
+                                                </div>
+                                                <input type='hidden' id='volumeselected' value='0' />
+                                                <div class="sel_cap_cb">
+                                                    {foreach: items = $volume key=$k item=$v}
+                                                    <label class="out sel_off" id='volume_{$k}'>
+                                                        <label class="in_left">{$v["value"]}</label>
+                                                        <label class="in_right">锟$v["price"]}</label>
+                                                        <input type="hidden" name="volume" value='{"id":"{$v['id']}","type":"{$v['type']}","value":"{$v['value']}","name":"{$v['name']}"}' />
+                                                    </label>
+                                                    {/foreach}
+                                                </div>-->
+                        <div class="jishu" style="margin-top: 40px;">
+                            <label style="font-size: 18px; ">涓嬪崟璇存槑</label>
+                        </div>
+                        <div class="jishu">
+                            <label class="xd_shuoming"></label>
+                            <a target='_blank' href='{url:/site/parameter/id/$id}' style="text-decoration: none; color: rgb(252, 62, 57);">璇︾粏瑙勬牸</a>
+                        </div>
+                        <div class="zhifu">
+                            <label>椤轰赴鍖呴偖</label>
+                            <a target='_blank' href='{url:/site/help/id/66}' style="text-decoration: none; color: rgb(252, 62, 57);">鏀粯璇存槑</a>
+                        </div>
+                    </div>
+                    <div class="c_footer">
+                        <img name="small_姣嶆+瀛樺偍妫�" class="small_imgs"  style="float: left; margin-top: 10px; margin-left: 25px;display:none;" src="{webroot:$tz_zb_ccbang[0]}" height="53" width="auto">
+                        <img name="small_姣嶆+瀛樺偍纰�" class="small_imgs"  style="float: left; margin-top: 10px; margin-left: 25px;display:none;" src="{webroot:$tz_zb_ccbing[0]}" height="53" width="auto">
+                        <img name="small_姣嶆+瀛樺偍妫�+瀛樺偍纰�" class="small_imgs" style="float: left; margin-top: 10px; margin-left: 25px;display:none;" src="{webroot:$tz_zb_ccbang_ccbing[0]}" height="53" width="auto">
+                        <label style="float: left; height: 62px; line-height: 62px; margin-top: 10px; margin-left: 25px; color: rgb(94, 95, 97);">浜戞 CloudBar</label> 
+                        <a id="to_second_page" style="float: right; height: 40px; line-height: 40px; width: 130px; text-align: center; background-color: rgb(252, 62, 57); color: #FFF; font-size: 18px; cursor: pointer; border-radius: 4px; margin-top: 22px; margin-right: 25px;">涓嬩竴姝�</a>
+                    </div>
+                </div>
+                <!--                <div class="tech_rule">
+                                    <div class="tr_header">
+                                        <label>璇︾粏瑙勬牸</label>
+                                    </div>
+                                    <div class="tr_shuoming">
+                                    </div>
+                                    <img class="cs_comment" name="姣嶆+瀛樺偍妫�" style="margin-left:60px;text-align: center;display:none;" src="{webroot:$cs_zb_ccbang}" />
+                                    <img class="cs_comment" name="姣嶆+瀛樺偍纰�" style="margin-left:60px;text-align: center;display:none;" src="{webroot:$cs_zb_ccbing}" />
+                                    <img class="cs_comment" name="姣嶆+瀛樺偍妫�+瀛樺偍纰�" style="margin-left:60px;text-align: center;display:none;" src="{webroot:$cs_zb_ccbang_ccbing}" />
+                                </div>-->
+                <div style="float: left; width: 1002px; padding: 0px; margin-left: 0px; margin-top: 50px;">
+                    <img class="cs_comment" name="姣嶆+瀛樺偍妫�" style="display:none;" src="{skin:images/front/zhujiazicanshu.png}" />
+                    <img class="cs_comment" name="姣嶆+瀛樺偍纰�" style="display:none;" src="{skin:images/front/zhujiadiecanshu.png}" />
+                    <img class="cs_comment" name="姣嶆+瀛樺偍妫�+瀛樺偍纰�" style="display:none;" src="{skin:images/front/yunbangcanshu.png}" />
+                </div>
+            </div>
+
+
+            <div id="content_2">
+                <div class="step_div">
+                    <img src="{skin:images/front/second_step_bg.png}"/>
+                </div>
+                <div class="jianxi"></div>
+
+                <div class='sel_address'>
+                    <div class='number'>
+                        {set:$order_no = Order_Class::createOrderNum()}
+                        <input type="hidden" name="order_no" value="{$order_no}">
+                        <label>璁㈠崟鍙�: &nbsp; {$order_no}</label>
+                        <a id="use_new_addr">浣跨敤鏂板湴鍧�</a>
+                    </div>
+                    <input id='address_id' type='hidden' name='address_id' value='0' />
+                    <table  cellspacing="0">
+                        <tr class="first">
+                            <th width="80"></th>
+                            <th width="120">濮撳悕</th>
+                            <th width="570">璇︾粏鍦板潃</th>
+                            <th width="150">閰嶉�佹椂闂�</th>
+                            <th>鐢佃瘽</th>
+                        </tr>
+                        {if: $this->user}
+                        {set: $user_id = $this->user['user_id']}
+                        {query:name=address where=user_id eq $user_id}
+                        <tr class="">
+                            {set: $area = area::name($item['province'], $item['city'], $item['area'])}
+                            <td style="text-align: center;"><!--label style="float: left; margin-left: 30px; width: 20px; height: 20px; background: url({skin:images/front/blue_sel.png});"></label-->
+                                <img  class="address_select" src="{skin:images/front/unselected.png}" style="float: left; margin-top: 0px; margin-left: 30px;"/>
+                                <input name="tpl_accept_name" type="hidden" value="{$item['accept_name']}" />
+                                <input name="tpl_zip" type="hidden" value="{$item['zip']}" />
+                                <input name="tpl_telphone" type="hidden" value="{$item['telphone']}" />
+                                <input name="tpl_province" type="hidden" value="{$item['province']}" />
+                                <input name="tpl_city" type="hidden" value="{$item['city']}" />
+                                <input name="tpl_area" type="hidden" value="{$item['area']}" />
+                                <input name="tpl_address" type="hidden" value="{$item['address']}" />
+                                <input name="tpl_mobile" type="hidden" value="{$item['mobile']}" />
+                                <input name="tpl_accept_time" type="hidden" value="{$item['accept_time']}" />
+                                <input name="tpl_default" type="hidden" value="{$item['default']}" />
+                            </td>
+                            <td>{$item['accept_name']}</td>
+                            <td>{$area[$item['province']]}{$area[$item['city']]}{$area[$item['area']]}{$item['address']}</td>
+                            <td>{$item["accept_time"]}</td>
+                            <td>{if:$item['mobile']}{$item['mobile']}{else:}{$item['telphone']}{/if}</td>
+                            <!--td style="text-align: center;"><label style="float: left; margin-left: 40px; width: 40px; height: 40px; background: url({skin:images/front/edit_bg.png});"></label></td-->
+                        </tr>
+                        {/query}
+                        {/if}
+                    </table>
+                </div>		
+                <div class="address">
+                    <div class="content">
+                        <div class="ac_header">
+                            <label>鏀惰揣淇℃伅</label>
+                            <a id="select_addr">閫夋嫨宸叉湁鍦板潃</a>
+                        </div>
+                        <div class="ac_body">
+                            <div class="acb_left">
+								<style type="text/css"> .label_title {float: left; height: 30px; line-height: 30px; width: 80px;}</style>
+                                <label class="label_title">鏀惰揣浜�:</label><input type="text" name="accept_name" maxlength="10" value="" class="order_required order_string" alt="璇峰～鍐欐敹璐т汉" autocomplete="off" placeholder="鏀惰揣浜哄鍚�" style="width: 200px; height: 30px; margin-bottom: 10px; margin-right: 150px;"/>
+                                <label class="label_title">鎵嬫満鍙�:</label><input type="text" name="mobile" maxlength="20" value="" class="order_string order_required" alt="璇峰～鍐欐敹璐т汉鎵嬫満鍙�" placeholder="鎵嬫満鍙�" style="width: 200px; height: 30px;  margin-bottom: 10px; margin-right: 150px;"/>
+                                <label class="label_title">閭紪:</label><input type="text" name="postcode" maxlength="10" value="" class="order_string order_required" placeholder="閭紪" alt="璇峰～鍐欓偖缂�" style="width: 200px; height: 30px;  margin-bottom: 10px; margin-right: 150px;"/>
+                                <label class="label_title">鍥哄畾鐢佃瘽:</label><input type="text" name="telphone" maxlength="20" value="" class="order_string" placeholder="鍥哄畾鐢佃瘽(鍙��)" style="width: 200px; height: 30px;  margin-bottom: 10px; margin-right: 150px;"/>
+                                <label class="label_title" style="height: 36px; line-height: 36px; margin-bottom: 10px;">鏀惰揣鍦板尯:</label>
+								<select style="width: 105px; height: 36px; font-size: 16px; padding-top: 6px; padding-bottom: 6px; margin-bottom: 10px;" class="order_required" alt="璇烽�夋嫨鏀惰揣鍦板尯" name="province" child="city,area" onchange="areaChangeCallback(this);"></select></select><label class="col"></label>
+                                <select style="width: 105px; height: 36px; font-size: 16px; padding-top: 6px; padding-bottom: 6px; margin-bottom: 10px;" class="order_required" alt="璇烽�夋嫨鏀惰揣鍦板尯" name="city" child="area" parent="province" onchange="areaChangeCallback(this);"></select><label class="col"></label>
+                                <select style="width: 105px; height: 36px; font-size: 16px; padding-top: 6px; padding-bottom: 6px; margin-bottom: 10px;" class="order_required" alt="璇烽�夋嫨鏀惰揣鍦板尯" name="area" parent="city" ></select>
+                                <label class="label_title">璇︾粏鍦板潃:</label><input type="text" name="address" maxlength="60" value="" class="order_required order_string" alt="璇峰～鍐欒缁嗗湴鍧�" placeholder="琛楅亾缂栧彿/鍚嶇О銆佹ゼ瀹囧悕绉�" style="width: 355px; height: 30px;"/>
+                            </div>
+                            <div class="acb_right">
+                                <input type="hidden" class="order_required" name="accept_time" alt="璇烽�夋嫨閫佽揣鏂规" value="">
+                                <label style="float: left; font-size: 16px; width: 100%; line-height: 25px;">閫佽揣鏂规</label>
+                                <label style="float: left; font-size: 14px; width: 100%; line-height: 25px;">鎮ㄧ殑璁㈣喘鍦ㄩ厤璐у墠锛屽彲浠ヨ闂�&nbsp;<a target="_blank" href="{url:/ucenter/order}" style="text-decoration: none;"><font style="color: rgb(252, 62, 57)">鎴戠殑璁㈠崟</font></a>&nbsp;淇敼鏀惰揣鍦板潃</label>
+                                <label class="row_s"></label>
+                                <label class="sh_time" style="float: left; width: 180px; height: 52px; line-height: 20px; cursor: pointer; padding-top: 13px; border: 1px rgb(223, 223, 223) solid; font-size: 14px; background-color: rgb(250, 250, 250);">
+                                    <div style="margin-left: 40px;"><font style="font-size: 16px; font-weight: 800;">涓嶉檺閫佽揣鏃堕棿</font><br>鍛ㄤ竴鑷冲懆鏃�</div>
+                                    <input type="hidden" name="sh_time_value" value="涓嶉檺閫佽揣鏃堕棿" />
+                                </label>
+                                <label class="col"></label>
+                                <label class="sh_time" style="float: left; width: 180px; height: 52px; line-height: 20px; cursor: pointer; padding-top: 13px; border: 1px rgb(223, 223, 223) solid; font-size: 14px; background-color: rgb(250, 250, 250);">
+                                    <div style="margin-left: 50px;"><font style="font-size: 16px; font-weight: 800;">宸ヤ綔鏃ラ�佽揣</font><br>鍛ㄤ竴鑷冲懆浜�</div>
+                                    <input type="hidden" name="sh_time_value" value="鍛ㄤ竴鑷冲懆浜�" />
+                                </label>
+                                <label class="row_s"></label>
+                                <label class="sh_time" style="float: left; width: 180px; height: 52px; line-height: 20px; cursor: pointer; padding-top: 13px; border: 1px rgb(223, 223, 223) solid; font-size: 14px; background-color: rgb(250, 250, 250);">
+                                    <div style="margin-left: 26px;"><font style="font-size: 16px; font-weight: 800;">鍙屼紤鏃ャ�佸亣鏃ラ�佽揣</font><br>鍛ㄥ叚鑷冲懆鏃�</div>
+                                    <input type="hidden" name="sh_time_value" value="鍛ㄥ叚鑷冲懆鏃�" />
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="jianxi"></div>
+                <input type="hidden" name="pay_type" class="order_required" alt="璇烽�夋嫨鏀粯鏂瑰紡" value="" />
+                <div class="bank">
+                    <div class="content" id="bank_content">
+                        <div class="bc_header">
+                            <label>鏀粯鏂瑰紡</label>
+                        </div>
+                        <!--                        <div class="bc_header_2">
+                                                    <label>
+                                                        <img id="zhifu_id" class="img_select" src="{skin:images/front/selected.png}" style="float: left; margin-top: 16px; margin-left: 30px;"/><label style="float: left; margin-right: 10px;">鏀粯骞冲彴</label>
+                                                        img id="banks_id" class="img_select" src="{skin:images/front/unselected.png}" style="float: left; margin-top: 16px;"/><label style="float: left;">閾惰仈鏀粯</label
+                                                    </label>
+                                                </div>-->
+                        <!--div class="banks">
+                            <?php for ($i = 1; $i <= 14; $i++) { ?>
+                            <input type="radio" name="zhifu"/><img width="150" height="48" src="{skin:images/front/bank/b_$i.png}"/>
+                            <?php } ?>
+                        </div-->
+                        <div class="zhifus">
+                            {query:name=payment where=status eq 0 }
+                            <input type="radio" name="zhifu" id="zhifu_default" itemid="{$item['id']}" onchange="choose_me({$item['id']})"/><img width="150" height="48" src="{webroot:}plugins/{$item['logo']}"/>
+                            {/query}
+                        </div>
+                    </div>
+                </div>
+                <div class="jianxi"></div>
+                <div class="fapiao">
+                    <div class="content">
+                        <div class="fc_header">
+                            <label>鍙戠エ淇℃伅</label>
+                        </div>
+                        <div class="line_1">
+                            <img src="{skin:images/front/u610.png}"/><label>鏅�氬彂绁�</label>
+                        </div>
+                        <input type="hidden" id="invoice_type" name="invoice_type" value="1">
+                        <div class="line_1">
+                            <label style="margin-left: 40px;">鍙戠エ鎶ご锛�</label>
+                            <img class="img_select" id="personal" src="{skin:images/front/selected.png}"/><label style="margin-right: 10px;">涓汉</label>
+                            <img class="img_select" id="company" src="{skin:images/front/unselected.png}"/><label>鍗曚綅</label>
+                        </div>
+                        <div class="line_1">
+                            <input id="company_info" maxlength="80" name="invoice_title" type="text" value="" class="order_string" style="float: left; display: none; margin-left: 40px; margin-top: 20px; width: 270px; height: 40px; line-height: 40px; border: 1px solid rgb(188, 188, 188); border-radius: 6px; font-size: 16px;"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="remark">
+                    <div class="content">
+                        <div class="rc_header">
+                            <label>鐗瑰埆鎻愮ず</label>
+                        </div>
+                        <label style="float: left; line-height: 30px; font-size: 14px; margin-top: 20px; margin-left: 30px;">
+                            1.鎻愪氦璁㈠崟鍚庯紝閫夎喘鐨勪骇鍝侀厤缃笉鍙洿鏀广�傚鏋滈�夋嫨閿欒锛屾偍鍙互鍙栨秷璁㈠崟閲嶆柊璐拱<br>
+                            2.璇锋偍鍦ㄦ彁浜よ鍗曞悗24灏忔椂鍐呭畬鎴愭敮浠橈紝鍚﹀垯璁㈠崟浼氳嚜鍔ㄥ彇娑堛��
+                        </label>
+                    </div>
+                </div>
+
+                <div class="next_footer" style="float: left; width: 1120px; margin-left: 40px; margin-top: 30px; height: 80px; border: 1px rgb(217, 217, 217) solid;box-shadow: 0 0 5px rgb(180, 180, 180);  background-color: rgb(252, 252, 252); border-radius: 5px;">
+                    <img name="small_姣嶆+瀛樺偍妫�" class="small_imgs"  style="float: left; margin-top: 10px; margin-left: 25px;display:none;" src="{webroot:$tz_zb_ccbang[0]}" height="53" width="auto">
+                    <img name="small_姣嶆+瀛樺偍纰�" class="small_imgs"  style="float: left; margin-top: 10px; margin-left: 25px;display:none;" src="{webroot:$tz_zb_ccbing[0]}" height="53" width="auto">
+                    <img name="small_姣嶆+瀛樺偍妫�+瀛樺偍纰�" class="small_imgs"  style="float: left; margin-top: 10px; margin-left: 25px;display:none;" src="{webroot:$tz_zb_ccbang_ccbing[0]}" height="53" width="auto">
+                    <label id="second_name" style="float: left; height: 62px; line-height: 62px; margin-top: 10px; margin-left: 25px;"></label> 
+                    <a id="to_third_page" style="float: right; height: 40px; line-height: 40px; width: 130px; text-align: center; background-color: rgb(252, 62, 57); color: #FFF; font-size: 18px; cursor: pointer; border-radius: 4px; margin-top: 22px; margin-right: 25px;">涓嬩竴姝�</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
+</div>
+
+<div class="sure_order_bg" style="position: absolute; z-index: 80000; top: 0; left: 0; margin-left: 0; margin-top: 0; display: none; width: 100%; background: #000; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5;"></div>
+<div class="sure_order" style="display: none; position: absolute; left: 300px; width: 700px; height: 500px; background-color: #FFF; border-radius: 5px; z-index: 90000;">
+    <div class="so_header" style="float: left; height: 50px; line-height: 50px; width: 100%; border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: rgb(252, 252, 252); border-bottom: 1px solid rgb(215, 215, 215);">
+        <label style="float: left; margin-left: 30px;">纭淇℃伅</label>
+    </div>
+    <div class="so_body1" style="float: left; height: 235px; width: 100%;border-bottom: 1px solid rgb(215, 215, 215);">
+        <div class="sob_left" style="float: left; margin-left: 40px; margin-top: 40px; margin-right: 30px;"><img src="{skin:images/front/car.png}"/></div>
+        <div class="sob_right" style="float: left; margin-top: 20px; font-size: 14px; line-height: 28px;">
+            <label><font style="font-size: 16px">鏀惰揣淇℃伅</font><br><div id="sure_address" style="width: 500px;"></div></label>
+        </div>
+    </div>
+    <div class="so_body2" style="float: left; height: 155px; width: 100%;border-bottom: 1px solid rgb(215, 215, 215);">
+        <div class="sob_left" style="float: left; margin-left: 40px; margin-top: 20px; margin-right: 30px;"><img src="{skin:images/front/money.png}"/></div>
+        <div class="sob_right" style="float: left; margin-top: 40px; font-size: 14px; line-height: 28px;">
+            <label><font style="font-size: 16px">鍙戠エ淇℃伅</font><div id="sure_invoice" style="width: 500px; height: 100px;"></div></label>
+        </div>
+    </div>
+    <div class="so_footer" style="float: left; width: 100%; height: 60px; background-color: rgb(252, 252, 252); border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; ">
+        <a class="a_button" id="cancel_form" style="float: left; cursor: pointer; margin-left: 20px; display: block; width: 100px; height: 36px; line-height: 36px; margin-top: 10px;border-radius: 5px; text-align: center;">鍙栨秷</a>
+        <a class="a_button" id="submit_form" style="float: right; cursor: pointer; margin-right: 20px; background-color: rgb(252, 62, 57); color: #FFF; margin-top: 10px; display: block; width: 100px; height: 36px; line-height: 36px; border-radius: 5px; text-align: center;">纭</a>
+    </div>
+</div>
+{js:artTemplate}
+<script type='text/javascript' src='{theme:javascript/artTemplate/area_select.js}'></script>
+<script type="text/javascript" src="{theme:javascript/jquery.switch/jquery-1.7.1.js}"></script>
+<script type="text/javascript" src="{theme:javascript/jquery.switch/jquery.ui.core.js}"></script>
+<script type="text/javascript" src="{theme:javascript/jquery.switch/jquery.ui.widget.js}"></script>
+<script type="text/javascript" src="{theme:javascript/jquery.switch/jquery.ui.rcarousel.js}"></script>
+<script type='text/javascript' src='{theme:javascript/orderFormClass.js}'></script>
+<script type="text/javascript" src="{theme:javascript/jquery.cookie/jquery.cookie.js}"></script>
+<script type="text/javascript">
+                                function pageLoaded(event, data) {
+                                    $("a.on", "#pages")
+                                            .removeClass("on")
+                                            .css(聽"border", "0px solid red");
+
+                                    $("a", "#pages")
+                                            .eq(data.page)
+                                            .addClass("on")
+                                            .css(聽"border", "1px solid red");
+                                }
+
+                                $(聽"#ui-carousel-next")
+                                        .add("#ui-carousel-prev")
+                                        .add(聽".bullet")
+                                        .hover(
+                                                function ()聽{
+                                                    $(this).css(聽"opacity", 0.7);
+                                                },
+                                                function ()聽{
+                                                    $(this).css(聽"opacity", 1.0);
+                                                }
+                                        );
+                                // 杞崲浠ｇ爜
+                                function generatePages() {
+                                    var _total, i, _link;
+
+                                    var seltz = $("#sel_tc_id").val();
+
+                                    $(".carousel").rcarousel("getTotalPages");
+
+                                    _total = $("#count_" + seltz).val();
+
+                                    $("#pages").css("width", (60 * _total).toString() + "px")
+                                            .css("margin-left", (700 - 60 * _total) / 2 + "px");
+
+
+                                    // 姣忔杩涙潵閮芥竻绌�
+                                    $("#pages").html("");
+
+                                    str = "";
+
+                                    for (i = 0; i < _total; i++) {
+                                        var imgsrc = $("#img_" + seltz + "_" + i).val();
+                                        var imgstr = '<img src="' + imgsrc + '" width=40 height=40 style="border: 0px;"/>';
+
+                                        _link = $("<a href='#'></a>");
+
+                                        str = str + imgstr;
+
+                                        $(_link)
+                                                .bind("click", {page: i},
+                                                function (event) {
+                                                    $(".carousel").rcarousel("goToPage", event.data.page);
+                                                    event.preventDefault();
+                                                }
+                                                )
+                                                .addClass("bullet off")
+                                                .appendTo("#pages")
+                                                .html(imgstr);
+                                    }
+
+                                    // mark first page as active
+                                    $("a:eq(0)", "#pages")
+                                            .removeClass("off")
+                                            .addClass("on")
+                                            .css(聽"border", "1px solid red")
+                                            .click();
+
+                                }
+
+                                function loadcarousel() {
+                                    $(".carousel").rcarousel(
+                                            {
+                                                visible: 1,
+                                                step: 1,
+                                                speed: 700,
+                                                auto: {
+                                                    enabled: false
+                                                },
+                                                width: 410,
+                                                height: 520,
+                                                start: generatePages,
+                                                pageLoaded: pageLoaded
+                                            }
+                                    );
+
+                                }
+
+
+                                //鍙栧瑁呮墿灞曚俊鎭�
+                                function getpicsinfo() {
+                                    var goods_id = $("#goods_id").val();
+                                    var tz_name = $("#sel_tz").val();
+                                    //alert(tz_name);
+                                    //涓诲浘鍒囨崲
+                                    $(".carousel").css("display", "none");
+                                    //alert(tz_name);
+                                    $("div[name='" + tz_name + "']").css("display", "block");
+
+                                    // 閲嶆柊鐢熸垚缈婚〉
+                                    generatePages();
+
+                                    //璇︾粏瑙勬牸璇存槑
+                                    $(".tc_unit").each(function () {
+                                        if ($(this).attr("tc_value") == tz_name) {
+                                            var shuoming = "濂楄" + $(this).attr("tc_id");
+                                            $(".tr_shuoming").text(shuoming + " = " + tz_name);
+                                        }
+                                    });
+                                    //瑙勬牸鍥�
+                                    $(".cs_comment").each(function () {
+                                        if ($(this).attr("name") == tz_name) {
+
+                                            // alert($(this).attr("name"));
+                                            $(this).css("display", "block");
+                                        } else {
+                                            //alert($(this).attr("name") + tz_name);
+                                            $(this).css("display", "none");
+                                        }
+                                    })
+                                    
+                                    //灏忓浘
+                                    $(".small_imgs").each(function () {
+                                        if ($(this).attr("name") == "small_"+tz_name) {
+
+                                            // alert($(this).attr("name"));
+                                            $(this).css("display", "block");
+                                        } else {
+                                            //alert($(this).attr("name") + tz_name);
+                                            $(this).css("display", "none");
+                                        }
+                                    })
+
+                                    $.post("{url:site/getpicsinfo}", {goods_id: goods_id, tz_name: tz_name}, function (res) {
+                                        //涓嬪崟璇存槑
+                                        $(".xd_shuoming").text("璇ュ瑁呬腑锛�" + res);
+
+                                    })
+                                }
+
+                                //鍙栧晢鍝佷俊鎭� 鏂�
+                                function getproductsinfo() {
+                                    var tz = $("#sel_tz").val();
+                                    var ccbang = $("#sel_ccbang").val();
+                                    var ccbing = $("#sel_ccbing").val();
+                                    var goods_id = $("#goods_id").val();
+                                    $.getJSON('{url:/site/getProductsInfo}', {goods_id: goods_id, tz_name: tz, ccbang: ccbang, ccbing: ccbing}, function (json) {
+                                        if (json.flag == 'success')
+                                        {
+                                            // alert(json.data.products_no);
+                                            $("input[name=products_id]").val(json.data.id);
+                                            var goods_num = $("input[name=goods_nums]").val();
+                                            $("input[name=goods_price]").val(Number(json.data.sell_price * goods_num).toFixed(2));
+                                            //灞曠ず浠锋牸
+                                            $(".price_show").text("锟�" + Number(json.data.sell_price * goods_num).toFixed(2));
+                                        }
+                                        else
+                                        {
+                                            alert("鍚庡彴閿欒锛岃鑱旂郴绠＄悊鍛橈紒");
+                                        }
+                                    });
+
+                                }
+
+
+                                $().ready(function () {
+
+
+//									if (navigator.userAgent.indexOf("MSIE") > 0) {
+//										$("#sel_num_val").css("height", "27px");
+//										$("#sel_num_val").css("line-height", "27px");
+//										
+//										//$(".sel_place").css("padding-bottom", "7px");
+//									}
+                                    //椤甸潰榛樿閫変腑
+                                    //濂楄3榛樿閫変腑
+                                    $(".tc_unit").each(function () {
+                                        if ($(this).attr("tc_value") == "姣嶆+瀛樺偍妫�+瀛樺偍纰�") {
+                                            $(this).css("background", "url({skin:images/front/seled.png}) right bottom no-repeat")
+                                            $(this).css("border", "rgb(252, 62, 57) 2px solid")
+                                            $(this).siblings(".tc_unit").css("background", "")
+                                            $(this).siblings(".tc_unit").css("border", "rgb(153, 153, 153) 2px solid")
+
+                                            var tc_id = $(this).attr("tc_id")
+                                            $(".shuoming").css("display", "none")
+                                            $(".shuoming" + tc_id).css("display", "block")
+
+                                            $("#sel_tz").val($(this).attr("tc_value"));
+                                            $("#sel_tc_id").val($(this).attr("tc_id"));
+
+                                        }
+                                    })
+
+                                    //姣嶆榛樿閫変腑
+                                    $(".zb_unit").css("background", "url({skin:images/front/seled.png}) right bottom no-repeat")
+                                    $(".zb_unit").css("border", "red 2px solid")
+                                    $(".zb_unit").siblings(".zb_unit").css("background", "")
+                                    $(".zb_unit").siblings(".zb_unit").css("border", "rgb(153, 153, 153) 2px solid")
+
+
+
+
+                                    //瀛樺偍妫掗粯璁ら�変腑绗竴涓�
+                                    $(".bang_unit:first").css("background", "url({skin:images/front/seled.png}) right bottom no-repeat")
+                                    $(".bang_unit:first").css("border", "red 2px solid")
+                                    $(".bang_unit:first").siblings(".bang_unit").css("background", "")
+                                    $(".bang_unit:first").siblings(".bang_unit").css("border", "rgb(153, 153, 153) 2px solid")
+                                    $("#sel_ccbang").val($(".bang_unit:first").text());
+
+
+                                    //瀛樺偍纰熼粯璁ら�変腑绗竴涓�
+                                    $(".bing_unit:first").css("background", "url({skin:images/front/seled.png}) right bottom no-repeat")
+                                    $(".bing_unit:first").css("border", "red 2px solid")
+                                    $(".bing_unit:first").siblings(".bing_unit").css("background", "")
+                                    $(".bing_unit:first").siblings(".bing_unit").css("border", "rgb(153, 153, 153) 2px solid")
+                                    $("#sel_ccbing").val($(".bing_unit:first").text());
+
+
+                                    //鍒濆鍖栭粯璁ゅ椁愮殑鍏宠仈淇℃伅
+                                    getpicsinfo();
+                                    //杞藉叆浠锋牸淇℃伅
+                                    getproductsinfo();
+
+                                    //浠巆ookie璇诲彇閫夋嫨鐨勫瀷鍙�
+                                    if ($.cookie("mbk_goods_id") && $.cookie("mbk_product_id") && $("input[name=user_id]").val()) {
+                                        $("#goods_id").val($.cookie("mbk_goods_id"));
+                                        $("#product_id").val($.cookie("mbk_product_id"));
+                                        $("#goods_nums").val($.cookie("mbk_goods_nums"));
+                                        $("#goods_prices").val($.cookie("mbk_goods_prices"));
+                                        $("#sel_tz").val($.cookie("mbk_sel_tz"));
+                                        $("#sel_ccbang").val($.cookie("mbk_sel_ccbang"));
+                                        $("#sel_ccbing").val($.cookie("mbk_sel_ccbing"));
+                                        $("input[name=tz_name]").val($.cookie("mbk_tz_name"));
+
+                                        initProductInfo();
+
+                                        //鐩存帴璺冲埌绗簩姝�
+                                        $("#content_1").css("display", "none");
+                                        $("#content_2").css("display", "block");
+                                        $('html, body').animate({scrollTop: 0}, 'slow');
+
+                                        $(".book_wrapper").css("background-color", "rgb(244, 244, 244)");
+                                    }
+
+                                    initProductInfo();
+                                })
+
+                                $(".tc_unit").click(function () {
+                                    $(this).css("background", "url({skin:images/front/seled.png}) right bottom no-repeat")
+                                    $(this).css("border", "rgb(252, 62, 57) 2px solid")
+                                    $(this).siblings(".tc_unit").css("background", "")
+                                    $(this).siblings(".tc_unit").css("border", "rgb(153, 153, 153) 2px solid")
+
+                                    var tc_id = $(this).attr("tc_id");
+                                    $("#sel_tc_id").val(tc_id);
+                                    $(".shuoming").css("display", "none")
+                                    $(".shuoming" + tc_id).css("display", "block")
+
+                                    $("#sel_tz").val($(this).attr("tc_value"));
+
+                                    $("#sel_num_val").val(1);
+                                    
+                                    //濂楄鍚�
+                                    $("input[name=tz_name]").val($(this).text());
+
+                                    //涓氬姟鐗规��
+                                    var tc_name = $(".shuoming" + tc_id).children("span").text();
+                                    if (tc_name == "姣嶆+瀛樺偍妫�") {
+                                        $(".sel_bing").css("display", "none");
+                                        $(".sel_bang").css("display", "block");
+
+
+                                    } else if (tc_name == "姣嶆+瀛樺偍纰�") {
+                                        $(".sel_bing").css("display", "block");
+                                        $(".sel_bang").css("display", "none");
+
+                                    } else {
+                                        $(".sel_bing").css("display", "block");
+                                        $(".sel_bang").css("display", "block");
+                                    }
+
+                                    //鍒锋柊鍏宠仈淇℃伅
+                                    getpicsinfo();
+                                    //alert(333333);
+                                    //閲嶇疆鍟嗗搧鏁伴噺
+                                    $("#sel_num_val").val(1);
+                                    $("input[name=goods_nums]").val(1);
+                                    //杞藉叆浠锋牸淇℃伅
+                                    getproductsinfo();
+                                    initProductInfo();
+                                })
+
+                                $("#sel_num_val").change(function () {
+                                    $("input[name=goods_nums]").val($(this).val());
+                                    getproductsinfo();
+                                })
+
+
+                                $(".bang_unit").click(function () {
+                                    $(this).css("background", "url({skin:images/front/seled.png}) right bottom no-repeat")
+                                    $(this).css("border", "red 2px solid")
+                                    $(this).siblings(".bang_unit").css("background", "")
+                                    $(this).siblings(".bang_unit").css("border", "rgb(153, 153, 153) 2px solid")
+
+                                    $("#sel_ccbang").val($(this).text());
+                                    getproductsinfo();
+                                    initProductInfo();
+                                })
+                                $(".bing_unit").click(function () {
+                                    $(this).css("background", "url({skin:images/front/seled.png}) right bottom no-repeat")
+                                    $(this).css("border", "red 2px solid")
+                                    $(this).siblings(".bing_unit").css("background", "")
+                                    $(this).siblings(".bing_unit").css("border", "rgb(153, 153, 153) 2px solid")
+
+                                    $("#sel_ccbing").val($(this).text());
+                                    getproductsinfo();
+                                    initProductInfo();
+                                })
+                                $(".numup").click(function () {
+                                    var num = parseInt($("#sel_num_val").val())
+                                    $("#sel_num_val").val(num + 1)
+                                    $("input[name=goods_nums]").val(num + 1);
+                                    getproductsinfo()
+                                })
+                                $(".numdown").click(function () {
+                                    var num = $("#sel_num_val").val()
+                                    if (num <= 1)
+                                        return;
+                                    $("#sel_num_val").val(num - 1)
+                                    $("input[name=goods_nums]").val(num - 1);
+                                    getproductsinfo()
+                                })
+
+                                //鍒濆鍖栧湴鍧�閫夋嫨
+                                createAreaSelect('province', 0, '');
+                                $('[name="city"]').empty();
+                                $('[name="area"]').empty();
+                                template.compile("areaTemplate", areaTemplate);
+
+                                // 榛樿閫変腑鏀粯瀹�
+                                $("input[id='zhifu_default']").attr('checked', "true");
+
+                                var item_id = $("input[id='zhifu_default']").attr("itemid");
+                                choose_me(item_id);
+
+                                //鏀粯绫诲瀷閫夋嫨
+                                function choose_me($id) {
+                                    $("input[name='pay_type']").val($id);
+                                }
+
+                                /**
+                                 * 妫�鏌ヨ鏍奸�夋嫨鏄惁绗﹀悎鏍囧噯
+                                 * @return boolen
+                                 */
+                                function checkSpecSelected()
+                                {
+                                    return true;
+
+                                }
+
+                                /**
+                                 * 璁剧疆浜у搧淇℃伅
+                                 */
+                                function initProductInfo() {
+                                    //妫�鏌ヨ鏍兼槸鍚﹂�夋嫨绗﹀悎鏍囧噯
+                                    if (checkSpecSelected())
+                                    {
+                                        $("#spec_濂楄").val($("#spec_濂楄2").val().replace("spec_value", $("#sel_tz").val()));
+                                        $("#spec_姣嶆").val($("#spec_姣嶆2").val().replace("spec_value", "姣嶆"));
+                                        $("#spec_瀛樺偍妫�").val($("#spec_瀛樺偍妫�2").val().replace("spec_value", $("#sel_ccbang").val()));
+                                        $("#spec_瀛樺偍纰�").val($("#spec_瀛樺偍纰�2").val().replace("spec_value", $("#sel_ccbing").val()));
+                                        if ($("#sel_tz").val() == "姣嶆+瀛樺偍妫�") {
+                                            $("#spec_瀛樺偍纰�").val($("#spec_瀛樺偍纰�2").val().replace("spec_value", "鏃�"));
+                                        } else if ($("#sel_tz").val() == "姣嶆+瀛樺偍纰�") {
+                                            $("#spec_瀛樺偍妫�").val($("#spec_瀛樺偍妫�2").val().replace("spec_value", "鏃�"));
+                                        }
+
+                                        var specArray = [];
+                                        //鏁寸悊瑙勬牸鍊�
+                                        var tz = $("#spec_濂楄").val();
+                                        specArray.push(tz);
+                                        var zb = $("#spec_姣嶆").val();
+                                        specArray.push(zb);
+                                        var ccbang = $("#spec_瀛樺偍妫�").val();
+                                        specArray.push(ccbang);
+                                        var ccbing = $("#spec_瀛樺偍纰�").val();
+                                        specArray.push(ccbing);
+
+                                        var specJSON = '[' + specArray.join(",") + ']';
+                                        //alert(specJSON);
+
+                                        //鑾峰彇璐у搧鏁版嵁骞惰繘琛屾覆鏌�
+                                        $.getJSON('{url:/site/getProduct}', {"goods_id": "{$id}", "specJSON": specJSON, "random": Math.random}, function (json) {
+                                            if (json.flag == 'success')
+                                            {
+                                                //鏅�氳揣鍝佹暟鎹覆鏌�
+                                                //alert(json.data.id);
+                                                $('#product_id').val(json.data.id);
+
+                                            }
+                                            else
+                                            {
+                                                window.scrollTo(0, 100);
+                                                alert(json.message);
+                                                closeBuy();
+                                            }
+                                        });
+                                    }
+                                }
+
+                                /**
+                                 * 鐢熸垚鍦板煙js鑱斿姩涓嬫媺妗�
+                                 * @param name
+                                 * @param parent_id
+                                 * @param select_id
+                                 */
+                                function createAreaSelect(name, parent_id, select_id)
+                                {
+
+                                    //鐢熸垚鍦板尯
+                                    $.getJSON("{url:/block/area_child}", {"aid": parent_id, "random": Math.random()}, function (json)
+                                    {
+                                        $('[name="' + name + '"]').html(template.render('areaTemplate', {"select_id": select_id, "data": json}));
+                                    });
+                                }
+                                function adjust_sure_box(to_show) {
+                                    if (to_show) {
+                                        //sure_box淇℃伅瑁呭叆
+                                        //鍙戠エ淇℃伅
+                                        var invoice_type = $("#invoice_type").val();
+                                        if (invoice_type == 1) {
+                                            //涓汉
+                                            var invoice = "鏅�氬彂绁細涓汉<br />";
+                                        } else {
+                                            //鍏徃
+                                            var invoice = "鏅�氬彂绁細鍏徃<br />" + $("[name='invoice_title']").val();
+                                        }
+                                        $("#sure_invoice").html(invoice);
+
+                                        //鍦板潃淇℃伅
+                                        var accept_name = $("[name=accept_name]").val();
+                                        if ($("[name=mobile]").val()) {
+                                            var tel = $("[name=mobile]").val();
+                                        } else {
+                                            var tel = $("[name=telphone]").val();
+                                        }
+                                        var zip = $("input[name=postcode]").val();
+                                        var province = $("[name=province]").val();
+                                        var city = $("[name=city]").val();
+                                        var area = $("[name=area]").val();
+                                        var phone = $("[name=telphone]").val();
+                                        var address_detail = $("[name=address]").val();
+                                        $.getJSON("{url:/block/area_name}", {province: province, city: city, area: area}, function (json) {
+                                            //alert(json);
+                                            province = json.province;
+                                            city = json.city;
+                                            area = json.area;
+
+                                            var accept_time = $("[name=accept_time]").val();
+                                            var address = '鏀惰揣浜猴細' + accept_name + ", 鎵嬫満鍙凤細" + tel + "<br />閭紪锛�" + zip + (phone? (", 鍥哄畾鐢佃瘽锛�"+phone ):'') + "<br />鏀惰揣鍦板尯锛�" + province + " " + city + " " + area + ", 璇︾粏鍦板潃锛�" + address_detail + "<br />閫佽揣鏂规锛�" + accept_time + " 鏀惰揣";
+                                            $("#sure_address").html(address);
+
+
+
+                                            var win_height = parseInt($(window).height());
+                                            var win_width = parseInt($(window).width());
+
+                                            var sh = document.body.scrollTop;
+
+                                            var box_top = sh + (win_height - 440) / 2;
+                                            var box_left = (win_width - 700) / 2;
+
+                                            if (navigator.userAgent.indexOf("MSIE 8.0") >= 0) {
+                                                var topS = $(document).scrollTop();
+                                                box_top = box_top + topS;
+                                                sh = sh + topS;
+                                            }
+                                            if (navigator.userAgent.indexOf("BaiduClient") >= 0) {
+                                                var topS = $(document).scrollTop();
+                                                box_top = box_top + topS;
+                                                sh = sh + topS;
+                                            }
+                                            $(".sure_order").css("top", box_top);
+                                            $(".sure_order").css("left", box_left);
+                                            $(".sure_order_bg").css("top", sh);
+                                            $(".sure_order_bg").css("height", win_height);
+
+
+
+                                            $(".sure_order").css("display", "block");
+                                            $(".sure_order_bg").css("display", "block");
+
+                                            $("body").eq(0).css("overflow", "hidden");
+                                        })
+                                    } else {
+                                        $("body").eq(0).css("overflow", "");
+                                        $(".sure_order").css("display", "none");
+                                        $(".sure_order_bg").css("display", "none");
+                                    }
+                                }
+
+
+
+                                $(document).ready(function () {
+
+                                    $("#cancel_form").click(function () {
+                                        adjust_sure_box(0);
+                                    });
+                                    $("#submit_form").click(function () {
+                                        adjust_sure_box(0);
+                                        $("#order_form").submit();
+                                        //dopay();
+                                    });
+
+                                    $("#to_second_page").click(function () {
+                                        //琛ㄥ崟鏄惁濉畬
+                                        if (checkSpecSelected()) {
+                                            //鏄惁宸茬櫥褰�
+                                            if ($("input[name=user_id]").val()) {
+                                                var tz = "";
+                                                $("label.shuoming").each(function(){
+                                                    if($(this).css("display") == "block"){
+                                                        tz = $(this).text();
+                                                    }
+                                                })
+                                                tz = tz + " 鍏朵腑锛�";
+                                                var ccbang = 0;
+                                                //var tz = "濂楄锛�"+ $("#sel_tz").val();
+                                                if($("#sel_ccbang").val() && $("#sel_ccbing").val() != "鏃�" && $("#sel_tz")!='姣嶆+瀛樺偍纰�'){
+                                                    tz = tz + " 瀛樺偍妫�:" + $("#sel_ccbang").val();
+                                                    ccbang = 1;
+                                                }
+                                                if($("#sel_ccbing").val() && $("#sel_ccbing").val() != "鏃�" && $("#sel_tz")!='姣嶆+瀛樺偍妫�'){
+                                                    if(ccbang == 1){
+                                                        tz = tz + ',';
+                                                    }
+                                                    tz = tz + " 瀛樺偍纰�:" + $("#sel_ccbing").val();
+                                                }
+                                                $("#second_name").text(tz);
+                                                
+                                                $("#content_1").css("display", "none");
+                                                $("#content_2").css("display", "block");
+                                                $('html, body').animate({scrollTop: 0}, 'slow');
+
+                                                $(".book_wrapper").css("background-color", "rgb(244, 244, 244)");
+                                            } else {
+                                                //寮瑰嚭鐧诲綍妗�
+                                                var pagesize = getPageSize();
+                                                //$("body").eq(0).css("overflow", "hidden");
+                                                $(".login_table").height(pagesize[1]);
+                                                $(".login_table").css("display", "block");
+                                                $(".login_content").css("display", "block");
+
+                                                var body_width = $(window).width();
+
+                                                $(".login_content").css("left", (body_width - 380) / 2 + "px");
+
+                                                //杩斿洖椤甸潰椤堕儴
+                                                window.scrollTo(0, 0);
+
+                                                //璁剧疆cookies
+                                                $.cookie("mbk_goods_id", $("#goods_id").val());
+                                                $.cookie("mbk_product_id", $("#product_id").val());
+                                                $.cookie("mbk_goods_nums", $("#goods_nums").val());
+                                                $.cookie("mbk_goods_prices", $("#goods_prices").val());
+                                                $.cookie("mbk_sel_tz", $("#sel_tz").val());
+                                                $.cookie("mbk_sel_ccbang", $("#sel_ccbang").val());
+                                                $.cookie("mbk_sel_ccbing", $("#sel_ccbing").val());
+                                                $.cookie("mbk_tz_name", $("input[name=tz_name]").val());
+
+
+                                                return false;
+                                            }
+                                        } else {
+                                            window.scrollTo(0, 100);
+                                            alert("璇烽�夋嫨鍟嗗搧瑙勬牸锛�");
+                                        }
+                                    });
+
+                                    $(".order_required").change(function () {
+                                        if ($(this).val() == '' || $(this).val() == 0 || $(this).val() == $(this).attr('placeholder')) {
+                                            return;
+                                        } else {
+                                            $(this).removeClass("alert_input");
+                                        }
+                                    })
+                                    $("input[name=postcode]").change(function () {
+                                        $(this).removeClass("alert_input");
+                                    })
+
+                                    $("#to_third_page").click(function () {
+                                        //娑堟伅楠岃瘉
+                                        var failed = 0;
+                                        //蹇呭～瀛楁楠岃瘉
+                                        $(".order_required").each(function () {
+                                            if ($(this).val() == '' || $(this).val() == 0 || $(this).val() == $(this).attr('placeholder')) {
+                                                window.scrollTo(0, 100);
+                                                alert($(this).attr("alt"));
+                                                $(this).addClass("alert_input");
+                                                failed = 1;
+                                            }
+
+                                            if ($(this).attr("name") == "mobile") {
+                                                if (validatemobilephone($(this).val()) == false) {
+                                                    window.scrollTo(0, 100);
+                                                    alert("璇锋鏌ユ墜鏈哄彿鐮佹牸寮�");
+                                                    $(this).addClass("alert_input");
+                                                    failed = 1;
+                                                }
+                                            }
+                                        })
+										
+										//鍏徃鍙戠エ锛屽叕鍙稿繀濉�
+										if ($("#company_info").css("display") == "block") {
+											if ($("#company_info").val() == "") {
+												//window.scrollTo(0, 100);
+												alert("鍏徃鍙戠エ锛岃濉啓鍏徃鍚嶅瓧");
+												//failed = 1;
+												return;
+											}
+										}
+                                        //閭紪妫�鏌�  2015-11-13 鐜� 閭紪蹇呭～
+                                        var zip = $("input[name=postcode]").val();
+                                        if (zip && zip != $("input[name=postcode]").attr("placeholder")) {
+                                            var pattern = /^[1-9][0-9]{5}$/;
+                                            if (zip.search(pattern) == -1) {
+                                                alert("閭紪鏍煎紡閿欒");
+                                                $("input[name=postcode]").addClass("alert_input");
+                                                failed = 1;
+                                                return ;
+                                            }
+                                        }
+                                        
+                                        //鍥哄畾鐢佃瘽妫�鏌�
+                                        var phone = $("input[name=telphone]").val();
+                                        if(phone == $("input[name=telphone]").attr("placeholder")){
+                                            $("input[name=telphone]").val("");
+                                            phone = "";
+                                        }
+                                        if (phone && phone != $("input[name=telphone]").attr("placeholder")) {
+                                            var pattern = /^[\d-]{8,13}$/i;
+                                            if (phone.search(pattern) == -1) {
+                                                alert("鍥哄畾鐢佃瘽鏍煎紡閿欒锛屾纭牸寮忓:0001-20110101");
+                                                $("input[name=telphone]").addClass("alert_input");
+                                                failed = 1;
+                                                return ;
+                                            }
+                                        }
+
+                                        //闃睯S娉ㄥ叆
+                                        var pattern = /[<>]+/i;
+                                        $("input.order_string").each(function () {
+                                            if ($(this).val().search(pattern) != -1) {
+                                                window.scrollTo(0, 100);
+                                                alert("瀛樺湪闈炴硶瀛楃锛岃閲嶆柊杈撳叆!");
+                                                failed = 1;
+                                                return;
+                                            }
+                                        })
+
+                                        //纭淇℃伅
+                                        if (failed == 0) {
+                                            adjust_sure_box(1);
+                                        }
+                                    });
+
+									$("input[name=telphone]").change(function() {
+										$(this).removeClass("alert_input");	
+									});
+
+                                    $("a#select_addr").click(function () {
+                                        $("div.address").css("display", "none");
+                                        $("div.sel_address").css("display", "block");
+                                    });
+                                    $("a#use_new_addr").click(function () {
+                                        //娓呯┖鍦板潃閫夋嫨ID
+                                        $("[name='address_id']").val(0);
+                                        $("div.address").css("display", "block");
+                                        $("div.sel_address").css("display", "none");
+                                        ;
+                                    });
+
+                                    $(".img_select").click(function () {
+                                        $(this).attr("src", "{skin:images/front/selected.png}");
+                                        $(this).siblings(".img_select").attr("src", "{skin:images/front/unselected.png}");
+
+                                        if ($(this).attr("id") == "personal") {
+                                            //涓汉鍙戠エ閫変腑
+                                            $("#invoice_type").val(1);
+                                            $("#company_info").css("display", "none");
+                                        } else if ($(this).attr("id") == "company") {
+                                            //鍏徃鍙戠エ閫変腑
+                                            $("#invoice_type").val(2);
+                                            $("#company_info").css("display", "block");
+                                        } else if ($(this).attr("id") == "zhifu_id") {
+                                            $(".banks").css("display", "none");
+                                            $(".zhifus").css("display", "block");
+                                            $("#bank_content").css("height", "170px");
+                                        } else {
+                                            $(".banks").css("display", "block");
+                                            $(".zhifus").css("display", "none");
+                                            $("#bank_content").css("height", "310px");
+                                        }
+
+
+                                    });
+
+                                    //榛樿閫佽揣鏃堕棿 涓嶉檺
+                                    if (!$("input[name='accept_time']").val()) {
+                                        $(".sh_time").each(function () {
+                                            //璁剧疆閫佽揣鍊�
+                                            var accept_time = $(this).children("input[name='sh_time_value']").val();
+                                            if (accept_time == "涓嶉檺閫佽揣鏃堕棿") {
+                                                $("input[name='accept_time']").val(accept_time);
+
+                                                $(this).css("border-color", "rgb(255, 72, 0)");
+                                                $(this).css("background-color", "rgb(255, 255, 255)");
+
+                                                $(this).siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                                                $(this).siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                                            }
+                                        });
+                                    }
+
+                                    $(".sh_time").click(function () {
+                                        //璁剧疆閫佽揣鍊�
+                                        var accept_time = $(this).children("input[name='sh_time_value']").val();
+                                        $("input[name='accept_time']").val(accept_time);
+
+                                        $(this).css("border-color", "rgb(255, 72, 0)");
+                                        $(this).css("background-color", "rgb(255, 255, 255)");
+
+                                        $(this).siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                                        $(this).siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                                    });
+
+                                    // 鍦嗗湀
+                                    // 棰滆壊閫夋嫨
+                                    $(".circle").click(function () {
+
+                                        //鏍峰紡娓叉煋
+                                        var cid = $(this).attr("cid");
+                                        if (cid == "0") {
+                                            $(this).css("border-color", "rgb(13, 122, 255)");
+                                            $(this).siblings(".circle").css("border-color", "rgb(229, 229, 229)");
+                                        } else {
+                                            $(this).css("border-color", "rgb(13, 122, 255)");
+                                            $(this).siblings(".circle").css("border-color", "rgb(255, 255, 255)");
+                                        }
+                                        //閫昏緫鏁版嵁
+                                        $("#colorselected").val(this.id);
+                                        initProductInfo();
+
+                                    });
+
+                                    // 瀹归噺
+                                    $(".sel_cap_cb > .out").click(function () {
+                                        $(this).removeClass("sel_off");
+                                        $(this).addClass("sel_on");
+
+                                        $(this).siblings("label").removeClass("sel_on");
+                                        $(this).siblings("label").addClass("sel_off");
+
+                                        //閫昏緫鏁版嵁
+                                        $("#volumeselected").val(this.id);
+                                        initProductInfo();
+                                    });
+
+                                    //鍒濆鍖栧湴鍧�
+                                    $(".address_select").each(function () {
+                                        if ($(this).nextAll("[name='tpl_default']").val() == 1) {
+                                            address_choose(this);
+                                        }
+                                    });
+
+                                    //閫夋嫨宸叉湁鍦板潃
+                                    $(".address_select").click(function () {
+                                        address_choose(this);
+                                    });
+
+                                    //閫夋嫨鍦板潃
+                                    function address_choose(obj) {
+                                        $(".address_select").attr("src", "{skin:images/front/unselected.png}");
+                                        $(obj).attr("src", "{skin:images/front/selected.png}");
+
+                                        //鎶婂湴鍧�濉厖鍒拌〃鍗曚腑
+                                        $("[name=accept_name]").val($(obj).nextAll("[name=tpl_accept_name]").val());
+                                        $("[name=postcode]").val($(obj).nextAll("[name=tpl_zip]").val());
+                                        $("[name=telphone]").val($(obj).nextAll("[name=tpl_telphone]").val());
+                                        $("[name=province]").val($(obj).nextAll("[name=tpl_province]").val());
+                                        $("[name=city]").val($(obj).nextAll("[name=tpl_city]").val());
+                                        $("[name=area]").val($(obj).nextAll("[name=tpl_area]").val());
+                                        $("[name=address]").val($(obj).nextAll("[name=tpl_address]").val());
+                                        $("[name=mobile]").val($(obj).nextAll("[name=tpl_mobile]").val());
+
+                                        $("[name=accept_time]").val($(obj).nextAll("[name=tpl_accept_time]").val());
+
+                                        //閲嶆柊鐢熸垚鍦板尯
+                                        createAreaSelect('province', 0, $(obj).nextAll("[name=tpl_province]").val());
+                                        createAreaSelect('city', $(obj).nextAll("[name=tpl_province]").val(), $(obj).nextAll("[name=tpl_city]").val());
+                                        createAreaSelect('area', $(obj).nextAll("[name=tpl_city]").val(), $(obj).nextAll("[name=tpl_area]").val());
+
+                                        //閫佽揣鏃舵満
+                                        var sh_time = $("[name='sh_time_value'][value='" + $(obj).nextAll("[name=tpl_accept_time]").val() + "']").parents(".sh_time");
+                                        sh_time.css("border-color", "rgb(255, 72, 0)");
+                                        sh_time.css("background-color", "rgb(255, 255, 255)");
+                                        sh_time.siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                                        sh_time.siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                                    }
+
+
+                                    loadcarousel();
+
+
+                                });
+
+                                // 鏀粯绛夊緟
+                                function dopay()
+                                {
+                                    confirm('鏀粯鏄惁鎴愬姛', "window.location.href='{url:/ucenter/book_result}';");
+                                }
+
+</script>

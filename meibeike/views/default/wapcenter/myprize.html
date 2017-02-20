@@ -1,0 +1,20 @@
+	<ul class="prize-list">
+			<?php foreach($prize as $val) {?>
+			<li>
+				<h2><?php echo $val['activity_desc']?></h2>				
+				<p><?php echo $val['field1']?></p>
+				<p><?php echo $val['time']?></p> 
+				<p>发放方式：与活动订单一同发出</p>
+				<p><?php if($val['status']=='0') echo '未使用';else echo '已使用' ;?></p> 				
+			</li>
+			<?php }?>
+			
+		</ul>
+		
+		<!--暂无奖品-->
+		<div class="prize-no" style='{if:empty($prize)}{echo "display:block"}{else:}{echo: "display:none"}{/if};'>
+			<img src="/views/default/wap/mobile/version/img/app-nojp.png"/>
+			<p>暂无奖品</p>
+		</div>
+	</body>
+</html>

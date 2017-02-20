@@ -1,0 +1,61 @@
+10
+
+dir
+10495
+http://192.168.2.31:8001/YunBangI/Code/MeiWeb/meimbeike/meibeike/plugins
+http://192.168.2.31:8001/YunBangI
+
+
+
+2016-06-14T01:36:12.292151Z
+9602
+z.fenghua
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ef0999cd-408c-4ad0-a2b8-8a3827a9271e
+
+oauth
+dir
+
+payments
+dir
+
+csvPacketHelper
+dir
+
+swfupload
+dir
+
+collect
+dir
+
+sendGoods
+dir
+
+ucenter
+dir
+
+cas
+dir
+
+sonline
+dir
+
+freight
+dir
+
+expresswaybill
+dir
+

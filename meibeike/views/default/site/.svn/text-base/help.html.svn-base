@@ -1,0 +1,78 @@
+<style type="text/css">
+	.help_wrapper {float: left; width: 100%; background-color: rgb(230, 230, 230); padding-bottom: 30px; margin-top: 0px; }	
+    .help_wrapper .help_content {width: 1120px; height: auto; margin: 0 auto; padding-top: 30px; padding-bottom: 50px;}
+	.help_wrapper .help_content .left {float: left; margin-bottom: 20px; border: 1px rgb(188, 188, 188) solid; border-radius: 15px; width: 210px; background-color: white; margin-right: 15px}
+	.help_wrapper .help_content .left a {float: left; display: block; text-align: left; width: 180px; padding-left: 30px; text-decoration: none; color: black;}
+	.help_wrapper .help_content .left a.title { height: 60px; line-height: 60px; background-color: rgb(242, 242, 242); border-top-left-radius: 15px; border-top-right-radius: 15px; font-size: 18px;}
+	.help_wrapper .help_content .left a.child { height: 50px; line-height: 50px; border-top: 1px rgb(188, 188, 188) solid; cursor: pointer; font-size: 16px;}
+	.help_wrapper .help_content .left a.child:hover {background-color: rgb(251, 62, 58); color: white;}
+	.help_wrapper .help_content .left a.selected {background-color: rgb(251, 62, 58); color: white;}
+	.help_wrapper .help_content .left a.last {border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
+	
+	.help_wrapper .help_content .right {float: left; border: 1px rgb(188, 188, 188) solid; border-radius: 15px; padding-bottom: 5px; width: 890px; margin-bottom: 20px; background-color: white;}
+	.help_wrapper .help_content .right label {float: left; padding-left: 27px; width: 863px;}
+	.help_wrapper .help_content .right label.title {height: 60px; line-height: 60px; border-bottom: 1px rgb(188, 188, 188) solid; background-color: rgb(242, 242, 242); border-top-left-radius: 15px; border-top-right-radius: 15px; font-size: 18px;}
+	.help_wrapper .help_content .right label.sub_title {height: 40px; line-height: 40px; border-top: 1px rgb(188, 188, 188) solid; font-size: 14px; border-bottom: 1px rgb(188, 188, 188) solid; background-color: rgb(230, 231, 232);}
+	.help_wrapper .help_content .right label.sub_content { line-height: 30px; font-size: 14px; margin-top: 20px; margin-bottom: 20px; width: 840px;}
+</style>
+<div class="help_wrapper">
+	<div class="help_content">
+            <input type='hidden' name='cat_id' value="{$this->help_cat_id}">
+            <input type='hidden' name='help_id' value='{$this->help_id}'>
+		<div class="left">
+			<a class="title">{if:$this->help_cat_id==4}服务与支持{else:}关于我们{/if}</a>
+                        {query:name=help where=cat_id eq $this->help_cat_id order=sort asc,id desc}
+                        <div id="cat_{$item['id']}">
+                        <a class="child" href="{url:site/help/id/}{$item['id']}">{$item['name']}</a>
+                        </div>
+                        {/query}
+		</div>
+		<div class="right">
+			<label class="title">{$this->help['name']}</label>
+			<label class="sub_content">{$this->help['content']}</label>
+<!--			<label class="title">{$this->help_cat['name']}</label>
+                        {foreach:items=$this->help_row}
+			<label class="sub_title">{$item['name']}</label>
+			<label class="sub_content">
+                            <a style="width:100%;" name="help_{echo:$item['id']}"></a>
+				{$item['content']}		
+			</label>
+                        {/foreach}
+		</div>-->
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var help_id = $("[name=help_id]").val();
+		$("#cat_"+help_id).children("a.child").css("background-color","rgb(251, 62, 58)");
+		$("#cat_"+help_id).children("a.child").css("color","white");
+		$("div.left").children("div").last().children("a.child").addClass("last");	
+	});
+//	function jumpto() {
+//		    var cat_id = $("[name=cat_id]").val();
+//            $("#cat_"+cat_id).children("a.child").css("background-color","rgb(251, 62, 58)");
+//            $("#cat_"+cat_id).children("a.child").css("color","white");
+//            $("div.left").children("div").last().children("a.child").addClass("last");
+//            
+//            //跳转到锚点
+//            var help_id = $("#help_id").val();
+//            if(help_id){
+//				window.location.replace("#help_"+help_id);
+//                //window.location.href="#help_"+help_id;
+//            }
+//
+//	}
+//    
+//	$(document).ready(function(){
+//		
+//			window.setTimeout("jumpto()", 500);
+//		
+// 			
+//			if ($(".sub_content").height() <= 400) {
+//				$(".sub_content").css("height", "400px");
+//			}
+//        });
+        
+</script>
+

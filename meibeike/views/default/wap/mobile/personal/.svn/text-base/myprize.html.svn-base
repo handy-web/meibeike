@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+	    <title>我的奖品-</title>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <meta name="full-screen" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="format-detection" content="address=no">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../version/css/main.css" />
+		<script type="text/javascript" src="../version/js/jquery.js" ></script>
+	</head>
+	<body>
+		
+		<ul class="prize-list">
+			<li>
+				<h2>活动名称：6月20日抢购送碟</h2>				
+				<p>奖品：1T存储碟</p>
+				<p>有效期：2016/7/02 12:00至2016/7/02 12:00</p> 
+				<p>发放方式：与活动订单一同发出</p>
+				<p>奖品状态：未出库</p> 				
+			</li>
+			<li>
+				<h2>活动名称：6月20日抢购送碟</h2>				
+				<p>奖品：1T存储碟</p>
+				<p>有效期：2016/7/02 12:00至2016/7/02 12:00</p> 
+				<p>发放方式：与活动订单一同发出</p>
+				<p>奖品状态：未出库</p> 				
+			</li>
+		</ul>
+		
+		<!--暂无奖品-->
+		<div class="prize-no" style="display: none;">
+			<img src="../version/img/app-nojp.png"/>
+		</div>
+	</body>
+</html>

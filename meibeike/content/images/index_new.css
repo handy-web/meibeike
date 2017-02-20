@@ -1,0 +1,135 @@
+
+.no_chinese {ime-mode:disabled; /*Chrome Safari*/-webkit-ime-mode:disabled; /*Mozilla Firefox*/-moz-ime-mode:disabled; /*Opera*/-o-ime-mode:disabled; /*Internet Explorer*/-ms-ime-mode:disabled;}
+
+.wrapper_all { position: relative;width: 100%; font-family:"Microsoft YaHei","微软雅黑"; color: rgb(94, 95, 97);}
+
+.wrapper_all .header { position: relative; width: 100%; height: 140px; margin: 0 auto;}
+.wrapper_all .header .header_content {height: 100px; width: 1200px; margin: 0 auto;}
+.wrapper_all .header .header_content .logo {float: left; padding-top: 27px; height: 70px; width: 32px; padding-left: 35px; margin-right: 13px; }
+.wrapper_all .header .header_content .logo_label {float: left; margin-top: 35px; font-size: 24px; font-weight: normal;}
+
+.left_menu {float: left; margin-left: 0px; width: 600px; }
+
+.left_menu ul {margin-top: 7px; margin-left: -12px;}
+.left_menu ul li,.nav-list ul{float:left; list-style-type: none;}
+.left_menu ul li {margin-right: 13px;}
+.left_menu a{ display:block; text-decoration:none; border:transparent solid 1px; border-radius:3px; font-size:14px; opacity:.8; color:#333333; height:26px; line-height: 26px;}
+.left_menu a:hover,.nav-list ul li.selected a{ opacity:1}
+.left_menu a:hover{cursor: pointer; opacity: .6;}
+.left_menu a:active{opacity:.6}
+.left_menu ul a{padding:0 10px}
+.left_menu ul li.on a{ color: red; font-weight: bold;}
+
+.menu_select {float: left; position: relative; z-index: 1000; width: 100%; border: 0px solid rgb(241, 241, 241); padding: 0px 5px 2px 0px; cursor: pointer;
+		 border-top-left-radius: 5px; border-top-right-radius: 5px; }
+.menu_select label {float: left; width: 80px; text-align: center; font-size: 14px; cursor: pointer;}
+.menu_select img {float: right; margin-top: 15px;  font-family:"Microsoft YaHei","微软雅黑"; color: rgb(94, 95, 97);}
+.menu_select .menu_select_child {visibility: hidden; width: 100px; position: absolute; z-index: 1000; top: 38px; left: 2px; border-left: 1px solid rgb(243, 243, 243); 
+								 border-right: 1px solid rgb(243, 243, 243); border-bottom: 1px solid rgb(243, 243, 243); padding: 0px 0px 0px 0px;
+			 border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background: #FFF; height: auto; font-size: 12px;}
+.menu_select .menu_select_child_a {height: 40px; border-radius: 3px;}
+.menu_select .menu_select_child a { text-decoration: none; color: rgb(94, 95, 97); margin: 5px 5px 5px 5px; display: block; width: auto; height: 30px; line-height: 30px; text-align: center;}
+.menu_select .menu_select_child a:hover {background: rgb(143, 143, 150);}
+
+.wrapper_all .middle_wrapper_banner { position: relative; width: 100%;  margin-top: 0px; /*background-color: rgb(249, 249, 249);*/}
+.wrapper_all .middle_wrapper { position: relative; width: 100%; height: 1240px; margin-top: 0px; background-color: rgb(249, 249, 249);}
+.wrapper_all .middle_wrapper .middler_content_wrapper {width: 1200px; margin: 0 auto;}
+.wrapper_all .middle_wrapper .middler_content_wrapper .middle_content {float: left; width: 100%; }
+.wrapper_all .middle_wrapper .middler_content_wrapper .middle_footer {float: left; width: 100%; height: 280px; background-color: rgb(249, 249, 249);}
+.wrapper_all .middle_wrapper .middler_content_wrapper .middle_footer .middle_footer_content {float: left; margin-left: 95px; margin-top: 36px;}
+.wrapper_all .middle_wrapper .middler_content_wrapper .middle_footer .middle_footer_content .unit {float: left; margin-right: 20px; border-radius: 10px; width: 325px; height: 185px;}
+
+.nav-list{float:right; padding-top:35px; line-height:26px; margin-right: 24px;}
+
+.nav-list ul {margin-top: 2px;}
+.nav-list ul li,.nav-list ul{float:left; list-style-type: none;}
+.nav-list ul li {margin-right: 24px;width: 60px;}
+.nav-list a{ display:block; text-decoration:none; border:transparent solid 1px; border-radius:3px; font-size:18px; opacity:.8; color:#333333; height:26px; font-size: 16px}
+.nav-list a:hover,.nav-list ul li.selected a{ opacity:1}
+.nav-list a:hover{cursor: pointer; opacity: .6;}
+.nav-list a:active{opacity:.6}
+.nav-list ul a{padding:0 10px}
+.nav-list ul li.on a{ color: red; font-weight: bold;}
+
+.nav-list .buy-col{float:left;}
+.nav-list .buy-col a{float:left; border-radius: 6px; height:30px; line-height:30px; opacity:1; color: #FFF; font-size: 16px; }
+.nav-list .buy-col a.buy-button{height:30px; padding-left: 18px; padding-right: 18px; background:rgb(252, 62, 57); margin-left:14px; line-height:30px}
+.nav-list .buy-col a:hover{}
+.nav-list .buy-col a:active{color:#FFF;opacity:.6;filter:alpha(opacity=60)}
+.nav-list .buy-col a.buy-button:hover{background:#fff; color:#000; border: 1px rgb(230,234,237) solid;}
+.nav-list .buy-col a.buy-button:active{background:#D9D9D9;border:1px solid #D9D9D9}
+
+.header-menu-wrapper{ float: left; width:100%; height:40px; line-height:40px; font-size: 14px; background: rgb(234, 234, 239) repeat;  border-top: 1px solid rgb(241, 241, 241); border-bottom: 1px solid rgb(241, 241, 241); }
+.header-menu-wrapper {width:100%;height:38px}
+.header-container {width: 1200px; margin: 0 auto;}
+.header-container .account {float: right; width: 200px; margin-right: 10px; }
+.header-container .account .left_part {float: left; width: 70px;}
+.header-container .account .middle_part {float: left; width: 5px;}
+.header-container .account .right_part {float: left; width: 101px; margin-left: 75px}
+.header-container .account .not_login {float: left; margin-left: 95px; width: 100px; }
+.header-container .account a {text-decoration: none;}
+.header-container .account a.left:hover {cursor: pointer; color: rgb(252, 62, 57);}
+
+.header-container .account .normal-link {text-decoration: none; color: rgb(94, 95, 97);}
+.header-container .account .normal-link:hover {text-decoration: none; color: rgb(252, 62, 57);}
+
+
+
+.help_info{ float: left; width: 100%; border-top: 1px rgb(250, 250, 250) solid; background-color: rgb(250, 250, 250); padding-bottom: 00px; }
+.help_info .footer_wrapper {width: 1200px; margin: 0 auto;}
+.help_info .footer_content { float: left; width: 100%; }
+.help_info dl{display:inline; float:left; margin-left: 0px; width:180px; overflow:hidden; text-align:left; line-height:23px; padding:25px 0 10px 0px}
+.help_info dl dt{padding-bottom: 10px; margin-bottom:5px; font-size: 16px; color: rgb(94, 95, 97); }
+.help_info dl dd{font-size: 14px; margin-left: 0px; }
+.help_info a {text-decoration: none; color: rgb(94, 95, 97); }
+.help_info a:hover {cursor: pointer; color: rgb(252, 62, 57);}
+
+
+
+.publish_info{ float: left; width: 100%; height: 60px; background-color: rgb(250, 250, 250);padding-top: 5px; }
+.publish_info .publish_wrapper {width: 1200px; margin: 0 auto;}
+.publish_info .publish_content { float: left; width: 100%; text-align: center; line-height: 30px; }
+
+
+
+.product-nav-slide{position: fixed; top: -55px; width:100%;  z-index:900000; background:#FFF; opacity: 0.8;
+					overflow:hidden; height:55px; box-shadow:rgba(0,0,0,.2) 0 0 6px; display: block;
+					font-family:"Microsoft YaHei","微软雅黑"; color: rgb(94, 95, 97);}
+
+.product-header-content{width:1200px; margin:0 auto; height:55px; position:relative; z-index:2}
+
+.product-header-content .slide-logo { float: left; margin: 20px 0 0 30px; width: 200px; height: 20px;}
+
+.product-header-content ul {float: right; margin-top: 14px;}
+.product-header-content ul li {float:left;  list-style-type: none;}
+.product-header-content ul li {margin-right: 24px;}
+.product-header-content a{ display:block; text-decoration:none; border:transparent solid 1px; border-radius:3px; font-size:14px; opacity:.8; color:#333333; height:26px}
+.product-header-content a:hover,.product-header-content ul li.selected a{ opacity:1}
+.product-header-content a:hover{cursor: pointer; opacity: .6;}
+.product-header-content a:active{opacity:.6}
+.product-header-content ul a{padding:0 5px}
+.product-header-content ul li.on a{background-color: rgb(230,234,237); }
+
+.product-nav-slide .buy-col{float: right; padding-top: 10px; padding-right: 18px; }
+.product-nav-slide .buy-col a{float:left; border-radius:2px; height:30px; line-height:30px; opacity:1; color: #FFF; font-size: 12px; }
+.product-nav-slide .buy-col a.buy-button{height:30px; padding:0 25px; background:rgb(254, 101, 96); margin-left:14px; line-height:30px}
+
+
+// 登录
+.login_table {}
+.login_content {display: none; position: absolute; z-index: 1500; top: 160px; width: 380px; margin: 0 auto; height: 380px; border-radius: 10px; background-color: #FFF; }
+
+.login_content .title {width: 350px; height: 50px; line-height: 50px; padding-left: 30px; background-color: rgb(252, 252, 252); 
+					 border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom: rgb(215, 215, 215) 1px solid;}
+.login_content .close {width: 40px; height: 40px; float: right; margin-right: 10px; margin-top: 5px; cursor: pointer;}
+.login_content .line {width: 260px; margin: 0 0 15px 60px; height: 40px; line-height: 40px; border: 1px rgb(188, 188, 188) solid;}
+.login_content .line img {float: left; background-color: rgb(237, 237, 237)}
+.login_content .line input {float: left; margin-left: 5px; height: 40px; width: 180px; font-size: 16px; border: 0px; outline:none;}
+.login_content .btn {width: 260px; margin: 0 0 15px 60px; height: 40px; line-height: 40px;  border-radius: 4px;}
+.login_content .login_btn {background: rgb(252, 62, 57);}
+.login_content .register_btn {background: rgb(229, 229, 229);}
+.login_content .btn a {display: block; width: 100%; height: 40px; cursor: pointer; text-decoration: none; color: #FFF; text-align: center;}
+.login_content .btn a.grey {color: rgb(134, 134, 134)}
+
+.login_content .bottom {width: 270px; margin-left: 54px; height: 24px; line-height: 24px;}
+.login_content .bottom a {float: right; text-decoration: none; font-size: 14px; color: rgb(134, 134, 134)}

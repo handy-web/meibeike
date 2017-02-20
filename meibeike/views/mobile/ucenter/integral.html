@@ -1,0 +1,27 @@
+<section>
+	<div class="pending-detial">
+		<h2>积分记录</h2>
+
+		<!--积分消耗列表 开始-->
+		{set:$user_id = $this->user['user_id']}
+		{set:$page= (isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}
+		{query: name=point_log where=user_id eq $user_id and $this->c_datetime id=$point_log page=$page}
+		<ul class="block-row">
+			<li>
+				<p class="head">积分日期：</p>
+				<p class="sum">{$item['datetime']}</p>
+			</li>
+			<li>
+				<p class="head">积分：</p>
+				<p class="sum">{$item['value']}分</p>
+			</li>
+			<li>
+				<p class="head">说明：</p>
+				<p class="sum">{$item['intro']}</p>
+			</li>
+		</ul>
+		{/query}
+		<!--积分消耗列表 结束-->
+		{$point_log->getPageBar()}
+	</div>
+</section>

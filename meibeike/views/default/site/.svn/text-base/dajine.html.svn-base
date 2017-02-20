@@ -1,0 +1,39 @@
+<style>
+	.crowd-wrapper{ background-color:white; border: 1px rgb(188, 188, 188) solid; border-radius: 15px;width: 1120px; height: auto; margin: 0 auto; padding-bottom: 50px;}
+	.crowd-wrapper .question-container { width: 1060px; margin: 0 auto; overflow: hidden; font-size: 16px; font-family: "Microsoft YaHei", "微软雅黑"; }
+	.crowd-wrapper .question-container a, .crowd-wrapper .question-container a:hover { color: #6d6d6d; }
+	.crowd-wrapper .question-container .question { text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 40px; margin-top: 30px; }
+	.crowd-wrapper .question-container .answer img { margin: 10px 0 0 5px; max-width: 1000px; }
+	.crowd-wrapper .question-container .answer .fu { font-size: 16px; font-weight: bold; }
+	.crowd-wrapper .question-container .answer .red { color: #E53333; }
+	.crowd-wrapper .question-container .answer .pay-step { margin-bottom: 15px; }
+</style>
+<div class="crowd-wrapper">
+<div class="question-container">
+    <div class="question">
+        因金额过大而无法支付
+    </div>
+    <div class="answer">
+        <div class="pay-step">
+            第一步：在“<span class="red">订单信息确认页</span>”点击“<span class="red">立即付款</span>”<br/>
+            <img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225160225_45397.png" alt=""/>
+        </div>
+        <div class="pay-step">
+            第二步：选择“<span class="red">网银支付</span>”<br/>
+            <img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225160239_75479.png" alt=""/>
+        </div>
+        <div class="pay-step">
+            第三步：以工商银行为例，选择存储卡并确认跳转网银并支付。（要确保你的网银每日的单笔限额超过3万）<br/>
+            <img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225160303_83974.png" alt=""/>
+        </div>
+        <div class="pay-step">
+            第四步：选择“<span class="red">其他支付方式（网银支付）</span>”并且输入<span class="red">卡（账）号</span>，点击下一步即可<br/>
+            <img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225160317_54771.png" alt=""/>
+        </div>
+        <div class="fu">
+            附: 以下是各银行网银支付的支付限额<br />
+            <img src="http://www.meibeike.com/views/default/skin/default/images_2/20160225160126_22388.png" alt=""/>
+        </div>
+    </div>
+</div>
+</div>

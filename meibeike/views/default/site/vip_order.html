@@ -1,0 +1,147 @@
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/K_public.css" />
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/activity.css" />
+
+<style>.box-cen{width: 1200px;margin: 0 auto;overflow: hidden;margin-bottom: 60px;}.box-cen .box-conter{}.box-le{float: left;}.box-le .box-text{color: #333;padding-left: 4px;}.box-rg{float: right;width: 150px;}.box-em{margin-left: 15px;float: right;margin-top: -19px;cursor: pointer;}.box-em:hover{color: #FF0000;}</style>
+
+<div class="box-cen"><div class="box-conter"><div class="box-le"><span><a href="/site/sy"><img src="http://o8nj7d5m4.bkt.clouddn.com/pc-logo.png"></a>&nbsp;&nbsp;<span class="box-text">MeiID:{if:empty($this->user['email'])}{echo:$this->user['mobile']}{else:}{echo:$this->user['email']}{/if}</span></span></div><div class="box-rg">
+	<div class="penco"style="padding-top: 12px;"><div><span class="penspan">{if:IWeb::$app->config['tradeModel']=='1'}<input type="hidden"id="all_menu_child"value="1"/>{else:}<input type="hidden"id="all_menu_child"value="0"/>{/if}<span class="pcur" style="padding-bottom: 20px;"><span class="pcur">个人中心</span><span><img class="penimg"src="{skin:images/front/turn-down.png}"/></span></span><div class="memu-ul"style="display: none;"><ul class="list-ul"style="margin-left: -30px;"><li><a href="{url:/tool/account}"><span><img class="imv"src="{skin:images/front/img/pc-zh.png}"/></span>账号设置<i></i></a></li>{if:IWeb::$app->config['tradeModel']=='1'}<li><a href="{url:/site/myorder}"><span><img class="imv"src="{skin:images/front/img/pc-yy.png}"/></span>我的预约<i></i></a></li><li><a href="{url:/tool/order}"><span><img class="imv"src="{skin:images/front/img/pc-dd.png}"/></span>我的订单<i></i></a></li><li><a href="{url:/ucenter/address}"><span><img class="imv"src="{skin:images/front/img/pc-addrs.png}"/></span>收货地址<i></i></a></li><li><a href="{url:/site/myprize}"><span><img class="imv"src="{skin:images/front/img/pc-jp.png}"/></span>我的奖品<i></i></a></li><li><a href="{url:/tool/myfcode}"><span><img class="imv"src="{skin:images/front/img/pc-fm.png}"/></span>我的F码<i></i></a></li>{/if}<li><a href="{url:/simple/logout?callback=$callback}"target="_self"><span><img class="imv"src="{skin:images/front/img/pc-zx.png}"/></span>注销<i></i></a></li></ul></div></span></div><em class="box-em">活动规则</em></div></div>
+</div>
+</div>
+<div class="contbox layout" style="padding-bottom: 50px;">
+<h2 class="title" style="padding: 14px 0 70px 0;">付费预约</h2>
+
+
+<ul>
+<li  onclick="checkgood(1)" id="good1" class="on">
+<div>
+<h2>银组合</h2>
+<p>（母棒+1T存储碟）</p>
+<img src="{skin:images/act/images/producta.png}">
+<h3>&#65509;1979</h3>
+</div></li>
+<li  id="good2" onclick="checkgood(2)">
+<div>
+<h2>金组合</h2>
+<p>(母棒+两个120GB存储棒)</p>
+<img src="{skin:images/act/images/productgold.png}" >
+<h3>&#65509;3000</h3>
+</div>
+</li>
+</ul>
+
+<h3 class="title1">您已经选择：&#65509;1979银组合</h3>
+<h3 class="title2" style="display:none;">您已经选择：&#65509;3000金组合</h3>
+<a href="#" class='pay' onclick="paynow()">立即支付</a>
+</div>
+
+<input type="hidden" id="v_goodid" value="14"/>
+
+<style>
+	.yuy-bg{position: fixed;background: rgba(0,0,0,.6);top: 0;bottom: 0;left: 0;right: 0;z-index: 99;display: none;}
+	.yue-list{padding: 20px 15px;}
+	.yue-list .py1{font-size: 18px}
+	.yue-list .py2{font-size: 18px;color: #333;border-left: 4px solid #FF0400;padding: 0 8px;margin: 20px 0;height: 22px;line-height: 22px;}
+	.yue-list .py3{font-size: 16px;line-height: 28px;padding: 0 15px;}
+	.yue-list .py4{font-size: 16px;line-height: 35px;padding: 0 15px;}
+</style>
+<div class="yuy-bg"></div>
+<div class="doc-tj alert" id="rule" style="height: auto;width: 584px;z-index: 999;">
+     <div class="alert-top">
+     <h3>活动规则</h3>
+        <span id="close"></span>
+     </div>
+    <div class="hdgz-c">
+    	<div class="yue-list">
+	       <div class="py1">预约时间<em>8月7日-9月2日</em>，成功预约才有资格购买云棒组合。</div>
+	       <div class="py2">云棒发售时间表</div>
+	       <p class="py3">2016年9月3日上午11点，已经预约用户可以开始抢购云棒，体验以私有云为基础的智能硬件产品的震撼。</p>
+	       <div class="py2">抢购价格与配置</div>
+	       <p class="py4">金组合 3000元 <span>（母棒＋两个120GB存储棒）</span></p>	      
+	       <p class="py4">银组合 1979元<span> （母棒＋1T存储碟）</span></p>
+	       
+    	</div>
+    </div>   
+</div> 
+<script>
+	$('.box-em').click(function(){
+		$('.yuy-bg,#rule').show();
+	})
+	$('#close').click(function(){
+		$('.yuy-bg,#rule').hide();
+	})
+</script>
+
+
+
+<script>
+$(function(){
+	
+	$('.top dl').mouseover(function(){
+		$(this).addClass('on');
+		$(this).find('dd').slideDown(150);
+	});
+    $('.top dl').mouseleave(function(){
+		$(this).removeClass('on');
+		$(this).find('dd').stop().slideUp(150);
+	});
+
+	})
+</script>
+
+
+
+<script>
+
+function checkgood(t){
+if(t==1) {$("#good1").addClass("on");$("#good2").removeClass("on");$("#v_goodid").val("14");$(".title1").css("display","block");$(".title2").css("display","none");}
+if(t==2) {$("#good2").addClass("on");$("#good1").removeClass("on");$("#v_goodid").val("16");$(".title2").css("display","block");$(".title1").css("display","none");}
+
+}
+function paynow()
+{
+   window.location.href="/site/products_new/id/"+$("#v_goodid").val();
+}
+
+
+$(function(){
+
+	})
+  $(document).ready(function(){ 
+　　$("#header").hide();
+   $(".header").hide();
+}); 
+
+ $("#Appoint").click(function () {
+                //如果已经在登录页，则不变
+                var loginpage = $("#loginpage").val();
+				
+				// 清楚密碼
+				if ($(".password_input").val() != $(".password_input").attr("placeholder")) {
+					if (placeholderSupport()) {
+						$(".password_input").val("");
+					} else {
+						$(".password_input").val($(".password_input").attr("placeholder"));
+						$(".password_input").css("color", "#aaa");
+					}
+					$("#password").val("");
+				}				
+                //alert(loginpage);
+                if (loginpage == 'php') {
+                    return false;
+                } else {
+                    var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+
+                    var body_width = $(window).width();
+
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+                    return false;
+                }
+            });
+
+</script>
+
+

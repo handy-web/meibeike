@@ -1,0 +1,113 @@
+<style type="text/css">
+	body{background:rgb(240,240,240)}
+	.all_out{width:100%;height:600px;margin-top:-16px;}.all_in{width:1200px;margin:0 auto;}.all_in .content{float:left;width:100%;height:800px;}.all_in .content .title{float:left;margin-left:70px;margin-top:230px;width:600px;line-height:70px;font-size:50px;font-weight:normal;color:white;}.all_in .content .erweima{float:left;margin-left:70px;margin-top:50px;width:170px;height:220px;}.all_in .content .erweima label{float:left;width:100%;margin-top:15px;text-align:center;height:30px;line-height:30px;font-size:20px;color:white;}.all_in .content .download{float:left;width:320px;height:120px;}.all_in .content .download a{float:left;display:block;width:260px;height:80px;line-height:80px;margin-top:100px;margin-left:65px;text-align:center;color:white;border-radius:5px;text-decoration:none;background:rgb(252,62,57);font-size:36px;}.all_in .content .download label{float:left;margin-left:30px;width:100%;margin-top:20px;text-align:center;height:30px;line-height:30px;font-size:16px;color:white;}.all_in .fenlei{float:left;width:100%;height:280px;margin-top:50px;}.all_in .fenlei .unit{float:left;width:230px;height:250px;margin-right:70px;}.all_in .fenlei .unit .img{float:left;width:100%;height:73px;text-align:center;}.all_in .fenlei .unit .title{float:left;width:100%;height:36px;line-height:36px;margin-top:20px;font-size:30px;text-align:center;}.all_in .fenlei .unit .content{float:left;width:100%;height:60px;margin-top:20px;line-height:25px;font-size:12px;text-align:center;}.all_in .fenlei .unit .href{float:left;width:100%;line-height:25px;font-size:16px;text-align:center;}.all_in .fenlei .unit .href a{text-decoration:none;color:rgb(75,154,247);}.all_in .content .link{margin-left:30px;}.all_in .content .link a{width:160px;height:50px;border:0px solid #ccc;float:left;margin-left:9px;margin-top:503px;text-decoration:none;}.showdiv{width:350px;height:400px;background:#fff;text-align:center;}.all_pot{}.all_out .box{width:1106px;height:auto;margin:0 auto;}.all_out .box div{width:362px;height:186px;float:left;margin:20px 0 36px 6px;background:#fff;}.all_out .box .clear{width:100%;height:20px;line-height:16px;clear:both;font-size:16px;font-weight:bold;}.all_out .box .topclear{width:100%;height:20px;line-height:16px;clear:both;margin-left:5px;font-size:18px;padding-top:36px;}.all_out .box .left{margin:0 0 0 0;width:152px;height:186px;line-height:126px;text-align:center;vertical-align:middle;}.all_out .box .right{margin:0 0 0 0;width:210px;height:186px;text-align:left;font-size:22px;}.all_out .box .top{width:210px;height:22px;margin:58px 0 0 0;line-height:20px;text-align:left;}.all_out .box .bottom{width:200px;height:84px;margin:22px 48px 0 0;line-height:20px;text-align:left;}.all_out .box .btn{background:#2a8fff;color:#fff;width:160px;height:42px;font-size:18px;margin:0 48px 0 0;cursor:pointer;border:0 none;}.all_out .box .bottom img{position:relative;left:32px;top:52px;}.all_out .box .left img{margin-top:53px;}.all_out .box .bottom .middle{margin:0 0 0 0;font-size:12px;}.all_out .box .btn2{background:#2a8fff;color:#fff;width:160px;height:42px;font-size:18px;cursor:pointer;border:0 none;margin:0 48px 0 0;}
+</style>
+
+
+<script type='text/javascript' src="{theme:javascript/TC.js}"></script>
+
+<input type="hidden" name="downurl" value="{$downurl}">
+<div class="all_out">
+	<div class="box" style="margin-bottom: 20px;">
+		<p style="color: #333;" class="topclear">云棒客户端</p>
+		<div><div class="left"><img src="{skin:images/download/ios.png?20160716}"></div><div class="right"><div style="color: #666;" class="top">IOS 客户端</div><div class="bottom"><input id="ios" class="btn" type="submit" value="下载"/></div></div></div>	
+		<div><div class="left"><img src="{skin:images/download/android.png}"></div><div class="right"><div style="color: #666;" class="top">Android 客户端</div><div class="bottom"><input id="android" class="btn" type="submit" value="下载"/></div></div></div>
+	    <div><div class="left"><img src="{skin:images/download/pc.png}"></div><div class="right"><div style="color: #666;" class="top">PC 客户端</div><div class="bottom"><input id="pc" onclick="show('pc')" class="btn" type="submit" value="下载"/></div></div></div>
+	    <p class="clear">一键迁移工具</p>
+		<div><div class="left"><img src="{skin:images/download/jsyjqy.png}"></div><div class="right"><div style="color: #666;" class="top">金山快盘 一键迁移</div><div style="margin:0 0 0 0" class="bottom"><img style="top: 33px;" id="" src="{skin:images/download/pc_small.png}"><input class="btn2" onclick="show('jskp')" type="submit" value="下载"/></div></div></div>
+		<div><div class="left"><img src="{skin:images/download/xlyjqy.png}"></div><div class="right"><div style="color: #666;" class="top">新浪微盘 一键迁移</div><div style="margin:0 0 0 0" class="bottom"><img style="top: 33px;" src="{skin:images/download/pc_small.png}"/><input class="btn2" onclick="show('xlwp')" type="submit" value="下载"/></div></div></div>
+	</div>
+</div>
+
+<!-- 
+<div class="all_in">
+		<div class="content">
+			<div class="link PC">
+				<a href="{$downurl}">&nbsp;</a>
+			</div>
+			<div class="link Iphone">
+				<a href="javascript: $.showDialog('#iphone_show');">&nbsp;</a>
+			</div>
+			<div class="link Android">
+				<a href="javascript: $.showDialog('#Android_show');">&nbsp;</a>
+			</div>
+		</div>
+		
+</div>
+ -->
+ 
+<script type="text/javascript">
+function show(param){	
+	if(param == 'ios'){
+		$.showDialog('#iphone_show');	
+	}else if(param=='android'){
+		$.showDialog('#Android_show');
+	}else if(param=='pc'){
+		window.location.href='http://d.meibeike.com//mcfs/ota/pcclient/CloudBarMgr_Setup_V1.0.6.exe';
+	}else if(param=='jskp'){
+		window.location.href = 'http://d.meibeike.com//mcfs/ota/pcclient/cloudbartoolk/CloudBarToolKV1.0.3.exe' ;
+	}else if(param=='xlwp'){
+		window.location.href = 'http://d.meibeike.com//mcfs/ota/pcclient/cloudbartools/CloudBarToolSV1.0.3.exe' ;
+	}else{
+		return false;
+	}	
+}
+
+//$(document).ready(function(){
+//	$('#Android_show,#iphone_show').width('454px').height('520px');
+//	
+//});
+
+</script>
+
+<!--<div id="Android_show" class="showdiv" style="display:none;">
+	<a href='javascript:$.showDialog.hide();' style="float:right;padding-right:10px;text-decoration:none;">X</a><br/> 扫描直接安装到手机
+	<br/>
+	<img src="{skin:images/front/overview/android.png}" />
+</div>-->
+
+<!--ios-->
+<div class="down-m" style="display: none;">
+	<div class="down-cen">
+		<div class="down-top"><img class="down-col" src="{skin:images/front/corico.png}" /></div>
+		<div class="down-span"><span class="spn1">扫描二维码下载APP</span><span class="spn2">AppStore中搜索“云棒”下载</span></div>
+		<div class="down-img"><img src="http://o8nj7d5m4.bkt.clouddn.com/pc-down2.jpg" /></div>
+	</div>
+</div>
+
+<!--android-->
+<div class="down1-m" style="display: none;">
+	<div class="down1-cen">
+		<div class="down1-top"><img class="down1-col" src="{skin:images/front/corico.png}" /></div>
+		<div class="down1-span">
+			<div class="spn1 flt">扫描二维码下载APP</div>
+			<div class="frt">
+				<p class="spn2">浏览器中输入http://d.meibeike.com</p>
+				<p class="spn3">进行下载</p>
+			</div>			
+		</div>
+		<div class="down1-img"><img src="http://o8nj7d5m4.bkt.clouddn.com/pc-down1.jpg" /></div>
+	</div>
+</div>
+
+
+
+<!--<div id="iphone_show" class="showdiv" style="display:none;">
+	<a href='javascript:$.showDialog.hide();' style="float:right;padding-right:10px;text-decoration:none;">X</a><br/> 扫描直接安装到手机
+	<br/>
+	<img src="{skin:images/front/overview/ios.png}" />
+</div>-->
+<script type="text/javascript">
+	$("#ios").click(function(){
+		$(".down-m").show();
+	})
+	$(".down-col").click(function(){
+		$(".down-m").hide();
+	})
+	$("#android").click(function(){
+		$(".down1-m").show();
+	})
+	$(".down1-col").click(function(){
+		$(".down1-m").hide();
+	})
+</script>

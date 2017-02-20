@@ -1,0 +1,54 @@
+.timerbox{text-align: center;}
+.timerbox h2{text-align: center;font-size: 4.5rem;letter-spacing: .3rem;}
+.timerbox h4 {font-size: .85rem;}
+.timerbox h4 #timer { height:70px;line-height:70px;}
+.timerbox h4 #timer span {padding: 10px;border: 1px solid #e53935;margin-left: 10px;margin-right: 10px;display:initial;font-size:.9rem;}
+
+.pu-box{ text-align:center; margin-bottom:10%;padding: 0 5%;margin-top: 12%;}
+.pu-box ul{ text-align:center; font-size:0;list-style: none;padding-left: 5%;margin-right: 5%;}
+.pu-box ul li{border:1px solid #999;width: 47%; cursor:pointer;transition:border-color .2s,box-shadow .2s;margin-bottom: 1rem;float: left;}
+
+.pu-box ul li.on{background:url(../images/check-bg.png) right bottom no-repeat; border: 1px solid #ff2222; box-shadow:0 0 1px 1px rgba(0,0,0,0.2);background-size: 15%;}
+.pu-box h2{ font-size:.8rem;color:#666;}
+.pu-box p{ font-size:.5rem; color:#999;margin-top: .3rem;margin-bottom: .8rem;}
+.pu-box .bd h3{ color:#ff2222; font-size:16px; line-height:53px;}
+.pu-box .hd{text-align: center;display: block;clear: both;padding: 5% 0;}
+.pu-box .hd h3{ font-size: 1rem;display:none}
+.pu-box .hd h3.on{ display:block;}
+.pu-box a.btn-a{ font-size:20px; line-height:50px; height:50px; width:190px; border-radius:5px;}
+.pu-box h4{ font-size:16px; color:#fb3e3a; line-height:44px;}
+.ren{color: #FF0000;}
+
+.box-line{padding: 0 20%;}
+.vip-logo{padding: 1rem 1rem;}
+.vip-le{float: left;}
+.vip-le img{width: 60%;}
+.vip-rt{float: left;padding-top: .3rem;font-size: .8rem}
+.mask-box{background: rgba(0,0,0,.6);position: fixed;top: 0;bottom: 0;left: 0;right: 0;z-index: 99;}
+.coupon-2{background: #fff;margin: 0 4%;border-radius: .3rem;margin-top: 25%;}
+.login-title{text-align: center;font-size: 1rem;margin-bottom: 5%;clear: both;}
+.regist-list{padding: 0 10%;}
+.regist-list li{width: 100%;margin-bottom: 1rem;}
+.regist-input{width: 100%;padding: 5% 0;text-indent: 5%;border: 1px solid #E8E8E8;outline: none;font-size: .8rem}
+.regist-sub{padding: 5% 20% 10% 20%;}
+.regist-sub a{background: #FF0000;padding: 5% 0;color: #fff;font-size: 1.2rem;display: block;text-align: center;}
+.regist-sub a:hover{text-decoration: none;}
+.box-b{float: right;padding-top: .6rem;}
+.box-b img{width: 70%;}
+.vip-login{float: right;font-size: .8rem;padding-top: .3rem;}
+.vip-kf{font-size: .8rem;padding: 0 10%;line-height: 1.3rem;}
+.vip-img{width: 60%;}
+.pay{border:none;color:#fff;background: #ccc;text-align: center;width: 100%;font-size: .9rem;padding: 6% 0;font-family: 'microsoft yahei';-webkit-appearance: none;margin-top: 8%;margin-bottom: 2%;}
+
+.vip-tltle{text-align: center;margin-top: 40%;}
+.vip-tltle h1{font-size: 2rem;}
+.vip-tltle p{line-height: 2.2rem;font-size: 1.4rem;font-family: "microsoft yahei";color: #ec0604;margin-top: 12%;}
+.vip-tltle p:last-child{margin-top: 0;}
+.vip-om{text-align: center;margin-top: 35%;}
+.vip-om h1{font-size: 2rem;}
+.vip-om p{line-height: 2.1rem;font-size: 1.3rem;font-family: "microsoft yahei";color: #ec0604;margin-top: 12%;}
+.vip-om .p1{margin-top: 0;}
+.vip-om b{font-size: .8rem;font-family: "microsoft yahei";color: #ec0604;font-weight: 200;}
+.vip-tt{text-align: center;font-size: 1.5rem;margin-top: 20%;margin-bottom: 5%;letter-spacing: 3px;}
+.vip-ot{margin-top: 15%;}
+.vip-ot h2{text-align: center;font-size: 1.5rem;margin-bottom: 3%;letter-spacing: 3px;}

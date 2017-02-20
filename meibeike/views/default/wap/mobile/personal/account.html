@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+	    <title>账户设置</title>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <meta name="full-screen" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="format-detection" content="address=no">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../version/css/main.css" />
+		<script type="text/javascript" src="../version/js/jquery.js" ></script>
+	</head>
+	
+	<body style="background: #f5f5f5;">
+		<div class="pers-center" style="display: block;">
+			<div class="pers-admin">
+				<div class="flt"><img class="" src="../version/img/app-wxkf.png" /> </div>
+				<div class="ptext">
+					<p>爱哭的小鲨鱼</p>
+					<p>18800000000</p>
+				</div>
+			</div>
+			<ul class="pers-zhcz">
+				<li><a id="nickname">修改昵称<i></i></a></li>
+				<li><a id="password">修改密码<i></i></a></li>
+			</ul>
+		</div>
+		
+		<!--修改昵称-->
+		<div class="acc-line" style="display: none;">
+			<div class="acc-in">
+				<input type="text" placeholder="爱哭的小鲨鱼" />
+			</div>
+			<div class="acc-b">
+				<input id="pre" type="submit" value="保存" />
+			</div>
+		</div>
+		<!--修改密码-->
+		
+		<div class="acc-tab" style="display: none;">
+			<ul class="acc-list">
+				<li><input type="password" name="" maxlength="16" placeholder="原密码" /></li>
+				<li><input type="password" name="" maxlength="16" placeholder="新密码" /></li>
+				<li><input type="password" name="" maxlength="16" placeholder="确认新密码" /></li>
+			</ul>
+			<div class="acc-box"> 
+				<input id="pass" name="" type="submit" value="保存" />
+			</div>
+		</div>
+		
+		
+		<script>
+			$(document).ready(function(){
+				$("#nickname").click(function(){
+					$(".pers-center").hide();
+					$(".acc-line").css("display","block");
+				});
+				$("#pre").click(function(){
+					$(".acc-line").hide();
+					$(".pers-center").show();
+				});
+				$("#password").click(function(){
+					$(".pers-center").hide();
+					$(".acc-tab").css("display","block");
+				});
+				$("#pass").click(function(){
+					$(".acc-tab").hide();
+					$(".pers-center").show();
+				});
+				
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,244 @@
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/K_public.css" />
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/activity.css" />
+<link rel="stylesheet" type="text/css" href="{skin:vip_buy/css/b_style.css}" />
+<script type='text/javascript' src="{theme:javascript/TC.js}"></script>
+<script type='text/javascript' src="{skin:vip_buy/js/b_pack.js}"></script>
+
+		<style type="text/css">
+		.contbox h4 {font-size:25px;}
+		.contbox h4 #timer { height:70px;line-height:70px;}
+		.contbox h4 #timer span {padding: 10px;border: 1px solid #e53935;margin-left: 10px;margin-right: 10px;display:initial;font-size:25px;}
+
+		.login_content {width:auto;}
+        .STYLE9 {font-weight: bold; font-size: 24px; }
+        .STYLE10 {font-size: 22px; color: #FF0000; font-weight: bold; }
+        .STYLE11 {font-weight: bold; font-size: 36px; }
+        </style>
+<style>
+	
+	.tab-line{margin-top: 192px;margin-bottom: 130px;}
+	@media only screen and (min-width: 1680px) {
+		.tab-line{padding-bottom: 4%;}
+	}
+	@media only screen and (min-width: 1920px) {
+		.tab-line{padding-bottom: 6%;}
+	}
+	.tab-line h1{font-size: 60px;text-align: center;color: #1c1c1c;line-height: 55px;font-weight: 700;letter-spacing: 2px;}
+	.tab-list{margin-top: 120px;text-align: center;}
+	.tab-list p{font-size: 46px;font-family: "宋体";color: #ea0502;font-weight: 700;line-height: 60px;letter-spacing: 2px;text-align: center;}
+	.tab-list p:last-child{font-size: 24px;font-weight: 700;}
+	
+</style>
+
+<div class="tab-line">
+	<h1>本轮已全部售罄！</h1>	
+	<div class="tab-list">
+		<p>下一轮抢购将于9月3日11:00开始</p>
+		<p>敬请关注！</p>
+		<p>（8月7日开启预约）</p>
+	</div>
+	
+</div>
+<!--<div class="timerbox">-->
+<!--<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>-->
+<!--<table border="0"  align="center" style="font-size:30px;width: 300px;m">
+  <tr>
+    <td class="STYLE11">本次 10000台已经售罄</td>
+  </tr>
+</table>
+<table border="0"  align="center" style="font-size:70px;">
+  <tr>
+    <td><span class="STYLE9"><span class="STYLE11">感谢您的参与！</span></span> </td>
+  </tr>
+</table>-->
+<!--<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>-->
+<!-- table border="0"  align="center" style="font-size:30px;">
+  <tr>
+    <td align="center"><p class="STYLE10">现在将本轮预约免费转入下一轮预约，可延续原</p>
+    <p class="STYLE10">来的各项优惠，并再得20元现金优惠券</p></td>
+  </tr>
+</table-->
+<!--<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>-->
+<!-- table border="0"  align="center" style="font-size:70px;">
+  <tr>
+    <td><a href="/site/yuyue" class="STYLE10">马上转入下轮预约</a>	</td>
+  </tr>
+</table-->
+<!--<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>-->
+  <script>
+$(function(){
+	
+	$('.top dl').mouseover(function(){
+		$(this).addClass('on');
+		$(this).find('dd').slideDown(150);
+	});
+    $('.top dl').mouseleave(function(){
+		$(this).removeClass('on');
+		$(this).find('dd').stop().slideUp(150);
+	});
+
+	})
+  </script>
+
+
+
+  <script>
+function login_window()
+{
+ var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+					$(".login_content").css("width", "auto");
+
+                    var body_width = $(window).width();
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+                    return false;
+}
+
+function checkgood(t){
+if(t==1) {$("#good1").addClass("on");$("#good2").removeClass("on");$("#v_goodid").val("9");$(".title1").css("display","block");$(".title2").css("display","none");}
+if(t==2) {$("#good2").addClass("on");$("#good1").removeClass("on");$("#v_goodid").val("10");$(".title2").css("display","block");$(".title1").css("display","none");}
+
+}
+function paynow()
+{
+	$.ajax({
+         type: "POST",
+         url: "{url:site/check_user_power}",
+         data: "userid="+$('#hidden_user_id').val()+"&goodid="+$('#v_goodid').val(),
+         dataType: "json",
+         success: function (d,s,r) {
+
+             if (d.code==1) {
+            	 alert(d.message);
+				 return false;
+             }else if(d.code==4){
+        		 //$.showDialog(".login_content");
+				 login_window();
+				 return false;             
+             }else if(d.code==0){
+        		 window.location.href="/site/products/id/"+$("#v_goodid").val();
+				 return false;             
+             }
+         }
+     });	
+   
+}
+
+
+$(function(){
+
+	})
+  $(document).ready(function(){ 
+　　//$(".header").css("display","none")
+}); 
+
+ $("#Appoint").click(function () {
+                //如果已经在登录页，则不变
+                var loginpage = $("#loginpage").val();
+				
+				// 清楚密碼
+				if ($(".password_input").val() != $(".password_input").attr("placeholder")) {
+					if (placeholderSupport()) {
+						$(".password_input").val("");
+					} else {
+						$(".password_input").val($(".password_input").attr("placeholder"));
+						$(".password_input").css("color", "#aaa");
+					}
+					$("#password").val("");
+				}				
+                //alert(loginpage);
+                if (loginpage == 'php') {
+                    return false;
+                } else {
+                    var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+
+                    var body_width = $(window).width();
+
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+                    return false;
+                }
+            });
+
+  </script>
+
+  <script>
+var EndTime= new Date('2016/06/20 10:00:00'); 
+var NowTime = new Date();
+var t =EndTime.getTime() - NowTime.getTime();
+var intDiff = parseInt((t/1000));//倒计时总秒数量，60*60*24*n=N天
+
+function timer(intDiff){
+
+	window.setInterval(function(){
+
+	var day=0,
+
+		hour=0,
+
+		minute=0,
+
+		second=0;//时间默认值		
+
+	if(intDiff > 0){
+
+		day = Math.floor(intDiff / (60 * 60 * 24));
+
+		hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+
+		minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+
+		second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+
+	}
+
+	if (minute <= 9) minute = '0' + minute;
+
+	if (second <= 9) second = '0' + second;
+
+	$('#day_show').html('0'+day);
+
+	$('#hour_show').html('<s id="h"></s>'+hour);
+
+	$('#minute_show').html('<s></s>'+minute);
+
+	$('#second_show').html('<s></s>'+second);
+
+	intDiff--;
+
+	}, 1000);
+
+} 
+
+
+
+$(function(){
+
+	timer(intDiff);
+
+});	
+$(function() {
+				clickbox('.pu-box .bd','.pu-box .hd')
+});
+  </script>
+</p>

@@ -1,0 +1,56 @@
+<style>body{background: #f9f9f9;}</style>
+<div class="J_top_slider index-slider" style="margin: 0;">
+			<ul class="top-slider" style="width: 700%; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; -webkit-transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+				<li style="width:14.285714285714%">
+					<a href="/wap/overview">
+						<img class="" src="http://o8nj7d5m4.bkt.clouddn.com/banner01.jpg" ks_mark="y">
+					</a>
+				</li>
+				<li style="width:14.285714285714%">
+					<a href="/wap/overview">
+						<img class="" src="http://o8nj7d5m4.bkt.clouddn.com/banner02.jpg" ks_mark="y">
+					</a>
+				</li>
+				<li style="width:14.285714285714%">
+					<a href="/wap/overview">
+						<img class="" src="http://o8nj7d5m4.bkt.clouddn.com/banner03.jpg" ks_mark="y">
+					</a>
+				</li>
+				<li style="width:14.285714285714%">
+					<a href="/wap/overview">
+						<img class="" src="http://o8nj7d5m4.bkt.clouddn.com/banner04.jpg" ks_mark="y">
+					</a>
+				</li>
+			</ul>
+			<div class="top-slider-indicator">
+				<span class="dot on"></span>
+				<span class="dot"></span>
+				<span class="dot"></span>
+				<span class="dot"></span>
+			</div>
+		</div>
+		
+		<div class="video"><a href="{url:/wap/index_video}"><img src="/views/default/wap/mobile/version/img/app-video.jpg" /></a></div>
+		
+		<div class="foot" style="margin-top: 15%;">
+			<div class="foot-nav">
+				<ul class="foot-line">
+					<li>
+						<div class="foot-le"><i></i><span>400-772-8320</span></div>
+						<div class="foot-ft"><i></i><span>9:00-18:00(工作日)</span></div>
+					</li>					
+				</ul>
+				<div class="foot-box">
+					<p>Copyright©2014-2020</p>
+					<p>深圳市美贝壳科技有限公司All Rights Reserved.</p>
+					<p>粤ICP备14098187号-1</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/views/default/wap/mobile/version/js/zepto.min.js"></script>
+	<script src="/views/default/wap/mobile/version/js/iscroll5.min.js"></script>
+	<script src="/views/default/wap/mobile/version/js/mdd_index.min.js"></script>
+	
+</body>
+</html>

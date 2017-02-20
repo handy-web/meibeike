@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow-y:auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理后台</title>
+<link rel="stylesheet" href="{skin:css/admin.css}" />
+{js:jquery}
+{js:dialog}
+{js:form}
+{js:validate}
+{js:artTemplate}
+<script type='text/javascript' src="{theme:javascript/admin.js}"></script>
+</head>
+<body style="width:600px;min-height:400px;">
+<div class="pop_win">
+	<form action='{url:/goods/pics_update}' method='post' id='specForm'>
+		<table class="form_table" style="width:95%">
+			<col width="120px" />
+			<col />
+			<input type="hidden" name="seller_id" value="{$seller_id}" />
+			<input type="hidden" name="id" value="{$id}" />
+			<tr>
+				<td style='text-align:right'>名称：</td>
+				<td><input class="normal" name="name" value="{$name}" type="text" pattern="required" alt="名字不能为空" /><label>* 名称（必填）</label></td>
+			</tr>
+                        {if:$ftype==1}
+                        <tr>
+				<td style='text-align:right'>文字描述：</td>
+				<td><textarea id="content" name="content" style="width:300px;height:100px;">{$content}</textarea></td>
+			</tr>
+                        {/if}
+			<tr>
+                            {if:$ftype}
+                            <td style='text-align:right'>显示类型：</td>
+                            <td><label class="attr">{if:$ftype==1}图文{else:}多图片{/if}</label></td>
+                            {else:}
+				<td style='text-align:right'>显示类型：</td>
+				<td><label class="attr"><input name="type" type="radio" value="1" {if:$type==1 || $type==null}checked=checked{/if} /> 图文</label><label class="attr"><input name="type" type="radio" value="2" {if:$type==2}checked=checked{/if} /> 多图片</label></td>
+                            {/if}
+			</tr>
+			<tr>
+				<td></td>
+				<td><button type="button" class="btn" id="specAddButton"><span class="add">添 加</span></button></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<table class='border_table' cellpadding="0" cellspacing="0" width='100%'>
+						<thead>
+							<tr>
+								<th>图片</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id='spec_box'>
+							{set:$specValue=$value?JSON::decode($value):array()}
+							{foreach:$items=$specValue}
+							<tr class='td_c'>
+								<td>
+                                                                    <div class="imgbox"><img class="img_border" src='{webroot:$item}' width='50px' height='50px' /></div>
+                                                                    <input type="hidden" name="value[]" value="{$item}" /><button type="button" class="btn"><span>选择图片</span></button>
+								</td>
+								<td>
+									<img class="operator" src="{skin:images/admin/icon_asc.gif}" alt="向上" />
+									<img class="operator" src="{skin:images/admin/icon_desc.gif}" alt="向下" />
+									<img class="operator" src="{skin:images/admin/icon_del.gif}" alt="删除" />
+								</td>
+							</tr>
+							{/foreach}
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+<script type='text/javascript'>
+	//规格图片上传回调函数
+	window.updatePic=updatePic;
+	function updatePic(indexValue,srcValue)
+	{
+		$('#spec_box tr:eq('+indexValue+') td:eq(0) .imgbox').html('<img src="{webroot:}'+srcValue+'" class="img_border" width="50px" height="50px"  />');
+		$('#spec_box tr:eq('+indexValue+') td:eq(0) :hidden').val(srcValue);
+		art.dialog({id:'uploadIframe'}).close();
+	}
+
+	//规格图片html
+	function getPicHtml(dataValue)
+	{
+		var srcHtml = '';
+		if(dataValue)
+			var srcHtml = '<img src="{webroot:}'+dataValue+'" class="img_border" width="50px" height="50px" />';
+
+		return '<div class="imgbox">'+srcHtml+'</div><input type="hidden" name="value[]" value="'+(dataValue?dataValue:"")+'" /><button type="button" class="btn"><span>选择图片</span></button>'
+	}
+
+	//规格值html
+	function getValHtml(dataValue)
+	{
+		if(dataValue == undefined)
+			dataValue = '';
+		return '<input class="normal" type="text" name="value[]" value="'+(dataValue?dataValue:"")+'" pattern="required" alt="填写规格值" />';
+	}
+
+	//上传按钮html
+	function getUploadButtonHtml(obj)
+	{
+		var specIndex = obj.parent().parent().index();
+		var tempUrl = '{url:/block/pic/specIndex/@specIndex@}';
+		tempUrl     = tempUrl.replace('@specIndex@',specIndex);
+		art.dialog.open(tempUrl,
+		{
+			'id':"uploadIframe",
+			'title':'选择图片上传的方式',
+			'ok':function(iframeWin, topWin)
+			{
+		    	iframeWin.document.forms[0].submit();
+		    	return false;
+			}
+		});
+	}
+
+	//根据显示类型返回格式
+	function getTr(indexValue)
+	{
+		var specInputHtml = getPicHtml();
+
+		//数据
+		var specRow = '<tr class="td_c"><td>'+specInputHtml+'</td>'
+		+'<td><img class="operator" src="{skin:images/admin/icon_asc.gif}" alt="向上" />'
+		+'<img class="operator" src="{skin:images/admin/icon_desc.gif}" alt="向下" />'
+		+'<img class="operator" src="{skin:images/admin/icon_del.gif}" alt="删除" />'
+		+'</td></tr>';
+
+		return specRow;
+	}
+
+	//预定义
+	{if:$id!=null}
+	$('#spec_box tr').each(
+		function(i)
+		{
+			initButton(i);
+		}
+	);
+	{/if}
+
+
+	//添加规格按钮(点击绑定)
+	$('#specAddButton').click(
+		function()
+		{
+			var specSize = $('#spec_box tr').size();
+			var specRow = getTr(specSize);
+			$('#spec_box').append(specRow);
+			initButton(specSize);
+		}
+	)
+
+	//按钮(点击绑定)
+	function initButton(indexValue)
+	{
+		//上传图片按钮
+		$('#spec_box tr:eq('+indexValue+') td button').click(
+			function()
+			{
+				getUploadButtonHtml($(this));
+			}
+		);
+
+		//功能操作按钮
+		$('#spec_box tr:eq('+indexValue+') .operator').each(
+			function(i)
+			{
+				switch(i)
+				{
+					//向上排序
+					case 0:
+					$(this).click(
+						function()
+						{
+							var insertIndex = $(this).parent().parent().prev().index();
+							if(insertIndex >= 0)
+							{
+								$('#spec_box tr:eq('+insertIndex+')').before($(this).parent().parent());
+							}
+						}
+					)
+					break;
+
+					//向下排序
+					case 1:
+					$(this).click(
+						function()
+						{
+							var insertIndex = $(this).parent().parent().next().index();
+							$('#spec_box tr:eq('+insertIndex+')').after($(this).parent().parent());
+						}
+					)
+					break;
+
+					//删除排序
+					case 2:
+					$(this).click(
+						function()
+						{
+							var obj = $(this);
+							art.dialog.confirm('确定要删除么？',function(){obj.parent().parent().remove()});
+						}
+					)
+					break;
+				}
+			}
+		)
+	}
+</script>

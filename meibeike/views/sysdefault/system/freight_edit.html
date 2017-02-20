@@ -1,0 +1,45 @@
+<div class="headbar">
+	<div class="position"><span>系统</span><span>></span><span>配送管理</span><span>></span><span>物流公司{if:empty($id)}添加{else:}编辑{/if}</span></div>
+</div>
+<div class="content_box">
+	<div class="content form_content">
+		<form action='{url:/system/freight_update}' method='post'>
+			<table class="form_table">
+				<col width="150px" />
+				<col />
+				<tr>
+					<th>物流公司选择：</th>
+					<td>
+						<select name="freight_type" id="freight_type">
+							<option value="shunfeng" {if:$freight_type=='shunfeng'}selected{/if}>顺丰快递 </option>
+							<option value="shentong" {if:$freight_type=='shentong'}selected{/if}>申通快递 </option>
+							<option value="tiantian" {if:$freight_type=='tiantian'}selected{/if}>天天快递 </option>
+							<option value="yuantong" {if:$freight_type=='yuantong'}selected{/if}>圆通速递 </option>
+							<option value="huitong" {if:$freight_type=='huitong'}selected{/if}>汇通速运 </option>
+							<option value="yunda" {if:$freight_type=='yunda'}selected{/if}>韵达快递 </option>
+							<option value="zhongtong" {if:$freight_type=='zhongtong'}selected{/if}>中通速递 </option>
+                                                        <option value="ems" {if:$freight_type=='ems'}selected{/if}>EMS </option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>物流公司全称：</th>
+					<td><input type="text" name="freight_name" id="freight_name" class="normal" value="{$freight_name}" pattern="required" alt="物流名称错误"/><lable></lable><input type="hidden" name="id" value="{$id}" /></td>
+				</tr>
+				<tr>
+					<th>物流公司网址：</th><td><input class="normal" type="text" name="url" id="url" value="{$url}" empty pattern="url" alt="网址错误"/></td>
+				</tr>
+				<tr>
+					<th>排序：</th><td><input class="small" type="text" name="sort" id="sort" value="{$sort}" /></td>
+				</tr>
+				<tr>
+					<td></td><td><button class="submit" type="submit"><span>保 存</span></button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<script type='text/javascript'>
+	
+	
+</script>

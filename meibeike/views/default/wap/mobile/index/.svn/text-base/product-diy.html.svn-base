@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+	    <title>DIY</title>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <meta name="full-screen" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="format-detection" content="address=no">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../version/css/main.css" />
+		<script type="text/javascript" src="../version/js/jquery.js" ></script>
+	</head>
+	<body style="background: #f5f5f5;">
+		<div class="prod-header" style="background: #fff;">
+			<ul class="prod-tab">
+				<li><a href="product-collo.html">金甲组合</a></li>
+				<li><a>银霸组合</a></li>
+				<li><a href="product-yin.html">银组合</a></li>
+				<li><a  class="act">DIY</a></li>
+			</ul>
+		</div>
+		
+		<div class="prod-shop">
+			<div class="prod-title">
+				<h3>DIY说明</h3>
+			</div>
+			<div class="prod-nav">
+				<h4>云棒为组件式智能产品，像搭积木一样，搭完即可用</h4>
+				<p>1.一套云棒中必须有母棒，母棒负责主体运算和中心控制，母棒也可以直接做无线投射服务；
+				<p>2.作为私有云服务器必须选择存储组件，存储组件有存储碟和存储棒两类；</p>
+				<p>3.存储棒使用高速轻便的固态硬盘，最多可以同时连接8个到云棒母棒上，每个存储棒又有120G，250G，512G，1000G四个规格两个相同的存储棒可以作为镜像备份；</p>
+				<p>4.存储碟使用大容量高性价比、可7*24小时开机的安防级机械硬盘，有1T，2T两个规格，每套云棒系统中只能装1个存储碟。</p>
+			</div>
+		</div>
+		
+		<div class="prod-p">		
+			<em>●</em>您是否已有母棒，如果没有，请选择一个
+		</div> 
+		<div class="prod-box">
+			<div class="prod-sc">
+				<ul class="prod-ul"> 
+					<li>
+						<div class="prod-ck">
+							<input type="checkbox" name="ck-c" id="cke_1" value="" checked /><label for="cke_1"></label>
+						</div>
+					</li>
+					<li><img class="img-mb" src="../version/img/001.jpg"/> </li>
+					<li>
+						<div class="prod-jg">
+							<p class="p1">母棒</p>
+							<p class="p2">&#65509;2400.00</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="prod-md">
+				<div class="flt prod-ber">数量</div>
+				<div class="number-box">
+					<a class="min"><img src="../version/img/app-red.png"></a>
+					<input type="text" value="1">
+					<a class="add"><img src="../version/img/app-add.png"></a>
+				</div>	
+			</div>
+		</div>
+		
+		<div class="prod-box">
+			<div class="prod-sc">
+				<ul class="prod-ul"> 
+					<li>
+						<div class="prod-ck">
+							<input type="checkbox" name="ck-c" id="cke_2" value="" /><label for="cke_2"></label>
+						</div>
+					</li>
+					<li><img class="img-mb" src="../version/img/002.jpg"/> </li>
+					<li>
+						<div class="prod-jg">
+							<h5>请选择存储碟的规格（每套限一个）</h5>
+							<div class="prod-cin"></div>
+							<p class="p1 prod-top">存储碟</p>
+							<p class="p2">&#65509;2400.00</p>
+						</div>
+					</li>
+				</ul>
+			</div>			
+			<div class="prod-md">
+				<div class="prod-bot">
+					<div class="flt prod-ber">选择规格</div>
+					<div class="prod-bott">
+						<ul class="prod-li">
+							<li class="acb">1T</li>
+							<li>2T</li>
+						</ul>
+					</div>
+				</div>
+				<div class="prod-mot">
+					<div class="flt prod-ber">数量</div>
+					<div class="number-box">
+						<a class="min"><img src="../version/img/app-red.png"></a>
+						<input type="text" value="1">
+						<a class="add"><img src="../version/img/app-add.png"></a>
+					</div>	
+				</div>
+			</div>
+		</div>
+		
+		<div class="prod-box">
+			<div class="prod-sc">
+				<ul class="prod-ul"> 
+					<li>
+						<div class="prod-ck">
+							<input type="checkbox" name="ck-c" id="cke_3" value="" /><label for="cke_3"></label>
+						</div>
+					</li>
+					<li><img class="img-mb" src="../version/img/003.jpg"/> </li>
+					<li>
+						<div class="prod-jg">
+							<h5>请选择存储碟的规格（每套限一个）</h5>
+							<div class="prod-cin"></div>
+							<p class="p1 prod-top">存储棒</p>
+							<p class="p2">&#65509;2400.00</p>
+						</div>
+					</li>
+				</ul>
+			</div>			
+			<div class="prod-md">
+				<div class="prod-bot">
+					<div class="flt prod-ber">选择规格</div>
+					<div class="prod-bott">
+						<ul class="prod-li">
+							<li>1T</li>
+							<li>512GB</li>
+							<li>250GB</li>
+							<li>120GB</li>
+						</ul>
+					</div>
+				</div>
+				<div class="prod-mot">
+					<div class="flt prod-ber">数量</div>
+					<div class="number-box">
+						<a class="min"><img src="../version/img/app-red.png"></a>
+						<input type="text" value="1">
+						<a class="add"><img src="../version/img/app-add.png"></a>
+					</div>	
+				</div>
+			</div>
+		</div>
+		
+		<div class="prod-subnav"> 
+			<div class="peod-sub">
+				<div class="prod-vo">您已选择：<span>云棒母棒* 120GB存储碟*1</span></div>
+				<div class="prod-vo">合计金额：<span>&#65509;2500.00</span></div>
+			</div>
+			<div class="prod-goto">
+				<input type="submit" value="前去付款" />
+			</div>
+		</div>
+		<!--<style>
+			.prod-jg li .acb{
+				background: url(../version/img/app-ss.png) right bottom no-repeat;
+			    border: 2px solid #ff2222;
+			    background-size: 21%;
+			}
+		</style>-->
+		<script>
+			$(function(){
+				$(".prod-li li").click(function(){
+					var index = $(this).index();
+					$(this).addClass("acb").siblings().removeClass("acb");
+					//$(".hide").eq(index).addClass("show").siblings().removeClass("show")
+					
+				})
+			})
+		</script>
+		
+	</body>
+</html>

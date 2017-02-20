@@ -1,0 +1,1108 @@
+<style type="text/css">
+    .order_wrapper {float: left; width: 100%;  padding-bottom: 30px;}	
+    .order_wrapper .order_content {width: 1200px; height: auto; margin: 0 auto;}
+    .order_wrapper .order_content .header {float: left; width: 100%; height: 90px; line-height: 90px; margin-top: 10px; padding-left: 40px; font-size: 32px;}
+    .order_wrapper .order_content .no_order {float: left; width: 400px; margin-left: 400px; height: 600px; background: url({skin:images/front/D0001_Cart_1.png}) 100px 80px no-repeat;}
+    .order_wrapper .order_content .no_order .content {float: left; margin-top: 330px; padding-left: 160px; width:100%;}
+    .order_wrapper .order_content .no_order .content label {float: left; width: 360px; margin-left: -80px; margin-bottom: 20px; height: 60px; line-height: 60px; font-size: 18px;}
+    .order_wrapper .order_content .no_order .content a {float: left; display: block; width: 130px; height: 40px; line-height: 40px; text-decoration: none; 
+                                                        background-color: rgb(252, 62, 57); color: #FFF; text-align: center;}
+
+    .order_wrapper .order_content .has_order {float: left; width: 1120px; margin-left: 40px; border-radius: 8px; margin-bottom: 30px; 
+                                              border: rgb(188, 188, 188) 1px solid; box-shadow: 0 0 5px rgb(180, 180, 180); background-color: #FFF;}
+    .order_wrapper .order_content .has_order .number {float: left; width: 100%; height: 50px; line-height: 50px; color: rgb(121, 121, 121);
+                                                      border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgb(252, 252, 252);}
+    .order_wrapper .order_content .has_order .number label {float: left; margin-left: 30px;width:100%;}
+    .order_wrapper .order_content .has_order .number a {display: block; float: right; margin-right: 20px; margin-top: 7px; height: 36px; line-height: 36px; text-align: center; padding: 0 15px; border-radius: 3px; background-color: rgb(228, 228, 228);}
+
+    /*商品信息*/
+    .order_wrapper .order_content .has_order .goods_info {float: left; width: 100%;} 
+    .order_wrapper .order_content .has_order .goods_info table {width: 100%; text-align: left; font-size: 16px;}
+    .order_wrapper .order_content .has_order .goods_info td{color: #434343;} 
+    .order_wrapper .order_content .has_order .goods_info th{color: #434343;} 
+    .order_wrapper .order_content .has_order .goods_info tr.title {height: 40px; line-height: 40px; background: rgb(230, 230, 230)}
+    .order_wrapper .order_content .has_order .goods_info tr.body {height: 45px; line-height: 45px; background: #FFF;}
+    .order_wrapper .order_content .has_order .goods_info tr.line_1 td img {margin-left: 20px; margin-top: -20px;}
+    .order_wrapper .order_content .has_order .goods_info tr.line_1 td {padding-top: 25px;}
+    .order_wrapper .order_content .has_order .goods_info tr.line_2 td {padding-bottom: 25px; font-size: 12px; color: rgb(148, 148, 148)}
+    .order_wrapper .order_content .has_order .goods_info tr.body td.bottom_border { border-bottom: 1px rgb(242, 242, 242) solid;}
+    .order_wrapper .order_content .has_order .goods_info table th {padding-left: 30px; font-weight: normal; }
+
+    .order_wrapper .order_content .has_order .total_price {float: left; width: 100%; height: 60px; line-height: 60px; color: #000; text-align: right; background-color: rgb(246, 246, 246);}
+    .order_wrapper .order_content .has_order .total_price label.price {float: right; margin-right: 30px;}
+
+    /*进度信息*/
+    .order_wrapper .order_content .has_order .progress {float: left; width: 100%; padding-top: 45px; background-color: #FFF;}
+    .order_wrapper .order_content .has_order .progress .title {}
+    .order_wrapper .order_content .has_order .progress .title label {float: left; margin-right: 153px; width: 80px;  height: 40px; line-height: 40px; text-align: center;}
+    .order_wrapper .order_content .has_order .progress .title label.first {margin-left: 58px;}
+    .order_wrapper .order_content .has_order .progress .title label.last {margin-right: 0px;}
+    .order_wrapper .order_content .has_order .progress .date label {font-size: 12px; height: 40px; line-height: 15px;}
+    .order_wrapper .order_content .has_order .progress .date .date_none  {display: none;}
+
+    .order_wrapper .order_content .has_order .progress .image_close {float: left; width: 977px; height: 40px; margin-left: 75px; margin-bottom: 5px; background: url({skin:images/front/pclose.png})}
+    .order_wrapper .order_content .has_order .progress .image_close img {float: left; margin-top: 3px; margin-left: 937px;}
+
+    .order_wrapper .order_content .has_order .progress .image {float: left; width: 977px; height: 40px; margin-left: 75px; margin-bottom: 5px; background: url({skin:images/front/p001.png})}
+    .order_wrapper .order_content .has_order .progress .image img {float: left; margin-top: 3px; margin-left: 3px;}
+    .order_wrapper .order_content .has_order .progress .image a {float: left; display: block; cursor: pointer; height: 40px; width: 40px; margin-left: 200px;}
+
+    /*订单状态*/
+    .order_wrapper .order_content .has_order .order_state {float: left; width: 100%; background-color: #FFF;}
+    .order_wrapper .order_content .has_order .order_state .content {float: left; margin-left: 30px; margin-top: 20px; padding-bottom: 20px; margin-bottom: 40px; width: 1060px; 
+                                                                    border: 1px solid rgb(207, 207, 207); background-color: rgb(246, 246, 246); border-radius: 5px;} 
+    .order_wrapper .order_content .has_order .order_state .content .display_none, #title_2, #detail_2, #title_3, #detail_3, #title_4, #detail_4, #title_5, #detail_5 {display: none;}
+
+    .order_wrapper .order_content .has_order .order_state .content .pup {float: left; height: 12px; width: 24px; margin-top: -11px; margin-left: 50px; background: url({skin:images/front/pup.png});}
+
+    .order_wrapper .order_content .has_order .order_state .content .state_title {float: left; width: 800px; margin-left: 30px; margin-top: 20px; line-height: 60px; height: 60px; font-size: 28px; }
+    .order_wrapper .order_content .has_order .order_state .content .state_detail {float: left; width: 800px; margin-left: 30px;}
+    .order_wrapper .order_content .has_order .order_state .content .state_detail label {float: left; margin-bottom: 10px}
+    .order_wrapper .order_content .has_order .order_state .content .state_detail label.line {width: 100%; }
+    .order_wrapper .order_content .has_order .order_state .content .state_detail p {line-height: 20px;}
+    .order_wrapper .order_content .has_order .order_state .content .state_detail a {float: left; display: block; cursor: pointer; padding: 0 10px; height: 28px; margin-left: 13px; line-height: 28px; text-align: center; border-radius: 3px; font-size: 12px; color: #FFF;}
+
+    /*发票等信息*/
+    .order_wrapper .order_content .has_order .order_info {float: left; width: 100%; background-color: #FFF;}
+    .order_wrapper .order_content .has_order .order_info .left_col {float: left; margin-left: 80px; width: 600px; height: 240px;}
+    .order_wrapper .order_content .has_order .order_info .right_col {float: left; width: 400px; height: 240px;}
+    .order_wrapper .order_content .has_order .order_info label.title {float: left; width: 80px; height: 50px; line-height: 50px; font-size: 20px;}
+    .order_wrapper .order_content .has_order .order_info a.title {float: left;display: block; cursor: pointer; padding: 0 10px; height: 28px; margin-left: 8px; margin-top: 10px; line-height: 28px; background-color: rgb(182, 185, 189); color: #FFF; text-align: center; border-radius: 3px; font-size: 12px;}
+    .order_wrapper .order_content .has_order .order_info label.other {float: left; width:100%; height: 30px; line-height: 30px; padding-left: 15px; font-size: 14px; color: #000;}
+
+    .order_wrapper .order_content .has_order .bottom {float: left; width: 100%; height: 10px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; background-color: #FFF;}
+
+    /*付款弹出框*/
+    .fukuan_box {position: absolute; display: none; z-index: 30000; left: 0; top : 0; width: 700px; height: auto; background-color: #FFF; 
+                 border: 1px solid rgb(188, 188, 188); border-radius: 10px;}
+    .fukuan_box .fb_header {float: left; width: 100%; height: 50px; line-height: 50px; background-color: rgb(252, 252, 252);
+                            border-top-left-radius: 10px; border-top-right-radius: 10px; font-size: 18px; border-bottom: 1px rgb(188, 188, 188) solid;}
+    .fukuan_box .fb_header .close {float: right; margin-right: 10px; margin-top: 5px; cursor: pointer; height: 40px; width: 40px; background: url({skin:images/front/close.png});}
+
+    .fukuan_box .fb_body {float: left; width: 100%; height: auto; border-bottom: 1px solid rgb(188, 188, 188);}
+    .fukuan_box .fb_body .title {float: left; width: 670px; height:30px; line-height: 30px; cursor: pointer; padding-left: 30px; font-size: 14px; background-color: rgb(230, 231, 232);border-top: 1px solid rgb(188, 188, 188); border-bottom: 1px solid rgb(188, 188, 188);}
+    .fukuan_box .fb_body .banks {float: left; padding-left: 30px; padding-right: 20px; padding-top: 10px;}
+    .fukuan_box .fb_body .banks input {float: left; margin-top: 20px; margin-bottom: 20px;}
+    .fukuan_box .fb_body .banks img {float: left; margin-right: 40px;  margin-bottom: 20px;}
+
+    .fukuan_box .fb_footer {float: left; width: 100%; height: 58px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; background-color: rgb(252, 252, 252);}
+    .fukuan_box .fb_footer a {float:right; width: 100px; height: 36px; line-height: 36px; text-align: center; border-radius: 5px; cursor: pointer; background-color: rgb(252, 62, 57); color: #FFF; margin-right: 10px; margin-top: 12px;}
+    .fukuan_box .fb_footer label {float: right; margin-right: 20px; margin-top: 20px; font-size: 16px;}
+
+
+    .cancel_box {position: absolute; display: none; z-index: 30000; left: 0; top : 450px;; width: 480px; height: 320px; background-color: #FFF; 
+                 border: 1px solid rgb(188, 188, 188); border-radius: 10px;}
+    .cancel_box .cb_header {float: left; width: 100%; height: 50px; line-height: 50px; background-color: rgb(252, 252, 252);
+                            border-bottom: 1px solid rgb(188, 188, 188); border-top-left-radius: 10px; border-top-right-radius: 10px;}	
+    .cancel_box .cb_header .close {float: right; margin-right: 10px; margin-top: 5px; cursor: pointer; height: 40px; width: 40px; background: url({skin:images/front/close.png});}
+
+    .cancel_box .cb_body {float: left; width: 100%; height: 210px; border-bottom: 1px solid rgb(188, 188, 188);}	
+
+    .cancel_box .cb_footer {float: left; width: 100%; height: 58px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; background-color: rgb(252, 252, 252);}
+    .cancel_box .cb_footer a { width: 100px; height: 36px; line-height: 36px; text-align: center; border-radius: 5px; cursor: pointer;  margin-top: 12px;}
+    .cancel_box .cb_footer a.left_a {float: left; margin-left: 10px;}
+    .cancel_box .cb_footer a.right_a {float: right; background-color: rgb(252, 62, 57); color: #FFF; margin-right: 40px;}
+
+    .confirm_box {position: absolute; display: none; z-index: 30000; left: 0; top : 450px;; width: 480px; height: 320px; background-color: #FFF; 
+                  border: 1px solid rgb(188, 188, 188); border-radius: 10px;}
+    .confirm_box .cb_header {float: left; width: 100%; height: 50px; line-height: 50px; background-color: rgb(252, 252, 252);
+                             border-bottom: 1px solid rgb(188, 188, 188); border-top-left-radius: 10px; border-top-right-radius: 10px;}	
+    .confirm_box .cb_header .close {float: right; margin-right: 10px; margin-top: 5px; cursor: pointer; height: 40px; width: 40px; background: url({skin:images/front/close.png});}
+
+    .confirm_box .cb_body {float: left; width: 100%; height: 210px; border-bottom: 1px solid rgb(188, 188, 188);}	
+
+    .confirm_box .cb_footer {float: left; width: 100%; height: 58px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; background-color: rgb(252, 252, 252);}
+    .confirm_box .cb_footer a { width: 100px; height: 36px; line-height: 36px; text-align: center; border-radius: 5px; cursor: pointer;  margin-top: 12px;}
+    .confirm_box .cb_footer a.left_a {float: left; margin-left: 10px;}
+    .confirm_box .cb_footer a.right_a {float: right; background-color: rgb(252, 62, 57); color: #FFF; margin-right: 40px;}
+
+
+
+    .address {position: absolute; display: none; width: 550px; height: 610px; top: 560px; left: 0px; margin-left: 0; margin-bottom: 0; }
+    .address .content {float: left; width: 100%; height: 610px; border-radius: 5px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+    .address .content .ac_header {float: left; width: 100%; height: 60px; line-height: 60px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+    .address .content .ac_header label {margin-left: 30px;}
+    .address .content .ac_header a {display: block; cursor: pointer; float: right; margin-right: 20px; margin-top: 12px; height: 36px; line-height: 36px; text-align: center; padding: 0 15px; border-radius: 3px; background-color: rgb(228, 228, 228);}
+    .address .content .ac_body {float: left; padding-left: 50px; padding-top: 45px;}
+    .address .content .ac_body input {float: left; font-size: 14px; padding-left: 10px; }
+    .address .content .ac_body select {float: left; font-size: 14px; padding-left: 10px; }
+    .address .content .ac_body label.col {float: left; width: 20px; height: 36px;}
+    .address .content .ac_body label.row {float: left; width: 100%; height: 20px;}
+    .address .content .ac_body label.row_s {float: left; width: 100%; height: 10px;}
+    .address .content .ac_body .acb_left {float: left; width: 100%;}
+    .address .content .ac_body .acb_right {float: left;  width: 100%;}
+
+    .fapiao {position: absolute; display: none; width: 350px; height: 280px; top: 900px; left: 0; margin-left: 0; margin-bottom: 0;}
+    .fapiao .content {float: left; width: 100%; height: 280px; border-radius: 5px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+    .fapiao .content .fc_header {float: left; width: 100%; height: 60px; line-height: 60px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+    .fapiao .content .fc_header label {margin-left: 30px;}
+    .fapiao .content .fc_header .close {float: right; margin-right: 10px; margin-top: 5px; cursor: pointer; height: 40px; width: 40px; background: url({skin:images/front/close.png});}
+    .fapiao .content .line_1 {float: left; width: 100%; line-height: 40px; height: 40px; padding-left: 30px;} 
+    .fapiao .content .line_1 img {float: left; margin-top: 15px; margin-right: 10px;}
+    .fapiao .content .line_1 a {float: left; margin-top: 55px; margin-right: 80px;}
+    .fapiao .content .line_1 label {float: left; margin-top: 10px;}
+    .fapiao .content .line_1 input {display: none;}
+
+
+    .check_order_info {position: absolute; display: none; width: 1120px; top: 555px; left: 0px; border-radius: 8px; 
+                       border: rgb(188, 188, 188) 1px solid; box-shadow: 0 0 5px rgb(180, 180, 180); background-color: #FFF;}
+    .check_order_info .number {float: left; width: 100%; height: 50px; line-height: 50px; color: rgb(121, 121, 121);
+                               border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgb(252, 252, 252);}
+    .check_order_info .number .close {float: right; margin-right: 10px; margin-top: 5px; cursor: pointer; height: 40px; width: 40px; background: url({skin:images/front/close.png});}
+    .check_order_info .number label {float: left; margin-left: 30px;}
+    .check_order_info .number a {display: block; float: right; margin-right: 20px; margin-top: 7px; height: 36px; line-height: 36px; text-align: center; padding: 0 15px; border-radius: 3px; background-color: rgb(228, 228, 228);}
+
+    /*商品信息*/
+    .check_order_info .goods_info {float: left; width: 100%;} 
+    .check_order_info .goods_info table {width: 100%; text-align: left; font-size: 16px;}
+    .check_order_info .goods_info td{color: #434343;} 
+    .check_order_info .goods_info th{color: #434343;} 
+    .check_order_info .goods_info tr.title {height: 40px; line-height: 40px; background: rgb(230, 230, 230)}
+    .check_order_info .goods_info tr.body {height: 45px; line-height: 45px; background: #FFF;}
+    .check_order_info .goods_info tr.line_1 td img {margin-left: 20px; margin-top: -20px;}
+    .check_order_info .goods_info tr.line_1 td {padding-top: 25px;}
+    .check_order_info .goods_info tr.line_2 td {padding-bottom: 25px; font-size: 12px; color: rgb(148, 148, 148)}
+    .check_order_info .goods_info tr.body td.bottom_border { border-bottom: 1px rgb(242, 242, 242) solid;}
+    .check_order_info .goods_info table th {padding-left: 30px; font-weight: normal; }
+
+    .check_order_info .total_price {float: left; width: 100%; height: 80px; line-height: 80px; color: #000; text-align: right; border-top: 1px solid rgb(188, 188, 188);}
+    .check_order_info .total_price label {float: right; margin-right: 30px;}
+
+    .check_order_info label.title {float: left; width: 1090px; height: 40px; line-height: 40px; background-color: rgb(230, 231, 232); padding-left: 30px;}
+    .check_order_info label.detail {float: left; width: 1090px; line-height: 25px; padding: 20px 0 20px 30px; font-size: 14px;}
+
+</style>
+
+<!-- $no_order 0有订单 1还未下订单 -->
+<!-- $order_state订单状态 0正常 1关闭 2售后 -->
+{set: $user_id = $this->user['user_id']}
+{set: $order_cnt = Api::run('getMyOrderCnt', $user_id)}
+
+<div class="order_wrapper">
+    <div class='order_content'>
+        <div class='header'>
+            我的订单
+        </div>
+        {if : $order_cnt == 0}
+        <div class="no_order">
+            <div class='content'>
+                <label>您目前还没有订单，赶紧购买云棒吧！</label>
+                <a href='{url:/site/book}'>马上去购物</a>
+            </div>
+        </div>
+        {else:}
+        {set: $orders = Api::run('getMyOrderList', $user_id)}
+        {foreach: items = $orders}
+        {set: $i_attr = JSON::decode(str_replace('主棒:主棒','主棒*1',$item['goods_array']))}
+        <!--商品详情-->
+        {set: $goods_info = Api::run('getGoodsList',$item['goods_id'])}
+        {set: $delivery_list = Api::run('getDeliveryList',array("#oid#",$item['id']))}
+        <div class='has_order'>
+            <input type="hidden" name="totalmoney" value="{$item['order_amount']}">
+            <input type="hidden" name="order_id" value="{$item['id']}">
+            <input type="hidden" name="invoice_type" value="{$item['invoice_type']}">
+            <input type="hidden" name="invoice_title" value="{$item['invoice_title']}">
+            <input type="hidden" name="accept_name" value="{$item['accept_name']}" />
+            <input type='hidden' name='telphone' value="{$item['telphone']}" />
+            <input type='hidden' name='province' value="{$item['province']}" />
+            <input type='hidden' name='city' value="{$item['city']}" />
+            <input type='hidden' name='area' value="{$item['area']}" />
+            <input type='hidden' name='address' value="{$item['address']}" />
+            <input type='hidden' name='mobile' value="{$item['mobile']}" />
+            <input type='hidden' name='accept_time' value="{$item['accept_time']}" />
+            <input type='hidden' name='goods_name' value="{$i_attr['name']}" />
+            <input type='hidden' name='goods_attr' value="{$i_attr['value']}" />
+            <input type='hidden' name='goods_price' value="{$item['goods_price']}" />
+            <input type='hidden' name='goods_nums' value="{$item['goods_nums']}" />
+            <input type='hidden' name='order_amount' value="{$item['order_amount']}" />
+            <input type='hidden' name='goods_img' value="{$item['img']}" />
+            <input type='hidden' name='goods_no' value='{$goods_info[0]["goods_no"]}' />
+
+            <!--售后表单-->
+            <form name="service_order" method="post" action="{url:/ucenter/apply_service}">
+                <input type="hidden" name="order_id" value="{$item['id']}" />
+            </form>
+
+            <!--根据状态设置进度条-->
+            <!--正常订单状态-->
+            {set:$progress = 1}
+            {if:$item['status']==2 && $item['pay_status']==1 && $item['distribution_status'] == 0}
+            {set:$progress = 2}
+            {elseif:$item['status']==2 && $item['pay_status']==1 && $item['distribution_status'] == 1}
+            {set:$progress = 3}
+            {elseif:$item['status']==2 && $item['pay_status']==1 && $item['distribution_status'] == 2}
+            {set:$progress = 4}
+            {elseif:$item['status']==5}
+            {set:$progress = 5}
+            <!--订单取消状态-->
+            {elseif:$item['status']==3}
+            {set:$progress = 5}
+            <!--订单售后状态-->
+            {elseif:$item['status']==7}
+            <!--取服务订单信息-->
+            {set:$service_info = Api::run('getServiceOrder', $item['id'])}
+            {if:$service_info['status'] <= 3}
+            {set:$progress = 1}
+            {elseif:$service_info['status'] == 4}
+            {set:$progress = 2}
+            {elseif:$service_info['status'] == 5}
+            {set:$progress = 3}
+            {elseif:$service_info['status'] == 6}
+            {set:$progress = 4}
+            {elseif:$service_info['status'] == 7}
+            {set:$progress = 5}
+            {/if}
+            {/if}
+            <input type="hidden" order_id="{$item['id']}" class="order_p_class" name="order_progress" value="{$progress}"/>
+
+            <div class='number'>
+                <label>订单号: &nbsp; {$item['order_no']}</label>
+                {if: $item['status'] == 3}
+                <a>订单已关闭</a>
+                {elseif: $item['status'] == 7}
+                <a>已申请售后</a>
+                {/if}
+            </div>
+            <div class='goods_info'>
+                <table cellspacing="0">
+                    <tr class='title'>
+                        <th colspan="2">商品名称</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                        <th colspan="2">小计</th>
+                    </tr>
+                    <tr class='body line_1'>
+                        <td width="150px" rowspan="2"><img src="{webroot:}{$item['img']}" width="100" height="100"/></td>
+                        <td width="510px" class="bottom_border">{$i_attr['name']}&nbsp;{$i_attr['value']}</td>
+                        <td width="135px" class="bottom_border" style="padding-left: 25px;">¥&nbsp;{$item['goods_price']}</td>
+                        <td width="120px" class="bottom_border" style="padding-left: 40px;">{$item['goods_nums']}</td>
+                        <td width="75px" class="bottom_border" style="padding-left: 25px;">¥&nbsp;{$item['order_amount']}</td>
+                        <td width="30px">&nbsp;</td>
+                    </tr>
+                    <tr class='body line_2'>
+                        <td colspan="5">商品编号:&nbsp;{$goods_info[0]["goods_no"]}</td>
+                    </tr>
+                </table> 
+            </div>
+
+            <div class='total_price div_control_show' is_show="1" order_id="{$item['id']}" style="cursor: pointer;">
+                <label class="control_show" is_show="1" order_id="{$item['id']}" style="float: left; cursor: pointer; margin-left: 30px;">隐藏订单详情</label>
+                <label class="price">订单总计:&nbsp;&nbsp;&nbsp;&nbsp;¥&nbsp;&nbsp;{$item['order_amount']}</label>
+            </div>
+            <div id="order_all_{$item['id']}">
+                <div class="progress progress_{$item['id']}">
+                    {if: $item["status"] == 3}
+                    <!--订单关闭-->
+                    <div class="title"><label class="first">下单</label><label>&nbsp</label><label>&nbsp</label><label>&nbsp</label><label class="last">订单取消</label></div>
+                    <div class="image_close">
+                        <!--                    <img id="img_progress_{$item['id']}" src="{skin:images/front/pcur.png}" />-->
+                    </div>
+                    <div class="title date"><label class="first date_{$item['id']}_1">{$item['create_time']}</label><label class="date_{$item['id']}_2 date_none">&nbsp;</label>
+                        <label class="date_{$item['id']}_3 date_none">&nbsp;</label><label class="date_{$item['id']}_4 date_none">&nbsp;</label><label class="last date_{$item['id']}_5 date_none">{$item['cancel_time']}</label></div>
+
+                    {elseif: $item["status"] == 7}
+                    <!--售后-->
+                    <div class="title"><label class="first">受理售后</label><label>办理售后</label><label>配货</label><label>出库</label><label class="last">完成售后</label></div>
+                    <div class="image">
+                        <img id="img_progress_{$item['id']}" src="{skin:images/front/pcur.png}" />
+                        <a id="a_progress" progress="1"></a>
+                    </div>
+                    <div class="title date"><label class="first date_{$item['id']}_1">{$service_info['create_time']}</label><label class="date_{$item['id']}_2 date_none">{$service_info['operate_time']}</label>
+                        <label class="date_{$item['id']}_3 date_none">{$service_info['prepare_time']}</label><label class="date_{$item['id']}_4 date_none">{$service_info['send_time']}</label><label class="last date_{$item['id']}_5 date_none">{$service_info['complete_time']}</label></div>
+
+                    {else:}
+                    <!--正常订单-->
+
+                    <div class="title"><label class="first">下单</label><label>付款</label><label>配货</label><label>出库</label><label class="last">交易成功</label></div>
+                    <div class="image">
+                        <img id="img_progress_{$item['id']}" src="{skin:images/front/pcur.png}" />
+                        <a id="a_progress" progress="{$progress}"></a>
+                    </div>
+                    <div class="title date"><label class="first date_{$item['id']}_1">{$item['create_time']}</label><label class="date_{$item['id']}_2 date_none">{$item['pay_time']}</label>
+                        <label class="date_{$item['id']}_3 date_none">{$item['prepare_time']}</label><label class="date_{$item['id']}_4 date_none">{$item['send_time']}</label><label class="last date_{$item['id']}_5 date_none">{$item['complete_time']}</label></div>
+
+                    {/if}
+                </div>
+                <div class="order_state">
+                    <div class="content">
+                        <div id="p_pup_{$item['id']}" class="pup"></div>
+                        <div style="float: left; width: 100%; height: 1px;"></div>
+                        {if: $item['status'] == 3}
+                        <!--订单关闭-->
+                        <div class="state_title state_title_{$item['id']}" id="title_{$item['id']}_5">
+                            订单状态：已取消订单
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']}" id="detail_{$item['id']}_5">
+                            <label>订单已经取消</label>
+                        </div>
+
+                        {elseif: $item['status'] == 7}
+                        {set:$service_type = Api::run('getServiceType',$service_info['type'])}
+                        <!--售后--> 
+                        <div class="state_title state_title_{$item['id']}" id="title_{$item['id']}_1">
+                            订单状态：{$service_type}
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']}" id="detail_{$item['id']}_1">
+                            <label>已经提交了售后服务单，请主人耐心等候</label>
+                        </div>
+                        <div class="state_title state_title_{$item['id']} display_none" id="title_{$item['id']}_2">
+                            订单状态：{$service_type}
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']} display_none" id="detail_{$item['id']}_2">
+
+                        </div>
+                        <div class="state_title state_title_{$item['id']} display_none" id="title_{$item['id']}_3">
+                            订单状态：{$service_type}
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']} display_none" id="detail_{$item['id']}_3">
+                            <label>仓库师傅正在安排离您最近的仓库为您出库</label>
+                        </div>
+                        <div class="state_title state_title_{$item['id']} display_none" id="title_{$item['id']}_4">
+                            订单状态：出库
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']} display_none" id="detail_{$item['id']}_4">
+                            您的运单号：
+                            {foreach:items=$delivery_list item=$di}
+                            {if:$di['order_type'] == 2}【{$di['delivery_code']}】{$di['freight_name']}{/if}
+                            {/foreach}
+                            <label style="margin-top: 3px; margin-right: 8px; font-size: 14px;">您可以查看</label> <a href="http://www.kuaidi100.com/chaxun?com=shunfeng&nu=" style="background-color: rgb(136, 166, 245);">物流跟踪</a><a class="confirm_service_recieved" style="background-color: rgb(222, 138, 138)">确认收货</a>
+                        </div>
+                        <div class="state_title state_title_{$item['id']} display_none" id="title_{$item['id']}_5">
+                            订单状态：服务完成
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']} display_none" id="detail_{$item['id']}_5">
+                            <!--label class="line">您快递哥哥已经将主人购买的&nbsp;YUNBANG&nbsp;1&nbsp;送到了，由&nbsp;赵发财&nbsp;签收</label-->
+                            <label style="margin-top: 3px; margin-right: 8px; font-size: 14px;">您可以查看</label> <a class="a_order_info" style="background-color: rgb(188, 188, 188);">订单详情</a><!--a name="apply_service" style=" background-color: rgb(222, 138, 138); color:">申请售后服务</a-->
+                        </div>
+
+                        {else:}
+                        <!--正常订单-->
+                        <div class="state_title state_title_{$item['id']}" id="title_{$item['id']}_1">
+                            订单状态：已下单，等待付款 ¥ {$item['order_amount']}
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']}" id="detail_{$item['id']}_1">
+                            <label style="margin-top: 3px; margin-right: 8px; font-size: 14px;">您可以</label> <a id="now_give_money" style="background-color: rgb(252, 62, 57); color: #FFF">现在付款</a><a class="a_cancel_order" style="font-size: 14px; color: rgb(148, 148, 148);">取消订单</a>
+                        </div>
+                        <div class="state_title state_title_{$item['id']} display_none" id="title_{$item['id']}_2">
+                            订单状态：付款成功
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']} display_none" id="detail_{$item['id']}_2">
+                            <label class="line">您付款成功，小美已将订单交予您最近的仓库君为您配货，如果送货地址有误</label>
+                            <label style="margin-top: 3px; margin-right: 8px; font-size: 14px;">您可以</label> <a style="background-color: rgb(188, 188, 188);">修改订单</a>
+                        </div>
+                        <div class="state_title state_title_{$item['id']} display_none" id="title_{$item['id']}_3">
+                            订单状态：付款成功
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']} display_none" id="detail_{$item['id']}_3">
+                            <label>仓库师傅正在安排离您最近的仓库为您出库</label>
+                        </div>
+                        <div class="state_title state_title_{$item['id']} display_none" id="title_{$item['id']}_4">
+                            订单状态：出库
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']} display_none" id="detail_{$item['id']}_4">
+                            您的运单号：
+                            {foreach:items=$delivery_list item=$di}
+                            {if:$di['order_type'] == 1}【{$di['delivery_code']}】{$di['freight_name']}{/if}
+                            {/foreach}
+                            <label style="margin-top: 3px; margin-right: 8px; font-size: 14px;">您可以查看</label> <a href="http://www.kuaidi100.com/chaxun?com=shunfeng&nu=" style="background-color: rgb(136, 166, 245);">物流跟踪</a><a class="confirm_recieved" style="background-color: rgb(222, 138, 138)">确认收货</a>
+                        </div>
+                        <div class="state_title state_title_{$item['id']} display_none" id="title_{$item['id']}_5">
+                            订单状态：交易成功
+                        </div>
+                        <div class="state_detail state_detail_{$item['id']} display_none" id="detail_{$item['id']}_5">
+                            <!--label class="line">您快递哥哥已经将主人购买的&nbsp;YUNBANG&nbsp;1&nbsp;送到了，由&nbsp;赵发财&nbsp;签收</label-->
+                            <label style="margin-top: 3px; margin-right: 8px; font-size: 14px;">您可以查看</label> <a class="a_order_info" style="background-color: rgb(188, 188, 188);">订单详情</a><a name="apply_service" style=" background-color: rgb(222, 138, 138);">申请售后服务</a>
+                        </div>
+
+                        {/if}
+                    </div>
+                </div>
+                {set: $area = area::name($item['province'], $item['city'], $item['area'])}
+                <div class="order_info">
+                    <div class="left_col">
+                        <label class="title">收货信息</label>
+                        {if:$item['status']<=2 && $item['distribution_status']<=1}
+                        <a id="a_modify_address" class="title a_modify_address">修改收货信息</a>
+                        {/if}
+                        <input type="hidden" name="iaccept_name" value="{$item['accept_name']}" />
+                        <input type='hidden' name='ipostcode' value="{$item['postcode']}" />
+                        <input type='hidden' name='itelphone' value="{$item['telphone']}" />
+                        <input type='hidden' name='iprovince' value="{$item['province']}" />
+                        <input type='hidden' name='icity' value="{$item['city']}" />
+                        <input type='hidden' name='iarea' value="{$item['area']}" />
+                        <input type='hidden' name='iaddress' value="{$item['address']}" />
+                        <input type='hidden' name='imobile' value="{$item['mobile']}" />
+                        <input type='hidden' name='iaccept_time' value="{$item['accept_time']}" />
+                        <label class="other">姓名 ：{$item['accept_name']}</label>
+                        <label class="other">详细地址 ：{$area[$item['province']]}{$area[$item['city']]}{$area[$item['area']]}{$item['address']}</label>
+                        <label class="other">邮编 ：{$item['postcode']}</label>
+                        <label class="other">送货时间 ：{$item["accept_time"]}</label>
+                        <label class="other">联系电话 ：{$item['telphone']}</label>
+                        <label class="other">手机 ：{$item['mobile']}</label>
+                    </div>
+                    <div class="right_col">
+                        <label class="title">发票信息</label>{if:$item['status']<=2 && $item['distribution_status']<=1}<a id="a_modify_fapiao" class="title a_modify_fapiao">修改发票信息</a>{/if}
+                        {set: $invoice_type = Api::run('getInvoiceType',$item['invoice_type'])}
+                        <label class="other">发票类型 ：{$invoice_type}</label>
+                        <label class="other">发票抬头 ：{$item['invoice_title']}</label>
+                        <label class="other">发票内容 ：{$i_attr['name']} * {$item['goods_nums']}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom"></div>
+        </div>
+        {/foreach}
+        {/if}
+    </div>
+</div>
+
+<div class="fukuan_box tanchuang">
+    <div class="fb_header">
+        <label style="margin-left: 30px;">支付</label>
+        <label class="close" id="close_fukuan_box"></label>
+    </div>
+    <div class="fb_body">
+        <!--		<label class="title zf_title" id="zf_1">支付平台</label>-->
+        <div class="banks banks_zf_1">
+            {query:name=payment where=status eq 0 }
+            <input type="radio" name="zhifu" checked onchange="choose_me({$item['id']})"/><img width="150" height="48" src="{webroot:}plugins/{$item['logo']}"/>
+            {/query}
+        </div>
+        <div style="float: left; width: 100%; height: 20px;"></div>
+        <!--label class="title zf_title" id="zf_2">银行支付</label>
+        <div class="banks banks_zf_2">
+        </div-->
+        <div style="float: left; width: 100%; height: 20px;"></div>
+    </div>
+    <div class="fb_footer">
+        <a id="paynow">现在付款</a><label id="totalmoney"></label>
+        <form id="pay_form" method="post" target="_blank" action="{url:/block/doPay}">
+            <input type="hidden" name="order_id" id="payorder" />
+            <input type="hidden" name="payment_id" id="payment_id" />
+        </form>
+    </div>
+</div>
+
+<form action="{url:ucenter/order_accept}" method="post" id="address_form">
+    <div class="address tanchuang">
+        <div class="content">
+            <div class="ac_header">
+                <label>收货信息</label>
+            </div>
+            <div class="ac_body">
+                <div class="acb_left">
+                    <input type="hidden" name="accept_time" value="">
+                    <input type="hidden" value="" name="order_id" />
+					<style type="text/css"> .label_title {float: left; height: 30px; line-height: 30px; width: 80px;}</style>
+                    <label class="label_title">收货人:</label><input type="text" name="accept_name" value="" placeholder="收货人姓名" style="width: 200px; height: 36px; line-height: 36px; margin-bottom: 10px; margin-right: 150px; "/>
+                    <label class="label_title">手机号:</label><input type="text" name="mobile" value="" placeholder="手机号" style="width: 200px; height: 36px; line-height: 36px; margin-bottom: 10px; margin-right: 150px;"/>
+                    <label class="label_title">邮编:</label><input type="text" name="postcode" value="" placeholder="邮编(可选)" style="width: 200px; height: 36px; line-height: 36px; margin-bottom: 10px; margin-right: 150px;"/>
+                    <label class="label_title">固定电话:</label><input type="text" name="telphone" value="" placeholder="固定电话(可选)" style="width: 200px; height: 36px; line-height: 36px; margin-bottom: 10px; margin-right: 150px;"/>
+                    <label class="label_title" style="height: 36px; line-height: 36px; margin-bottom: 10px;">收货地区:</label>
+					<select style="width: 105px; height: 36px; font-size: 16px; padding-top: 6px; padding-bottom: 6px; margin-bottom: 10px;" name="province" child="city,area" onchange="areaChangeCallback(this);"></select></select><label class="col"></label>
+                    <select style="width: 105px; height: 36px; font-size: 16px; padding-top: 6px; padding-bottom: 6px; margin-bottom: 10px;" name="city" child="area" parent="province" onchange="areaChangeCallback(this);"></select><label class="col"></label>
+                    <select style="width: 105px; height: 36px; font-size: 16px; padding-top: 6px; padding-bottom: 6px; margin-bottom: 10px;" name="area" parent="city" pattern="" alt="请选择收货地区"></select>
+                    <label class="label_title">详细地址:</label><input type="text" name="address" value="" placeholder="街道编号/名称、楼宇名称" style="width: 355px; height: 36px; line-height: 36px;"/>
+                </div>
+                <div class="acb_right">
+                    <label class="row_s"></label>
+                    <label class="sh_time" style="float: left; width: 140px; height: 52px; line-height: 20px; padding-left: 45px; cursor: pointer; padding-top: 13px; border: 1px rgb(223, 223, 223) solid; font-size: 14px; background-color: rgb(250, 250, 250);">
+                        <font style="font-size: 16px; font-weight: 800;">不限送货时间</font><br>周一至周日
+                        <input type="hidden" name="sh_time_value" value="不限送货时间" />
+                    </label>
+                    <label class="col"></label>
+                    <label class="sh_time" style="float: left; width: 139px; height: 52px; line-height: 20px; padding-left: 56px; cursor: pointer; padding-top: 13px; border: 1px rgb(223, 223, 223) solid; font-size: 14px; background-color: rgb(250, 250, 250);">
+                        <font style="font-size: 16px; font-weight: 800;">工作日送货</font><br>周一至周五
+                        <input type="hidden" name="sh_time_value" value="周一至周五" />
+                    </label>
+                    <label class="row_s"></label>
+                    <label class="sh_time" style="float: left; width: 153px; height: 52px; line-height: 20px; padding-left: 32px; cursor: pointer; padding-top: 13px; border: 1px rgb(223, 223, 223) solid; font-size: 14px; background-color: rgb(250, 250, 250);">
+                        <font style="font-size: 16px; font-weight: 800;">双休日、假日送货</font><br>周六至周日
+                        <input type="hidden" name="sh_time_value" value="周六至周日" />
+                    </label>
+                    <label class="row_s"></label>
+                    <a id="addr_cancel" style="float: left; height: 32px; line-height: 32px; text-align: center; color: #FFF; width: 90px; border-radius: 3px; cursor: pointer; background-color: rgb(182, 185, 189); ">取消</a>
+                    <label class="col"></label>
+                    <a id="addr_sure" style="float: left; height: 32px; line-height: 32px; text-align: center; color: #FFF; width: 90px; border-radius: 3px; cursor: pointer; background-color: rgb(252, 62, 57);">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form action="{url:ucenter/order_invoice}" method="post" id="invoice_form">
+    <input type="hidden" name="invoice_type" id='invoice_type'/>
+    <input type="hidden" name="order_id" />
+    <div class="fapiao tanchuang">
+        <div class="content">
+            <div class="fc_header">
+                <label>发票信息</label>
+                <label class="close" id="close_fapiao"></label>
+            </div>
+            <div class="line_1">
+                <img src="{skin:images/front/u610.png}"/><label>普通发票</label>
+            </div>
+            <div class="line_1">
+                <label style="margin-left: 40px;">发票抬头：</label>
+                <img class="img_select" id="personal" src="{skin:images/front/selected.png}"/><label style="margin-right: 10px;">个人</label>
+                <img class="img_select" id="company" src="{skin:images/front/unselected.png}"/><label>单位</label>
+            </div>
+            <div class="line_1">
+                <input id="company_info" maxlength="20" name="invoice_title" type="text" value="" style="float: left; display: none; margin-left: 40px; margin-top: 20px; width: 270px; height: 40px;  line-height: 40px; border: 1px solid rgb(188, 188, 188); border-radius: 6px; font-size: 16px;"/>
+            </div>
+            <div class='line_1'>
+                <a id="invoice_cancel" style="float: left; height: 32px; line-height: 32px; text-align: center; color: #FFF; width: 90px; border-radius: 3px; cursor: pointer; background-color: rgb(182, 185, 189); ">取消</a>
+                <a id="invoice_sure" style="float: left; height: 32px; line-height: 32px; text-align: center; color: #FFF; width: 90px; border-radius: 3px; cursor: pointer; background-color: rgb(252, 62, 57);">确定</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="cancel_box tanchuang">
+    <form id="cancel_form" method="post" action="{url:ucenter/order_status}">
+        <input type="hidden" name="order_id" />
+        <input type='hidden' name='op' value='cancel' />
+        <div class="cb_header">
+            <label style="margin-left: 30px;">安全验证</label>
+            <label class="close" id="close_cancel_box"></label>
+        </div>
+        <div class="cb_body">
+            <img src="{skin:images/front/u495.png}" style="float: left; margin-left: 30px; margin-top: 40px;"> 
+            <label style="float: left; margin-left:20px; margin-top: 50px; line-height: 50px; font-size: 18px;">
+                关闭订单，会使您本次的订单失效，<br>
+                是否关闭订单？
+            </label>
+        </div>
+        <div class="cb_footer">
+            <a id="not_cancel_order" class="left_a">取消</a>
+            <a id="sure_cancel_order" class="right_a">确定</a>
+        </div>
+    </form>
+</div>
+
+<div class="confirm_box tanchuang">
+    <form id="confirm_form" method="post" action="{url:ucenter/order_status}">
+        <input type="hidden" name="order_id" />
+        <input type='hidden' name='op' value='confirm' />
+        <div class="cb_header">
+            <label style="margin-left: 30px;">安全验证</label>
+            <label class="close" id="close_confirm_box"></label>
+        </div>
+        <div class="cb_body">
+            <img src="{skin:images/front/u495.png}" style="float: left; margin-left: 30px; margin-top: 40px;"> 
+            <label style="float: left; margin-left:20px; margin-top: 50px; line-height: 50px; font-size: 18px;">
+                确认收货，会完成本订单，<br>
+                是否确认收货？
+            </label>
+        </div>
+        <div class="cb_footer">
+            <a id="not_confirm_order" class="left_a">取消</a>
+            <a id="sure_confirm_order" class="right_a">确定</a>
+        </div>
+    </form>
+</div>
+
+<div class='check_order_info'>
+    <div class='number'>
+        <label>订单详情</label>
+        <label class="close" id="close_order_info"></label>
+    </div>
+    <label class="title">收货人信息</label>
+    <label class="detail" id='check_address'>
+        收货信息 ： <br>
+        收货时间 ： <br>
+        联系电话 ： 
+    </label>
+    <label class="title">发票</label>
+    <label class="detail">
+        发票信息 ： <div id='check_invoice'></div>
+    </label>
+    <div class='goods_info'>
+        <table cellspacing="0">
+            <tr class='title'>
+                <th colspan="2">商品名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th colspan="2">小计</th>
+            </tr>
+            <tr class='body line_1'>
+                <td width="150px" rowspan="2"><img id="check_goods_img" src="" width="100" height="100"/></td>
+                <td width="510px" class="bottom_border" id='check_goods_name'></td>
+                <td width="135px" class="bottom_border" style="padding-left: 25px;" id='check_goods_price'></td>
+                <td width="120px" class="bottom_border" style="padding-left: 40px;" id='check_goods_nums'></td>
+                <td width="75px" class="bottom_border" style="padding-left: 25px;" id='check_order_amount'></td>
+                <td width="30px">&nbsp;</td>
+            </tr>
+            <tr class='body line_2'>
+                <td colspan="5" id='check_goods_no'></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class='total_price'>
+        <label class="price">订单总计:&nbsp;&nbsp;&nbsp;&nbsp;¥&nbsp;&nbsp;699</label>
+    </div>
+</div>
+{js:artTemplate}
+<script type='text/javascript' src='{theme:javascript/artTemplate/area_select.js}'></script>
+<script type="text/javascript">
+                        $().ready(function () {
+
+                            $(".zf_title").click(function () {
+                                var obj = $(".banks_" + $(this).attr("id"));
+                                if ($(obj).css("display") == "block")
+                                    $(obj).css("display", "none");
+                                else
+                                    $(obj).css("display", "block");
+                            });
+
+                            $(".div_control_show").click(function () {
+                                var is_show = $(this).attr("is_show");
+                                var order_id = $(this).attr("order_id");
+                                if (is_show == "1") {
+                                    $("#order_all_" + order_id).css("display", "none");
+                                    $(this).attr("is_show", "0");
+                                    $(this).children("label.control_show").html("显示订单详情");
+                                } else {
+                                    $("#order_all_" + order_id).css("display", "block");
+                                    $(this).attr("is_show", "1");
+                                    $(this).children("label.control_show").html("隐藏订单详情");
+                                }
+                            });
+
+                            $("#not_cancel_order").click(function () {
+                                $(".cancel_box").css("display", "none");
+                            })
+
+                            $("#sure_cancel_order").click(function () {
+                                $(".cancel_box").css("display", "none");
+                                $("#cancel_form").submit();
+                            })
+                            $("#not_confirm_order").click(function () {
+                                $(".confirm_box").css("display", "none");
+                            })
+
+                            $("#sure_confirm_order").click(function () {
+                                $(".confirm_box").css("display", "none");
+                                $("#confirm_form").submit();
+                            })
+
+
+                            $(".a_order_info").click(function () {
+                                //数据
+                                //收货信息
+                                var accept_name = $(this).parents("div.has_order").children("input[name='accept_name']").val();
+                                var province = $(this).parents("div.has_order").children("input[name='province']").val();
+                                var city = $(this).parents("div.has_order").children("input[name='city']").val();
+                                var area = $(this).parents("div.has_order").children("input[name='area']").val();
+                                var address = $(this).parents("div.has_order").children("input[name='address']").val();
+                                var telphone = $(this).parents("div.has_order").children("input[name='telphone']").val();
+                                var mobile = $(this).parents("div.has_order").children("input[name='mobile']").val();
+                                if (mobile) {
+                                    var tel = mobile;
+                                } else {
+                                    var tel = telphone;
+                                }
+                                var accept_time = $(this).parents("div.has_order").children("input[name='accept_time']").val();
+                                $.getJSON("{url:/block/area_name}", {province: province, city: city, area: area}, function (json) {
+                                    //alert(json);
+                                    province = json.province;
+                                    city = json.city;
+                                    area = json.area;
+
+                                    var address = "收货信息：" + accept_name + "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                                            + province + " " + city + " " + area + "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                                            + accept_time + " 收货<br />收货时间：" + accept_time + "<br />联系电话：" + tel;
+                                    $("#check_address").html(address);
+                                });
+
+                                //发票信息
+                                var invoice_type = $(this).parents("div.has_order").children("input[name='invoice_type']").val();
+                                var invoice_title = $(this).parents("div.has_order").children("input[name='invoice_title']").val();
+                                if (invoice_type == 1) {
+                                    $("#check_invoice").html("个人发票");
+                                } else {
+                                    $("#check_invoice").html("公司：" + invoice_title);
+                                }
+
+                                //商品信息
+                                var goods_name = $(this).parents("div.has_order").children("input[name='goods_name']").val();
+                                var goods_attr = $(this).parents("div.has_order").children("input[name='goods_attr']").val();
+                                var goods_price = $(this).parents("div.has_order").children("input[name='goods_price']").val();
+                                var goods_nums = $(this).parents("div.has_order").children("input[name='goods_nums']").val();
+                                var order_amount = $(this).parents("div.has_order").children("input[name='order_amount']").val();
+                                var goods_no = $(this).parents("div.has_order").children("input[name='goods_no']").val();
+                                var goods_img = $(this).parents("div.has_order").children("input[name='goods_img']").val();
+                                $("#check_goods_img").attr("src", "{webroot:}" + goods_img);
+                                $("#check_goods_name").html(goods_name + " " + goods_attr);
+                                $("#check_goods_price").html("¥&nbsp;" + goods_price);
+                                $("#check_goods_nums").html(goods_nums);
+                                $("#check_order_amount").html("¥&nbsp;" + order_amount);
+                                $("#check_goods_no").html("商品编号:&nbsp;" + goods_no);
+
+                                var win_width = parseInt($(window).width());
+                                var box_left = (win_width - 1120) / 2;
+                                $(".check_order_info").css("left", box_left);
+                                var box_top = document.body.scrollTop + 160;
+                                $(".check_order_info").css("top", box_top);
+                                $(".check_order_info").css("display", "block");
+                            });
+
+                            $(".a_cancel_order").click(function () {
+                                $(".tanchuang").css("display", "none");
+
+                                var win_width = parseInt($(window).width());
+                                var box_left = (win_width - 480) / 2;
+                                var win_height = parseInt($(window).height());
+                                var sh = $(window).scrollTop();
+
+                                var box_top = sh + 160;
+                                $(".cancel_box").css("top", box_top);
+                                $(".cancel_box").css("left", box_left);
+                                $(".cancel_box").css("display", "block");
+                                var order_id = $(this).parents("div.has_order").children("input[name='order_id']").val();
+                                $("#cancel_form").children("input[name='order_id']").val(order_id);
+
+
+                            });
+                            $("a.confirm_recieved").click(function () {
+                                var win_width = parseInt($(window).width());
+                                var box_left = (win_width - 480) / 2;
+                                var win_height = parseInt($(window).height());
+                                var box_top = document.body.scrollTop + 160;
+                                $(".confirm_box").css("top", box_top);
+                                $(".confirm_box").css("left", box_left);
+                                $(".confirm_box").css("display", "block");
+                                var order_id = $(this).parents("div.has_order").children("input[name='order_id']").val();
+                                $("#confirm_form").children("input[name='order_id']").val(order_id);
+                                $("#confirm_form").children("input[name='op']").val("confirm");
+                            });
+                            $("a.confirm_service_recieved").click(function () {
+                                var win_width = parseInt($(window).width());
+                                var box_left = (win_width - 480) / 2;
+                                var win_height = parseInt($(window).height());
+                                var box_top = document.body.scrollTop + 160;
+                                $(".confirm_box").css("top", box_top);
+                                $(".confirm_box").css("left", box_left);
+                                $(".confirm_box").css("display", "block");
+                                var order_id = $(this).parents("div.has_order").children("input[name='order_id']").val();
+                                $("#confirm_form").children("input[name='order_id']").val(order_id);
+                                $("#confirm_form").children("input[name='op']").val("service");
+                            });
+
+                            //修改发票
+                            $(".a_modify_fapiao").click(function (event) {
+                                $(".tanchuang").css("display", "none");
+                                var order_id = $(this).parents("div.has_order").children("input[name='order_id']").val();
+                                var invoice_type = $(this).parents("div.has_order").children("input[name='invoice_type']").val();
+                                var invoice_title = $(this).parents("div.has_order").children("input[name='invoice_title']").val();
+                                $("#invoice_form").children("input[name='order_id']").val(order_id);
+                                $("#invoice_form").children("input[name='invoice_type']").val(invoice_type);
+                                $("#company_info").val(invoice_title);
+                                if (invoice_type == 1) {
+                                    //个人
+                                    $("#personal").attr("src", "{skin:images/front/selected.png}");
+                                    $("#personal").siblings(".img_select").attr("src", "{skin:images/front/unselected.png}");
+                                    $("#company_info").css("display", "none");
+                                } else {
+                                    //公司
+                                    $("#company").attr("src", "{skin:images/front/selected.png}");
+                                    $("#company").siblings(".img_select").attr("src", "{skin:images/front/unselected.png}");
+                                    $("#company_info").css("display", "block");
+                                }
+
+                                var win_width = parseInt($(window).width());
+                                var box_left = (win_width - 1200) / 2 + 705;
+                                $(".fapiao").css("left", box_left);
+                                var box_top = event.pageY - 200;
+                                $(".fapiao").css("top", box_top);
+                                $(".fapiao").css("display", "block");
+
+                            });
+                            $(".a_modify_address").click(function (event) {
+                                $(".tanchuang").css("display", "none");
+                                //address_box数据加载
+                                var order_id = $(this).parents("div.has_order").children("input[name='order_id']").val();
+                                var accept_name = $(this).nextAll("[name='iaccept_name']").val();
+                                var postcode = $(this).nextAll("[name='ipostcode']").val();
+                                var telphone = $(this).nextAll("[name='itelphone']").val();
+                                var province = $(this).nextAll("[name='iprovince']").val();
+                                var city = $(this).nextAll("[name='icity']").val();
+                                var area = $(this).nextAll("[name='iarea']").val();
+                                var address = $(this).nextAll("[name='iaddress']").val();
+                                var mobile = $(this).nextAll("[name='imobile']").val();
+                                var accept_time = $(this).nextAll("[name='iaccept_time']").val();
+                                //alert(2222222);
+                                var father = $(".address").children(".content");
+                                var left = father.children(".ac_body").children(".acb_left");
+                                left.children("[name='order_id']").val(order_id);
+                                left.children("[name='accept_name']").val(accept_name);
+                                left.children("[name='postcode']").val(postcode);
+                                left.children("[name='telphone']").val(telphone);
+                                left.children("[name='address']").val(address);
+                                left.children("[name='mobile']").val(mobile);
+                                left.children("[name='accept_time']").val(accept_time);
+
+                                //初始化地区选择
+                                //alert(province);
+                                
+                                createAreaSelect('province', 0, province);
+                                createAreaSelect('city', province, city);
+                                createAreaSelect('area', city, area);
+                                template.compile("areaTemplate", areaTemplate);
+
+                                //初始化发货时间
+                                var sh_time = $("[name='sh_time_value'][value='" + accept_time + "']").parents(".sh_time");
+                                sh_time.css("border-color", "rgb(255, 72, 0)");
+                                sh_time.css("background-color", "rgb(255, 255, 255)");
+                                sh_time.siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                                sh_time.siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                                //alert("aaaaaaaaaaaaaaaa");
+                                var win_width = parseInt($(window).width());
+                                var box_left = (win_width - 1200) / 2 + 70;
+                                $(".address").css("left", box_left);
+                                var box_top = event.pageY - 400;
+                                $(".address").css("top", box_top);
+                                $(".address").css("display", "block");
+
+                                checkplaceholder();
+
+                            });
+
+                            $("#addr_cancel").click(function () {
+                                $(".address").css("display", "none");
+                            });
+
+                            //修改订单地址
+                            $("#addr_sure").click(function () {
+                                //检查参数
+                                var father = $(".address").children(".content");
+                                var left = father.children(".ac_body").children(".acb_left");
+                                var address = left.children("[name=address]").val();
+                                var accept_name = left.children("[name=accept_name]").val();
+                                var accept_time = left.children("[name=accept_time]").val();
+                                var mobile = left.children("[name=mobile]").val();
+                                var telphone = left.children("[name=telphone]").val();
+                                var province = left.children("[name=province]").val();
+                                var city = left.children("[name=city]").val();
+                                var area = left.children("[name=area]").val();
+                                var zip = left.children("[name=postcode]").val();
+                                if (!address) {
+                                    alert("请填写详细地址！");
+                                    return 0;
+                                }
+                                if (!accept_time) {
+                                    alert("请选择送货时间！");
+                                    return 0;
+                                }
+                                if (!accept_name) {
+                                    alert("请填写收货人！");
+                                    return 0;
+                                }
+                                /*if ((!mobile) && (!telphone)) {
+                                 alert("请填至少一种联系方式！");
+                                 return 0;
+                                 }*/
+                                if (!mobile) {
+                                    alert("请填写您的手机号码！");
+                                    return 0;
+                                }
+
+                                if (validatemobilephone(mobile) == false) {
+                                    alert("请填写正确的手机号码！");
+                                    return 0;
+                                }
+                                if ((!province) || (!city) || (!area)) {
+                                    alert("请选择省市信息");
+                                    return 0;
+                                }
+
+                                if (zip) {
+                                    var pattern = /^\d{6}$/i;
+                                    if (zip.search(pattern) == -1) {
+                                        alert("邮编格式错误");
+                                        return 0;
+                                    }
+                                }
+
+
+                                $("#address_form").submit();
+                                $(".address").css("display", "none");
+                            });
+
+                            $("#invoice_cancel").click(function () {
+                                $(".fapiao").css("display", "none");
+                            });
+
+                            //修改订单地址
+                            $("#invoice_sure").click(function () {
+                                $("#invoice_form").submit();
+                                $(".fapiao").css("display", "none");
+                            });
+
+                            $(".sh_time").click(function () {
+                                //设置送货值
+                                var accept_time = $(this).children("input[name='sh_time_value']").val();
+                                $("input[name='accept_time']").val(accept_time);
+
+                                $(this).css("border-color", "rgb(255, 72, 0)");
+                                $(this).css("background-color", "rgb(255, 255, 255)");
+
+                                $(this).siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                                $(this).siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                            });
+
+                            $(".img_select").click(function () {
+                                $(this).attr("src", "{skin:images/front/selected.png}");
+                                $(this).siblings(".img_select").attr("src", "{skin:images/front/unselected.png}");
+
+                                if ($(this).attr("id") == "personal") {
+                                    $("#company_info").css("display", "none");
+                                    $("#invoice_type").val(1);
+                                } else if ($(this).attr("id") == "company") {
+                                    $("#company_info").css("display", "block");
+                                    $("#invoice_type").val(2);
+                                }
+
+
+                            });
+
+                            $("a#now_give_money").click(function () {
+                                $(".tanchuang").css("display", "none");
+                                var totalmoney = $(this).parents("div.has_order").children("[name='totalmoney']").val();
+                                $("#totalmoney").text("¥ " + totalmoney);
+                                var order_id = $(this).parents("div.has_order").children("[name='order_id']").val();
+                                $("#payorder").val(order_id);
+
+                                var win_height = parseInt($(window).height());
+                                var win_width = parseInt($(window).width());
+
+                                var sh = $(window).scrollTop();
+                                var box_top = sh + 200;
+                                var box_left = (win_width - 700) / 2;
+
+                                $(".fukuan_box").css("top", box_top);
+                                $(".fukuan_box").css("left", box_left);
+
+
+                                $(".fukuan_box").css("display", "block");
+
+                            });
+
+                            $("label#close_fukuan_box").click(function () {
+                                $(".fukuan_box").css("display", "none");
+                            });
+
+                            $("label#close_order_info").click(function () {
+                                $(".check_order_info").css("display", "none");
+                            });
+
+                            $("label#close_fapiao").click(function () {
+                                $(".fapiao").css("display", "none");
+                            });
+
+                            $("label#close_cancel_box").click(function () {
+                                $(".cancel_box").css("display", "none");
+                            });
+                            $("label#close_confirm_box").click(function () {
+                                $(".confirm_box").css("display", "none");
+                            });
+
+                            var order_ps = $(".order_p_class");
+                            for (var i = 0; i < order_ps.length; i++) {
+                                var order_id = $(order_ps[i]).attr("order_id");
+                                var order_progress = parseInt($(order_ps[i]).val());
+
+                                if (order_progress > 1) {
+                                    progress_change(order_progress, order_id);
+                                }
+                            }
+                        });
+                        /**
+                         * 生成地域js联动下拉框
+                         * @param name
+                         * @param parent_id
+                         * @param select_id
+                         */
+                        function createAreaSelect(name, parent_id, select_id)
+                        {
+
+                            //生成地区
+                            $.getJSON("{url:/block/area_child}", {"aid": parent_id, "random": Math.random()}, function (json)
+                            {
+                                $('select[name="' + name + '"]').html(template.render('areaTemplate', {"select_id": select_id, "data": json}));
+                            });
+                        }
+                        function progress_change(cur_progress, order_id) {
+                            cur_progress = parseInt(cur_progress);
+
+                            //$("#a_progress").attr("progress", cur_progress);
+
+                            // 往后走
+                            var img_obj = $(".progress_" + order_id + "> .image");
+                            if (cur_progress == 2)
+                                $(img_obj).css("background", "url({skin:images/front/p002.png})");
+                            else if (cur_progress == 3)
+                                $(img_obj).css("background", "url({skin:images/front/p003.png})");
+                            else if (cur_progress == 4)
+                                $(img_obj).css("background", "url({skin:images/front/p004.png})");
+                            else if (cur_progress == 5)
+                                $(img_obj).css("background", "url({skin:images/front/p005.png})");
+
+                            var margin_left = 233 * (cur_progress - 1) + 3;
+                            $("#img_progress_" + order_id).css("margin-left", margin_left.toString() + "px");
+
+                            margin_left = 233 * (cur_progress - 1) + 50;
+                            $("#p_pup_" + order_id).css("margin-left", margin_left.toString() + "px");
+
+                            for (var i = 1; i <= cur_progress.toString(); i++) {
+                                $("label.date_" + order_id + "_" + i).css("display", "block");
+                            }
+
+                            $(".state_title_" + order_id).css("display", "none");
+                            $(".state_detail_" + order_id).css("display", "none");
+
+                            //如果是已发货，则取发货信息
+                            if (cur_progress == 4) {
+                                $.post("{url:/block/getExpressInfo}", {"id": order_id}, function (data)
+                                {
+                                    $("#detail_" + order_id + "_" + cur_progress.toString()).children("p").html(data);
+                                });
+                            }
+
+                            $("#title_" + order_id + "_" + cur_progress.toString()).css("display", "block");
+                            $("#detail_" + order_id + "_" + cur_progress.toString()).css("display", "block");
+                        }
+
+                        $("#a_progress").click(function () {
+                            /*alert(1);
+                             var cur_progress = parseInt($(this).attr("progress"));
+                             cur_progress += 1;
+                             progress_change(cur_progress);
+                             if (cur_progress >= 5) {
+                             $("#a_progress").css("display", "none");
+                             return;
+                             }*/
+                        });
+
+                        $("#paynow").click(function () {
+                            $(".fukuan_box").css("display", "none");
+                            dopay();
+                            $("#pay_form").submit();
+
+                        });
+
+                        $("a[name='apply_service']").click(function () {
+                            $(this).parents("div.has_order").children("form[name='service_order']").submit();
+                        });
+
+                        //支付类型选择
+                        function choose_me($id) {
+                            $("input[name='pay_type']").val($id);
+                        }
+                        // 支付等待
+                        function dopay()
+                        {
+                            confirm('支付是否成功', "{url:/ucenter/order}");
+                        }
+</script>

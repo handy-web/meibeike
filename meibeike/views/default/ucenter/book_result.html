@@ -1,0 +1,180 @@
+<style type="text/css">
+
+.book_wrapper {float: left; width: 100%; background-color: rgb(244, 244, 244); padding-bottom: 30px;}	
+.book_wrapper .book_content {width: 1200px; height: auto; margin: 0 auto;}
+.book_wrapper .book_content .step_div {float: left; width: 100%; height: 60px; margin-top: 20px;}			 
+.book_wrapper .book_content .step_div img {}
+.book_wrapper .book_content .jianxi {float: left; width: 100%; height: 35px;}
+.book_wrapper .book_content .book_result {float: left; display: block; width: 1120px; margin-left: 40px; border-radius: 8px; 
+		   border: rgb(188, 188, 188) 1px solid; box-shadow: 0 0 5px rgb(180, 180, 180); background-color: #FFF; }
+.book_wrapper .book_content .book_result .number {float: left; width: 100%; height: 50px; line-height: 50px; color: rgb(121, 121, 121);
+			border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgb(252, 252, 252); border-bottom: 1px solid rgb(211, 211, 211);}
+.book_wrapper .book_content .book_result .number label {float: left; margin-left: 30px;}
+.book_wrapper .book_content .book_result .number label.right_box {float: right; height: 35px; line-height: 35px; padding: 0px 20px; font-size: 14px; margin-top: 7px; margin-right: 10px; border: 1px solid rgb(211, 211, 211); border-radius: 10px;}
+
+
+
+
+.book_wrapper .book_content .book_result .content {float: left; width: 100%; height: 326px; border-bottom: 1px solid rgb(211, 211, 211);}
+.book_wrapper .book_content .book_result .content label.big_font {float: left; margin-top: 72px; width: 100%; height: 60px; font-size: 44px; text-align: center;}
+.book_wrapper .book_content .book_result .content label.small_font {float: left; margin-top: 10px; width: 100%; height: 30px; font-size: 18px; text-align: center;}
+.book_wrapper .book_content .book_result .content a.button {float: left; width: 230px; height: 50px; line-height: 50px; text-align: center; color: white; margin-left: 430px; margin-top: 50px; border: 1px solid rgb(252, 62, 57); background-color: rgb(252,62,57); border-radius: 5px;}
+.book_wrapper .book_content .book_result .content .button_box {margin: 0 auto;    width: 60%;}
+.book_wrapper .book_content .book_result .content .button_box a.button {float: left; width: 230px; height: 50px; line-height: 50px; text-align: center; color: white; margin-left: 430px; margin-top: 30px; border: 1px solid rgb(252, 62, 57); background-color: rgb(252,62,57); border-radius: 5px;margin: 50px 50px 0px 50px;}
+
+.book_wrapper .book_content .book_result .content a.word {float: left; display: block; font-size: 14px; cursor: pointer; margin-top: 60px; margin-left: 100px; height: 30px; line-height: 30px; padding: 5px 20px;}
+
+.book_wrapper .book_content .book_result .footer {float: left; width: 100%; height: 80px;  line-height: 80px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgb(252, 252, 252);}
+.book_wrapper .book_content .book_result .footer label {margin-left: 30px;}
+.book_wrapper .book_content .book_result .footer label a {text-decoration: none; color:#000;}
+
+.book_wrapper .book_content .book_result .content_fail {float: left; width: 100%; height: 510px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;}
+.book_wrapper .book_content .book_result .content_fail img {float: left; margin-top: -30px; margin-left: 330px;}
+.book_wrapper .book_content .book_result .content_fail label {width: 100%; float: left; text-align: center;}
+.book_wrapper .book_content .book_result .content_fail label.line_1 {font-size: 18px; line-height: 30px;}
+.book_wrapper .book_content .book_result .content_fail label.line_2 {font-size: 16px; line-height: 30px;}
+.book_wrapper .book_content .book_result .content_fail label.line_3 {font-size: 14px; line-height: 30px;}
+.book_wrapper .book_content .book_result .content_fail label a {text-decoration: none; color: rgb(60, 177, 237);}
+
+.book_wrapper .book_content .order_info {float: left; width: 1120px; margin-left: 40px; border-radius: 8px; 
+		   border: rgb(188, 188, 188) 1px solid; box-shadow: 0 0 5px rgb(180, 180, 180); background-color: #FFF;}
+.book_wrapper .book_content .order_info .number {float: left; width: 100%; height: 50px; line-height: 50px; color: rgb(121, 121, 121);
+			border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: rgb(252, 252, 252);}
+.book_wrapper .book_content .order_info .number label {float: left; margin-left: 30px;}
+.book_wrapper .book_content .order_info .number a {display: block; float: right; margin-right: 20px; margin-top: 7px; height: 36px; line-height: 36px; text-align: center; padding: 0 15px; border-radius: 3px; background-color: rgb(228, 228, 228);}
+
+/*商品信息*/
+.book_wrapper .book_content .order_info .goods_info {float: left; width: 100%;} 
+.book_wrapper .book_content .order_info .goods_info table {width: 100%; text-align: left; font-size: 16px;}
+.book_wrapper .book_content .order_info .goods_info td{color: #434343;} 
+.book_wrapper .book_content .order_info .goods_info th{color: #434343;} 
+.book_wrapper .book_content .order_info .goods_info tr.title {height: 40px; line-height: 40px; background: rgb(230, 230, 230)}
+.book_wrapper .book_content .order_info .goods_info tr.body {height: 45px; line-height: 45px; background: #FFF;}
+.book_wrapper .book_content .order_info .goods_info tr.line_1 td img {margin-left: 20px; margin-top: -20px;}
+.book_wrapper .book_content .order_info .goods_info tr.line_1 td {padding-top: 25px;}
+.book_wrapper .book_content .order_info .goods_info tr.line_2 td {padding-bottom: 25px; font-size: 12px; color: rgb(148, 148, 148)}
+.book_wrapper .book_content .order_info .goods_info tr.body td.bottom_border { border-bottom: 1px rgb(242, 242, 242) solid;}
+.book_wrapper .book_content .order_info .goods_info table th {padding-left: 30px; font-weight: normal; }
+
+.book_wrapper .book_content .order_info .total_price {float: left; width: 100%; height: 80px; line-height: 80px; color: #000; text-align: right; border-top: 1px solid rgb(188, 188, 188);}
+.book_wrapper .book_content .order_info .total_price label {float: right; margin-right: 30px;}
+
+.book_wrapper .book_content .order_info label.title {float: left; width: 1090px; height: 40px; line-height: 40px; background-color: rgb(230, 231, 232); padding-left: 30px;}
+.book_wrapper .book_content .order_info label.detail {float: left; width: 1090px; line-height: 25px; padding: 20px 0 20px 30px; font-size: 14px;}
+</style>
+
+{set: $success = 1}
+<div class="book_wrapper">
+	<div class='book_content'>
+		<div class="step_div">
+			<img src="{skin:images/front/third_step_bg.png}"/>
+		</div>
+		<div class="jianxi"></div>
+		{if: $success == 1}
+		<div class='book_result'>
+			<div class='number'>
+				<label>付款成功</label>
+				<label class="right_box">订单编号：{$order_no}</label>
+			</div>
+			<div class="content">
+                {if:$store_nums > 1}
+				<label class="big_font">您已经付款成功咯! </label>
+				<!--label class="small_font">小美将在7个工作日内将为您发货</label-->
+				<a href="{url:/ucenter/order}" class="button">我的订单</a>
+				<!--a class="word">如果支付失败</a-->
+				{else:}
+				<label class="big_font">货已售罄，感谢参与！ </label>
+				<div class="button_box">
+				<a href="javascript:void(0)" id="notice1" class="button">先退款，免费预约下一轮</a>
+				<a href="javascript:void(0)" id="notice2" class="button">退款，和私有云说再见</a>
+				</div>
+				<!--a class="word">如果支付失败</a-->
+				{/if}
+				
+			</div>
+			<!--div class="footer">
+				<label>您可以在 <a href="{url:/ucenter/order}">我的订单</a> 中修改收货地址和发票信息</label>
+			</div-->
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#notice1').click(function(){
+					alert("恭喜您免费预约成功,请记得7月30日上午十点开始抢购。本次退款操作，客服人员会在三个工作日内把本次抢购款退回你的账户，敬请留意。");
+					//window.location.href='/';
+					$('.alert_close_img').click(function(){
+						window.location.href='/';
+					});
+				});
+					
+				
+				$('#notice2').click(function(){
+					alert("亲。感谢本次参与，客服人员会在三个工作日内把抢购款退回你的账号，敬请留意！");
+					$('.alert_close_img').click(function(){
+						window.location.href='/';
+					});
+				});
+				
+			});
+		
+		</script>
+		<div class="jianxi"></div>
+		<div class='order_info'>
+			<div class='number'>
+				<label>订单详情</label>
+			</div>
+			<label class="title">收货人信息</label>
+                        {set: $areaArray = area::name($province, $city, $area)}
+			<label class="detail">
+				收货人：{$accept_name}，手机号：{$mobile}<br>
+				邮编：{$post_code}{if:$telphone}，固定电话：{$telphone}{/if}<br/>
+                                收货地区：{$areaArray[$province]} {$areaArray[$city]} {$areaArray[$area]}，详细地址：{$address}<br/>
+                                送货方案： {$accept_time}<br/>
+			</label>
+			<label class="title">发票</label>
+			<label class="detail">
+				发票抬头 ： {if:$invoice_type == 1}个人{else:}公司：{$invoice_title}{/if}
+			</label>
+			<div class='goods_info'>
+				<table cellspacing="0">
+					<tr class='title'>
+						<th colspan="2">商品名称</th>
+						<th>单价</th>
+						<th>数量</th>
+						<th colspan="2">小计</th>
+					</tr>
+					<tr class='body line_1'>
+						<td width="150px" rowspan="2"><img src="{webroot:$goods_img}" width="100" height="100"/></td>
+                                                {set:$goods_info = JSON::decode($goods_array)}
+						<td width="510px" class="bottom_border">{$goods_info['name']}&nbsp;{echo:str_replace(',存储碟:无','',(str_replace(',存储棒:无','',str_replace('母棒:母棒','母棒*1',$goods_info['value']))))}</td>
+						<td width="135px" class="bottom_border" style="padding-left: 25px;">¥&nbsp;{$goods_price}</td>
+						<td width="120px" class="bottom_border" style="padding-left: 40px;">{$goods_nums}</td>
+						<td width="75px" class="bottom_border" style="padding-left: 25px;">¥&nbsp;{$order_amount}</td>
+						<td width="30px">&nbsp;</td>
+					</tr>
+					<tr class='body line_2'>
+						<td colspan="5">商品编号:&nbsp;{$order_no}</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class='total_price'>
+				<label>订单总计:&nbsp;&nbsp;&nbsp;&nbsp;¥&nbsp;&nbsp;{$order_amount}</label>
+			</div>
+		</div>
+		{else:}
+		<div class='book_result'>
+			<div class='number'>
+				<label>付款失败</label>
+				<label class="right_box">订单编号：111111111111</label>
+			</div>
+			<div class="content_fail">
+				<img src="{skin:images/front/fail_pic.png}" height="400" width="400"/>
+				<label class="line_1">主人！您的订单支付失败，请返回重新支付</label>
+				<label class="line_2">您可以在 <a href="">帮助中心</a> 中查看相关问题</label>
+				<label class="line_3">10秒后系统会自动转入 <a href="">我的订单</a></label>
+			</div>
+		</div>
+		{/if}
+	</div>
+</div>
+

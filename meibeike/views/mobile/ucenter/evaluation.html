@@ -1,0 +1,37 @@
+<section>
+	<div class="pending-detial">
+		<h2>商品评价</h2>
+		{set:$page= (isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}
+		{set:$user_id = $this->user['user_id']}
+		{query:fields=order_no,go.name,c.time,c.id,c.goods_id,c.contents,c.status name=comment as c join=left join goods as go on c.goods_id eq go.id where= c.user_id eq $user_id page=$page order=c.id desc}
+		<ul class="block-row">
+			<li>
+				<p class="head">订单号：</p>
+				<p class="sum">{$item['order_no']}</p>
+			</li>
+			<li>
+				<p class="head">商品名称：</p>
+				<p class="sum"><a href="{url:/site/products/id/$item[goods_id]}" target='_block'>{$item['name']}</a></p>
+			</li>
+			<li>
+				<p class="head">下单时间：</p>
+				<p class="sum">{$item['time']}</p>
+			</li>
+			<li>
+				{if:$item['status'] == 0}
+				<p class="head">&nbsp;</p>
+				<p class="sum"><input type='button' class="btn" onclick="window.location.href='{url:/site/comments/id/$item[id]}'" value="发表评价" /></p>
+				{else:}
+				<p class="head">评论内容：</p>
+				<p class="sum">{$item['contents']}</p>
+				{/if}
+				</p>
+			</li>
+		</ul>
+		{/query}
+
+		<ul class="block-row">
+			{$query->getPageBar()}
+		</ul>
+	</div>
+</section>

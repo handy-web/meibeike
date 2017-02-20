@@ -1,0 +1,38 @@
+<style>
+	.crowd-wrapper{ background-color:white; border: 1px rgb(188, 188, 188) solid; border-radius: 15px;width: 1120px; height: auto; margin: 0 auto; padding-bottom: 50px;}
+	.crowd-wrapper .question-container{width:1060px;margin:0 auto; overflow: hidden; font-size: 16px; font-family: "Microsoft YaHei","微软雅黑";}
+	.crowd-wrapper .question-container a,.crowd-wrapper .question-container a:hover{color:#6d6d6d;}
+	.crowd-wrapper .question-container .question{ text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 40px; margin-top: 30px; }
+	.crowd-wrapper .question-container .answer .title{line-height: 2.2em; font-weight: bold; font-size: 20px; }
+	.crowd-wrapper .question-container .answer p,.crowd-wrapper .question-container .answer li{line-height: 1.6em; margin-bottom: 15px;}
+	.crowd-wrapper .question-container .answer p{text-indent: 2em;}
+	.crowd-wrapper .question-container .answer .defi, .crowd-wrapper .question-container .answer ol{ margin-bottom: 30px;}
+</style>
+<div class="crowd-wrapper">
+<div class="question-container">
+    <div class="question">
+        什么是产品众筹？
+    </div>
+    <div class="answer">
+        <div class="defi">
+            <!--<div class="title">什么是产品众筹？</div>-->
+            <p>产品众筹是指投资人将资金投给筹款人用以开发某种产品，待该产品开始对外销售或已经具备对外销售的条件的情况下，筹款人按照约定将开发的产品无偿或低于成本的方式提供给投资人的一种众筹方式。</p>
+            <p>通俗的说，就是一群人凑钱去完成一个产品的生产，完了产品就是回报。</p>
+            <p>直观来说，产品众筹的价格是低于成本价格的，更远远低于后期正式销售的价格。</p>
+            <p>而关于产品众筹中有支持1元和支持10元的两种档位，这是相当于买彩票性质的一种参与方式。只花1元或者10元，就会有机会抽奖中得价值远高于支持金额的产品。抽奖则由众筹平台统一操作，公平公正。</p>
+        </div>
+        <div class="difference">
+            <div class="title">产品众筹和团购的区别</div>
+            <ol>
+                <li>产品众筹是针对还未面世的产品，支持者参与到新产品的设计当中去，对新产品的性能或服务提出自己的意见。团购则针对现成的产品，消费者参与是为了购买成品。</li>
+                <li>产品众筹购买的都会是首发的全新产品，团购则不同，往往都是成熟的批量化产品。</li>
+                <li>产品众筹是产品没有生产出来之前的预售行为，需要先付货款，而团购的商品已完成，是促销行为，可以货到付款。</li>
+                <li>商品团购利用的是规模效应，团购集合了类似顾客的相近似需求，利用商品的通用性，努力兼顾那些有类似需求的不同顾客的需求，让尽可能多的顾客也来使用这些商品，尽可能的扩大某种商品的采购规模，有效降低采购成本。</li>
+                <li>产品众筹则是针对性的满足潜在顾客特殊需求，利用互联网的广泛联系，将特殊需求的长尾集中起来，达到可经营规模。产品众筹对新产品设计提出了一个与传统方法完全不同产品规划和设计的新方法。产品众筹在新产品的设计上，首先是征求顾客的意见，了解顾客的需求，只有能够满足了这部分顾客的特殊需求，有了一定的预订量并收到了预订的款项后，才会进行生产。</li>
+            </ol>
+            <p>很多企业把产品众筹作为产品上市前的一种宣传手段，其目的并非获得资金而是希望通过众筹平台对其产品进行宣传推广，并获得第一批客户。</p>
+        </div>
+
+    </div>
+</div>
+</div>

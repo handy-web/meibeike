@@ -1,0 +1,150 @@
+{js:artTemplate}
+<script type='text/javascript' src='{theme:javascript/artTemplate/area_select.js}'></script>
+
+<section>
+	<div class="pending-detial">
+		<h2>个人资料</h2>
+		<form action='{url:/ucenter/info_edit_act}' method='post' name='user_info'>
+		<ul class="block-row">
+			<li>
+				<p class="head">姓名：</p>
+				<p class="sum"><input type="text" name="true_name" pattern='required' alt='请填写真实姓名' /></p>
+			</li>
+			<li>
+				<p class="head">性别：</p>
+				<p class="sum">
+					<label class='attr'><input type='radio' name='sex' value='1' />男</label>
+					<label class='attr'><input type='radio' name='sex' value='2' checked=checked />女</label>
+				</p>
+			</li>
+			<li>
+				<p class="head">出生日期：</p>
+				<p class="sum">
+					<select name='year' pattern='required'></select>
+					<select name='month' pattern='required'></select>
+					<select name='day' pattern='required'></select>
+				</p>
+			</li>
+			<li>
+				<p class="head">所在地区：</p>
+				<p class="sum">
+					<select name="province" child="city,area" onchange="areaChangeCallback(this);"></select>
+					<select name="city" child="area" parent="province" onchange="areaChangeCallback(this);"></select>
+					<select name="area" parent="city" pattern="required"></select>
+				</p>
+			</li>
+			<li>
+				<p class="head">联系地址：</p>
+				<p class="sum">
+					<input type='text' name='contact_addr' pattern='required' alt='请填写联系地址' />
+				</p>
+			</li>
+			<li>
+				<p class="head">手机号码：</p>
+				<p class="sum"><input type="text" name='mobile' pattern='mobi' alt='请填写正确的手机号码' /></p>
+			</li>
+			<li>
+				<p class="head">邮编：</p>
+				<p class="sum"><input type='text' name='zip' pattern='zip' empty alt='请填写正确的邮政编码' /></p>
+			</li>
+			<li>
+				<p class="head">固定电话：</p>
+				<p class="sum"><input type="text" name='telephone' pattern='phone' empty alt='请填写正确的固定电话' /></p>
+			</li>
+			<li>
+				<p class="head">QQ：</p>
+				<p class="sum"><input class="normal" type="text" name='qq' pattern='qq' empty alt='请填写正确的QQ号' /></p>
+			</li>
+			<li>
+				<p class="head">MSN：</p>
+				<p class="sum"><input class="normal" type="text" name='msn' pattern='email' empty alt='请填写正确的MSN号' /></p>
+			</li>
+			<li>
+				<p class="head">&nbsp;</p>
+				<p class="sum"><input type="submit" value="保存基本信息" class="btn"  /></p>
+			</li>
+		</ul>
+		</form>
+	</div>
+</section>
+
+<script type='text/javascript'>
+//DOM加载完毕
+$(function(){
+	//初始化地域联动
+	template.compile("areaTemplate",areaTemplate);
+
+	{if:isset($this->memberRow['area']) && $this->memberRow['area']}
+	{set:$area = explode(',',trim($this->memberRow['area'],','))}
+	createAreaSelect('province',0,{$area[0]});
+	createAreaSelect('city',{$area[0]},{$area[1]});
+	createAreaSelect('area',{$area[1]},{$area[2]});
+	{else:}
+	createAreaSelect('province',0,"");
+	{/if}
+});
+
+/**
+ * 生成地域js联动下拉框
+ * @param name
+ * @param parent_id
+ * @param select_id
+ */
+function createAreaSelect(name,parent_id,select_id)
+{
+	//生成地区
+	$.getJSON("{url:/block/area_child}",{"aid":parent_id,"random":Math.random()},function(json)
+	{
+		$('[name="'+name+'"]').html(template.render('areaTemplate',{"select_id":select_id,"data":json}));
+	});
+}
+
+//出生日期
+function dateSelectInit()
+{
+	var yearHtml = '<option value="">请选择</option>';
+	for(var year=2010;year>=1940;year--)
+	{
+		yearHtml+= '<option value="'+year+'">'+year+'</option>';
+	}
+
+	var monthHtml = '<option value="">--</option>';
+	for(var month=12;month>=1;month--)
+	{
+		if(month < 10) month = '0' + month;
+		monthHtml+= '<option value="'+month+'">'+month+'</option>';
+	}
+
+	var dayHtml = '<option value="">--</option>';
+	for(var day=31;day>=1;day--)
+	{
+		if(day < 10) day = '0' + day;
+		dayHtml+= '<option value="'+day+'">'+day+'</option>';
+	}
+
+	$('[name="year"]').html(yearHtml);
+	$('[name="month"]').html(monthHtml);
+	$('[name="day"]').html(dayHtml);
+}
+
+//初始化日期
+dateSelectInit();
+
+//表单回填
+{set:$birthday = explode('-',$this->memberRow['birthday'])}
+var formObj = new Form('user_info');
+formObj.init({
+	'id':'{$this->memberRow['id']}',
+	'true_name':'{$this->memberRow['true_name']}',
+	'telephone':'{$this->memberRow['telephone']}',
+	'mobile':'{$this->memberRow['mobile']}',
+	'contact_addr':'{$this->memberRow['contact_addr']}',
+	'qq':'{$this->memberRow['qq']}',
+	'msn':'{$this->memberRow['msn']}',
+	'sex':'{$this->memberRow['sex']}',
+	'zip':'{$this->memberRow['zip']}',
+	'year':'{$birthday[0]}',
+	'month':'{$birthday[1]}',
+	'day':'{$birthday[2]}',
+});
+</script>

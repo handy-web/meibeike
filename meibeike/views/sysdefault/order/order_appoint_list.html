@@ -1,0 +1,150 @@
+{js:my97date}
+<script type="text/javascript" src="{theme:javascript/event.js}"></script>
+
+<div class="headbar">
+	<div class="position">订单<span>></span><span>单据管理</span><span>></span><span>预约单列表</span></div>
+	<div class="operating">
+<div class="search f_r">
+            <form name="serachuser" action="{url:/}" method="get">
+                <input type='hidden' name='controller' value='order' />
+                <input type='hidden' name='action' value='order_appoint_list' />
+				
+                MeiID：<input class="small" name="name" type="text" value="{$name}" />
+                预约号：<input class="small" name="order_no" type="text" value="{$order_no}" />
+				开始时间：<input type='text' id='start_time' name='start_time' class='Wdate' value="{$start_time}" pattern='datetime' readonly=true onFocus="WdatePicker({startDate:'%y-%M-{%d-1} 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})" onblur="FireEvent(this,'onchange');"  /> 
+				结束时间：		<input type='text' id='end_time' name='end_time' class='Wdate' value="{$end_time}" pattern='datetime' readonly=true onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onblur="FireEvent(this,'onchange');"  />
+				
+                <button class="btn" type="submit"><span class="sch">搜 索</span></button>
+            </form>
+        </div>
+        <div class="search f_r">
+            <form name="onedead" action="{url:/}" method="post">
+                <input type='hidden' name='controller' value='order' />
+                <input type='hidden' name='action' value='order_kill' />
+               
+            </form>
+        </div>
+
+
+		<a href="javascript:void(0)" onclick="selectAll('id[]')"><button class="operating_btn" type="button"><span class="sel_all">全选</span></button></a>
+		<a href="javascript:void(0)" onclick="delModel()"><button class="operating_btn" type="button"><span class="delete">批量删除</span></button></a>
+		<a href="javascript:void(0)"><button class="operating_btn" type="button" onclick="location.href='{url:/order/appoint_recycle_list}'"><span class="recycle">回收站</span></button></a>
+	</div>
+
+	
+		<form action="{url:/}" method="get" name="order_list">
+            <input type='hidden' name='controller' value='order' />
+            <input type='hidden' name='action' value='order_appoint_list' />
+
+		<div class="searchbar vselect">
+		
+	<select name="regtype" class="auto" id="regtype">
+	<option value="">选择MeiID类型</option>
+	<option value="1">邮箱</option>
+	<option value="2">手机</option>
+	</select>
+
+<select name="vf" class="auto" id="appoint_from">
+	<option value="">选择选择预约来源</option>
+	<option value="1">手机</option>
+	<option value="2">PC</option>
+	<option value="3">微信</option>
+	<option value="4">微博</option>
+  <option value="9">老卢</option>
+	</select>
+
+<select name="usertype" class="auto" id="usertype">
+	<option value="">选择网盘厂家</option>
+	<option value="1">普通用户</option>
+	<option value="2">华为</option>
+	</select>
+<button class="btn" type="submit"><span class="sel">筛 选</span></button>
+
+	{query: name=appointment as c join=join user as o on c.mei_id eq o.meiid fields=count(o.username) as vcount where=c.if_del eq 0 $where  item=$count_row}
+		<div style="float:right;padding-right:20px;">	总预约数：{$count_row['vcount']} </div>
+		{/query}
+		
+		
+		</div>
+</form>
+	<div class="field">
+		<table class="list_table">
+			<col width="30px" />
+            <col width="30px" />
+            <col width="80px" />
+			<col />
+			<thead>
+				<tr>
+					<th class="t_c">选择</th>
+					<th></th>
+					<th>预约号</th>
+					<th>昵称</th>
+					<th>MeiID</th>
+					<th>内部ID</th>
+					<th>预约活动代号</th>
+					<th>预约时间</th>
+					<th>预约来源</th>
+					<th>网盘厂家</th>
+										
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+<form name="orderForm" action="{url:/order/appoint_del}" method="post">
+<div class="content">
+	<table class="list_table">
+		<col width="30px" />
+		<col width="30px" />
+		<col width="80px" />
+		<col />
+		<tbody>
+	
+			{set:$page= (isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}
+			{query: name=appointment as c join=join user as o on c.mei_id eq o.meiid fields=o.username,o.mobile,o.email,o.type,c.* where=c.if_del eq 0 $where order= c.create_time desc  page=$page }
+			<tr>
+				<td class="t_c"><input name="id[]" type="checkbox" value="{$item['order_id']}" /></td>
+				<td><a href="{url:/order/appoint_show/id/$item[order_id]}"><img class="operator" src="{skin:images/admin/icon_check.gif}" title="查看" /></a></td>
+				<td>{$item['appointment_no']}</td>
+				<td>{$item['username']}</td>
+				<td>{if:!empty($item['mobile'])}{$item['mobile']}{/if}{if:!empty($item['email'])}<br />{$item['email']}{/if}</td>
+				<td>{$item['mei_id']}</td>
+				<td>{$item['purchase_time']}</td>
+				<td>{$item['create_time']}</td>
+				<td style="overflow:auto">{if:strpos($item['appointment_from'],"http://") === 0}<a href="{$item['appointment_from']}" target="_blank">{$item['appointment_from']}</a>{else:}{$item['appointment_from']}{/if}</td>
+				<td>{if:$item['user_type']==1}普通用户{else:}华为网盘{/if}</td>				
+				<!--td>{$item['vendor_id']}</td>
+				<td><a href="{$item['pic_url']}" target="_blank">查看截图</a></td-->
+				
+			</tr>
+			{/query}
+		</tbody>
+	</table>
+</div>
+{$query->getPageBar()}  
+</form>
+<script>
+$(document).ready(function(){ 
+	if($("#start_time").val()==""){
+	var s = new Date();
+	var e = new Date();
+	s.setDate(e.getDate()-7);
+　　$("#start_time").val(getdate(s));
+    $("#end_time").val(getdate(e));
+	}
+
+}); 
+
+function getdate(d)
+{
+
+var vYear = d.getFullYear()
+var vMon = d.getMonth() + 1
+var vDay = d.getDate()
+var h = d.getHours(); 
+var m = d.getMinutes(); 
+var se = d.getSeconds(); 
+s=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay)+" "+(h<10 ? "0"+ h : h)+":"+(m<10 ? "0" + m : m)+":"+(se<10 ? "0" +se : se);
+return s;
+}
+</script>

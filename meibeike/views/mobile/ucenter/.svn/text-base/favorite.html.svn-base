@@ -1,0 +1,35 @@
+<section>
+	<div class="pending-detial">
+		<!--商品列表 开始-->
+		<h2>收藏列表</h2>
+
+        {set:$favoriteObj = null;$favoriteList = $this->get_favorite($favoriteObj)}
+        {foreach:items=$favoriteList}
+        {set:$tmp=$item['data']['id'];$tmpIMG=$item['data']['img'];}
+		<ul class="block-row">
+			<li><a href="{url:/site/products/id/$tmp}"><img class="goods-pic" src="{webroot:$tmpIMG}" /></a></li>
+			<li><a href="{url:/site/products/id/$tmp}">{$item['data']['name']}</a></li>
+			<li>备注：<input id="summary_val_{$item['id']}" value="{$item['summary']}" onblur="edit_summary({$item['id']});" /></li>
+			<li><input type='button' class='btn' value='取消关注' onclick="delModel({link:'{url:/ucenter/favorite_del/id/$item[id]}',msg:'是否取消收藏？'});"  /></li>
+		</ul>
+		{/foreach}
+		<!--商品列表 结束-->
+	</div>
+</section>
+
+<script type="text/javascript">
+//修改备注信息
+function edit_summary(idVal)
+{
+	var summary = $("#summary_val_"+idVal).val();
+	if($.trim(summary))
+	{
+		$.getJSON('{url:/ucenter/edit_summary}',{id:idVal,summary:summary},function(content){
+			if(content.isError == true)
+			{
+				alert(content.message);
+			}
+		});
+	}
+}
+</script>

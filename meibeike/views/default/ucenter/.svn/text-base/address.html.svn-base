@@ -1,0 +1,495 @@
+<style type="text/css"> .alert_input{border-color:red;}.person_wrapper{float:left;width:100%;background-color:rgb(244,244,244);padding-bottom:30px;}.person_wrapper .person_content{width:1200px;height:auto;margin:0 auto;}.person_wrapper .person_content .header{float:left;width:100%;height:90px;line-height:90px;margin-top:10px;padding-left:40px;font-size:32px;}.person_wrapper .person_content .body{float:left;width:1160px;height:auto;line-height:90px;margin-top:10px;padding-left:40px;font-size:32px;}.person_wrapper .person_content .body .left{float:left;width:210px;height:550px;margin-right:30px;}.person_wrapper .person_content .body .left .top{float:left;width:100%;height:300px;box-shadow:0 0 5px rgb(180,180,180);border-radius:10px;background-color:#FFF;margin-bottom:30px;border:1px solid rgb(218,218,218);}.person_wrapper .person_content .body .left .top img{float:left;margin-left:25px;margin-top:25px;margin-bottom:10px;}.person_wrapper .person_content .body .left .top label{float:left;width:100%;text-align:center;height:25px;line-height:25px;font-size:14px;}.person_wrapper .person_content .body .left .top a{float:left;width:90px;margin-left:60px;text-decoration:none;font-size:14px;text-align:center;line-height:40px;margin-top:10px;cursor:pointer;height:40px;border-radius:10px;border:1px rgb(219,211,216) solid;background-color:rgb(248,248,248);}.person_wrapper .person_content .body .left .bottom{float:left;width:100%;box-shadow:0 0 5px rgb(180,180,180);height:auto;border-radius:10px;background-color:#FFF;border:1px solid rgb(218,218,218);}.person_wrapper .person_content .body .left .bottom .title{float:left;height:60px;width:100%;line-height:60px;font-size:20px;border-bottom:1px solid rgb(218,218,218);background-color:rgb(250,250,250);border-top-left-radius:10px;border-top-right-radius:10px;}.person_wrapper .person_content .body .left .bottom .title label{float:left;margin-left:30px;}.person_wrapper .person_content .body .left .bottom .item{float:left;width:100%;height:50px;line-height:50px;font-size:14px;border-bottom:1px dotted rgb(225,225,225);}.person_wrapper .person_content .body .left .bottom .item a{float:left;height:50px;line-height:50px;width:100%;cursor:pointer;text-decoration:none;}.person_wrapper .person_content .body .left .bottom .item a:hover,a.selected{background-color:rgb(152,175,238)}.person_wrapper .person_content .body .left .bottom .item a label{margin-left:30px;}.person_wrapper .person_content .body .left .bottom .last{border-bottom:0px;}.person_wrapper .person_content .body .left .bottom .last a{border-bottom-left-radius:10px;border-bottom-right-radius:10px;}.person_wrapper .person_content .body .right{float:left;display:block;width:890px;border-radius:8px;border:rgb(188,188,188) 1px solid;box-shadow:0 0 5px rgb(180,180,180);background-color:#FFF;}.person_wrapper .person_content .body .right .number{float:left;width:100%;height:50px;line-height:50px;color:rgb(121,121,121);border-top-left-radius:8px;border-top-right-radius:8px;background-color:rgb(252,252,252);font-size:20px;}.person_wrapper .person_content .body .right .number label{float:left;margin-left:30px;}.person_wrapper .person_content .body .right .number span{float:left;margin-left:360px;font-size:13;}.person_wrapper .person_content .body .right .number a{display:block;cursor:pointer;float:right;font-size:16px;margin-right:20px;margin-top:7px;height:36px;line-height:36px;text-align:center;padding:0 15px;border-radius:3px;background-color:rgb(228,228,228);}.person_wrapper .person_content .body .right table{float:left;width:100%;margin-bottom:10px;font-size:14px;color:rgb(102,102,102)}.person_wrapper .person_content .body .right table tr.first{background-color:rgb(230,231,232);line-height:40px;font-weight:normal;}.person_wrapper .person_content .body .right table tr{background-color:#FFF;line-height:80px;}.person_wrapper .person_content .body .right table td{border-top:1px solid rgb(207,207,207);}.person_wrapper .person_content .body .right table td .button_edit{float:left;margin-left:10px;width:28px;height:28px;background:url({skin:images/front/edit_new.png});cursor:pointer}.person_wrapper .person_content .body .right table td .button_delete{float:left;margin-left:10px;width:28px;height:28px;background:url({skin:images/front/delete_new.png});cursor:pointer}.person_wrapper .person_content .body .right table td,th{text-align:left;font-family:normal;}.person_wrapper .person_content .body .right table td .set_default{display:none;cursor:pointer;color:rgb(132,163,227)}.add_address{display:none;position:fixed;width:505px;z-index:999;top:30%;left:38%;}.add_address .content{float:left;width:100%;background-color:#FFF;}.add_address .content .ac_header{float:left;width:100%;height:55px;line-height:55px;background-color:#E5E5E5;}.add_address .content .ac_header img{float:right;margin-right:15px;cursor:pointer;margin-top:8px;}.add_address .content .ac_header label{margin-left:30px;font-size:16px;}.add_address .content .ac_header a{display:block;cursor:pointer;float:right;margin-right:20px;margin-top:12px;height:36px;line-height:36px;text-align:center;padding:0 15px;border-radius:3px;background-color:rgb(228,228,228);}.add_address .content .ac_body{float:left;padding:20px 40px;padding-top:30px;margin-bottom:22px;}.add_address .content .ac_body input{font-size:14px;padding-left:10px;}.add_address .content .ac_body label.col{float:left;width:20px;height:36px;}.add_address .content .ac_body label.row{float:left;width:100%;height:20px;}.add_address .content .ac_body label.row_s{float:left;width:100%;height:10px;}.add_address .content .ac_body .acb_left{float:left;width:100%;}.add_address .content .ac_body .acb_right{float:left;width:100%;}.add_address .content .ac_bottom{width:100%;text-align:center;}body{background:#e8e8e8}.label_title{float:left;height:30px;line-height:30px;width:70px;font-size:16px}.covinput{font-size:15px;width:321px;padding:10px;outline:none;background:none;color:#333;border:1px solid #cecece;margin-bottom:10px;}.covinput:hover{box-shadow:0 0 1px #01B3E1;border:1px solid #01B3E1;transition:all ease-out .4s;}.covbut-rt{margin-right:45px;border:1px solid #FB3E3A;padding:10px 100px;background:#FB3E3A;letter-spacing:3px;color:#fff;font-size:16px;font-family:"微软雅黑";text-decoration:none;cursor:pointer;}.covbut-rt:hover{border:1px solid #EA2723;background:#EA2723;}.covbut-rt:active{border:1px solid #C2201D;background:#C2201D;}</style>
+<div class="manage-c1" style="margin-bottom: 50px;overflow: hidden;">
+            	<div class="manage-cen">
+            		<div class="manage-dav">
+            			<span><a style="color: #666;" href="{url:/site/sy}">首页</a></span><span> > </span><span>个人中心</span>
+            		</div>
+
+            		<div class="manage-left">
+            			<div class="manage-left-cen">
+            				<ul class="manage-left-ul">
+            					<li><a href="{url:/tool/account}">账号管理</a></li>
+            					<li><a href="{url:/site/myorder}">我的预约</a></li>
+            					<li><a href="{url:/tool/order}">我的订单</a></li>
+            					<li style="color: #eee;" class="mana-cin">———————</li>
+            					<li style="text-indent:0;background:#fff;cursor:auto;"><a style="color: #FA3D39;font-weight: bold;" href="{url:/ucenter/address}">我的地址 ></a></li>
+            					<li><a href="{url:/site/myprize}">我的奖品</a></li>
+            					<li><a href="{url:/tool/myfcode}">我的F码</a></li>
+            				</ul>
+            			</div> 
+            		</div>
+            		
+            		<div class="manage-right">
+            			<div class="manage-right-top">我的地址</div>
+            			<div class="manage-right-cen">
+            				{if:$this->maxcount>$this->count}
+                               <a class="use_new_addr">添加新地址</a>
+                   			{else:}
+                   				<span style="color: red;margin-bottom: 10px;">您已经创建了{$this->count}个地址，最多可创建{$this->maxcount}个。</span>
+                   			 {/if}
+            			</div>
+            			<div class="myorder-center" style="margin-bottom: 26px;">           				
+            				<table class="addr-list">
+            					<tbody>
+            						<tr>
+            							<td style="padding: 5px 0;">收货人</td>
+            							<td style="padding: 5px 0;">收货地址</td>
+            							<td style="padding: 5px 0;">联系方式</td>   							
+            							<td colspan="2" style="border-left: 0 none;margin-left: 10px;padding: 5px 0;">操作</td>
+            						</tr>
+            						 {if: !$this->address}
+				                    <tr class="default" id="1">
+				                        <td style="text-align: center;padding: 136.5px 0;" colspan="5"><img class="rece-img" src="{skin:images/front/img/addrico.png}" />你还没有添加地址，
+				                        <span class="rece-span use_new_addr">请点击添加</span>
+				                        </td>
+				                    </tr>				
+					                    {else:}
+					                    {set:$address = $this->address}
+					                    {foreach: items=$address key=$k item=$item}
+					                    {set: $area = area::name($item['province'], $item['city'], $item['area'])}
+					                    {if:$item["default"]==1}
+					                    <input type="hidden" id="hidden_item_id" value="{$item['id']}"/>
+					                    
+				                    {/if}
+				                   
+            						<tr class="no_default" id="{$item['id']}">           							
+				                        <td>{$item["accept_name"]}</td>
+				                        <td style="text-align: left;padding-left: 30px;">{$area[$item['province']]} {$area[$item['city']]} {$area[$item['area']]} {$item['address']}</td>
+				                        <td>{if:$item["mobile"]}{$item['mobile']}{else:}{$item['telphone']}{/if}</td>
+										<td style="font-size: 12px;text-align: right;border-right: 0 none;">
+											  <label style="cursor: pointer;color: #0159A1;font-size: 15px;" class="set_default" id="set_default_{$item['id']}">设为默认</label>
+                            				  <input type="hidden" name="myid" value="{$item['id']}" />
+										</td>	
+				                        <td style="border-left: 0 none;">				                        	
+				                        	<div class="flt" style="margin-left: 10px;">
+				                        		<span class="button_edit addrs-a1">修改&nbsp;&nbsp;</span>
+					                            <span class="button_delete addrs-a1">删除</span>
+					                            <input type="hidden" name="aid" value="{$item['id']}" />
+					                            <input type="hidden" name="iaccept_name" value="{$item['accept_name']}" />
+					                          <!--  <input type='hidden' name='izip' value="{$item['zip']}" />-->
+					                            <input type='hidden' name='itelphone' value="{$item['telphone']}" />
+					                            <input type='hidden' name='iprovince' value="{$item['province']}" />
+					                            <input type='hidden' name='icity' value="{$item['city']}" />
+					                            <input type='hidden' name='iarea' value="{$item['area']}" />
+					                            <input type='hidden' name='iaddress' value="{$item['address']}" />
+					                            <input type='hidden' name='imobile' value="{$item['mobile']}" />
+					                            <input type='hidden' name='iaccept_time' value="{$item['accept_time']}" />
+					                            <input type='hidden' name='idefault' value="{$item['default']}" />
+				                        	</div>
+				                          
+				                        </td>
+
+            						</tr>
+	            					{/foreach}
+                    			{/if}
+            					</tbody>
+            				</table>
+            				
+            			</div>
+            		</div>
+            	</div>           	
+            </div>
+         
+	</div>
+
+<div class="add_address_bg" style="position: absolute; z-index: 999; top: 0; left: 0; margin-left: 0; margin-top: 0; display: none; width: 100%; height: 500px; background: #000; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5;"></div>
+<form action="{url:/ucenter/address_edit}" method="POST" id="address_form">
+	
+    <div class="add_address" style="left: 38%;top: 34%;">   	
+        <div class="content">
+            <div class="ac_header">
+            	<div class="addr-box">
+	                <label class="lable1" style="display: none;">添加新地址</label>
+	                <label class="lable2" style="display: none;">修改地址</label>              
+	                <img id="close_img" src="{skin:images/front/close.png}">
+            	</div>
+            </div>
+            <div class="ac_body">
+                <div class="acb_left">
+                    <input type="hidden" name="accept_time" value="">
+                    <input type="hidden" name="id" value="">
+                    <input type="hidden" name="default" value="">                   
+                   	<label class="label_title" style="padding-top: 6px;">姓 名：</label><input type="text" name="accept_name" value="" placeholder="请填写收货人姓名" maxlength="10" class="covinput"/>                
+                    <label class="label_title" style="padding-top: 6px;">手 机：</label><input type="text" name="mobile" value="" placeholder="请填写联系方式" maxlength="11" class="covinput"/>                  
+                    <label class="label_title" style="height: 36px; line-height: 36px; margin-bottom: 10px;">地 址：</label>
+                    <select class="covselect" name="province" child="city,area" onchange="areaChangeCallback(this);"></select></select>
+                    <select class="covselect" name="city" child="area" parent="province" onchange="areaChangeCallback(this);"></select>
+                    <select class="covselect" name="area" parent="city" ></select><br>
+                    <label class="label_title"></label><input style="margin-top: -10px;margin-left: 70px;margin-bottom: 40px;" class="covinput" type="text" name="address" value="" placeholder="请填写详情地址"  maxlength="60"/>
+               		
+                </div>
+                <div class="ac_bottom" style="margin-top: 30px;">            
+		                <a  class="covbut-rt" id="sure_add" >保存</a>
+		            </div>
+					
+            </div>
+            
+        </div>
+  		
+    </div>
+  
+</form>
+
+<form id="delete_form" action="{url:/ucenter/address_del}" method="post">
+    <input type="hidden" name="id" value="" />
+</form>
+
+{js:artTemplate}
+<script type='text/javascript' src='{theme:javascript/artTemplate/area_select.js}'></script>
+
+<script>
+	//IE8兼容
+	if($.browser.msie && parseInt($.browser.version) == 8) {
+		$('.addr-list td:nth-child(1)').css('width', '150px');
+		$('.addr-list td:nth-child(2)').css('width', '470px');
+		$('.addr-list td:nth-child(3)').css('width', '130px');
+		$('.addr-list td:nth-child(4)').css('width', '100px');
+		$('.addr-list td:nth-child(5)').css('width', '130px');
+	}
+</script>
+<script type="text/javascript">
+                        $("#a_modify_info").click(function () {
+                            var dont_show_this = $(".dont_show_account_manager").val();
+                            if (dont_show_this) {
+                                return false;
+                            }
+
+                            var pagesize = getPageSize();
+
+                            var height = $("body").eq(0).height();
+                            var width = $(window).width();
+
+                            var show_top = 200;
+                            var show_left = (width - 700) / 2;
+
+                            $(".modify_info_all").css("left", show_left);
+                            $(".modify_info_all").css("top", show_top);
+
+                            $(".modify_info_bg_all").height(pagesize[1]);
+                            $(".modify_info_bg_all").css("display", "block");
+                            $(".modify_info_all").css("display", "block");
+                            //$("body").css("overflow", "hidden");
+                            return false;
+                        });
+
+
+                        $(".button_delete").click(function () {                       	
+                            //alert("确认删除?")                                
+                            var aid = $(this).nextAll("[name='aid']").val();
+                            $("#delete_form").children("[name='id']").val(aid);
+                            $("#delete_form").submit();
+                             
+                        });
+
+                        $(".button_edit").click(function () {
+                        	$(".lable2").css("display","block");
+                        	$(".lable1").css("display","none");
+                            //address_box数据加载
+                            var aid = $(this).nextAll("[name='aid']").val();
+                            var accept_name = $(this).nextAll("[name='iaccept_name']").val();
+//                          var zip = $(this).nextAll("[name='izip']").val();
+                            var telphone = $(this).nextAll("[name='itelphone']").val();
+                            var province = $(this).nextAll("[name='iprovince']").val();
+                            var city = $(this).nextAll("[name='icity']").val();
+                            var area = $(this).nextAll("[name='iarea']").val();
+                            var address = $(this).nextAll("[name='iaddress']").val();
+                            var mobile = $(this).nextAll("[name='imobile']").val();
+                            var accept_time = $(this).nextAll("[name='iaccept_time']").val();
+                            var isdefault = $(this).nextAll("[name='idefault']").val();
+                            var father = $(".add_address").children(".content");
+                            var left = father.children(".ac_body").children(".acb_left");
+                            left.children("[name='id']").val(aid);
+                            left.children("[name='accept_name']").val(accept_name);
+//                          left.children("[name='zip']").val(zip);
+                            left.children("[name='telphone']").val(telphone);
+                            left.children("[name='address']").val(address);
+                            left.children("[name='mobile']").val(mobile);
+                            left.children("[name='accept_time']").val(accept_time);
+                            left.children("[name='default']").val(isdefault);
+
+                            //初始化地区选择
+                            createAreaSelect('province', 0, province);
+                            createAreaSelect('city', province, city);
+                            createAreaSelect('area', city, area);
+                            template.compile("areaTemplate", areaTemplate);
+
+                            //初始化发货时间
+                            var sh_time = $("[name='sh_time_value'][value='" + accept_time + "']").parents(".sh_time");
+                            sh_time.css("border-color", "rgb(255, 72, 0)");
+                            sh_time.css("background-color", "rgb(255, 255, 255)");
+                            sh_time.siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                            sh_time.siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                            show_address_box();
+                        });
+
+                        /*$(".order_required").change(function(){
+                         if($(this).val() == '' || $(this).val() == 0){
+                         return;
+                         }else{
+                         $(this).removeClass("alert_input");
+                         }
+                         })*/
+
+                        $("#sure_add").click(function () {
+                            //检查地址是否留空
+                            /*$(".order_required").each(function () {
+                             if ($(this).val() == '' || $(this).val() == 0) {
+                             window.scrollTo(0, 100);
+                             $(this).addClass("alert_input");
+                             }
+                             })
+                             */
+                            var address = $("[name=address]").val();
+                            var accept_name = $("[name=accept_name]").val();
+                            var accept_time = $("[name=accept_time]").val();
+                            var mobile = $("[name=mobile]").val();
+                            var telphone = $("[name=telphone]").val();
+                            var province = $("[name=province]").val();
+                            var city = $("[name=city]").val();
+                            var area = $("[name=area]").val();
+//                          var zip = $("[name=zip]").val();
+                            if (!address) {
+                                alert("请填写详细地址！");
+                                return 0;
+                            }
+//                          if (!accept_time) {
+//                              alert("请选择送货时间！");
+//                              return 0;
+//                          }
+                            if (!accept_name) {
+                                alert("请填写收货人！");
+                                return 0;
+                            }
+                            /*if ((!mobile) && (!telphone)) {
+                             alert("请填至少一种联系方式！");
+                             return 0;
+                             }*/
+                            if (!mobile) {
+                                alert("请填写您的手机号码！");
+                                return 0;
+                            }
+
+                            if (validatemobilephone(mobile) == false) {
+                                alert("请填写正确的手机号码！");
+                                return 0;
+                            }
+                            if ((!province) || (!city) || (!area)) {
+                                alert("请选择省市信息");
+                                return 0;
+                            }
+//                          if (!zip || zip == "邮编（必填）") {
+//                              alert("请填写邮编信息");
+//                              return 0;
+//                          }
+//
+//                          if (zip && zip != $("[name=zip]").attr("placeholder")) {
+//                              var pattern = /^[1-9][0-9]{5}$/;
+//                              if (zip.search(pattern) == -1) {
+//                                  alert("邮编格式错误");
+//                                  return 0;
+//                              }
+//                          }
+
+                            //固定电话检查
+                            var phone = $("input[name=telphone]").val();
+                            if (phone == $("input[name=telphone]").attr("placeholder")) {
+                                $("input[name=telphone]").val("");
+                                phone = "";
+                            }
+                            if (phone && phone != $("input[name=telphone]").attr("placeholder")) {
+                                var pattern = /^[\d-]{8,13}$/i;
+                                if (phone.search(pattern) == -1) {
+                                    alert("固定电话格式错误，正确格式如:0001-20110101");
+                                    $("input[name=telphone]").addClass("alert_input");
+                                    failed = 1;
+                                    return;
+                                }
+                            }
+
+
+                            $("#address_form").submit();
+                            $("body").css("overflow", "");
+                            $(".add_address_bg").css("display", "none");
+                            $(".add_address").css("display", "none");
+                        })
+
+									$("input[name=telphone]").change(function() {
+										$(this).removeClass("alert_input");	
+									});
+
+                        $("#cancel_add").click(function () {
+                            $("body").css("overflow", "");
+                            $(".add_address_bg").css("display", "none");
+                            $(".add_address").css("display", "none");
+                        })
+
+                        $("#close_img").click(function () {
+                            $("body").css("overflow", "");
+                            $(".add_address_bg").css("display", "none");
+                            $(".add_address").css("display", "none");
+
+                        })
+
+
+                        $(".sh_time").click(function () {
+                            $(this).css("border-color", "rgb(255, 72, 0)");
+                            $(this).css("background-color", "rgb(255, 255, 255)");
+
+                            $(this).siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                            $(this).siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                        });
+                        $(".sh_time").click(function () {
+                            //设置送货值
+                            var accept_time = $(this).children("input[name='sh_time_value']").val();
+                            $("input[name='accept_time']").val(accept_time);
+
+                            $(this).css("border-color", "rgb(255, 72, 0)");
+                            $(this).css("background-color", "rgb(255, 255, 255)");
+
+                            $(this).siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                            $(this).siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                        });
+
+                        /**
+                         * 生成地域js联动下拉框
+                         * @param name
+                         * @param parent_id
+                         * @param select_id
+                         */
+                        function createAreaSelect(name, parent_id, select_id)
+                        {
+
+                            //生成地区
+                            $.getJSON("{url:/block/area_child}", {"aid": parent_id, "random": Math.random()}, function (json)
+                            {
+                                $('[name="' + name + '"]').html(template.render('areaTemplate', {"select_id": select_id, "data": json}));
+                            });
+                        }
+                        function show_address_box() {
+                            var pagesize = getPageSize();
+                            var height = $(window).height();
+                            var width = $(window).width();
+
+                            var show_top = ($("body").eq(0).height() - 570) / 2;
+                            if (show_top < 0)
+                                show_top = 100;
+                            var show_left = (width - 500) / 2;
+
+                            $(".add_address").css("left", show_left);
+                            $(".add_address").css("top", show_top);
+
+                            $(".add_address_bg").height(pagesize[1]);
+                            $(".add_address_bg").css("display", "block");
+                            $(".add_address").css("display", "block");
+                            //$("body").css("overflow", "hidden");
+
+                            checkplaceholder();
+                        }
+
+
+
+                        $(".use_new_addr").click(function () {
+                        	
+                        	$(".lable1").css("display","block");
+                        	$(".lable2").css("display","none");
+                            //address_box数据清空
+                            var father = $(".add_address").children(".content");
+                            var left = father.children(".ac_body").children(".acb_left");
+                            left.children("[name='id']").val('');
+                            left.children("[name='accept_name']").val('');
+//                          left.children("[name='zip']").val('');
+                            left.children("[name='telphone']").val('');
+                            left.children("[name='address']").val('');
+                            left.children("[name='mobile']").val('');
+                            //初始化收货时间
+                            left.children("[name='accept_time']").val('');
+                            $(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                            $(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                            left.children("[name='default']").val(0);
+
+                            //初始化发货时间 默认不限时间
+                            var sh_time = $("[name='sh_time_value'][value='不限送货时间']").parents(".sh_time");
+                            sh_time.css("border-color", "rgb(255, 72, 0)");
+                            sh_time.css("background-color", "rgb(255, 255, 255)");
+                            sh_time.siblings(".sh_time").css("border-color", "rgb(223, 223, 223)");
+                            sh_time.siblings(".sh_time").css("background-color", "rgb(250, 250, 250)");
+                            $("input[name='accept_time']").val("不限送货时间");
+
+                            //初始化地区选择
+                            createAreaSelect('province', 0, '');
+                            $('[name="city"]').empty();
+                            $('[name="area"]').empty();
+                            template.compile("areaTemplate", areaTemplate);
+
+                            show_address_box();
+                        });
+
+                        $(".menu_a").click(function () {
+                            $(".menu_a").removeClass("selected");
+                            $(this).addClass("selected");
+                        });
+
+//                      $(".no_default").mouseover(function () {
+//                          var id = $(this).attr("id");
+//                          $("#set_default_" + id).css("display", "block");
+//                      }).mouseout(function () {
+//                          var id = $(this).attr("id");
+//                          $("#set_default_" + id).css("display", "none");
+//                      });
+
+                        function register_default() {
+                            //设置默认
+                            $(".set_default").click(function () {
+                                var td_node = $(this).parent("td");
+                                var tr_node = $(td_node).parent("tr");
+
+                                if (tr_node.attr("class").indexOf("no_default") < 0)
+                                    return;
+
+                                var tds_set_to_nodefault = $(".default_label").parent("td");
+                                for (var i = 0; i < tds_set_to_nodefault.length; i++) {
+                                    var td_temp = tds_set_to_nodefault[i];
+                                    var id_temp = $(td_temp).parent("tr").attr("id");
+                                    //$(td_temp).html("<label class='set_default' id='set_default_" + id_temp + "'>设为默认</label>");
+                                    $(td_temp).children("label").addClass("set_default").attr("id", "set_default_" + id_temp).html("设为默认").css("color", "#0159A1");
+                                    ;
+                                }
+
+                                //$(td_node).html("<label class='default_label'>(默认地址)</label>");
+                                $(td_node).children("label").addClass("default_label").removeClass("set_default").html("默认地址").attr("id", "").css("color", "#333");
+                                $(tr_node).removeClass("no_default").addClass("default");
+                                $(tr_node).siblings("tr").removeClass("default").addClass("no_default");
+
+                                var address_id = td_node.children("[name='myid']").val();
+                                alert(address_id);
+                                $.post("{url:/ucenter/address_set_default}", {address_id: address_id}, function (ret) {
+                                    if (ret == 'success') {
+                                        //成功
+                                        alert("修改成功");
+                                    } else {
+                                        alert("修改失败");
+                                        $(window).reload();
+                                    }
+                                })
+
+                            });
+                        }
+
+                        register_default();
+
+                        $().ready(function () {
+                            var hidden_item_id = $("#hidden_item_id").val();
+                            var trs = $(".no_default");
+                            if (hidden_item_id != "" && hidden_item_id != "0") {
+                                for (var i = 0; i < trs.length; i++) {
+                                    if ($(trs[i]).attr("id") == hidden_item_id) {
+                                        $(trs[i]).removeClass("no_default").addClass("default");
+                                        //var td = $("#set_default_" + hidden_item_id).param("td");
+                                        $("#set_default_" + hidden_item_id).addClass("default_label").removeClass("set_default").html("默认地址").attr("id", "").css("display", "block");
+
+                                        break;
+                                    }
+                                }
+                            }
+                        })
+</script>

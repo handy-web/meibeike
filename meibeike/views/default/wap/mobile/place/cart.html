@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+	    <title>提交订单</title>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <meta name="full-screen" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="format-detection" content="address=no">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../version/css/main.css" />
+		<script type="text/javascript" src="../version/js/jquery.js" ></script>
+	</head>
+	<body>
+		<!--常用地址-->
+		<div class="cart-bom" style="display: block;">
+			<div class="cart-cm"><img src="../version/img/app-le.png"/>常用地址</div>		
+			<ul class="payway">
+				<li><input type="radio" name="payway" id="payway_a">
+					<label for='payway_a'>
+						<div class="car-sp"><span>李小明</span><span>13866666666</span></div>
+						<p>广东省深圳市南山区</p>
+						<p>好好好的基督教的嘎嘎嘎基督教88888888</p>
+					</label>
+				</li>
+				<li><input type="radio" name="payway" id="payway_b" checked>
+					<label for='payway_b'>
+						<div class="car-sp"><span>李小明</span><span>13866666666</span></div>
+						<p>广东省深圳市南山区</p>
+						<p>好好好的基督教的嘎嘎嘎基督教</p>
+					</label>				
+				</li>
+			</ul>	
+			<div class="cart-nt">
+				<a>新增地址</a>
+			</div>
+		</div>	
+		<script>
+			$('.cart-cm img').click(function(){
+				$('.cart-bom').hide();
+			})
+		</script>
+		
+		
+		
+		
+		<div class="state-box"> 
+			<div class="cart-in" style="display: block;">
+				<a>
+					<div class="cart-addr"><img src="../version/img/app-addr.png"/></div>
+					<div class="cart-t">您还没有添加新地址，请点击添加</div>
+					<div class="cart-rig"><i></i></div>
+				</a>
+			</div>
+			<div class="cart-on" style="display: none;">
+				<a>
+					<div class="cart-addr-1"><img src="../version/img/app-addr.png"/></div>
+					<div class="cart-t-1">
+						<p>收货人：<span>小米</span></p>
+						<p>联系电话：<span>13654789856</span></p>
+						<div>收货地址：<span>广东省深圳市南山区话说就是就是就是计算机</span></div>
+					</div>
+					<div class="cart-rig1" style="float: right;"><i></i></div>
+				</a>
+			</div>
+		</div>
+		
+		<div class="cart-tab"> 
+			<div class="cart-line">
+				<div class="cart-l"><img src="../version/img/001.jpg"/> </div>
+				<div class="cart-r">
+					<h2>银霸组合（母棒+2T存储碟）</h2>
+					<p>价格：<span>&#65509;1900.00</span></p>											
+						<div class="cart-m">
+							<a class="min"><img src="../version/img/app-red.png"></a>
+							<input type="text" value="1">
+							<a class="add"><img src="../version/img/app-add.png"></a>
+						</div>		
+				</div>
+			</div>
+			<ul class="cart-zd">
+				<li>
+					<div class="cart-zdli">商品总价：<span>&#65509;1900.00</span></div>					
+				</li>				
+			</ul>
+		</div>
+		  
+		<div class="cart-list">
+			<ul class="cart-ul">
+				<li>
+					<div class="cart-wl"><img src="../version/img/app-kd.png"/><span>配送方式</span></div>
+					<div class="cart-wr"><span>公司包邮</span><i></i></div>
+				</li>
+				<li>
+					<div class="cart-wl"><img src="../version/img/app-juan.png"/><span>优惠券</span></div>
+					<div class="cart-wr"><span>满1898减10元</span><i></i></div>
+				</li>
+				<li>
+					<div class="cart-wd"><img src="../version/img/app-fm.png"/><span>F码</span></div>
+					<!--输入F码验证-->
+					<div class="cart-wc" style="display: block">
+						<div class="cart-ipu"><input type="tel" name="" value="" placeholder="如有F码，请在这填写" /></div>
+						<div class="cart-yz"><input type="submit" name="" value="验证" /></div>
+					</div>
+					<!--F码可用-->
+					<div class="cart-fm" style="display: none;">F码已使用，获得1T存储碟</div>
+				</li>
+				
+				<li>   
+					<div class="cart-ak">
+						<div class="cart-wl"><img src="../version/img/app-fp.png"/><span>发票</span></div>
+						<div class="cart-wt"><span>不开发票</span><i></i></div>
+					</div>
+					<div style="clear: both;display: none;" class="cart-km">
+						<ul class="cart-kt">
+							<li><input type="radio" name="is_note" id="ra_b1" checked value="不开发票" /><label for="ra_b1">不开发票</label></li>
+							<li><input type="radio" name="is_note" id="ra_b2" value="需要发票" /><label for="ra_b2">需要发票</label></li>
+						</ul>
+						<div class="cart-kc">
+							<input type="text" name="" id="" value="" placeholder="请输入个人姓名或者公司名称" />
+						</div>
+					</div>
+				</li>
+				<li>
+					<textarea rows="3" cols="10"  onblur="if(this.innerHTML==''){this.innerHTML='有特殊请求请留言（限30字）';this.style.color='#666'}" onfocus="if(this.innerHTML=='有特殊请求请留言（限30字）'){this.innerHTML='';this.style.color='#666'}">有特殊请求请留言（限30字）</textarea>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="cart-pm"> 
+			<div class="cart-pl">
+				<ul class="cart-pw">
+					<li>商品总价格：<span>&#65509;1900.00</span></li>
+					<li>现金劵抵扣：<span>&#65509;20.00</span></li>
+					<li>运费：<span>&#65509;0.00</span></li>
+					<li>应付总额：<span>&#65509;1900.00</span></li>
+				</ul>
+			</div>
+		</div>
+		<div class="cart-tm">
+			<div class="cart-te">应付总额：<span>&#65509;1900.00</span></div>
+			<div class="cart-ti"><input type="submit" name="" id="" value="提交订单" /> </div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				$(".cart-ak").click(function(){
+					$(".cart-km").toggle(500);
+				});
+			
+			 
+			$(".cart-kc").hide();
+			$(":radio[name='is_note']").click(function() {
+				var obj = $('input:radio[name="is_note"]:checked').val();
+				$(".cart-wt span").text(obj);				
+				var index = $(":radio[name='is_note']").index($(this));
+				if (index == 1)
+					$(".cart-kc").show(500);
+				else
+					$(".cart-kc").hide(500);
+			});
+		})
+		</script>
+	</body>
+</html>

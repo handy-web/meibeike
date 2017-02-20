@@ -1,0 +1,304 @@
+{set:$status = $_GET['status']}
+<div class="fcode">
+			<ul class="fcode-line"> 
+				<li onclick = "window.location.href='/wapcenter/myfcode/status/0'" {if:$status == '0'}class="act"{/if}>可用F码</li>
+				<li onclick = "window.location.href='/wapcenter/myfcode/status/1'" {if:$status == '1'}class="act"{/if}>已用F码</li>
+				<li onclick = "window.location.href='/wapcenter/myfcode/status/2'" {if:$status == '2'}class="act"{/if}>已过期</li>
+			</ul>
+		</div> 
+		
+		<div class="fcode-bog">
+			<span><a href="{url:/wapcenter/myfcode_rule}">F码使用规则</a></span>
+			<span><a class="sf">申领F码</a></span>
+		</div>
+		<div class="fcode-list" style="clear: both;">
+			<!--可用F码-->
+			<div class="hide show">
+				{foreach:items=$flist}
+				<div class="fcode-tab">
+					<div class="fcode-bg">
+						<div class="fm">F码：{$item['f_code']}</div>
+						<div class="fx">
+							<div class="fut1"><a>分享给朋友</a></div>
+							{if:$item['is_shared'] == '1'}<div class="fut2"><a>已分享</a></div>{else:}<div class="fut2"><a onclick="mark('{$item["f_code"]}')">标记已分享</a></div>	{/if}					
+						</div>
+					</div>
+					<div class="fcode-time">
+						<p>{$item['start_time']}至{$item['end_time']}</p>
+						<p>状 态：{if:empty($item['use_time'])}{echo: '未使用'}{else:}{echo: '已使用'}{/if}</p>
+					</div>
+				</div>
+				{/foreach} 
+			</div>
+			<!--已用F码-->
+			<div class="hide">
+				{foreach:items=$flist}
+				<div class="fcode-tab">
+					<div class="fcode-bg">
+						<div class="fm">F码：{$item['f_code']}</div>
+						<div class="fx">
+							<div class="fut3"><a>删除</a></div>											
+						</div> 
+					</div>
+					<div class="fcode-time">
+						<p>使用时间：</p>
+						<p>使 用 人：</p>
+						<p>兑现状 态：未兑奖</p>
+					</div>
+				</div>
+				{/foreach}
+			</div>
+			<!--已过期-->
+			<div class="hide">
+				{foreach:items=$flist}
+				<div class="fcode-tab">
+					<div class="fcode-close-bg">
+						<div class="fm">F码：{$item['f_code']}</div>
+						<div class="fx">
+							<div class="fut3"><a href="{url:/wapcenter/delfcode/id/$item[id]}">删除</a></div>									
+						</div>
+					</div>
+					<div class="fcode-time">
+						<p>有效期：{$item['start_time']}至{$item['end_time']}</p>
+						<p>状 态：</p>
+					</div>
+				</div>
+				{/foreach}
+			</div>
+		</div>
+		
+		
+		<!--申请F码-->
+		
+		<div class="fcode-box" style="display: none;"> 
+			<div class="fcode-foot">
+				<textarea rows="8" name="apply_comment"  cols="10" onblur="if(this.innerHTML==''){this.innerHTML='请在这里填写您申领说明';this.style.color='#666'}" onfocus="if(this.innerHTML=='请在这里填写您申领说明'){this.innerHTML='';this.style.color='#666'}">请在这里填写您申领说明</textarea>
+			</div>
+			<div class="fcode-in">
+				<input type="text" name="contact_way" placeholder="请留下您的联系方式或邮箱地址（选填）" />
+			</div>
+			<div class="fcode-but">			
+				<input type="button" name="" value="保 存" />
+			</div>
+		</div>
+		
+		
+		 <script type="text/javascript">
+		 	$(document).ready(function(){
+		 		$('.fcode-box .fcode-but ').bind("click",function(){
+		 			var apply_comment = $('textarea').val();
+		 			var waitReviewCount = {$waitReviewCount};
+		 			var contact_way = $('input[name="contact_way"]').val();
+		 			if(apply_comment == '' || apply_comment == '请在这里填写您申领说明'){
+		 				alert('请输入申领说明');
+		 				return false;
+		 			}
+		 			if(waitReviewCount>0){
+		 				alert("您的F码申请正在处理中,请稍候再试");
+		 				return false;
+		 			}
+		 			$.ajax({
+		 				url:"{url:wapcenter/do_apply_fcode}",
+		 				type:"post",
+		 				dataType:"json",
+		 				data:{"apply_comment":apply_comment,"contact_way":contact_way},
+		 				success:function(d,s,r){
+		 					if(d.status == '1'){
+		 						alert(d.message);	
+		 						$('.alert_close_img').bind("click",function(){
+		 							window.location.reload();
+		 						});
+		 					}else{
+		 						alert(d.message);
+		 						$('.alert_close_img').bind("click",function(){
+		 							window.location.reload();
+		 						});
+		 					}
+		 				}
+		 			});
+		 		});
+		 	});
+		 </script>
+		 
+		<script>
+			//申领F码
+			$(".sf").click(function(event) {
+			$(".fcode-box").slideToggle(0);
+				event.stopImmediatePropagation();
+			});
+			
+			
+		</script>
+		<script>
+		//菜单切换		
+		$(function(){
+			if({$status} == '0'){
+				$(".hide").eq(0).addClass("show").siblings().removeClass("show")
+			}else if({$status} == '1'){
+				$(".hide").eq(1).addClass("show").siblings().removeClass("show")
+			}else if({$status} == '2'){
+				$(".hide").eq(2).addClass("show").siblings().removeClass("show")
+			}
+
+		})
+		</script>
+				<script type="text/javascript">			
+			function sharing(fcode){
+				$(".share-m").show();
+				$('input[name="fcode"]').val(fcode);
+			}
+			
+			function mark(fcode){
+				$.ajax({
+					url:'{url:/tool/mark}',
+					type:'post',
+					dataType:'json',
+					data:{"fcode":fcode},
+					success:function(d){
+						if(d.status == '1'){
+							alert(d.message);
+							$('.alert_close_img').click(function(){
+								window.location.reload();
+							});
+						}else{
+							alert(d.message);
+							$('.alert_close_img').click(function(){
+								window.location.reload();
+							});
+						}
+					}
+				});
+			}
+			
+			$(".ioc").click(function(){
+				$(".share-m").hide();
+			})		
+			$(".wx-img").click(function(){
+				$(".share-box").hide();
+			})
+		</script>
+		<!-- 新浪微博分享开始 -->
+		<script type="text/javascript">
+			$('.share-m .shareimg1').bind('click',function(){
+				 var fcode = $('input[name="fcode"]').val();
+				 var title = '我分享了F码:'+fcode+',使用F码购买云棒优惠多多哦!';//分享标题
+				 var url = 'http://www.meibeike.com/tool/newbuy';//分享链接
+				 var pic = 'http://www.meibeike.com/views/default/skin/default/lottery/images/b_logo.png';//分享图片
+				 window.open('http://v.t.sina.com.cn/share/share.php?title=' + title + '&url=' + url + '&pic=' + pic, '_blank');
+			});
+		</script>
+		<!-- 新浪微博分享结束 -->
+		<!--QQ分享 开始-->
+		<script type="text/javascript">
+		        $('.share-m .shareimg2').click(function(){
+			 		var fcode = $('input[name="fcode"]').val();
+					var p = {
+			        url: 'http://www.meibeike.com/tool/newbuy',/*获取URL，可加上来自分享到QQ标识，方便统计*/
+			        title : '我分享了F码:'+fcode+',使用F码购买云棒优惠多多哦!',/*分享标题(可选)*/
+			        summary : '云棒官网:http://www.meibeike.com',/*分享描述(可选)*/
+			        desc: '我分享了F码:'+fcode+',使用F码购买云棒优惠多多哦!', /*分享理由(风格应模拟用户对话),支持多分享语随机展现（使用|分隔）*/
+			        pics : 'http://www.meibeike.com/views/default/skin/default/lottery/images/b_logo.png',/*分享图片(可选)*/
+			        flash : '',	/*视频地址(可选)*/
+			        commonClient : true, /*客户端嵌入标志*/
+			        site: 'QQ分享',/*分享来源 (可选) ，如：QQ分享*/
+			        };
+			        var s = [];
+			        for (var i in p) {
+			       		s.push(i + '=' + encodeURIComponent(p[i] || ''));
+			        }
+		        	window.open("http://connect.qq.com/widget/shareqq/index.html?" + s.join('&'));
+		        });	  
+		</script>
+		<!-- QQ分享结束 -->
+		<!-- 微信分享开始 -->
+		<script type='text/javascript'>
+			$('.share-m .shareimg3').click(function(){
+				$('#qrcode').show();
+			});
+		</script>
+		<!--  微信分享结束 -->
+		<script> 
+			       /* wx.config({    
+			            debug: false,    
+			            appId: '${shakeMap.appId}',    
+			            timestamp: '${shakeMap.timestamp}',    
+			            nonceStr: '${shakeMap.nonceStr}',    
+			            signature: '${shakeMap.signature}',    
+		            	jsApiList: [    
+			                'checkJsApi',    
+			                'onMenuShareTimeline',    
+			                'onMenuShareAppMessage'    
+			            ]    
+			        }); */
+			        $('#wxsharess').click(function(){
+			        	var pageUrl = window.location.href.split('#')[0];  
+			        	pageUrl = pageUrl.replace(/\&/g, '%26');
+			        	$.ajax({
+			        		url:'{url:/tool/test2}',
+			        		type:'post',
+			        		dataType:'json',
+			        		data:{'url':pageUrl},
+			        		success:function(d){
+			        			if(d.status == '1'){
+							        wx.config({    
+							            debug: true,    
+							            appId: d.appId,    
+							            timestamp: d.timestamp,    
+							            nonceStr: d.noncestr,    
+							            signature: d.signature,    
+						            	jsApiList: [    
+							                'checkJsApi',    
+							                'onMenuShareTimeline',    
+							                'onMenuShareAppMessage'    
+							            ]    
+							        });  
+			        			}else{
+			        				alert('签名失败');
+			        			}
+			        		}
+			        	});
+
+				        wx.ready(function () {    
+			                   
+					           /* var shareData = {    
+					                title: '${title}',    
+					                desc: '${description}',    
+					                link: '${url}',    
+					                imgUrl: '${headImgUrl}',    
+					                success: function (res) {    
+					                    //alert('已分享');    
+					                },    
+					                cancel: function (res) {    
+					                }    
+					            }; */   
+					                  
+					            wx.onMenuShareAppMessage({    
+					                title: '微信分享好友测试',    
+					                desc: '微信分享好友测试',    
+					                link: 'http://www.meibeike.com',    
+					                imgUrl: '',    
+					                trigger: function (res) {    
+					                            alert('用户点击发送给朋友');    
+					                },    
+					                success: function (res) {    
+					                    alert('已分享');    
+					                },    
+					                cancel: function (res) {    
+					                    alert('已取消');    
+					                },    
+					                fail: function (res) {    
+					                    alert(JSON.stringify(res));    
+					                }    
+					            });    
+					              
+					            //wx.onMenuShareTimeline(shareData);    
+					        });    
+			  
+					        wx.error(function (res) {    
+					            alert("error: " + res.errMsg);    
+					        });    
+			        });
+
+		</script>
+	</body>
+</html>

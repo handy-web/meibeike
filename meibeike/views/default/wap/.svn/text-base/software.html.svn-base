@@ -1,0 +1,27 @@
+		<style>body{background: #00A0FE;}</style>
+		<div class="soft-conter">
+			<h1>全新视觉体验</h1>
+			<h3>功能更强悍！界面更简洁！</h3>
+			<div class="soft-line"><img src="/views/default/wap/mobile/version/img/app-az.png" /></div>
+			<div class="soft-but">
+				<a onclick="webdownload()">免费下载云棒APP</a>
+
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+		function webdownload() {
+			var u = navigator.userAgent;
+			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+			var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			if(isAndroid == true) {
+				//alert('是否是Android：'+isAndroid);
+				window.location.href = "http://d.meibeike.com//mcfs/ota/client/2016-07-27/CloudBar_2016072713_2.0.4.apk";
+			} else if(isiOS == true) {
+				//alert('是否是iOS：'+isiOS);
+				window.location.href = "https://itunes.apple.com/cn/app/yun-bang/id1031460932?mt=8";
+			} else {
+				alert("该系统不支持下载！");
+			}		
+		}
+		</script>

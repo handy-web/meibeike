@@ -1,0 +1,381 @@
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/K_public.css" />
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/activity.css" />
+<script type='text/javascript' src="{theme:javascript/TC.js}"></script>
+ <script type = "text/javascript" >  
+        function getRTime(){
+        var EndTime= new Date('2016/06/20 10:00:00'); 
+        var NowTime = new Date();
+        var t =EndTime.getTime() - NowTime.getTime();
+        var d=Math.floor(t/1000/60/60/24);
+        var h=Math.floor(t/1000/60/60%24);
+		var vh=h;
+		if (vh<=9){vh="0"+h;}
+        var m=Math.floor(t/1000/60%60);
+		var vm=m;
+		if (m<=9){vm="0"+m;}
+        var s=Math.floor(t/1000%60);
+		var vs=s;
+		if (s<=9){vs="0"+s;}
+        document.getElementById("timer").innerHTML = '仅剩<span>'+d+'</span>天<span>'+vh+'</span>时<span>'+vm+'</span>分<span>'+vs+'</span>秒';
+		}
+    setInterval(getRTime,1000); 
+        </script> 
+		<style type="text/css">
+		.goodsbox {margin: 50px auto 115px auto;}
+		.goodsbox h1 {font-size:50px;line-height:65px;}
+		.goodsbox h3 {font-size:25px;margin-bottom:20px;}
+		.goodsbox h4 {font-size:25px;}
+		.goodsbox h4 #timer { height:70px;line-height:70px;}
+		.goodsbox h4 #timer span {padding: 10px;border: 1px solid #e53935;margin-left: 10px;margin-right: 10px;display:initial;font-size:25px;}
+		.goodsbox .gd {font-size:22px;margin-bottom:20px;}
+		.goodsbox .gd a {text-decoration:underline;color:#000;}
+		.goodsbox .gd1 {margin-top:50px;}
+		.goodsbox p {width:500px;}
+
+		</style>
+<form action="/site/index_test2" method="post" id="form_file" enctype="multipart/form-data"> 
+
+<div class="top layout">
+<p><!-- |<a href="#">我的奖品</a> --></p>
+</div>
+
+<div class="layout goodsbox">
+
+
+<div class="rbox">
+<div class="imgbox"><img src="{skin:images/act/images/b_img.png}"></div>
+<span><a href="/site/video/">观看云棒视频</a>&gt;<a href="/site/overview/">了解云棒详情</a>&gt;<a href="javascript:$.showDialog('#rule');">活动规则</a></span>
+</div>
+
+<h1>预约<em>云棒</em><br>皆有机会获得1T存储碟</h1>
+<h3>6月20日上午10点开抢</h3>
+
+<h4> <p id="timer" class="headline hh">仅剩<span>20</span>天<span>12</span>时<span>33</span>分<span>59</span>秒<p></h4>
+<div class="gd gd1">1898元 <a href="/site/products/id/9">银霸组合</a> （母棒+2T存储碟）</div>
+<div class="gd gd2">2298元 <a href="/site/products/id/10">金甲组合</a> （母棒+250GB存储棒）</div>
+<p><a class="order on" onclick="AppointLogin(1)" id="Appoint">立即预约</a></p>
+<h5 >共<em>{$order_num}人</em>预约&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;官网 {$order_num1}人，微信 {$order_num2}人，其他{$order_num3}人</h5>
+
+</div>
+
+
+<div class="b_box"><img src="{skin:images/gs/banner00001.jpg}" width="100%"></div>
+<div class="b_box"><img src="{skin:images/gs/banner00002.jpg}" width="100%"></div>
+<div class="b_box"><img src="{skin:images/gs/banner00003.jpg}" width="100%"></div>
+<div class="b_box"><img src="{skin:images/gs/banner00004.jpg}" width="100%"></div>
+<div class="b_box"><img src="{skin:images/gs/banner00005.jpg}" width="100%"></div>
+<div class="b_box"><img src="{skin:images/gs/banner00006.jpg}" width="100%"></div>
+<div class="b_box"><img src="{skin:images/gs/banner00007.jpg}" width="100%"></div>
+<div class="b_box"><img src="{skin:images/gs/banner00008.jpg}" width="100%"></div>
+<div class="b_box"><img src="{skin:images/gs/banner00009.jpg}" width="100%"></div>
+<div class="b_box"><img src="{skin:images/gs/banner00010.jpg}" width="100%"></div>
+<div class="b_box"><img src="{skin:images/gs/banner00011.jpg}" width="100%"></div>
+
+
+<div class="new-bottom-vip">
+   <div class="vip-left"><img src="{skin:images/act_2/VIP.jpg}"></div>
+   <div class="vip-right">
+     <h4>怕抢购不到？想优先体验？那就走VIP通道吧！<br>今天付费抢先预购<br>可获赠1T存储碟1个或120GB存储棒1个，还可优先发货！</h4>
+     <h5>每天限额50名，VIP通道还剩下34个名额，手慢则无哦！</h5>
+    <a href="/site/vip_order/" class="order_ctn">我要VIP抢购预约</a>
+   </div>
+</div>
+
+<div id="wap_bottom">
+                    <div class="publish_wrapper">
+                        <div class="publish_content">
+                          <a href="http://www.meibeike.com/index.php?controller=site&action=help&id=75"><font style="font-size: 12px;">联系我们:0755-26602223</font></a>
+                          <br/> 
+                          <font style="font-size: 12px;">联系地址:广东省深圳市南山区科技园北区新西路7号兰光科技园A栋309</font>  
+                          <br/>
+                          <font style="font-size: 12px;">公司简介:深圳市美贝壳科技有限公司，位于深圳市南山区科技园内，是一家以“保护个人隐私数据”为理念，研发以私有云为基础的智能家居服务器产品的高新科技企业。</font>
+                          <br/>                                        
+                          <font style="font-size: 12px;">Copyright © 2014-2020,深圳市美贝壳科技有限公司 All Rights Reserved.</font>
+                          <br>     
+                          <font style="font-size: 12px; color: rgb(191, 191, 191)">粤ICP备 14098187号-1</font>
+                        </div>
+                    </div>
+</div>
+
+<script type="text/javascript">
+function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
+
+if(IsPC()){
+	$('#wap_bottom').hide();
+}
+</script>
+
+<!--华为网盘用户特别通道-->
+<div class="hwtd alert" id="hwtd_1">
+     <div class="alert-top">
+      <h3>华为网盘用户特别通道</h3>
+        <span onclick="javascript:$.showDialog.hide();"></span>
+     </div>
+    <div class="hwtd-c">
+       <p>第1步、登录美贝壳账号</p>
+       <p>第2步、上传“华为网盘主界面”的截图</p>
+       <p>第3步、享受优惠获得1T存储碟</p>
+       <p class="hwtd-center"> <a class="input-order mgt-45" onclick="login_window();" href="javascript:;">登录领取1T存储碟</a></p>
+    </div>
+     
+</div> 
+<!--华为网盘用户特别通道结束-->
+
+
+<!--华为网盘用户认证-->
+<div class="hwrz alert" id="hwtd_2">
+     <div class="alert-top">
+      <h3>华为网盘用户认证</h3>
+        <span onclick="javascript:$.showDialog.hide();"></span>
+     </div>
+    <div class="hwrz-c" style="width:500px;padding: 60px 50px;">
+<input type="hidden" id="url_id" name="url_id" value="{echo:$this->url_id}"/>
+    <input type="hidden" id="v_purchase_time" name="v_purchase_time" value="20160620"/>
+    <input type="hidden" id="v_purchase_meiid" name="v_purchase_meiid" value="{echo:$this->user['user_id']}"/>
+
+       <p>请在下方提交华为网盘帐号和华为网盘截图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a href="javascript:show_for_ex();">截图示例</a>]</p>
+       <p>华为网盘账号:<input type="text" placeholder="请输入华为网盘账号" id="v_id" name="v_id" class="hwtd-input"></p>
+       <p>华为网盘截图:<input type="file" name="hw_file" id="hw_file" style="font-size: 18px;height: 36px;margin-left: 5px;padding-left: 5px;border-radius: 5px;"/>   
+       <!--label for="hw-img" class="hw-lable">上传</label></p>
+       <p><input type="file" id="hw_file" class="hw-file">
+            <!--span class="hwrw-ysc-img">网盘截图.JPG</span>
+       </p-->
+       <!--p>华为网盘截图:<label for="hw-img" class="hw-lable">上传</label></p>
+       <p><input type="file" id="hw-img" name="hw_file" class="hw-file">
+            <span class="hwrw-ysc-img">网盘截图.JPG</span>
+       </p-->
+       
+       <p class="hwtd-center"> <a class="input-order mgt-45" id="submit_file" onclick="submit_file()" href="javascript:;" style="color:#fff;text-decoration:none;">提 交</a></p>
+    </div>
+     
+</div> 
+<!--华为网盘用户认证结束-->
+
+<!--华为网盘用户认证-->
+<div class="doc-tj alert" id="hwtd_3">
+     <div class="alert-top">
+        <span onclick="javascript:$.showDialog.hide();"></span>
+     </div>
+    <div class="doc-tj-c">
+       <h2>您的资料已提交</h2>
+       <p>如果您提交的资料不正确，在五个工作日内，我们将有工作人员联络您，谢谢配合！</p>
+       <p class="hwtd-center"> <a class="input-order mgt-90" href="javascript:;">知道了</a></p>
+    </div>
+     
+</div> 
+<!--华为网盘用户认证结束-->
+
+<div class="doc-tj alert" id="for_ex" style="width:650px;height:600px;">
+     <div class="alert-top">
+     <h3>华为网盘截图样式</h3>
+        <span onclick="close_for_ex();"></span>
+     </div>
+    <div class="doc-tj-c">
+       <img src="{skin:images/act/images/footimg.jpg}" width="550"/>
+    </div>
+     
+</div> 
+
+
+<div class="doc-tj alert" id="rule">
+     <div class="alert-top">
+     <h3>活动规则</h3>
+        <span onclick="javascript:$.showDialog.hide();"></span>
+     </div>
+    <div class="hdgz-c">
+       <p>预约时间<em>5月20日-6月19日</em>成功预约，即可参加抢购云棒活动。</p>
+       <p><b>•云棒发售时间表</b></p>
+       <p>2016年6月20日10点，已经预约用户可以开始抢购云棒，成为云棒第一批用户，体验以私有云为基础的智能硬件产品的震撼</p>
+       <p><b>•抢购价格与配置</b></p>
+       <p>金甲组合 2298元</p>
+       <p>（母棒＋250GB存储棒）</p>
+       <p>银霸组合 1898元</p>
+       <p>（母棒＋2T存储碟）</p>
+    </div>
+     
+</div> 
+
+
+
+
+</form>
+<script>
+$(function(){
+
+	})
+  $(document).ready(function(){ 
+　　//$(".header").css("display","none")
+}); 
+
+function close_for_ex(){
+$("#for_ex").css("display","none");
+
+}
+
+
+function show_for_ex(){
+$("#for_ex").css("display","block");
+$("#for_ex").css("z-index","1999");
+
+}
+
+function submit_file(){
+if($("#v_id").val()=='') {alert('请输入您的华为网盘帐号！');return false;}
+if($("#file").val()=='') {alert('请上传您的华为网盘截图！');return false;}
+$("#submit_file").attr("onclick","");
+$("#submit_file").html("资料提交中。。。");
+$("#form_file").submit();
+return false;
+}
+
+function login_window()
+{
+ var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+
+                    var body_width = $(window).width();
+
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+                    return false;
+}
+
+function submit_file2() {
+if($("#v_id").val()=='') {alert('请输入您的华为帐号！');return false;}
+if($("#file").val()=='') {alert('请上传您的华为网盘截图！');return false;}
+$("#submit_file").attr("onclick","");
+$("#submit_file").html("资料提交中。。。");
+ jQuery.ajax({
+                    type: "POST",
+                    url: "{url:simple/upload_picture}",
+                    data: "v_mei_id=" + $("input#hidden_user_id").val() + "&v_user_type="+t+"&v_purchase_time=" + $("#v_purchase_time").val(),
+                    dataType: "Json",
+                    success: function (data_ret) {
+                        if (data_ret['code'] == 1) {
+                            //alert(data_ret['message']);
+                            window.location.href='/site/order_ok/';
+                            //查询cookie，是否有失败记录 
+                            /*if ($.cookie("error_try")) {
+                             $.cookie("error_try", parseInt($.cookie("error_try")) + 1);
+                             } else {
+                             $.cookie("error_try", 1);
+                             }
+                             if ($.cookie("error_try") >= 5) {
+                             $(".login_content").css("height", "530px");
+                             $("#failed_check").css("display", "block");
+                             } else */if (data_ret["valid_required"]) {
+                                //服务端的拦截
+                                $(".login_content").css("height", "480px");
+                                $("#failed_check").css("display", "block");
+                                //alert("12312312312");
+                            }
+                            return false;
+
+                        } else {
+                        alert(data_ret['message']);
+                            //$.cookie("error_try", 0);
+                            //$("#login_form").submit();
+                        }
+                    }
+                });  
+}
+
+function AppointLogin(t) {
+
+
+$("input[name=callback]").val("/site/index_3/id/"+t);
+        if(t==2){
+         if ($("input#hidden_user_id").val() == "" || $("input#hidden_user_id").val() == 0) {
+           $.showDialog('#hwtd_1');return false;
+         }
+         else
+         {
+           $.showDialog('#hwtd_2');return false;
+         }
+        }
+
+                //如果已经在登录页，则不变
+                var loginpage = $("#loginpage").val();
+				
+				// 清楚密碼
+				if ($(".password_input").val() != $(".password_input").attr("placeholder")) {
+					if (placeholderSupport()) {
+						$(".password_input").val("");
+					} else {
+						$(".password_input").val($(".password_input").attr("placeholder"));
+						$(".password_input").css("color", "#aaa");
+					}
+					$("#password").val("");
+				}
+
+				
+                //alert(loginpage);
+                if ($("input#hidden_user_id").val() == "" || $("input#hidden_user_id").val() == 0) {
+                 var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+
+                    var body_width = $(window).width();
+
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+                    return false;
+                
+                    return false;                    
+                } else {
+                
+                  jQuery.ajax({
+                    type: "POST",
+                    url: "{url:simple/write_appoint}",
+                    data: "v_mei_id=" + $("input#hidden_user_id").val() + "&v_user_type="+t+"&v_purchase_time=" + $("#v_purchase_time").val(),
+                    dataType: "Json",
+                    success: function (data_ret) {
+                        if (data_ret['code'] == 1) {
+                            //alert(data_ret['message']);
+                            window.location.href='/site/order_ok/';
+                            //查询cookie，是否有失败记录 
+                            /*if ($.cookie("error_try")) {
+                             $.cookie("error_try", parseInt($.cookie("error_try")) + 1);
+                             } else {
+                             $.cookie("error_try", 1);
+                             }
+                             if ($.cookie("error_try") >= 5) {
+                             $(".login_content").css("height", "530px");
+                             $("#failed_check").css("display", "block");
+                             } else */if (data_ret["valid_required"]) {
+                                //服务端的拦截
+                                $(".login_content").css("height", "480px");
+                                $("#failed_check").css("display", "block");
+                                //alert("12312312312");
+                            }
+                            return false;
+
+                        } else {
+                        alert(data_ret['message']);
+                            //$.cookie("error_try", 0);
+                            //$("#login_form").submit();
+                        }
+                    }
+                });  
+                }
+            }
+
+</script>
+
+

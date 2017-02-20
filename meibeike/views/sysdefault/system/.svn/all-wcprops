@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/YunBangI/!svn/ver/10234/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system
+END
+conf_base.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/conf_base.html
+END
+conf_ui.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/conf_ui.html
+END
+payment_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/payment_edit.html
+END
+right_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/right_edit.html
+END
+freight_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/freight_list.html
+END
+delivery.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/delivery.html
+END
+admin_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/admin_list.html
+END
+right_recycle.html
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/right_recycle.html
+END
+default.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/default.html
+END
+oauth_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/oauth_edit.html
+END
+delivery_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/delivery_edit.html
+END
+delivery_recycle.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/delivery_recycle.html
+END
+role_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/role_list.html
+END
+freight_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/freight_edit.html
+END
+admin_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/admin_edit.html
+END
+freight_recycle.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/freight_recycle.html
+END
+admin_recycle.html
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/admin_recycle.html
+END
+navigation.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/navigation.html
+END
+area_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/area_list.html
+END
+navigation_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/navigation_edit.html
+END
+order_overdue.html
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/YunBangI/!svn/ver/10234/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/order_overdue.html
+END
+navigation_recycle.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/navigation_recycle.html
+END
+role_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/role_edit.html
+END
+role_recycle.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/role_recycle.html
+END
+payment_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/payment_list.html
+END
+right_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/right_list.html
+END
+conf_skin.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/conf_skin.html
+END
+oauth_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/YunBangI/!svn/ver/9561/Code/MeiWeb/meimbeike/meibeike/views/sysdefault/system/oauth_list.html
+END

@@ -1,0 +1,26 @@
+<section>
+	<div class="pending-detial">
+		<h2>账户余额：￥<strong>{$this->memberRow['balance']}</strong></h2>
+
+		{set:$page= (isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}
+		{set:$user_id = $this->user['user_id']}
+		{query:name=account_log where=user_id eq $user_id page=$page order=id desc}
+		<ul class="block-row">
+			<li>
+				<p class="head">事件：</p>
+				<p class="sum">{$item['note']}</p>
+			</li>
+			<li>
+				<p class="head">金额：</p>
+				<p class="sum">{$item['amount']}</p>
+			</li>
+			<li>
+				<p class="head">时间：</p>
+				<p class="sum">{$item['time']}</p>
+			</li>
+		</ul>
+		{/query}
+
+		{$query->getPageBar()}
+	</div>
+</section>

@@ -1,0 +1,299 @@
+
+.container {
+	border-bottom: solid 10px #f1f1f1
+}
+.imgblock {
+	position: relative
+}
+
+.imgblock .imgwrapper {
+	position: relative;
+	overflow: hidden;
+	visibility: hidden
+}
+
+.imgblock .imglist {
+	position: relative;
+	overflow: hidden;
+	height: 240px
+}
+
+@media(width:320px) {
+	.imgblock .imglist {
+		height: 240px
+	}
+}
+
+@media(width:375px) {
+	.imgblock .imglist {
+		height: 281px
+	}
+}
+
+@media(width:375px) {
+	.imgblock .imglist {
+		height: 281px
+	}
+}
+
+@media(width:414px) {
+	.imgblock .imglist {
+		height: 310px
+	}
+}
+
+.imgblock li {
+	float: left;
+	position: relative;
+	width: 100%;
+	background: #fff;
+	overflow: hidden
+}
+
+.imgblock li img {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	height: 100%
+}
+
+.imgblock .pintro {
+	position: absolute;
+	display: -webkit-box;
+	font-size: 1.2rem;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	color: #fff;
+	bottom: 5px;
+	-webkit-box-pack: center;
+	-webkit-box-align: center
+}
+
+.imgblock .pnav li {
+	margin: 0 4px;
+	height: 6px;
+	width: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	background: rgba(222, 223, 224, 0.6)
+}
+
+.imgblock .pnav .focus {
+	background: #ff0000
+}
+
+.imgblock .picon {
+	display: inline-block;
+	margin: -2px 6px 0 0;
+	width: 14px;
+	height: 11px;
+	background-position: -180px -20px;
+	vertical-align: middle
+}
+
+.imgblock .collect {
+	position: absolute;
+	left: 15px;
+	bottom: 0;
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	height: 30px;
+	width: 35px;
+	background: rgba(0, 0, 0, 0.6);
+	-webkit-border-radius: 4px;
+	border-radius: 4px
+}
+
+.imgblock .collect i {
+	display: block;
+	height: 20px;
+	width: 20px;
+	background-position: -80px -20px
+}
+
+.imgblock .collect:active {
+	background: rgba(0, 0, 0, 0.8)
+}
+
+.imgblock .collect:active i {
+	background-position: -100px -20px
+}
+
+.imgblock .collected i {
+	background-position: -120px -20px
+}
+
+.pro-title {
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	font-size: 1.5rem;
+	line-height: 24px;
+	color: #000;
+	background: #fff;
+	padding: 15px 0 15px 10px
+}
+
+.seoCrumb {
+	height: 40px;
+	line-height: 40px;
+	padding: 0 14px;
+	font-size: 1.2rem;
+	color: #666;
+	background-color: transparent!important
+}
+
+.seoCrumb a {
+	color: #666
+}
+.picpopu {
+	display: none;
+	z-index: 1000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	color: #989898;
+	-webkit-box-pack: center;
+	-webkit-box-align: center
+}
+
+.picpopu .iwrapper {
+	position: absolute;
+	left: 0;
+	top: 10%;
+	width: 100%;
+	height: 30px
+}
+
+.picpopu .iscroll {
+	height: 30px
+}
+
+.picpopu .iscroll a {
+	float: left;
+	color: #999;
+	padding: 5px 8px;
+	margin: 0 0 0 8px
+}
+
+.picpopu .iscroll div:last-child {
+	margin-right: 8px
+}
+
+.picpopu .iscroll .active {
+	background: #666;
+	color: #fff;
+	border-radius: 4px;
+	-webkit-border-radius: 4px
+}
+.swipe-img {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+	width: 100%
+}
+.swipe-wrap-img,
+.swipe-wrap-label {
+	width: 100%;
+	overflow: hidden;
+	position: relative
+}
+
+.swipe-wrap-img figure {
+	float: left;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 270px;
+	position: relative;
+	display: -webkit-box;
+	-webkit-box-pack: center
+}
+
+.swipe-wrap-img img {
+	width: 100%;
+	height: 270px
+}
+
+.swipe-wrap-img span {
+	display: -webkit-box;
+	line-height: 1.8rem;
+	padding: 0 10px;
+	margin: 10px 0 0 0;
+	height: 36px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical
+}
+.pichead {
+	position: absolute;
+	height: 64px;
+	font-size: 1.6rem;
+	width: 100%;
+	top: 0;
+	left: 0;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center
+}
+.p_close {
+	left: 15px;
+	width: 38px;
+	height: 38px
+}
+
+.p_close:after {
+	content: '';
+	display: block;
+	width: 15px;
+	height: 15px;
+	border-left: solid 2px #fff;
+	border-bottom: solid 2px #fff;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	margin: 10px 0 0 14px
+}
+.p_close,
+.p_phone {
+	display: block;
+	position: absolute;
+	top: 14px;
+	background: #191919;
+	border: solid 1px #262626;
+	border-radius: 3px
+}
+
+.p_close {
+	left: 15px;
+	width: 38px;
+	height: 38px
+}
+
+.p_close:after {
+	content: '';
+	display: block;
+	width: 15px;
+	height: 15px;
+	border-left: solid 2px #fff;
+	border-bottom: solid 2px #fff;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	margin: 10px 0 0 14px
+}
+
+
+
+
+
+
+
+
+

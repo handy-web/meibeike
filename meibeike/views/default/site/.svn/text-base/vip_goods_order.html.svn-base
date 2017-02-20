@@ -1,0 +1,101 @@
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/K_public.css" />
+<link rel="stylesheet" type="text/css" href="/views/default/skin/default/images/act/css/activity.css" />
+
+
+<div class="contbox layout">
+<h2 class="title">VIP免抢购预约<br><em>恭喜！您还在今日前10名</em></h2>
+
+
+<ul>
+<li  id="good3" onclick="checkgood(3)">
+<div>
+<h2>云棒银组合</h2>
+<p>(母棒+50GB存储棒)</p>
+<img src="{skin:images/act/images/productb.png}">
+<h3>￥999元</h3>
+</div>
+</li>
+</ul>
+
+<h3 class="title3" style="display:none">您已经选择：￥999云棒银组合，<b>同时获赠20GB存储棒</b></h3>
+<a href="#" class='pay' onclick="paynow()">立即支付</a>
+</div>
+
+<input type="hidden" id="v_goodid" value="14"/>
+
+
+
+
+<script>
+$(function(){
+	
+	$('.top dl').mouseover(function(){
+		$(this).addClass('on');
+		$(this).find('dd').slideDown(150);
+	});
+    $('.top dl').mouseleave(function(){
+		$(this).removeClass('on');
+		$(this).find('dd').stop().slideUp(150);
+	});
+
+	})
+</script>
+
+
+
+<script>
+
+function checkgood(t){
+	if(t==3) {
+		$("#good3").addClass("on");
+		$("#v_goodid").val("14");
+		$(".title3").css("display","block");
+	}
+}
+function paynow()
+{
+   window.location.href="/site/products_new/id/"+$("#v_goodid").val();
+}
+
+
+$(function(){
+
+	})
+  $(document).ready(function(){ 
+　　//$(".header").css("display","none")
+}); 
+
+ $("#Appoint").click(function () {
+                //如果已经在登录页，则不变
+                var loginpage = $("#loginpage").val();
+				
+				// 清楚密碼
+				if ($(".password_input").val() != $(".password_input").attr("placeholder")) {
+					if (placeholderSupport()) {
+						$(".password_input").val("");
+					} else {
+						$(".password_input").val($(".password_input").attr("placeholder"));
+						$(".password_input").css("color", "#aaa");
+					}
+					$("#password").val("");
+				}				
+                //alert(loginpage);
+                if (loginpage == 'php') {
+                    return false;
+                } else {
+                    var pagesize = getPageSize();
+                    //$("body").eq(0).css("overflow", "hidden");
+                    $(".login_table").height(pagesize[1]);
+                    $(".login_table").css("display", "block");
+                    $(".login_content").css("display", "block");
+
+                    var body_width = $(window).width();
+
+                    $(".login_content").css("left", (body_width - 380) / 2 + "px");
+                    return false;
+                }
+            });
+
+</script>
+
+

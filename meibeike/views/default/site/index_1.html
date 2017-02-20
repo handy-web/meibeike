@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/views/default/javascript/swiper2/idangerous.swiper.css">
+<style>
+  .middle_wrapper_banner {margin:0 auto; padding: 0; width: 100%; max-width: 1920px; min-width: 1250px;height: 700px;}
+  .middle_wrapper_banner .swiper-container {width: 100%; height: 100%; position: relative;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide{position:relative;overflow: hidden; background: url("/views/default/skin/default/banner/01.jpg") top center no-repeat;}
+
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s2{ background-image: url("/views/default/skin/default/banner/02.jpg");}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s3{ background-image: url("/views/default/skin/default/banner/03.jpg");}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s4{ background-image: url("/views/default/skin/default/banner/04.jpg");}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s5{ background-image: url("/views/default/skin/default/banner/05.jpg");}
+
+  
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide .ss-content{width:1200px;height:100px;margin:0 auto;}
+ 
+ .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s1 .ss-content div {margin-left:180px;margin-top:330px;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s1 .ss-content div a {border: 0px solid #ccc;width: 164px;height: 58px;display: block;float: left;margin-left:10px;}
+
+ .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s2 .ss-content div {margin-left:25px;margin-top:456px;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s2 .ss-content div a {border: 0px solid #ccc;width: 164px;height: 58px;display: block;float: left;margin-left:10px;}
+
+ .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s3 .ss-content div {margin-left:28px;margin-top:360px;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s3 .ss-content div a {border: 0px solid #ccc;width: 164px;height: 58px;display: block;float: left;margin-left:10px;}
+
+ .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s4 .ss-content div {margin-left:302px;margin-top:296px;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s4 .ss-content div a {border: 0px solid #ccc;width: 164px;height: 58px;display: block;float: left;margin-left:10px;}
+
+ .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s5 .ss-content div {margin-left:30px;margin-top:406px;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s5 .ss-content div a {border: 0px solid #ccc;width: 164px;height: 58px;display: block;float: left;margin-left:10px;}
+
+
+  .middle_wrapper_banner .swiper-container .swiper-pagination{position: absolute; bottom: 10px; left: 0; text-align: center; width: 100%; height: 15px; line-height: 15px;}
+  .middle_wrapper_banner .swiper-container .swiper-pagination .swiper-pagination-switch{display: inline-block;  width: 10px; height: 10px; border-radius: 50%; background-color: #999; margin: 0 5px; cursor: pointer; vertical-align: middle;}
+  .middle_wrapper_banner .swiper-container .swiper-pagination .swiper-active-switch{background-color: transparent; border:1px solid #e60012;}
+
+
+.index_nav {width:1130px;margin:0 auto;height:300px;}
+  .index_nav div {width:376px;float:left;height:300px;text-align:center;}
+</style>
+<div class="middle_wrapper_banner">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide s1" data-hash="slide1">
+        <div class="ss-content">
+          <div><a href="http://www.meibeike.com/site/index_3/" target="_blank" class="btn to-buying"></a><a href="http://www.meibeike.com/site/overview/id/2" target="_blank" class="btn to-detail"></a></div>
+        </div>
+      </div>
+      <div class="swiper-slide s2">
+        <div class="ss-content">
+         <div><a href="http://www.meibeike.com/site/index_3/" target="_blank" class="btn to-buying"></a><a href="http://www.meibeike.com/site/overview/id/2" target="_blank" class="btn to-detail"></a></div>
+        </div>
+      </div>
+      <div class="swiper-slide s3">
+        <div class="ss-content">
+         <div><a href="http://www.meibeike.com/site/index_3/" target="_blank" class="btn to-buying"></a><a href="http://www.meibeike.com/site/overview/id/2" target="_blank" class="btn to-detail"></a></div>
+        </div>
+      </div>  
+
+      <div class="swiper-slide s4">
+        <div class="ss-content">
+         <div><a href="http://www.meibeike.com/site/index_3/" target="_blank" class="btn to-buying"></a><a href="http://www.meibeike.com/site/overview/id/2" target="_blank" class="btn to-detail"></a></div>
+        </div>
+      </div>
+
+
+      <div class="swiper-slide s5">
+        <div class="ss-content">
+		<div><a href="http://www.meibeike.com/site/index_3/" target="_blank" class="btn to-buying"></a><a href="http://www.meibeike.com/site/overview/id/2" target="_blank" class="btn to-detail"></a></div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<!--<script src="js/swiper.min.js"></script>-->
+<script src="/views/default/javascript/swiper2/idangerous.swiper.min.js"></script>
+<script>
+ new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    speed: 300,
+    autoplay: 5000,
+    loop:true,
+    spaceBetween: 0,
+    simulateTouch:false
+    //autoplay: 3000,
+    //nextButton: '.swiper-button-next',
+    //prevButton: '.swiper-button-prev',
+    //,hashnav: true
+  });
+</script>

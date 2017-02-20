@@ -1,0 +1,269 @@
+<script src="{theme:javascript/jquery-1.7.2.min.js}"></script>
+<script src="{theme:javascript/jquery.mousewheel.js}"></script>
+<script src="{theme:javascript/jquery.quanpin.scroll/quanpin.scroll.js}"></script>
+<link rel="stylesheet" href="{skin:css/jquery.quanpin.css}" />
+
+<style type="text/css">
+	.num {color: rgb(70, 70, 70);}
+	a {text-decoration: none; color: rgb(110, 160, 236); }
+        
+        .gray_b {background-color:#F3F3F3;}
+
+	.style_1 { width: 100%; }
+	.style_1 .content {width: 1200px; height: 100%; margin: 0 auto;}
+	.style_1 .content .left {float: left; width: 500px; margin-left: 200px;}
+	.style_1 .content .left .layer_1 { float: left; width: 100%; margin-top: 150px;  text-align: left; height: 50px; line-height: 50px; font-size: 40px;}
+	.style_1 .content .left .layer_2 { float: left; width: 100%; margin-top: 100px;  font-weight: lighter;text-align: left; height: 35px; line-height: 35px; font-size: 20px; color:#898989;}
+	.style_1 .content .right {float: left; width: 400px; margin-top: 140px;}
+	.style_1 .content .right img {margin: 0 auto;}
+	
+	.style_2 { width: 100%; }
+	.style_2 .content {width: 1200px; height: 100%; margin: 0 auto;}
+	.style_2 .content .left {float: left; width: 400px; margin-left: 100px; margin-top: 150px;}
+	.style_2 .content .left img {margin: 0 auto;}
+	.style_2 .content .right {float: left; width: 500px; margin-left: 120px;}
+	.style_2 .content .right .layer_1 { float: left; width: 100%; margin-top: 150px;  text-align: left; height: 50px; line-height: 50px; font-size: 40px;}
+	.style_2 .content .right .layer_2 { float: left; width: 100%; margin-top: 50px;  font-weight: lighter;text-align: left; height: 35px; line-height: 35px; font-size: 20px; color:#898989;}
+        .style_2 .content .right .layer_4 { float: left; width: 400px; margin-left: 10px; margin-top: 100px; text-align: left; height: 40px; font-size: 20px;}
+	
+	
+	.style_3 { width: 100%; }
+	.style_3 .content {width: 1200px; height: 100%; margin: 0 auto;}
+	.style_3 .content .layer_1 { float: left; width: 100%; margin-top: 80px;  text-align: center; height: 50px; line-height: 50px; font-size: 44px;}
+	.style_3 .content .layer_2 { float: left; width: 100%; margin-top: 30px;  font-weight: lighter;text-align: center; height: 35px; line-height: 35px; font-size: 20px; color:#898989;}
+	.style_3 .content .layer_3 {float: left; width: 100%; margin-top: 200px;}
+	.style_3 .content .layer_3 img {margin: 0 auto;}
+
+</style>
+
+<input type="hidden" value=1 id="is_top_show"/>
+<input type="hidden" value=0 id="is_bottom_show"/>
+<input type="hidden" value="0" class="cur_disappear"/>
+<input type="hidden" value="0" class="is_in_scroll"/>
+
+<div class="num_box" >
+	<div class="num style_1" id="num_0">
+            {set:$pics_0=JSON::decode($attrbutes[0]["value"])}
+		<div class="content">
+			<div class="left">
+				<div class="layer_1">{$attrbutes[0]["name"]}</div>
+                                <div class="layer_2">{$attrbutes[0]["content"]}</div>
+			</div>
+			<div class="right">
+				<img class="my_img" src="{webroot:$pics_0[0]}">
+			</div>
+		</div>
+	</div>
+	<div class="num style_2 gray_b" id="num_1">
+            {set:$pics_1=JSON::decode($attrbutes[1]["value"])}
+		<div class="content">
+			<div class="left" style="margin-left: 10px;width:500px;">
+				<img class="my_img" src="{webroot:$pics_1[0]}">
+			</div>
+			<div class="right">
+				<div class="layer_1">{$attrbutes[1]["name"]}</div>
+                                <div class="layer_2">{$attrbutes[1]["content"]}</div>
+			</div>
+		</div>
+	</div>
+	<div class="num style_3" id="num_2">
+            {set:$pics_2=JSON::decode($attrbutes[2]["value"])}
+		<div class="content">
+				<div class="layer_1">{$attrbutes[2]["name"]}</div>
+                                <div class="layer_2">{$attrbutes[2]["content"]}</div>
+				<div class="layer_3">
+					<img class="my_img" src="{webroot:$pics_2[0]}">
+				</div>
+		</div>
+	</div>
+	<div class="num style_3 gray_b" id="num_0">
+            {set:$pics_3=JSON::decode($attrbutes[3]["value"])}
+		<div class="content">
+				<div class="layer_1" style="margin-top: 30px;">{$attrbutes[3]["name"]}</div>
+                                <div class="layer_2" style="margin-top: 10px;">{$attrbutes[3]["content"]}</div>
+				<div class="layer_3" style="margin-top: 100px;">
+<!--					<img class="my_img" style="width: 100%" src="{webroot:$pics_3[0]}">-->
+					<img id="floatimg" class="my_img" style="width: 100%" src="{skin:images/front/t22.png}">	
+					<div id="floatborder" style="position: absolute; display: block; opacity:.3; background-color: black;"></div>
+					<div id="word_left" style="position: absolute; display: none; width: 100px; height: 22px; background: url({skin:images/front/1080p.png});"></div>
+					<div id="word_right" style="position: absolute; display: none; width: 120px; height: 22px; background: url({skin:images/front/4K.png});"></div>
+				</div>
+		</div>
+	</div>
+	<div class="num style_3" id="num_4">
+            {set:$pics_4=JSON::decode($attrbutes[4]["value"])}
+		<div class="content">
+				<!--div class="layer_1">{$attrbutes[4]["name"]}</div>
+                                <div class="layer_2">{$attrbutes[4]["content"]}</div-->
+				<div class="layer_3" style="margin-top: 0px; margin-bottom: 50px;">
+					<img src="{webroot:$pics_4[0]}">
+				</div>
+		</div>
+	</div>
+	<div class="num style_2 gray_b" id="num_5">
+            {set:$pics_5=JSON::decode($attrbutes[5]["value"])}
+		<div class="content">
+			<div class="left">
+				<img class="my_img" src="{webroot:$pics_5[0]}">
+			</div>
+			<div class="right">
+				<div class="layer_1">{$attrbutes[5]["name"]}</div>
+                                <div class="layer_2">{$attrbutes[5]["content"]}</div>
+			</div>
+		</div>
+	</div>
+	<div class="num style_1" id="num_6">
+            {set:$pics_6=JSON::decode($attrbutes[6]["value"])}
+		<div class="content">
+			<div class="left">
+				<div class="layer_1">{$attrbutes[6]["name"]}</div>
+                                <div class="layer_2">{$attrbutes[6]["content"]}</div>
+			</div>
+			<div class="right">
+				<img class="my_img" src="{webroot:$pics_6[0]}">
+			</div>
+		</div>
+	</div>
+	<div class="num style_2 gray_b" id="num_7">
+            {set:$pics_7=JSON::decode($attrbutes[7]["value"])}
+		<div class="content"  style="margin-top:110px;">
+			<div class="layer_3" >
+				<img class="my_img" src="{webroot:$pics_7[0]}">
+			</div>
+		</div>
+	</div>
+	<div class="num style_1" id="num_8">
+            {set:$pics_8=JSON::decode($attrbutes[8]["value"])}
+		<div class="content" style="margin-top:110px;margin-left: 90px;">
+			<div class="layer_3" >
+				<img class="my_img" src="{webroot:$pics_8[0]}">
+			</div>
+		</div>
+	</div>
+    <div class="num style_2 gray_b" id="num_9">
+            {set:$pics_9=JSON::decode($attrbutes[9]["value"])}
+		<div class="content">
+			<div class="left">
+				<img class="my_img" src="{webroot:$pics_9[0]}">
+			</div>
+			<div class="right">
+				<div class="layer_2" style="margin-top: 80px;">{$attrbutes[9]["name"]}</div>
+                                <div class="layer_1" style="margin-top: 90px;">{$attrbutes[9]["content"]}</div>
+                                <div class="layer_4"><a href="{url:site/parameter}">进一步了解 ></a></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	function animate_appear_img() {
+		var winheight = $("body").eq(0).height();
+		//if (navigator.userAgent.indexOf("Firefox") >= 0)
+			winheight = $(window).height();
+		
+		var rateExtra = 1.0;
+		if (winheight < 750) {
+			rateExtra = winheight / 750;
+		}
+		
+		$("#word_left").css("display", "none");
+		$("#word_right").css("display", "none");
+
+		// 获取图片的left top width height
+		var img = $("#floatimg");
+		var width = img.width();
+		var rate = width / 1600;
+		var height = parseInt(649 * rate);
+		var left = img.position().left
+		var top = img.position().top
+		
+		img.css("height", height)
+
+		// 设置整体浮动框的信息
+		var div = $("#floatborder");
+		div.css("left", left);
+		div.css("top", top);
+		div.css("width", width);
+		div.css("height", height);
+
+		// 设置文字的信息
+		$("#word_left").css("left", left + 480);
+		$("#word_left").css("top", top + height - 200);
+		$("#word_right").css("left", left + 620);
+		$("#word_right").css("top", top + height - 200);
+
+		// 定时器操作
+		var min_width = 600;
+		var interval = 5;
+		var timerid = 0;
+		timerid = setInterval(function() {
+			var div_c = $("#floatborder");
+			var width_c = div_c.width();
+			if (width_c <= min_width) {
+				clearInterval(timerid);
+				$("#word_left").css("display", "block");
+				$("#word_right").css("display", "block");
+			} else {
+				width_c = width_c - interval;
+				div_c.css("width", width_c);
+			}
+		}, 50);
+	}
+	
+	function animate_disappear_img() {
+		
+	}
+
+	$().ready(function() {
+		
+	});
+	// direction 0向下 1向上
+	function onEnter(index, direction) {
+		if (index == 3) {
+			animate_appear_img();
+		}
+	}
+	
+	function onExit(index, direction) {
+		
+	}
+	
+	function onResizeWin(index, win_height) {
+		
+	}
+	
+	//$().ready(function() {
+            //图片大小自适应代码
+	function imgAdjust() {
+		var height = $("body").eq(0).height();
+		//if (navigator.userAgent.indexOf("Firefox") >= 0)
+			height = $(window).height();
+		var my_height;
+		$(".my_img").each(function(){
+			var cls_str = $(this).parents("div.num").attr("class");
+			if(cls_str.indexOf("style_1")>0 || cls_str.indexOf("style_2")>0){
+				//右边的
+				my_height = height - 150;//margin-top: 130px;
+
+			}else if(cls_str.indexOf("style_3")>0){
+				my_height = height - 210;  
+				$(this).parent("div").prevAll("div").each(function(){
+					my_height = my_height - $(this).height();
+				});
+			}
+			//获取原图大小
+			var img = $(this);
+			var theImage = new Image();
+			theImage.src = img.attr("src");
+			if (my_height < theImage.height){
+				$(this).css("height",my_height+"px");
+			}
+		});
+	}
+	window.onload = function() { 
+		imgAdjust();
+	}; 
+	//});
+	
+</script>

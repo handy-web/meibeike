@@ -1,0 +1,100 @@
+{set:$item = $this->order_info;}
+{set:$orderStatus = Order_Class::getOrderStatus($item)}
+<div class="state-tol">
+			<div class="state-zoom">
+				<p>订单状态：{echo:Order_Class::orderStatusText($orderStatus)}</p>
+				<p>订单编号：{$item['order_no']}</p>
+			</div>
+		</div>
+		
+		<div class="state-bom">
+			<a>
+				<div class="state-bom-p">
+					<div class="state-kd"><img src="/views/default/wap/mobile/version/img/app-kd.png"/></div>					
+					<div class="state-qs">
+						<!--<p>快件正常签收， 签收人是：李晓明</p>-->
+						{set:$orderStep = Order_Class::orderStep($item)}
+						{foreach:items=$orderStep item=$stepData key=$eventTime}
+						<p>{$stepData}：{$eventTime}</p>
+						{/foreach}
+					</div>
+					<div class="state-rig"><i></i></div>
+				</div>
+			</a>
+		</div>
+		
+		<div class="state-box">
+			<div class="state-box-cen">
+				<div class="state-addr"><img src="/views/default/wap/mobile/version/img/app-addr.png"/></div>
+				<div class="state-addr-p">
+					<p>收货人：<span>{$item['accept_name']}</span></p>
+					<p>联系人电话：<span>{$item['mobile']}</span></p>
+					<p>收货地址：<span>{$this->area[$item['province']]} {$this->area[$item['city']]} {$this->area[$item['area']]} {$item['address']}</span></p>
+				</div>
+			</div>
+		</div>
+	
+		<div class="state-list">
+			{set:$order_id=$item['id']}
+            {query:name=order_goods as og join=left join goods as go on og.goods_id eq go.id where=order_id eq $order_id field=og.*,go.point item=$good}
+            {set:$good_info = JSON::decode($good['goods_array'])}
+            {set:$totalWeight = $good['goods_nums'] * $good['goods_weight']}
+			<div class="state-list-l">
+				<div class="state-lim">
+					<div class="state-cp"><img src="/{$good['img']}"/> </div>
+					<div class="state-w">
+						<p>{$good_info['name']}</p>
+						<div class="state-w-r">
+							<span>&#65509;{$good['goods_price']}</span><span>x{$good['goods_nums']}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			{/query}
+		</div>
+		
+		<div class="state-tab">
+			<ul class="state-ul"> 
+				<li><p>配送方式：<span>公司包邮</span></p></li>
+				<li>{if:$item['invoice']==1}
+					<p>发票：<span>{$item['invoice_title']}</span></p>
+					{else:}<p>发票：无</p>
+					{/if}
+				</li>
+				<li>{if:!empty($item['postscript'])}<p>备注：<span>{$item['postscript']}</span></p>
+					{else:}<p>备注：无</p>
+					{/if}
+				</li>
+				<!--  <li><p>F码：<span>F码已经使用</span></p></li>-->
+			</ul> 
+		</div>
+		<div class="state-tom">
+			<div class="state-tb">
+				<p>商品价格：<span>&#65509;{$item['real_amount']}</span></p>
+				<p>现金劵抵扣：<span>&#65509;{$item['promotions']}</span></p>
+				<p>运费：<span>&#65509;{$item['real_freight']}</span></p>
+				<p>应付总额：<span>&#65509;{$item['order_amount']}</span></p>
+			</div>
+		</div>
+		
+		<div class="state-foter">
+			<div class="state-foot">
+				<div class="state-line">
+					{if:in_array($orderStatus,array(1,2))}	
+						<div class="state-line-l"><input onclick = "window.location.href='{url:/wap/order_status/order_id/$item[id]/op/cancel}'" type="submit" value="取消订单" /></div>	
+					{/if}
+					{if:$orderStatus == 2}
+						<div class="state-line-r"><input onclick="window.location.href='{url:/wap/doPay/order_id/$item[id]}'" type="submit" value="现在付款" /> </div>
+					{/if}
+					{if:$item['status'] == '3'}
+						<div class="state-line-r"><input onclick="window.location.href='{url:/wap/delete_order/order_id/$item[id]}'" type="submit" value="删除订单" /> </div>
+					{/if}
+					{if:$orderStatus == 3}
+						<div class="state-line-r"><input onclick="exdelievey()" type="submit" value="删除订单" /> </div>
+					{/if}
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

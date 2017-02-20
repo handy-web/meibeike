@@ -1,0 +1,190 @@
+<style type="text/css">
+    .modify_wrapper {float: left; width: 100%; height: 600px; background-color: rgb(204, 204, 204); padding-bottom: 30px;}	
+    .modify_wrapper .modify_content {width: 1200px; height: auto; margin: 0 auto;}
+
+    .modify_wrapper .modify_content .modify_info { position: relative; display: block; height: 330px; width: 440px; margin-left: 380px; margin-top: 80px; border-radius: 15px;}
+    .modify_wrapper .modify_content .modify_info .content {float: left; width: 100%; height: 100%; border-radius: 15px; border: 1px solid rgb(217, 217, 217); background-color: #FFF;}
+    .modify_wrapper .modify_content .modify_info .content .ac_header {float: left; width: 100%; height: 60px; line-height: 60px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom: 1px solid rgb(217, 217, 217); background-color: rgb(252, 252, 252);}
+    .modify_wrapper .modify_content .modify_info  .content .ac_header label {margin-left: 30px; font-size: 20px;}
+
+    .modify_wrapper .modify_content .modify_info  .content .ac_body {float: left; width: 100%; padding: 0;  padding-top: 30px; }
+
+    .modify_wrapper .modify_content .modify_info  .content .ac_body span.line {margin: 0; float: left; width: 350px; height: 40px; padding-bottom: 20px; font-size: 18px; border: 0px;}
+    .modify_wrapper .modify_content .modify_info  .content .ac_body span.line input.i_raido {float: left; margin-left: 40px; width: 20px; height: 20px; }
+    .modify_wrapper .modify_content .modify_info  .content .ac_body span.line label {float: left; margin-left: 10px;}
+
+    .modify_wrapper .modify_content .modify_info  .content .ac_body input.submit_button{float: left; cursor: pointer; width: 370px; height: 50px; line-height: 50px;
+                                                                                        padding-left: 15px; margin-left: 30px; margin-top: 15px; border-radius: 10px; border: 1px solid rgb(188, 188, 188);background-color: rgb(252, 62, 57); color: #FFF; font-size: 20px;;}
+    a.submit_button {float: left; cursor: pointer; width: 370px; height: 50px; line-height: 50px; text-decoration: none;
+                      margin-left: 30px; margin-top: 15px; border-radius: 10px; border: 1px solid rgb(188, 188, 188);background-color: rgb(252, 62, 57); color: #FFF; font-size: 20px;;}
+    .modify_wrapper .modify_content .modify_info  .content .ac_body input {outline: none;}
+
+    .modify_wrapper .modify_content .modify_info  .content .ac_body input.verify {float: left; width: 370px; height: 50px; line-height: 50px;
+                                                                                  padding-left: 15px; margin-left: 30px;  border-radius: 10px; border: 1px solid rgb(188, 188, 188); font-size: 18px;	}
+    .modify_wrapper .modify_content .modify_info  .content .ac_body input.send_code {float: left; width: 110px; height: 50px; line-height: 50px;
+                                                                                     margin-left: 10px;  border-radius: 10px; border: 1px solid rgb(188, 188, 188); font-size: 18px; background-color: rgb(240, 240, 240); cursor: pointer;	}
+    .modify_wrapper .modify_content .modify_info  .content .ac_body input.resend {float: left; width: 370px; height: 50px; line-height: 50px;
+                                                                                  margin-left: 30px; margin-top: 20px;  border-radius: 10px; border: 1px solid rgb(188, 188, 188); font-size: 18px; background-color: rgb(240, 240, 240); cursor: pointer;	}
+    </style>
+    <input type="hidden" class="dont_show_account_manager" value="1"/>
+
+<div class="modify_wrapper">
+    <div class="modify_content">
+        <div class="modify_info">
+            <div class="content" id="first_step" style="display: block">
+                <div class="ac_header"><label >安全验证</label></div>
+                <input type='hidden' id='ctarget' value='{echo: $_GET["ctarget"]}' />
+                <input type="hidden" id="ifmobile" value="{echo: ISafe::get('mobile')}" />
+                <input type="hidden" id="ifemail" value="{echo: ISafe::get('email')}" />
+                <input type="hidden" id="ifactive" value="{echo: ISafe::get('active')}" />
+                <div class="ac_body">
+                    <span class="line">
+                        <input type="radio" class="i_raido" id="by_phone" name="verify_safe" value="0"/>&nbsp;<label for="by_phone">通过手机短信验证身份</label>
+                    </span>
+                    <span class="line">
+                        <input type="radio" class="i_raido" id="by_mail" name="verify_safe" value="1"/>&nbsp;<label for="by_mail">通过邮箱验证身份</label>
+                    </span>
+                    <span class="line">
+                        <input class="submit_button" id="step_1" type="submit" value="下一步"/>
+                    </span>
+                </div>
+            </div>
+            <div class="content" id="second_step_phone" style="height: 500px; display: none;">
+                <form id='mobile_form' action='' method='post'>
+                    <div class="ac_header"><label >安全验证</label></div>
+                    <div class="ac_body" style="padding-top: 20px;">
+                        <img src="{skin:images/front/phone_bg.png}" style="float: left; margin-left: 140px; margin-bottom: 15px;">
+
+                        <input name="mobile" class="verify" type="text" value="" pattern="phone" placeholder="请输入已绑定的手机号码" style="margin-bottom: 20px;"/>
+                        <input name="vcode" class="verify" class='no_chinese' type="text" value="" placeholder="请输入短信验证码" style="width: 250px;"/>
+                        <label id='count_label' >
+                            <input id="mobile_send" class="send_code" type="submit" value="发送"/>
+                        </label>
+                        <span class="line">
+                            <input class="submit_button" id="step_2" type="submit" value="下一步" style="margin-top: 30px;"/>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="content" id="second_step_mail" style="display: none; height: 380px;">
+                <div class="ac_header"><label >安全验证</label></div>
+                <div class="ac_body" style="padding-top: 0px;">
+                    <label style="float: left; width: 100%; height: 30px; line-height: 30px; text-align: center; margin-top: 20px; font-size: 18px;">我们已经向您的邮箱发送了验证邮件</label>
+                    <div style="text-align:center;"><a class="submit_button" target="_blank"  id="to_email" >查看我的邮箱</a></div>
+                    <div style="float: left; width: 370px; height: 1px; border-bottom: 1px rgb(220, 220, 220) solid; margin-left: 30px; margin-top: 20px; margin-bottom: 20px;"></div>
+                    <label style="text-align: center; line-height: 25px; float: left; width: 100%; font-size: 14px;">
+                        如果没有收到邮件，请检查垃圾邮件，<br>
+                        或者点击下方按钮重新发送
+                    </label>
+                    <input class="resend" type="button" value="重新发送"/>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var intval;
+    var count;
+    
+    var ifmobile = $("#ifmobile").val();
+    var ifemail = $("#ifemail").val();
+    var ifactive = $("#ifactive").val();
+    if(!ifmobile){
+        $("#by_phone").attr("disabled","true");
+        $("#by_mail").attr("checked","true");
+    }
+    if((!ifemail)||ifactive == 0){
+        $("#by_mail").attr("disabled","true");
+        $("#by_phone").attr("checked","true");
+    }
+
+    $("#step_1").click(function () {
+        $("#first_step").css("display", "none");
+        if ($('input[name="verify_safe"]:checked').val() == "0") {
+            //手机
+            $("#second_step_phone").css("display", "block");
+        } else {
+            //邮箱验证
+            //判断修改目的
+            var ctarget = $("#ctarget").val();
+            //修改邮箱
+            $.getJSON("{url:/simple/verify_email_send}", {ctarget: ctarget}, function (res) {
+                if (res.isError) {
+                    alert(res.message);
+                    return false;
+                } else {
+                    var server = res.server;
+                    $("#to_email").attr("href", server);
+                    $("#second_step_mail").css("display", "block");
+                }
+            });
+        }
+    })
+
+    $(".resend").click(function () {
+        var ctarget = $("#ctarget").val();
+        $.getJSON("{url:/simple/verify_email_send}", {ctarget: ctarget}, function (res) {
+            if (res.isError) {
+                alert(res.message);
+                return false;
+            } else {
+                alert("发送成功！");
+            }
+        });
+    });
+
+    $("#step_2").click(function () {
+        //判断修改目的：
+        var ctarget = $("#ctarget").val();
+        if (ctarget == "1") {
+            //修改邮箱
+            $("#mobile_form").attr("action", "{url:/simple/modify_email_by_mobile}");
+        } else if (ctarget == "2") {
+            $("#mobile_form").attr("action", "{url:/simple/modify_mobile_by_mobile}");
+        } else {
+            alert("对不起，您的请求非法！");
+        }
+
+    })
+
+    //发送按钮
+    $("#mobile_send").click(function () {
+        var mobile = $("input[name=mobile]").val();
+        if (!mobile) {
+            alert("请正确填写已绑定的手机号码！");
+            return false;
+        }
+        $.post("{url:simple/check_mobile}",{mobile:mobile},function(res){
+            if(res != 1){
+                alert(res);
+                return false;
+            }
+            sendVerify(mobile);
+        });
+
+        return false;
+    })
+
+    function sendVerify(mobile) {
+        $.post("{url:simple/verify_mobile_send}", {mobile: mobile}, function (res) {
+            //$("input[name=vcode]").val(res);
+            count = 60;
+            $("#count_label").html('<input class="send_code" type="submit" value="' + count + '秒后重发" disabled />');
+            intval = self.setInterval("refreshCount()", 1000);
+        });
+    }
+
+    //刷新倒数栏
+    function refreshCount() {
+        count--;
+        if (count == 0) {
+            var mobile = $("input[name=mobile]").val();
+            $("#count_label").html('<input class="send_code" type="submit" onclick="sendVerify(' + mobile + ');return false;" value="重新发送"/>');
+            window.clearInterval(intval);
+        } else {
+            $("#count_label").html('<input class="send_code" type="submit" value="' + count + '秒后重发" disabled />');
+        }
+    }
+</script>

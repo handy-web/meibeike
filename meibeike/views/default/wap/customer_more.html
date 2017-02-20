@@ -1,0 +1,17 @@
+<style>
+	body{background: #F9F9F9;}
+</style>
+<div class="cur-more">
+			<ul class="cur-ul">
+				{foreach:items=$list}
+				<li>
+					<a href='{url:/wap/customer_content/id/}{$item["id"]}'>
+						<span class="flt cur-m"><i>●</i> {$item['name']}</span>				
+						<span class="frt"><img class="cur-r" src="/views/default/wap/mobile/version/img/app-rigth.png" /></span>
+					</a>
+				</li>	
+				{/foreach}		
+			</ul>	
+		</div>
+	</body>
+</html>

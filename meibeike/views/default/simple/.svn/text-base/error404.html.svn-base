@@ -1,0 +1,15 @@
+<div class="middle_wrapper" style="background: rgb(241, 241, 241); height: 850px;">
+    <div class="middler_content_wrapper">
+        <div class="top_img" style="float: left; margin-left: 350px; width: 500px; height: 410px; background: no-repeat 0 60px url({skin:images/front/G0002_404_head_1.png})">
+			
+		</div>
+        <div class="content" style="float: left; width: 100%;">
+			<div class="layer_1" style="float: left; width: 100%; text-align: center; line-height: 80px; height: 80px; margin-top: 70px; font-size: 56px; color: rgb(51, 51, 51); font-weight: bolder;">Sorry...</div>
+			<div class="layer_2" style="float: left; width: 100%; text-align: center; line-height: 80px; height: 80px; margin-top: 5px; font-size: 24px; color: rgb(51, 51, 51); font-weight: normal;">您所要访问的页面不存在，或者已经删除。</div>
+			<div class="layer_3" style="float: left; width: 100%; text-align: center; ">
+				<a href="{url:/site/index}" style="float: left; margin-left: 475px; margin-top:70px; display: block; width: 230px; height: 60px; text-align: center; line-height: 60px; background-color: rgb(252, 62, 57);
+				   border-radius: 5px; font-size: 28px; font-weight: normal; color: white; cursor: pointer; text-decoration: none;">返回首页</a>
+			</div>
+		</div>
+    </div>
+</div>

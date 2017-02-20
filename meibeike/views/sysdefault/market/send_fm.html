@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow-y:auto">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>管理后台</title>
+
+<link rel="stylesheet" href="{skin:css/admin.css}" />
+
+{js:jquery}
+
+{js:my97date}
+
+{js:dialog}
+
+{js:form}
+
+{js:validate}
+
+{js:artTemplate}
+
+<script type='text/javascript' src="{theme:javascript/common.js}"></script>
+
+<script type='text/javascript' src="{theme:javascript/admin.js}"></script>
+
+<script type='text/javascript' src='{theme:javascript/artTemplate/area_select.js}'></script>
+
+</head>
+
+
+
+<body style="width:750px;min-height:400px;">
+
+<div class="pop_win">
+<br/>
+<form action="{url:/market/send_fm/search/1}" method="get" name="send_fm_list">
+<input name="fcode" type="hidden" value="{$fcode}" />
+<input name="aid" type="hidden" value="{$aid}" />
+<div class="searchbar vselect">
+<select name="send_status" class="auto">
+	<option value="">选择发放状态</option>
+	<option value="0">未发放</option>
+	<option value="1">已发放</option>
+</select>
+<select  name="charge_status" class="auto">
+	<option value="">选择支付状态</option>
+	<option value="0">未支付</option>
+	<option value="1">已支付</option>
+</select>
+</div>
+<div style="float:left;padding:0 16px;margin-bottom:6px">支付时间 :&nbsp;&nbsp;
+<input type='text' name='start_time' class='Wdate'  readonly=true onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onblur="FireEvent(this,'onchange')"  /> 到&nbsp;&nbsp;
+<input type='text' name='end_time' class='Wdate'  readonly=true onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" onblur="FireEvent(this,'onchange')"  />
+MeiID:&nbsp;&nbsp;<input style="width:160px" type='text' name='meiid' class='normal'  />
+<button class="btn" type="submit"><span class="sel">搜索</span></button></div>
+</form>
+	
+	<form action="{url:/market/do_send_fm}" method="post">
+		<input name="fcode" type="hidden" value="{$fcode}" />
+		<input name="aid" type="hidden" value="{$aid}" />
+		<table width="95%" class="border_table" style="margin:10px auto">
+
+			<colgroup>
+
+				<col width="40px" />
+
+				<col width="40px" />
+
+				<col width="60px" />
+				
+				<col width="40px" />
+
+				<col width="60px" />
+
+				<col width="80px" />
+				
+				<col width="40px" />
+				
+				<col width="80px" />
+
+			</colgroup>
+
+
+
+			<thead>
+
+				<tr>
+
+					<th>选择</th>
+
+					<th>昵称</th>
+					
+					<th>发放状态</th>
+					
+					<th>Mei ID</th>
+					
+					<th>注册日期</th>
+					
+					<th>支付状态</th>
+					
+					<th>支付时间</th>
+
+				</tr>
+
+			</thead>
+
+
+
+			<tbody>
+				<colgroup>
+
+				<col width="40px" />
+
+				<col width="60px" />
+				
+				<col width="40px" />
+
+				<col width="60px" />
+
+				<col width="80px" />
+				
+				<col width="40px" />
+				
+				<col width="80px" />
+
+			</colgroup>
+				{set:$page= (isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}
+				{query:name=user as u join=left join order as o on o.user_id eq u.id left join member as m on m.user_id eq u.id left join fm as f on f.owner_meiid eq u.id  fields=o.pay_status,o.pay_time,u.id,u.username,u.email,u.mobile,f.send_status,m.time where = u.id neq '' $where group=u.id order=o.id desc page = $page }
+				<tr>
+					<td><input type="radio" name="uid" value="{$item['id']}"/></td>
+					<td>{echo:$item['username']=='' ? '游客' : $item['username']}</td>
+					<td>{if:$item['send_status'] == '1'}{echo: '已发放'}{else:}{echo: '未发放'}{/if}</td>
+					<td>{if:empty($item['email'])}{echo: $item['mobile']}{else:}{echo: $item['email']}{/if}</td>
+					<td>{if:empty($item['time'])}{echo: '-'}{else:}{echo: $item['time']}{/if}</td>
+					<td>{if:$item['pay_status'] == '0'}{echo: '未支付'}{else:}{echo: '已支付'}{/if}</td>
+					<td>{if:empty($item['pay_time'])}{echo: '-'}{else:}{echo: $item['pay_time']}{/if}</td>
+				</tr>
+				{/query}
+
+			</tbody>
+
+		</table>
+		{$query->getPageBar()}
+	</form>
+
+</div>
+<script type='text/javascript'>
+//DOM加载结束
+    $(function () {
+        var formInstance = new Form('send_fm_list');
+        formInstance.init({
+            "send_status": "{$send_status}",
+            "charge_status": "{$charge_status}",
+            "use_status":"{$use_status}",
+            "start_time":"{$start_time}",
+            "end_time":"{$end_time}",
+            "meiid":"{$meiid}"
+        });
+    });
+</script>
+</body>
+
+</html>

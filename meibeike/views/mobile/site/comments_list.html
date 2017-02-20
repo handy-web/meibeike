@@ -1,0 +1,23 @@
+<div class="pending-detial">
+	<h2>商品评论</h2>
+	{foreach:items=$this->data['comment_list'] key=$key item=$item}
+	<ul class='block-row'>
+		<li>
+			<p class="head">用户名：</p>
+			<p class="sum">{$item['username']}</p>
+		</li>
+		<li>
+			<p class="head">评分数：</p>
+			<p class="sum">{$item['point']}</p>
+		</li>
+		<li>
+			<p class="head">内容：</p>
+			<p class="sum">{$item['contents']}</p>
+		</li>
+	</ul>
+	{/foreach}
+
+	<ul class="block-row">
+	{$this->comment_query->getPageBar()}
+	</ul>
+</div>

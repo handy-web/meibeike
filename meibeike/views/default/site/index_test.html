@@ -1,0 +1,187 @@
+<link rel="stylesheet" href="/views/default/javascript/swiper2/idangerous.swiper.css">
+<style>
+  .middle_wrapper_banner {margin:0 auto; padding: 0; width: 100%; max-width: 1920px; min-width: 1250px;height: 700px;}
+  .middle_wrapper_banner .swiper-container {width: 100%; height: 100%; position: relative;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide{position:relative;overflow: hidden; background: url("/views/default/skin/default/banner/01.jpg") top center no-repeat;}
+
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s2{ background-image: url("/views/default/skin/default/banner/02.jpg");}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s3{ background-image: url("/views/default/skin/default/banner/03.jpg");}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s4{ background-image: url("/views/default/skin/default/banner/04.jpg");}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s5{ background-image: url("/views/default/skin/default/banner/05.jpg");}
+
+  
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide .ss-content{width:1200px;height:100px;margin:0 auto;}
+ 
+ .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s1 .ss-content div {margin-left:180px;margin-top:330px;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s1 .ss-content div a {border: 0px solid #ccc;width: 164px;height: 58px;display: block;float: left;margin-left:10px;}
+
+ .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s2 .ss-content div {margin-left:25px;margin-top:456px;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s2 .ss-content div a {border: 0px solid #ccc;width: 164px;height: 58px;display: block;float: left;margin-left:10px;}
+
+ .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s3 .ss-content div {margin-left:28px;margin-top:360px;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s3 .ss-content div a {border: 0px solid #ccc;width: 164px;height: 58px;display: block;float: left;margin-left:10px;}
+
+ .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s4 .ss-content div {margin-left:302px;margin-top:296px;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s4 .ss-content div a {border: 0px solid #ccc;width: 164px;height: 58px;display: block;float: left;margin-left:10px;}
+
+ .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s5 .ss-content div {margin-left:30px;margin-top:406px;}
+  .middle_wrapper_banner .swiper-container .swiper-wrapper .swiper-slide.s5 .ss-content div a {border: 0px solid #ccc;width: 164px;height: 58px;display: block;float: left;margin-left:10px;}
+
+
+  .middle_wrapper_banner .swiper-container .swiper-pagination{position: absolute; bottom: 10px; left: 0; text-align: center; width: 100%; height: 15px; line-height: 15px;}
+  .middle_wrapper_banner .swiper-container .swiper-pagination .swiper-pagination-switch{display: inline-block;  width: 10px; height: 10px; border-radius: 50%; background-color: #999; margin: 0 5px; cursor: pointer; vertical-align: middle;}
+  .middle_wrapper_banner .swiper-container .swiper-pagination .swiper-active-switch{background-color: transparent; border:1px solid #e60012;}
+
+
+.index_nav {width:1130px;margin:0 auto;height:300px;}
+  .index_nav div {width:376px;float:left;height:300px;text-align:center;}
+</style>
+{if:$this->user['user_id']}
+<div>test1</div>
+<input type="hidden" name="t1" value="{echo:$this->user['user_id']}"/>
+{else:}
+<div>test2</div>
+<input type="hidden" name="t2" value="{echo:$this->user['user_id']}"/>
+{/if}
+<form action="/site/index_test2" method="post" enctype="multipart/form-data"> 
+<label for="file">Filename:</label> 
+<input type="text" name="v_id" id="v_id" value="test0" />
+<input type="file" name="file" id="file" /> 
+<br /> 
+<input type="submit" name="submit" value="Submit" /> 
+</form> 
+<div class="middle_wrapper_banner">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide s1" data-hash="slide1">
+        <div class="ss-content">
+          <div><a href="http://www.meibeike.com/site/products/id/10" target="_blank" class="btn to-buying"></a><a href="http://www.meibeike.com/site/overview/id/2" target="_blank" class="btn to-detail"></a></div>
+        </div>
+      </div>
+      <div class="swiper-slide s2">
+        <div class="ss-content">
+         <div><a href="http://www.meibeike.com/site/products/id/10" target="_blank" class="btn to-buying"></a><a href="http://www.meibeike.com/site/overview/id/2" target="_blank" class="btn to-detail"></a></div>
+        </div>
+      </div>
+      <div class="swiper-slide s3">
+        <div class="ss-content">
+         <div><a href="http://www.meibeike.com/site/products/id/10" target="_blank" class="btn to-buying"></a><a href="http://www.meibeike.com/site/overview/id/2" target="_blank" class="btn to-detail"></a></div>
+        </div>
+      </div>  
+
+      <div class="swiper-slide s4">
+        <div class="ss-content">
+         <div><a href="http://www.meibeike.com/site/products/id/10" target="_blank" class="btn to-buying"></a><a href="http://www.meibeike.com/site/overview/id/2" target="_blank" class="btn to-detail"></a></div>
+        </div>
+      </div>
+
+
+      <div class="swiper-slide s5">
+        <div class="ss-content">
+		<div><a href="http://www.meibeike.com/site/products/id/10" target="_blank" class="btn to-buying"></a><a href="http://www.meibeike.com/site/overview/id/2" target="_blank" class="btn to-detail"></a></div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+<div class="index_nav">
+<div><a href="/index.php?controller=simple&action=login&callback="><img src="/views/default/skin/default/banner/a01.jpg"/></a></div>
+<div><img src="/views/default/skin/default/banner/a01.jpg"/></div>
+<div><img src="/views/default/skin/default/banner/a03.jpg"/></div>
+
+</div>
+<!--<script src="js/swiper.min.js"></script>-->
+<script src="/views/default/javascript/swiper2/idangerous.swiper.min.js"></script>
+<script>
+ new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    speed: 300,
+    autoplay: 5000,
+    loop:true,
+    spaceBetween: 0,
+    simulateTouch:false
+    //autoplay: 3000,
+    //nextButton: '.swiper-button-next',
+    //prevButton: '.swiper-button-prev',
+    //,hashnav: true
+  });
+</script>
+
+
+<div class="top layout">
+<span  class="logo" ><a href="#"><img src="images/b_logo.png"></a>网盘弃儿关怀专页</span>
+<p><a>活动规则</a>|<a href="#">我的奖品</a></p>
+</div>
+
+<div class="layout goodsbox">
+
+
+<div class="rbox">
+<div class="imgbox"><img src="images/b_img.png"></div>
+<span><a href="#">观看产品视频</a>&gt;<a href="#">了解云棒详情</a></span>
+</div>
+
+<h1>预约<em>云棒</em><br>每一小时送一个</h1>
+<h2>母  棒：服务器+路由器+电视盒+投屏神器四合一<br>存储棒：金质固态硬盘SSD，超快超省超安全，酷毙了<br>存储碟：金质防摔，监控级硬盘超大容量，高性价</h2>
+<h3>6月20日上午10点首卖</h3>
+<h4><em>1898</em>元  银霸组合（母棒+2T存储碟）<br><em>2298</em>元  金甲组合（母棒+250GB存储棒）</h4>
+<p><a class="order on">立即预约</a><a class="in" href="#">进入官网</a></p>
+<p><a href="#" class="on">华为网盘用户特别通道</a></p>
+<h5>共<em>620万人</em>预&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;约官网 500万人，QQ空间与微博120万人</h5>
+
+</div>
+
+
+<div class="b_box">
+<h2>云棒  私有云</h2>
+<p>把个人数据放在自己家里<br>创建属于自己的私有云服务器，可以完全掌握私人数据</p>
+<h3><a href="#">观看产品视频</a>&gt;<a href="#">了解云棒详情</a></span></h3>
+</div>
+
+
+<div class="orderbox">
+<h3>每一小时送出一台云棒</h3>
+<p>立即预约，获得抽奖机会</p>
+<a href="#">立即预约</a>
+</div>
+
+<div class="productbox">
+<div class="layout">
+<h1><em>云棒</em>各版本发售时间表</h1>
+
+<ul>
+<li>
+<div>
+<h2>银霸组合</h2>
+<img src="images/producta.png">
+<p>银霸组合（母棒+2T存储碟）高性价<br>
+<em>¥ 1898元</em>&nbsp;&nbsp;6月20日&nbsp;&nbsp;现货发售</p>
+</div>
+<a href="#">了解云棒&nbsp;<i>&gt;</i></a>
+</li>
+
+<li>
+<div>
+<h2>金甲组合</h2>
+<img src="images/productb.png">
+<p>金甲组合（母棒+250GB存储棒）双棒镜像备份<br>
+<em>¥ 2298元</em>&nbsp;&nbsp;6月20日&nbsp;&nbsp;现货发售</p>
+</div>
+<a href="#">了解云棒&nbsp;<i>&gt;</i></a>
+</li>
+
+</ul>
+
+</div>
+</div>
+
+
+<script>
+$(function(){
+
+	})
+</script>

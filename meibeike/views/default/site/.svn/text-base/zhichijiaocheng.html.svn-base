@@ -1,0 +1,60 @@
+<style>
+	.crowd-wrapper{ background-color:white;  background-color:white; border: 1px rgb(188, 188, 188) solid; border-radius: 15px;width: 1120px; height: auto; margin: 0 auto; padding-bottom: 50px;}
+	.crowd-wrapper .question-container { width: 1060px; margin: 0 auto; overflow: hidden; font-size: 16px; font-family: "Microsoft YaHei", "微软雅黑"; }
+	.crowd-wrapper .question-container a, .crowd-wrapper .question-container a:hover { color: #6d6d6d; }
+	.crowd-wrapper .question-container .question { text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 40px; margin-top: 30px; }
+	.crowd-wrapper .question-container .answer .steps p { text-align: center; }
+	.crowd-wrapper .question-container .answer .steps img {width: 600px; }
+	.crowd-wrapper .question-container .answer .steps { margin-top: 40px; }
+	.crowd-wrapper .question-container .answer .pay-step { margin-bottom: 15px; font-weight: bold; }
+</style>
+<div class="crowd-wrapper">
+<div class="question-container">
+    <div class="question">
+        美贝壳云棒京东众筹操作说明（手机版）
+    </div>
+    <div class="answer">
+        <div class="info">
+            <p>首先，感谢您对美贝壳云棒的支持！</p>
+            <p>因为京东众筹官方手机版设计的不合理性和复杂性，导致许多支持的朋友不知道如何操作，现在就告诉大家如何操作。</p>
+        </div>
+        <div class="steps">
+            <div class="pay-step">
+                第一步，进入到美贝壳京东众筹的首页面：<br/>
+                <p><img src="http://www.meibeike.com/views/default/skin/default/images_2/20160202145420_11901.png" alt=""/></p>
+            </div>
+            <div class="pay-step">
+                第二步，往下滑动，按下图指示进行操作 <br/>
+                <p><img src="http://www.meibeike.com/views/default/skin/default/images_2/20160202145502_56442.png" alt=""/></p>
+            </div>
+            <div class="pay-step">
+                第三步，查看完详情后请点最下方的“我要支持”<br/>
+                <p><img src="http://www.meibeike.com/views/default/skin/default/images_2/20160202145531_85848.png" alt=""/></p>
+            </div>
+            <div class="pay-step">
+                第四步，点击我要支持后会进入到下方的页面。如果你以前支持过京东众筹，那你可以选择999档的，如果没有支持过，请往下翻去支持1099档和1799档的。 <br/>
+                <p><img src="http://www.meibeike.com/views/default/skin/default/images_2/20160202145811_41192.png" alt=""/></p>
+                <p><img src="http://www.meibeike.com/views/default/skin/default/images_2/20160202145847_77399.png" alt=""/></p>
+            </div>
+            <div class="pay-step">
+                第五步，需要你输入京东账号，如果没有的话，就需要注册一下京东的账号。设置用户名，手机号，密码，点击获取验证码，将收到的验证码输入后，点击注册并登陆，就会提示成功 <br />
+                <p><img src="http://www.meibeike.com/views/default/skin/default/images_2/20160202145926_24071.png" alt=""/></p>
+                <p><img src="http://www.meibeike.com/views/default/skin/default/images_2/20160202145942_78981.png" alt=""/></p>
+            </div>
+            <div class="pay-step">
+                第六步，填写F码，收货信息，并支付。<br/>
+                <p><img src="http://www.meibeike.com/views/default/skin/default/images_2/20160202150058_47957.png" alt=""/></p>
+            </div>
+            <div class="pay-step">
+                第七步，选择京东支付，首次使用需绑定银行卡。<br/>
+                <p><img src="http://www.meibeike.com/views/default/skin/default/images_2/20160202150135_71268.png" alt=""/></p>
+            </div>
+        </div>
+        <div class="info">
+            <p>接下来就是支付了，这个就不便过细的讲了。</p>
+            <p>支付完成，整个操作就已经完成了。</p>
+            <p>再次感谢您的支持！</p>
+        </div>
+    </div>
+</div>
+</div>

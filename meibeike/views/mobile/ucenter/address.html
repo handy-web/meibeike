@@ -1,0 +1,150 @@
+{js:artTemplate}
+<script type='text/javascript' src='{theme:javascript/artTemplate/area_select.js}'></script>
+
+<section>
+    <div class="pending-detial">
+    	<h2>个人信息</h2>
+
+    	<!--个人信息展示 开始-->
+    	{foreach:items=$this->address}
+    	<ul class='block-row'>
+        	<li>
+	            <p class="head">联系人：</p>
+	            <p class="sum">{$item['accept_name']}</p>
+	        </li>
+
+	        <li>
+				<p class="head">省份地区：</p>
+				<p class="sum">{$this->areas[$item['province']]}{$this->areas[$item['city']]}{$this->areas[$item['area']]}</p>
+	        </li>
+
+	        <li>
+				<p class="head">详细地址：</p>
+				<p class="sum">{$item['address']}</p>
+	        </li>
+
+	        <li>
+				<p class="head">手机：</p>
+				<p class="sum">{$item['mobile']}</p>
+	        </li>
+
+	        <li>
+				<p class="head">座机：</p>
+				<p class="sum">{$item['telphone']}</p>
+	        </li>
+
+	        <li>
+				<p class="head">邮编：</p>
+				<p class="sum">{$item['zip']}</p>
+	        </li>
+
+	        <li>
+				<p class="head">默认地址：</p>
+				<p class="sum">{echo:$item['default'] == 1 ? '是':'否'}</p>
+	        </li>
+
+	        <li>
+				<input type='button' onclick='form_back({echo:JSON::encode($item)})' value='修改' />
+				<input type='button' onclick="delModel({link:'{url:/ucenter/address_del/id/$item[id]}'});" value='删除' />
+				{if:$item['default']==1}
+				<input type='button' onclick="window.location.href='{url:/ucenter/address_default/id/$item[id]/default/0}'" value="取消默认" />
+				{else:}
+				<input type='button' onclick="window.location.href='{url:/ucenter/address_default/id/$item[id]/default/1}'" value="设为默认" />
+				{/if}
+			</li>
+	    </ul>
+		{/foreach}
+		<!--个人信息展示 结束-->
+
+		<!--个人信息修改 开始-->
+		<h3>个人信息修改</h3>
+		<form action='{url:/ucenter/address_edit}' method='post' name='form'>
+			<input name='id' type='hidden' value='' />
+			<ul class='block-row'>
+				<li>
+					<p class="head">收货人姓名：</p>
+					<p class="sum"><input name='accept_name' pattern='required' alt='收货人不能为空' type="text" /></p>
+				</li>
+				<li>
+					<p class="head">所在地区：</p>
+					<p class="sum">
+						<select name="province" child="city,area" onchange="areaChangeCallback(this);"></select>
+						<select name="city" child="area" parent="province" onchange="areaChangeCallback(this);"></select>
+						<select name="area" parent="city" pattern="required"></select>
+					</p>
+				</li>
+				<li>
+					<p class="head">街道地区：</p>
+					<p class="sum"><input name='address' pattern='required' alt='街道地区不能为空' type="text" /></p>
+				</li>
+				<li>
+					<p class="head">邮政编码：</p>
+					<p class="sum"><input name='zip' pattern='^\d{6}$' empty alt='邮政编码格式不正确' type="text" /></p>
+				</li>
+				<li>
+					<p class="head">电话号码：</p>
+					<p class="sum"><input name='mobile' class="normal" pattern='mobi' empty alt='手机号码格式不正确' type="text" /></p>
+				</li>
+				<li>
+					<p class="head">设为默认：</p>
+					<p class="sum"><input name='default' type='checkbox' value='1'></p>
+				</li>
+				<li>
+					<p class="head">&nbsp;</p>
+					<p class="sum"><input type="submit" class="btn" value="保存" /></p>
+				</li>
+			</ul>
+		</form>
+		<!--个人信息修改 结束-->
+	</div>
+</section>
+
+<script type='text/javascript'>
+//DOM加载完毕
+$(function(){
+	//初始化地域联动
+	template.compile("areaTemplate",areaTemplate);
+
+	createAreaSelect('province',0,'');
+});
+
+/**
+ * 生成地域js联动下拉框
+ * @param name
+ * @param parent_id
+ * @param select_id
+ */
+function createAreaSelect(name,parent_id,select_id)
+{
+	//生成地区
+	$.getJSON("{url:/block/area_child}",{"aid":parent_id,"random":Math.random()},function(json)
+	{
+		$('[name="'+name+'"]').html(template.render('areaTemplate',{"select_id":select_id,"data":json}));
+	});
+}
+
+//修改地址
+function form_back(obj)
+{
+    //自动填充表单
+	var form = new Form('form');
+	form.init(obj);
+
+	createAreaSelect('province',0,obj.province);
+	createAreaSelect('city',obj.province,obj.city);
+	createAreaSelect('area',obj.city,obj.area);
+}
+
+//清空表单
+function form_empty()
+{
+	var formInstance = new Form('form');
+	$('form[name="form"] input[name]').each(function(){
+		formInstance.setValue(this.name,'');
+	});
+
+	createAreaSelect('province',0,'');
+	$('select[name="city"]').empty();
+	$('select[name="area"]').empty();
+}
+</script>

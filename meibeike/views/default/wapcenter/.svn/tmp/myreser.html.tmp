@@ -1,0 +1,23 @@
+<style>
+body{background: #F1F1F1;}
+</style>
+		<div class="reser-box">
+			{foreach:items=$order}
+			<div class="reser-center">
+				<div class="reser-title">{$item['activity_desc']}</div>
+				<div class="reser-list">
+					<p>预约号码：{$item['appointment_no']}</p>
+					<p>预约时间：{$item['create_time']}</p>
+					<p><?php $condition = substr($item['purchase_time'],0,6); if( $condition == '201608'){echo substr($item['purchase_time'],0,4).'-'.substr($item['purchase_time'],4,2).'-'.substr($item['purchase_time'],-2,2).' 11:00:00';}else{echo substr($item['purchase_time'],0,4).'-'.substr($item['purchase_time'],4,2).'-'.substr($item['purchase_time'],-2,2).' 10:00:00';} ?></p>
+	            					
+				</div>
+			</div>
+			{/foreach}			
+		</div>
+		<!--暂无预约-->
+		<div class="reser-no" style='{if:empty($order)}{echo "display:block"}{else:}{echo: "display:none"}{/if};'>
+			<img src="/views/default/wap/mobile/version/img/app-nyy.png" />
+			<p>暂无预约</p>
+		</div>
+	</body>
+</html>

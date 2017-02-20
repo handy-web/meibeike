@@ -1,0 +1,87 @@
+{set:$seo_data=array(); $site_config=new Config('site_config');$site_config=$site_config->getInfo();}
+{set:$seo_data['title']="用户注册_".$site_config['name']}
+{set:seo::set($seo_data);}
+
+<section class="reg">
+	<div class="form">
+		<form action='{url:/simple/reg_act}' method='post'>
+			<input type="hidden" name='callback' />
+			<ul>
+				<li>
+					<div class="leftinput">
+						<font style="color:#FF0000">*</font>邮箱
+					</div>
+					<div class="rightinput">
+						<input placeholder="邮箱" initmsg="输入正确" type="text" name='email' pattern="email" alt="填写正确的邮箱格式" />
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+
+				<li>
+					<div class="leftinput">
+						<font style="color:#FF0000">*</font>用户名
+					</div>
+					<div class="rightinput">
+						<input class="gray" initmsg="输入正确" name='username' placeholder="用户名" type="text" pattern="^[\w\u0391-\uFFE5]{2,20}$" alt="填写2-20个字符，可以为字数，数字下划线和中文" />
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+
+				<li>
+					<div class="leftinput">
+						<font style="color:#FF0000">*</font>设置密码
+					</div>
+					<div class="rightinput">
+						<input class="gray" type="password" name='password' pattern="^\S{6,32}$" bind='repassword' alt='填写6-32个字符' />
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+
+				<li>
+					<div class="leftinput">
+						<font style="color:#FF0000">*</font>确认密码
+					</div>
+					<div class="rightinput">
+						<input class="gray" type="password" name='repassword' pattern="^\S{6,32}$" bind='password' alt='重复上面所填写的密码' />
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+
+				<li>
+					<div class="leftinput">
+						<font style="color:#FF0000">*</font>验证码
+					</div>
+					<div class="rightinput">
+						<input type='text' class='gray_s' name='captcha' pattern='^\w{5,10}$' alt='填写下面图片所示的字符' />
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+
+				<li>
+					<div class="leftinput"></div>
+					<div class="rightinput">
+						<img src='{url:/simple/getCaptcha}' id='captchaImg' /><span class="light_gray">&nbsp;&nbsp;<a class="link" href="javascript:changeCaptcha('{url:/simple/getCaptcha}');">换一张</a></span>
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+
+				<li>
+		        	<input name="act" type="hidden" value="act_register">
+		        	<input type="hidden" name="back_act" value="">
+		        	<input id="btn_enter" type="submit" class="btn" value="注册">
+		        </li>
+			</ul>
+		</form>
+	</div>
+</section>
+
+<script type='text/javascript'>
+$(function(){
+	{set:$callback = IReq::get('callback') ? IFilter::clearUrl(IReq::get('callback')) : IUrl::getRefRoute()}
+	$('input[name="callback"]').val("{$callback}");
+
+	//表单回填
+	var formObj = new Form();
+	formObj.init({"email":"{$this->email}","username":"{$this->username}"});
+});
+</script>

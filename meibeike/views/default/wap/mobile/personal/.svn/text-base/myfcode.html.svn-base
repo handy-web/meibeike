@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+	    <title>我的F码</title>
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-touch-fullscreen" content="yes">
+	    <meta name="full-screen" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no">
+	    <meta name="format-detection" content="address=no">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../version/css/main.css" />
+		<script type="text/javascript" src="../version/js/jquery.js" ></script>
+	</head>
+	<body>		
+		<div class="fcode">
+			<ul class="fcode-line"> 
+				<li class="act">可用F码</li>
+				<li>已用F码</li>
+				<li>已过期</li>
+			</ul>
+		</div>
+		
+		<div class="fcode-bog">
+			<span><a href="myfcode-rule.html">F码使用规则</a></span>
+			<span><a class="sf">申领F码</a> </span>
+		</div>
+		<div class="fcode-list" style="clear: both;">
+			<!--可用F码-->
+			<div class="hide show">
+				<div class="fcode-tab">
+					<div class="fcode-bg">
+						<div class="fm">F码：165421452</div>
+						<div class="fx">
+							<div class="fut1"><a>分享给朋友</a></div>
+							<div class="fut2"><a>标记已分享</a></div>						
+						</div>
+					</div>
+					<div class="fcode-time">
+						<p>有效期：2016/7/20 18:00:00-2016/08/10 18:00:00</p>
+						<p>状 态：未使用</p>
+					</div>
+				</div>
+				<div class="fcode-tab">
+					<div class="fcode-bg">
+						<div class="fm">F码：165421452</div>
+						<div class="fx">
+							<div class="fut1"><a>分享给朋友</a></div>
+							<div class="fut2"><a>标记已分享</a></div>						
+						</div>
+					</div>
+					<div class="fcode-time">
+						<p>有效期：2016/7/20 18:00:00-2016/08/10 18:00:00</p>
+						<p>状 态：未使用</p>
+					</div>
+				</div>
+			</div>
+			<!--已用F码-->
+			<div class="hide">
+				<div class="fcode-tab">
+					<div class="fcode-bg">
+						<div class="fm">F码：165421452</div>
+						<div class="fx">
+							<div class="fut3"><a>删除</a></div>											
+						</div> 
+					</div>
+					<div class="fcode-time">
+						<p>使用时间：2016/7/20 18:00:00</p>
+						<p>使 用 人：13545236521</p>
+						<p>兑现状 态：未兑奖</p>
+					</div>
+				</div>
+				<div class="fcode-tab">
+					<div class="fcode-bg">
+						<div class="fm">F码：165421452</div>
+						<div class="fx">
+							<div class="fut3"><a>删除</a></div>											
+						</div>
+					</div>
+					<div class="fcode-time">
+						<p>使用时间：2016/7/20 18:00:00</p>
+						<p>使 用 人：13545236521</p>
+						<p>兑现状 态：未兑奖</p>
+					</div>
+				</div>
+			</div>
+			<!--已过期-->
+			<div class="hide">
+				<div class="fcode-tab">
+					<div class="fcode-close-bg">
+						<div class="fm">F码：165421452</div>
+						<div class="fx">
+							<div class="fut3"><a>删除</a></div>									
+						</div>
+					</div>
+					<div class="fcode-time">
+						<p>有效期：2016/7/20 18:00:00-2016/08/10 18:00:00</p>
+						<p>状 态：已过期</p>
+					</div>
+				</div>
+				<div class="fcode-tab">
+					<div class="fcode-close-bg">
+						<div class="fm">F码：165421452</div>
+						<div class="fx">
+							<div class="fut3"><a>删除</a></div>									
+						</div>
+					</div>
+					<div class="fcode-time">
+						<p>有效期：2016/7/20 18:00:00-2016/08/10 18:00:00</p>
+						<p>状 态：已过期</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!--申请F码-->
+		
+		<div class="fcode-box" style="display: none;"> 
+			<div class="fcode-foot">
+				<textarea rows="8" cols="10" onblur="if(this.innerHTML==''){this.innerHTML='请在这里填写您申领说明';this.style.color='#666'}" onfocus="if(this.innerHTML=='请在这里填写您申领说明'){this.innerHTML='';this.style.color='#666'}">请在这里填写您申领说明</textarea>
+			</div>
+			<div class="fcode-in">
+				<input type="text" placeholder="请留下您的联系方式或邮箱地址（选填）" />
+			</div>
+			<div class="fcode-but">
+				<input type="submit" name="" value="保 存" />
+			</div>
+		</div>
+		<script>
+			//申领F码
+			$(".sf").click(function(event) {
+			$(".fcode-box").slideToggle(0);
+				event.stopImmediatePropagation();
+			});
+			
+			$(".fcode-but input").click(function(event) {
+				$(".fcode-box").hide();
+			});
+		</script>
+		<script>
+		//菜单切换
+		$(function(){
+			$(".fcode-line li").click(function(){
+				var index = $(this).index();
+				$(this).addClass("act").siblings().removeClass("act");
+				$(".hide").eq(index).addClass("show").siblings().removeClass("show")
+				
+			})
+		})
+		</script>
+	</body>
+</html>

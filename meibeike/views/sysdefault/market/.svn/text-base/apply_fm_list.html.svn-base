@@ -1,0 +1,107 @@
+<div class="headbar">
+<div class="position"><span>营销</span><span>></span><span>F码管理</span><span>></span><span>F码申领列表</span></div>
+<form action="{url:/market/apply_fm_list}" method="get" name="apply_fm_list">
+<div class="searchbar vselect">
+<select name="deal_status" class="auto">
+	<option value="">选择处理状态</option>
+	<option value="0">未处理</option>
+	<option value="1">已同意</option>
+	<option value="2">已拒绝</option>
+</select>
+<button class="btn" type="submit"><span class="sel">搜索</span></button></div>
+</form>
+
+	<div class="field">
+
+		<table class="list_table">
+
+			<col width="40px" />
+
+			<col width="40px" />
+
+			<col width="80px" />
+
+			<col width="80px" />
+
+			<col width="80px" />
+
+			<col width="40px" />
+
+			<col width="80px" />
+
+			<col width="40px" />
+			
+
+			<thead>
+				<tr>
+
+					<th>选择</th>
+
+					<th>序号</th>
+
+					<th>申请人昵称</th>
+
+					<th>Mei ID</th>
+
+					<th>申领时间</th>
+
+					<th>处理结果</th>
+
+					<th>处理时间</th>
+					
+					<th>操作</th>
+
+				</tr>
+
+			</thead>
+			</table>
+		</div>
+	<div class="content">
+	<table class="list_table">		
+			<tbody>
+			<colgroup>
+
+			<col width="40px" />
+
+			<col width="40px" />
+
+			<col width="80px" />
+
+			<col width="80px" />
+
+			<col width="80px" />
+
+			<col width="40px" />
+
+			<col width="80px" />
+
+			<col width="40px" />
+			</colgroup>
+				{set:$page= (isset($_GET['page'])&&(intval($_GET['page'])>0))?intval($_GET['page']):1;}
+				{query:name=fm_apply as fm join=left join user as u on fm.apply_meiid eq u.id fields=fm.id,u.username,fm.apply_time,fm.apply_comment,fm.apply_status,fm.review_time,u.email,u.mobile where = fm.id neq '' $where order=fm.id desc page = $page }				
+				<tr>
+					<td><input type="checkbox" name="id[]" /></td>
+					<td title="查看详情"><a href="{url:/market/apply_fm_detail/id/}{$item['id']}">{$item['id']}</a></td>
+					<td>{$item['username']}</td>
+					<td>{if:empty($item['email'])}{echo: $item['mobile']}{else:}{echo: $item['email']}{/if}</td>
+					<td>{$item['apply_time']}</td>
+					<td>{if:empty($item['review_time'])}未处理{else:}{if:$item['apply_status']=='1'}{echo: '已同意'}{else:}{echo: '已拒绝'}{/if}{/if}</td>
+					<td>{if:empty($item['review_time'])}-{else:}{echo: $item['review_time']}{/if}</td>
+					<td>{if:$item['apply_status']!='0'}已处理{else:}<a href="{url:/market/do_apply_fm_review/id/}{$item['id']}/apply_status/1">同意</a><a href="{url:/market/do_apply_fm_review/id/}{$item['id']}/apply_status/2">拒绝</a>{/if}</td>
+				</tr>
+				{/query}
+			</tbody>
+		</table>
+	{$query->getPageBar()}
+	</div>
+</div>
+
+<script type='text/javascript'>
+//DOM加载结束
+    $(function () {
+        var formInstance = new Form('apply_fm_list');
+        formInstance.init({
+            "deal_status": "{$deal_status}"
+        });
+    });
+</script>
